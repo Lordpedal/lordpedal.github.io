@@ -140,6 +140,7 @@ sudo apt-get -y install intel-microcode
 ```bash
 sudo apt-get -y install amd64-microcode
 ```
+
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
 
 ```bash
