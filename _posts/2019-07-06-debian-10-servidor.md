@@ -328,7 +328,8 @@ ip a
 Y entre los valores que muestra el comando me quedo con la siguiente información:
 
 ```bash
-2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master state UP group default qlen 1000
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master state UP 
+        group default qlen 1000
         link/ether xx:xx:xx:xx:xx:xx brd xx:xx:xx:xx:xx:xx
         inet 192.168.1.250/24 brd 192.168.1.255 scope global ens33
         valid_lft forever preferred_lft forever
@@ -415,7 +416,8 @@ ip a
 Y vemos los cambios realizados:
 
 ```bash
-3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP
+        group default qlen 1000
         link/ether xx:xx:xx:xx:xx:xx brd xx:xx:xx:xx:xx:xx
         inet 192.168.1.90/24 brd 192.168.1.255 scope global br0
         valid_lft forever preferred_lft forever</pre>
