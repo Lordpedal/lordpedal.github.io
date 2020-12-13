@@ -156,8 +156,9 @@ Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futu
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs hfsplus \
-build-essential automake libtool uuid-dev psmisc linux-source yasm linux-headers-`uname -r`
+sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
+hfsplus build-essential automake libtool uuid-dev psmisc linux-source yasm \
+linux-headers-`uname -r`
 ```
 ###  CONFIGURANDO IDIOMA SISTEMA
 
