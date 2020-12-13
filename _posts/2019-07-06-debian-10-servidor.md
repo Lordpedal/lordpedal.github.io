@@ -173,14 +173,14 @@ sudo dpkg-reconfigure locales
 Para poner nuestro sistema en español, tenemos que marcar las siguientes opciones en el asistente configuración de locales y deseleccionar cualquier otra que pudiese estar activa:
 
 ```bash
-es_ES ISO-8859-1 
-es_ES.UTF-8 UTF-8 
-es_ES@euro ISO-8859-15
+[x] es_ES ISO-8859-1 
+[x] es_ES.UTF-8 UTF-8 
+[x] es_ES@euro ISO-8859-15
 ```
 Para la configuración regional predeterminada seleccionamos:
 
 ```bash
-es-ES.UTF-8
+[x] es-ES.UTF-8
 ```
 ###  HABILITANDO INICIO EN [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
