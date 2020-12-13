@@ -43,9 +43,10 @@ Se nos solicitara la *contraseña* de **root** que previamente le dimos en la in
 A continuacion debemos de añadir nuestro usuario a los principales grupos del sistema, entre ellos **sudo**:
 
 <pre>cd /sbin && ./usermod -aG audio pi && \
-./usermod -aG video pi && ./usermod -aG dialout pi && \
-./usermod -aG plugdev pi && ./usermod -aG tty pi && \
-./usermod -aG sudo pi</pre>
+./usermod -aG video pi && ./usermod -aG \
+dialout pi && ./usermod -aG plugdev pi && \
+./usermod -aG tty pi && ./usermod -aG \
+sudo pi</pre>
 
 Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que durante el resto de configuraciones del server se corrige.
 
@@ -81,7 +82,8 @@ Y ya tendremos configurado debidamente el perfil sudo en nuestro usuario de sist
 El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes){:target="_blank"} `Apt`/`Aptitude`/`Synaptic` de nuestra distribución se basa en un listado de fuentes de instalación. 
 Primero haremos un backup de las actuales y crearemos una personalizada:
 
-<pre>cd /etc/apt && sudo mv sources.list sources.pi && sudo nano sources.list</pre>
+<pre>cd /etc/apt && sudo mv sources.list \
+sources.pi && sudo nano sources.list</pre>
 
 En el documento en blanco que se nos abre, añadimos las nuevas personalizadas:
 
@@ -99,7 +101,12 @@ deb-src http://ftp.es.debian.org/debian/ buster-updates main contrib non-free</p
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y actualizamos el listado de paquetes de software y posibles actualizaciones del mismo:
 
-<pre>sudo apt-get clean && sudo apt-get autoclean && sudo apt-get -y autoremove && sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade</pre>
+<pre>sudo apt-get clean && \
+sudo apt-get autoclean && \
+sudo apt-get -y autoremove && \
+sudo apt-get update && \
+sudo apt-get -y upgrade && \
+sudo apt-get -y dist-upgrade</pre>
 
 Tras finalizar la actualización tendremos el sistema actualizado y con las últimas novedades/parches instalados.
 
@@ -107,7 +114,9 @@ Tras finalizar la actualización tendremos el sistema actualizado y con las últ
 
 Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar el `driver necesario` para poder interactuar con el y no esta compilado en el kernel. Una solución sencilla es instalar un paquete con algunos de los principales drivers (3Com, Atheros, Radeon, …):
 
-<pre>sudo apt-get update && sudo apt-get -y install firmware-linux-nonfree</pre>
+<pre>sudo apt-get update && \
+sudo apt-get -y install \
+firmware-linux-nonfree</pre>
 
 Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche según dispongamos de un procesador `Intel` **o** `AMD`:
 
@@ -119,14 +128,23 @@ Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos
 
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
 
-<pre>sudo apt-get update && sudo apt-get -y install rar unrar zip unzip unace bzip2 lzop \
-p7zip p7zip-full p7zip-rar sharutils lzip xz-utils mpack arj cabextract</pre>
+<pre>sudo apt-get update && \
+sudo apt-get -y install rar \
+unrar zip unzip unace bzip2 lzop \
+p7zip p7zip-full p7zip-rar \
+sharutils lzip xz-utils mpack \
+arj cabextract</pre>
 
 Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futuros usos son:
 
-<pre>sudo apt-get update && sudo apt-get -y install mc htop curl bc git wget curl dnsutils \
-ntfs-3g hfsprogs hfsplus build-essential automake libtool uuid-dev psmisc \
-linux-source linux-headers-`uname -r` yasm</pre>
+<pre>sudo apt-get update && \
+sudo apt-get -y install mc \
+htop curl bc git wget curl \
+dnsutils ntfs-3g hfsprogs \
+hfsplus build-essential automake \
+libtool uuid-dev psmisc \
+linux-source yasm \
+linux-headers-`uname -r`</pre>
 
 ###  CONFIGURANDO IDIOMA SISTEMA
 
@@ -153,7 +171,9 @@ Lo que debemos de hacer a continuacón es adaptar el sistema a un arranque sin g
 
 Vamos a reconfigurarla debidamente, previo backup de su configuración:
 
-<pre>sudo mv /etc/X11/Xwrapper.config /etc/X11/Xwrapper.bak && sudo nano /etc/X11/Xwrapper.config</pre>
+<pre>sudo mv /etc/X11/Xwrapper.config \
+/etc/X11/Xwrapper.bak && \
+sudo nano /etc/X11/Xwrapper.config</pre>
 
 Agregamos el siguiente contenido al fichero que estamos editando:
 
@@ -181,7 +201,8 @@ Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**. A
 Llegado a este punto el sistema tras un reinicio o encendido del PC nos solicitaria el usuario: **pi** y su contraseña: ************** para hacer login en terminal.
 Podemos configurar un **autologin** que **no lo recomiendo** pero lo dejo a modo informativo.
 
-<pre>sudo mkdir -p /etc/systemd/system/getty@tty1.service.d && sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf</pre>
+<pre>sudo mkdir -p /etc/systemd/system/getty@tty1.service.d && \
+sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf</pre>
 
 Agregamos el siguiente contenido al fichero que estamos editando:
 
@@ -245,7 +266,9 @@ Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, de
 
 Habilitamos el servicio para que se ejecute al inicio del sistema y lo lanzamos para comprobar el correcto funcionamiento:
 
-<pre>sudo systemctl enable rc-local && sudo systemctl start rc-local.service && sudo systemctl status rc-local.service</pre>
+<pre>sudo systemctl enable rc-local && \
+sudo systemctl start rc-local.service && \
+sudo systemctl status rc-local.service</pre>
 
 Llegado a este punto de configuración del servidor recomiendo un reset al sistema:
 
