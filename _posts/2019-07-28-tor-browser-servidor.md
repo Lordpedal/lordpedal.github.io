@@ -29,8 +29,8 @@ Ahora es mucho más sencillo el poder conectarse a esta red. Con el fin de simpl
 Lo primero que vamos a realizar es agregar el repositorio Backports a nuestro sistema:
 
 ```bash
-echo "deb http://deb.debian.org/debian stretch-backports main contrib" | \
-sudo tee -a /etc/apt/sources.list.d/torbrowser.list
+echo "deb http://deb.debian.org/debian stretch-backports main \
+contrib" | sudo tee -a /etc/apt/sources.list.d/torbrowser.list
 ```
 Una vez agregado el repositorio, actualizamos nuestros repositorios de sistema e instalamos el navegador Tor:
 
@@ -45,13 +45,14 @@ A continuación ejecutamos el navegador, durante la primera ejecución se bajara
 Lo primero que vamos a realizar es agregar el repositorio Backports a nuestro sistema:
 
 ```bash
-echo "deb http://deb.debian.org/debian buster-backports main contrib" | \
-sudo tee -a /etc/apt/sources.list.d/torbrowser.list
+echo "deb http://deb.debian.org/debian buster-backports main \
+contrib" | sudo tee -a /etc/apt/sources.list.d/torbrowser.list
 ```
 Una vez agregado el repositorio, actualizamos nuestros repositorios de sistema e instalamos el navegador Tor:
 
 ```bash
-sudo apt-get update && sudo apt-get -y install torbrowser-launcher -t buster-backports
+sudo apt-get update && \
+sudo apt-get -y install torbrowser-launcher -t buster-backports
 ```
 A continuación ejecutamos el navegador, durante la primera ejecución se bajara e instalara la última versión. 
 
