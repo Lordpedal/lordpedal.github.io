@@ -17,7 +17,7 @@ title: Overclock Server
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   ... la culminación de un fin es el comienzo de una realidad.
-logo: "/assets/images/bash.png"
+logo: "/assets/images/qr.png"
 #twitter_username: username
 github_username: lordpedal
 minimal_mistakes_skin: air
@@ -60,7 +60,7 @@ plugins:
 
 author:
   name   : "Lordpedal"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/bash_logo.png"
   bio    : "... la culminación de un fin es el comienzo de una realidad."
   location : "Spain"  
   links:
