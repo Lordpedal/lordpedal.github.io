@@ -13,6 +13,14 @@ author:
   - Lordpedal
 ---
 
+{% include toc title="Unique Title" icon="file-text" %}
+
+Testing Kramdown auto-generated table of contents with unique title and icon assigned in the include like so:
+
+```liquid
+{% raw %}{% include toc title="Unique Title" icon="file-text" %}{% endraw %}
+```
+
 En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian Buster a un uso diario, desde mi propia experiencia de usuario.
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
