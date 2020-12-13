@@ -48,11 +48,13 @@ apt-get update && apt-get -y install sudo nano
 A continuacion debemos de añadir nuestro usuario a los principales grupos del sistema, entre ellos **sudo**:
 
 ```bash
-cd /sbin && ./usermod -aG audio pi && \
-./usermod -aG video pi && ./usermod -aG \
-dialout pi && ./usermod -aG plugdev pi && \
-./usermod -aG tty pi && ./usermod -aG \
-sudo pi
+cd /sbin && \
+./usermod -aG audio pi && \
+./usermod -aG video pi && \
+./usermod -aG dialout pi && \
+./usermod -aG plugdev pi && \
+./usermod -aG tty pi && \
+./usermod -aG sudo pi
 ```
 Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que durante el resto de configuraciones del server se corrige.
 
@@ -92,8 +94,9 @@ El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de
 Primero haremos un backup de las actuales y crearemos una personalizada:
 
 ```bash
-cd /etc/apt && sudo mv sources.list \
-sources.pi && sudo nano sources.list
+cd /etc/apt && \
+sudo mv sources.list sources.pi && \
+sudo nano sources.list
 ```
 En el documento en blanco que se nos abre, añadimos las nuevas personalizadas:
 
@@ -129,8 +132,7 @@ Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar 
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install \
-firmware-linux-nonfree
+sudo apt-get -y install firmware-linux-nonfree
 ```
 Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche según dispongamos de un procesador `32bits` o `64bits`:
 
@@ -147,23 +149,15 @@ Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuent
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install rar \
-unrar zip unzip unace bzip2 lzop \
-p7zip p7zip-full p7zip-rar \
-sharutils lzip xz-utils mpack \
-arj cabextract
+sudo apt-get -y install rar unrar zip unzip unace bzip2 lzop p7zip \
+p7zip-full p7zip-rar sharutils lzip xz-utils mpack arj cabextract
 ```
 Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futuros usos son:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install mc \
-htop curl bc git wget curl \
-dnsutils ntfs-3g hfsprogs \
-hfsplus build-essential automake \
-libtool uuid-dev psmisc \
-linux-source yasm \
-linux-headers-`uname -r`
+sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs hfsplus \
+build-essential automake libtool uuid-dev psmisc linux-source yasm linux-headers-`uname -r`
 ```
 ###  CONFIGURANDO IDIOMA SISTEMA
 
@@ -175,14 +169,14 @@ sudo dpkg-reconfigure locales
 Para poner nuestro sistema en español, tenemos que marcar las siguientes opciones en el asistente configuración de locales y deseleccionar cualquier otra que pudiese estar activa:
 
 ```bash
-[x] es_ES ISO-8859-1 
-[x] es_ES.UTF-8 UTF-8 
-[x] es_ES@euro ISO-8859-15
+[ x ] es_ES ISO-8859-1 
+[ x ] es_ES.UTF-8 UTF-8 
+[ x ] es_ES@euro ISO-8859-15
 ```
 Para la configuración regional predeterminada seleccionamos:
 
 ```bash
-[x] es-ES.UTF-8
+[ x ] es-ES.UTF-8
 ```
 ###  HABILITANDO INICIO EN [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
@@ -195,8 +189,7 @@ sudo apt-get -y install xserver-xorg-legacy
 Vamos a reconfigurarla debidamente, previo backup de su configuración:
 
 ```bash
-sudo mv /etc/X11/Xwrapper.config \
-/etc/X11/Xwrapper.bak && \
+sudo mv /etc/X11/Xwrapper.config /etc/X11/Xwrapper.bak && \
 sudo nano /etc/X11/Xwrapper.config
 ```
 Agregamos el siguiente contenido al fichero que estamos editando:
@@ -459,7 +452,8 @@ Vamos a bajar un cliente asistente donde configuramemos nuestra red VPN:
 ```bash
 cd ~/ && \
 wget https://git.io/vpn -O openvpn-install.sh && \
-chmod 755 openvpn-install.sh && sudo ./openvpn-install.sh
+chmod 755 openvpn-install.sh && \
+sudo ./openvpn-install.sh
 ```
 Durante la instalación nos solicitara unos parametros de nuestros pasos previos:
 
