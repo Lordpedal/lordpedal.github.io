@@ -363,11 +363,8 @@ Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y p
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install \
-bridge-utils net-tools \
-ifupdown && \
-sudo mv /etc/network/interfaces \
-/etc/network/interfaces.bak && \
+sudo apt-get -y install bridge-utils net-tools ifupdown && \
+sudo mv /etc/network/interfaces /etc/network/interfaces.bak && \
 sudo nano /etc/network/interfaces
 ```
 En el documento en blanco que se nos abre, lo configuro con mi nombre de red (*ens33*) y la ip estática que le voy a configurar (*192.168.1.90*):
