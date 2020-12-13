@@ -30,7 +30,7 @@ permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 logo: "/assets/images/qr.jpg"
-timezone: Euorpe/Madrid # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Madrid # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
@@ -60,6 +60,7 @@ author:
   name   : "Lordpedal"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "... la culminación de un fin es el comienzo de una realidad."
+  location : "Spain"  
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
