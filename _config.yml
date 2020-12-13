@@ -15,7 +15,6 @@
 # in the templates via {{ site.myvariable }}.
 locale: es-ES
 title: Overclock Server
-title_separator: -
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   ... la culminación de un fin es el comienzo de una realidad.
