@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://lordpedal.github.io/sitemap.xml
