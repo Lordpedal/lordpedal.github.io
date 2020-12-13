@@ -16,7 +16,7 @@ En esta sección pretendo hablar de como optimizar y adaptar la distribución De
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
 En la [web de descargas](https://www.debian.org/releases/stable/){:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. En mi caso voy a recomendar la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **procesador 64bits**, [descarga directa](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/){:target="_blank"}.
-Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles.<!--break-->
+Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles.
 
 Resumiendo el procedimiento a grandes rasgos:
 
@@ -42,11 +42,10 @@ Se nos solicitara la *contraseña* de **root** que previamente le dimos en la in
 
 A continuacion debemos de añadir nuestro usuario a los principales grupos del sistema, entre ellos **sudo**:
 
-<pre>usermod -aG audio pi && usermod -aG video pi && usermod -aG dialout pi && usermod -aG plugdev pi && usermod -aG tty pi && usermod -aG sudo pi</pre>
-
-**NOTA ADICIONAL:** Recientemente revisando las últimas releases de Debian 10 me he dado cuenta que el paso anterior os puede arrojar un error del tipo **comando no reconocido**, si es tu caso el **FIX** es el siguiente:
-
-<pre>cd /sbin && ./usermod -aG audio pi && ./usermod -aG video pi && ./usermod -aG dialout pi && ./usermod -aG plugdev pi && ./usermod -aG tty pi && ./usermod -aG sudo pi</pre>
+<pre>cd /sbin && ./usermod -aG audio pi && \
+./usermod -aG video pi && ./usermod -aG dialout pi && \
+./usermod -aG plugdev pi && ./usermod -aG tty pi && \
+./usermod -aG sudo pi</pre>
 
 Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que durante el resto de configuraciones del server se corrige.
 
@@ -120,11 +119,14 @@ Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos
 
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
 
-<pre>sudo apt-get update && sudo apt-get -y install rar unrar zip unzip unace bzip2 lzop p7zip p7zip-full p7zip-rar sharutils lzip xz-utils mpack arj cabextract</pre>
+<pre>sudo apt-get update && sudo apt-get -y install rar unrar zip unzip unace bzip2 lzop \
+p7zip p7zip-full p7zip-rar sharutils lzip xz-utils mpack arj cabextract</pre>
 
 Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futuros usos son:
 
-<pre>sudo apt-get update && sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs hfsplus build-essential automake libtool uuid-dev psmisc linux-source linux-headers-`uname -r` yasm</pre>
+<pre>sudo apt-get update && sudo apt-get -y install mc htop curl bc git wget curl dnsutils \
+ntfs-3g hfsprogs hfsplus build-essential automake libtool uuid-dev psmisc \
+linux-source linux-headers-`uname -r` yasm</pre>
 
 ###  CONFIGURANDO IDIOMA SISTEMA
 
