@@ -19,7 +19,7 @@ El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo L
 En la [web de descargas](https://www.debian.org/releases/stable/){:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. En mi caso voy a recomendar la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **procesador 64bits**, [descarga directa](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/){:target="_blank"}.
 Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles.
 
-{% include toc title="Secciones" icon="file-text" %}
+{% include toc title="Tabla de contenidos" icon="cog" %}
 
 Resumiendo el procedimiento a grandes rasgos:
 
