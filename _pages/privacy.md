@@ -1,7 +1,6 @@
 ---
-layout: page
-title: Privacidad
-permalink: /privacidad/
+permalink: /privacy/
+title: "Privacidad"
 ---
 
 Este web está comprometida a proteger la seguridad y privacidad de sus lectores. La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
