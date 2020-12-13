@@ -8,7 +8,6 @@ tags:
   - GNU/Linux
   - Servidor
   - Debian
-  - Update
 author:
   - Lordpedal
 ---
