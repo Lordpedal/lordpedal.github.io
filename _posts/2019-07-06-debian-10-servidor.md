@@ -35,20 +35,23 @@ Planteado el guión inicial vamos a personalizar nuestra instalación, pero ante
 
 Lo primero con lo que comenzamos es añadiendo nuestro usuario al grupo `sudo` del sistema, para ello ejecutamos en la terminal:
 
-<pre>su</pre>
-
+```bash
+su
+```
 Se nos solicitara la *contraseña* de **root** que previamente le dimos en la instalación. Procedemos a instalar la aplicación *(necesaria conexión internet)*:
 
-<pre>apt-get update && apt-get -y install sudo nano</pre>
-
+```bash
+apt-get update && apt-get -y install sudo nano
+```
 A continuacion debemos de añadir nuestro usuario a los principales grupos del sistema, entre ellos **sudo**:
 
-<pre>cd /sbin && ./usermod -aG audio pi && \
+```bash
+cd /sbin && ./usermod -aG audio pi && \
 ./usermod -aG video pi && ./usermod -aG \
 dialout pi && ./usermod -aG plugdev pi && \
 ./usermod -aG tty pi && ./usermod -aG \
-sudo pi</pre>
-
+sudo pi
+```
 Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que durante el resto de configuraciones del server se corrige.
 
 Vamos a repasar los principales atajos de teclado que encontramos en el editor [nano](https://es.wikipedia.org/wiki/GNU_Nano){:target="_blank"}:
@@ -66,16 +69,19 @@ Vamos a repasar los principales atajos de teclado que encontramos en el editor [
 
 Añadimos privilegios sudo editando la configuración con nuestro editor *nano*:
 
-<pre>nano /etc/sudoers</pre>
-
+```bash
+nano /etc/sudoers
+```
 Y agregamos la siguiente sentencia al final del archivo:
 
-<pre>pi ALL=(ALL) NOPASSWD: ALL</pre>
-
+```bash
+pi ALL=(ALL) NOPASSWD: ALL
+```
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y salimos de la sesión root.
 
-<pre>exit</pre>
-
+```bash
+exit
+```
 Y ya tendremos configurado debidamente el perfil sudo en nuestro usuario de sistema.
 
 ###  AJUSTANDO REPOSITORIOS SISTEMA
@@ -83,9 +89,10 @@ Y ya tendremos configurado debidamente el perfil sudo en nuestro usuario de sist
 El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes){:target="_blank"} `Apt`/`Aptitude`/`Synaptic` de nuestra distribución se basa en un listado de fuentes de instalación. 
 Primero haremos un backup de las actuales y crearemos una personalizada:
 
-<pre>cd /etc/apt && sudo mv sources.list \
-sources.pi && sudo nano sources.list</pre>
-
+```bash
+cd /etc/apt && sudo mv sources.list \
+sources.pi && sudo nano sources.list
+```
 En el documento en blanco que se nos abre, añadimos las nuevas personalizadas:
 
 {% highlight bash %}
@@ -104,80 +111,91 @@ deb-src http://ftp.es.debian.org/debian/ buster-updates main contrib non-free
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y actualizamos el listado de paquetes de software y posibles actualizaciones del mismo:
 
-<pre>sudo apt-get clean && \
+```bash
+sudo apt-get clean && \
 sudo apt-get autoclean && \
 sudo apt-get -y autoremove && \
 sudo apt-get update && \
 sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade</pre>
-
+sudo apt-get -y dist-upgrade
+```
 Tras finalizar la actualización tendremos el sistema actualizado y con las últimas novedades/parches instalados.
 
 ###  UTILIDADES SISTEMA
 
 Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar el `driver necesario` para poder interactuar con el y no esta compilado en el kernel. Una solución sencilla es instalar un paquete con algunos de los principales drivers (3Com, Atheros, Radeon, …):
 
-<pre>sudo apt-get update && \
+```bash
+sudo apt-get update && \
 sudo apt-get -y install \
-firmware-linux-nonfree</pre>
-
+firmware-linux-nonfree
+```
 Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche según dispongamos de un procesador `Intel` **o** `AMD`:
 
 >  INTEL
-<pre>sudo apt-get -y install intel-microcode</pre>
-
+```bash
+sudo apt-get -y install intel-microcode
+```
 > AMD  
-<pre>sudo apt-get -y install amd64-microcode</pre>
-
+```bash
+sudo apt-get -y install amd64-microcode
+```
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
 
-<pre>sudo apt-get update && \
+```bash
+sudo apt-get update && \
 sudo apt-get -y install rar \
 unrar zip unzip unace bzip2 lzop \
 p7zip p7zip-full p7zip-rar \
 sharutils lzip xz-utils mpack \
-arj cabextract</pre>
-
+arj cabextract
+```
 Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futuros usos son:
 
-<pre>sudo apt-get update && \
+```bash
+sudo apt-get update && \
 sudo apt-get -y install mc \
 htop curl bc git wget curl \
 dnsutils ntfs-3g hfsprogs \
 hfsplus build-essential automake \
 libtool uuid-dev psmisc \
 linux-source yasm \
-linux-headers-`uname -r`</pre>
-
+linux-headers-`uname -r`
+```
 ###  CONFIGURANDO IDIOMA SISTEMA
 
 Ejecutaremos un pequeño asistente con la orden de terminal:
 
-<pre>sudo dpkg-reconfigure locales</pre>
-
+```bash
+sudo dpkg-reconfigure locales
+```
 Para poner nuestro sistema en español, tenemos que marcar las siguientes opciones en el asistente configuración de locales y deseleccionar cualquier otra que pudiese estar activa:
 
-<pre>es_ES ISO-8859-1 
+```bash
+es_ES ISO-8859-1 
 es_ES.UTF-8 UTF-8 
-es_ES@euro ISO-8859-15</pre>
-
+es_ES@euro ISO-8859-15
+```
 Para la configuración regional predeterminada seleccionamos:
 
-<pre>es-ES.UTF-8</pre>
-
+```bash
+es-ES.UTF-8
+```
 ###  HABILITANDO INICIO EN [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
 Este paso aunque no es obligatorio en un entorno de Servidor, si lo considero que es altamente recomendado para optimizar recursos de sistema. Lo que vamos a hacer es deshabilitar el autoinicio del entorno gráfico instalado (recordemos [MATE](https://es.wikipedia.org/wiki/MATE){:target="_blank"}).
 Lo que debemos de hacer a continuacón es adaptar el sistema a un arranque sin gestor de inicio sesiones ([LightDM](https://es.wikipedia.org/wiki/LightDM){:target="_blank"}), para ello instalamos y configuramos la siguiente dependencia:
 
-<pre>sudo apt-get -y install xserver-xorg-legacy</pre>
-
+```bash
+sudo apt-get -y install xserver-xorg-legacy
+```
 Vamos a reconfigurarla debidamente, previo backup de su configuración:
 
-<pre>sudo mv /etc/X11/Xwrapper.config \
+```bash
+sudo mv /etc/X11/Xwrapper.config \
 /etc/X11/Xwrapper.bak && \
-sudo nano /etc/X11/Xwrapper.config</pre>
-
+sudo nano /etc/X11/Xwrapper.config
+```
 Agregamos el siguiente contenido al fichero que estamos editando:
 
 {% highlight bash %}
@@ -201,20 +219,24 @@ allowed_users=anybody
 
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**. Ahora vamos a reconfigurar SystemD para el arranque en terminal:
 
-<pre>sudo systemctl set-default multi-user.target</pre>
-
+```bash
+sudo systemctl set-default multi-user.target
+```
 Llegado a este punto el sistema tras un reinicio o encendido del PC nos solicitaria el usuario: **pi** y su contraseña: ************** para hacer login en terminal.
 Podemos configurar un **autologin** que **no lo recomiendo** pero lo dejo a modo informativo.
 
-<pre>sudo mkdir -p /etc/systemd/system/getty@tty1.service.d && \
-sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf</pre>
-
+```bash
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d && \
+sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
+```
 Agregamos el siguiente contenido al fichero que estamos editando:
 
-<pre>[Service]
+{% highlight bash %}
+[Service]
 Type=simple
 ExecStart=
-ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux</pre>
+ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
+{% endhighlight %}
 
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
 
@@ -224,11 +246,13 @@ Si no queremos crear un script único para la ejecución de un comando o un scri
 Cualquier comando que coloquemos o script al que llamemos en dicho fichero será ejecutado al final del arranque, es decir, cuando todos los scripts que tenemos en el runlevel correspondiente hayan sido ejecutados. 
 Esta opción no viene habilitada por defecto en Debian 10 y para ello tendremos que habilitarla, creamos el servicio para [SystemD](https://es.wikipedia.org/wiki/Systemd){:target="_blank"}:
 
-<pre>sudo nano /etc/systemd/system/rc-local.service</pre>
-
+```bash
+sudo nano /etc/systemd/system/rc-local.service
+```
 Agregamos el siguiente contenido al fichero que estamos editando:
 
-<pre>[Unit]
+{% highlight bash %}
+[Unit]
 Description=Script /etc/rc.local
 ConditionPathExists=/etc/rc.local
 
@@ -241,12 +265,14 @@ RemainAfterExit=yes
 SysVStartPriority=99
 
 [Install]
-WantedBy=multi-user.target</pre>
+WantedBy=multi-user.target
+{% endhighlight %}
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, ahora pasamos a crear el fichero **rc.local**
 
-<pre>sudo nano /etc/rc.local</pre>
-
+```bash
+sudo nano /etc/rc.local
+```
 Agregamos el siguiente contenido al fichero que estamos editando:
 
 {% highlight bash %}
@@ -269,18 +295,21 @@ exit 0
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, debemos de darle permisos de ejecución al ficher creado:
 
-<pre>sudo chmod +x /etc/rc.local</pre>
-
+```bash
+sudo chmod +x /etc/rc.local
+```
 Habilitamos el servicio para que se ejecute al inicio del sistema y lo lanzamos para comprobar el correcto funcionamiento:
 
-<pre>sudo systemctl enable rc-local && \
+```bash
+sudo systemctl enable rc-local && \
 sudo systemctl start rc-local.service && \
-sudo systemctl status rc-local.service</pre>
-
+sudo systemctl status rc-local.service
+```
 Llegado a este punto de configuración del servidor recomiendo un reset al sistema:
 
-<pre>sudo reboot</pre>
-
+```bash
+sudo reboot
+```
 Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los principales comandos terminal:
 
 > | Comando terminal | Resultado |
