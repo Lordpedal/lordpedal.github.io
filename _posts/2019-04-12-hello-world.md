@@ -6,7 +6,6 @@ categories:
   - Personal
 tags:
   - Personal
-  - Update
 author:
   - Lordpedal
 ---
