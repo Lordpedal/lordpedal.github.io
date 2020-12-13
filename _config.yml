@@ -17,7 +17,7 @@ title: Overclock Server
 subtitle: ... la culminación de un fin es el comienzo de una realidad.
 email: lordpedal@protonmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Happy Groundhog Day! 👋
+  ... la culminación de un fin es el comienzo de una realidad.
 logo: "/assets/images/qr.png"
 #twitter_username: username
 github_username: lordpedal
@@ -62,7 +62,7 @@ plugins:
 author:
   name   : "Lordpedal"
   avatar : "/assets/images/bash_logo.png"
-  bio    : "... la culminación de un fin es el comienzo de una realidad."
+  bio    : "Happy Groundhog Day! 👋"
   location : "Spain"  
   links:
     - label: "Bitácora"
