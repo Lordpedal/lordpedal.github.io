@@ -8,7 +8,7 @@ Hola! **Bienvenid@** a este pequeño espacio donde me parecio interesante el pod
 Adicionalmente se ha creado un canal en [Telegram](https://web.telegram.org/){:target="_blank"}, donde se iran publicando enlaces de la comunidad: 
 
 {:refdef: style="text-align: left;"}
-[![alt text]({{ site.baseurl }}/images/bot.png "Canal de Noticias"){:height="120px" width="120px"}](https://telegram.me/Lordpedal_RSS){:target="_blank"}
+[![alt text]({{ site.baseurl }}/assets/images/bot.png "Canal de Noticias"){:height="120px" width="120px"}](https://telegram.me/Lordpedal_RSS){:target="_blank"}
 {: refdef}
 
 Un cordial saludo
