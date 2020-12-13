@@ -61,7 +61,8 @@ plugins:
 
 author:
   name   : "Lordpedal"
-  avatar : "/assets/images/bash_logo.png"
+  avatar : "/assets/images/mario.gif"
+  #avatar : "/assets/images/bash_logo.png"  
   bio    : "Happy Groundhog Day! 👋"
   location : "Spain"  
   links:
