@@ -60,16 +60,16 @@ Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que dur
 
 Vamos a repasar los principales atajos de teclado que encontramos en el editor [nano](https://es.wikipedia.org/wiki/GNU_Nano){:target="_blank"}:
 
-> | Acción | Resultado |
-> | ------ | ------ |
-> | Control + O | Guardar fichero |
-> | Control + X | Salir del editor |
-> | Control + X | Salir del editor | 
-> | Control + C | Muestra número linea donde se encuentra cursor | 
-> | Control + K | Cortar linea | 
-> | Control + U | Pegar linea | 
-> | Control + W | Buscar en el fichero |
-> | Control + W + R | Buscar y reemplazar en el fichero |
+ | Acción | Resultado |
+ | ------ | ------ |
+ | Control + O | Guardar fichero |
+ | Control + X | Salir del editor |
+ | Control + X | Salir del editor | 
+ | Control + C | Muestra número linea donde se encuentra cursor | 
+ | Control + K | Cortar linea | 
+ | Control + U | Pegar linea | 
+ | Control + W | Buscar en el fichero |
+ | Control + W + R | Buscar y reemplazar en el fichero |
 
 Añadimos privilegios sudo editando la configuración con nuestro editor *nano*:
 
@@ -306,13 +306,13 @@ sudo reboot
 ```
 Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los principales comandos terminal:
 
-> | Comando terminal | Resultado |
-> | ------ | ------ |
-> | startx | Arrancar entorno gráfico (MATE) |
-> | exit | Salir/Cerrar sesión TTY |
-> | sudo su | Iniciar sesion como ROOT |
-> | sudo reboot | Reiniciar sistema |
-> | sudo poweroff | Apagar sistema |
+ | Comando terminal | Resultado |
+ | ------ | ------ |
+ | startx | Arrancar entorno gráfico (MATE) |
+ | exit | Salir/Cerrar sesión TTY |
+ | sudo su | Iniciar sesion como ROOT |
+ | sudo reboot | Reiniciar sistema |
+ | sudo poweroff | Apagar sistema |
 
 ###  IDENTIFICANDO RED
 
