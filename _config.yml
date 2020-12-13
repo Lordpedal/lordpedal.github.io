@@ -75,7 +75,7 @@ author:
       url: "https://blog.lordpedal.duckdns.org"  
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: "mailto:lordpedal@protonmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/lordpedal"
