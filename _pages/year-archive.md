@@ -1,5 +1,5 @@
 ---
-title: "Posts por año"
+title: "Entradas por año"
 permalink: /posts/
 layout: posts
 author_profile: true
