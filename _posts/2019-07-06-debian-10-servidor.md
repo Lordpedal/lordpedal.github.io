@@ -19,8 +19,6 @@ El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo L
 En la [web de descargas](https://www.debian.org/releases/stable/){:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. En mi caso voy a recomendar la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **procesador 64bits**, [descarga directa](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/){:target="_blank"}.
 Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles.
 
-{% include toc title="Secciones" icon="cog" %}
-
 Resumiendo el procedimiento a grandes rasgos:
 
 1.  Grabamos la ISO descargada en un CD/DVD o USB según capacidad y necesidad.
@@ -32,6 +30,8 @@ Resumiendo el procedimiento a grandes rasgos:
 El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, recordad sustituir dicho usuario por el que habéis creado durante la instalación.
 
 Planteado el guión inicial vamos a personalizar nuestra instalación, pero antes recordando que los ajustes en su mayor parte los ejecutaremos desde una *terminal de sistema*.
+
+{% include toc title="Secciones" icon="cog" %}
 
 ### AJUSTANDO PERFIL [SUDO](https://es.wikipedia.org/wiki/Sudo){:target="_blank"} 
 
