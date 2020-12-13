@@ -319,4 +319,190 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
 > | sudo reboot | Reiniciar sistema |
 > | sudo poweroff | Apagar sistema |
 
-Y con este apartado terminamos la parte de instalación y ajustes básicos del sistema.
+###  IDENTIFICANDO RED
+
+Ahora vamos a proceder a configurar y securizar nuestra red doméstica.
+La primera tarea que debemos de realizar es encontrar el nombre de nuestro identificador de red y el rango de la misma.
+
+Este comando nos dara la información esperada:
+
+```bash
+ip a
+```
+
+Y entre los valores que muestra el comando me quedo con la siguiente información:
+
+```bash
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master state UP group default qlen 1000
+        link/ether xx:xx:xx:xx:xx:xx brd xx:xx:xx:xx:xx:xx
+        inet 192.168.1.250/24 brd 192.168.1.255 scope global ens33
+        valid_lft forever preferred_lft forever
+```
+
+Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){:target="_blank"}.
+
+### IPV4 Forward + BR0
+
+Vamos a habilitar la [redicción de puertos sobre IPv4](https://es.wikipedia.org/wiki/Redirecci%C3%B3n_de_puertos){:target="_blank"} que posteriormente usaremos para entre otros configurar debidamente la VPN.
+
+```bash
+sudo nano /etc/sysctl.conf
+```
+
+Buscamos el siguiente apartado en el documento:
+
+```bash
+#net.ipv4.ip_forward=1
+```
+Y lo dejamos de la siguiente forma, como veras solamente has de eliminar la **#** inicial:
+
+```bash
+net.ipv4.ip_forward=1
+```
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y pasamos a configurar una [red Bridge](https://es.wikipedia.org/wiki/Puente_de_red){:target="_blank"} con [IP estática](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP){:target="_blank"}:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install \
+bridge-utils net-tools \
+ifupdown && \
+sudo mv /etc/network/interfaces \
+/etc/network/interfaces.bak && \
+sudo nano /etc/network/interfaces
+```
+En el documento en blanco que se nos abre, lo configuro con mi nombre de red (*ens33*) y la ip estática que le voy a configurar (*192.168.1.90*):
+
+```bash
+# LO
+auto lo
+iface lo inet loopback
+
+# Bridge
+auto br0
+iface br0 inet static
+        address 192.168.1.90
+        netmask 255.255.255.0
+        network 192.168.1.0
+        gateway 192.168.1.1
+        bridge_ports ens33
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+```        
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y nos queda corregir un posible fallo aunque no es común, en el fichero de resolución de DNS:
+
+```bash
+sudo mv /etc/resolv.conf /etc/resolv.conf.bak && \
+echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
+```
+Para evitar que NetworkManager entre en juego editaremos su configuración, para deshabilitar que juegue con redes configuradas:
+
+```bash
+sudo nano /etc/NetworkManager/NetworkManager.conf
+```
+Y dejamos el fichero con el siguiente contenido:
+
+```bash
+[main]
+plugins=ifupdown,keyfile
+dns=none
+
+[ifupdown]
+managed=false
+```
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y a continuación debemos de reiniciar el servidor para aplicar los nuevos cambios producidos en el dispositivo de red:
+
+```bash
+sudo reboot
+```
+Tras reiniciar nuevamente comprobamos la nueva configuración de red:
+
+```bash
+ip a
+```
+Y vemos los cambios realizados:
+
+```bash
+3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+        link/ether xx:xx:xx:xx:xx:xx brd xx:xx:xx:xx:xx:xx
+        inet 192.168.1.90/24 brd 192.168.1.255 scope global br0
+        valid_lft forever preferred_lft forever</pre>
+```
+A partir de este momento nuestra red cableada la identificaremos con el nombre de `br0` y la IP de nuestro servidor en casa sera `192.168.1.90`.
+
+### DNS Pública
+
+Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
+La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [Duck DNS](https://www.duckdns.org/){:target="_blank"}.
+
+Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **ejemplo.duckdns.org**. Y el procedimiento de instalación en nuestra red es vía **cron**.
+Adjunto [tutorial de configuración en GNU/Linux](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}.
+
+Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
+
+```bash
+sudo nano /etc/hosts
+```
+Buscamos la línea:
+
+> 127.0.0.1       localhost 
+
+Y la modificamos con nuestra cuenta en DuckDNS:
+
+> 127.0.0.1       localhost ejemplo.duckdns.org 
+
+
+Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
+
+### OPENVPN (Opcional)
+
+Teniendo ya fijada una DNS Pública, una IP estática interna y la redirección de puertos, ya podemos proceder a configurar de forma sencilla el acceso mediante [VPN](https://es.wikipedia.org/wiki/Red_privada_virtual){:target="_blank"}.
+Vamos a bajar un cliente asistente donde configuramemos nuestra red VPN:
+
+```bash
+cd ~/ && \
+wget https://git.io/vpn -O openvpn-install.sh && \
+chmod 755 openvpn-install.sh && sudo ./openvpn-install.sh
+```
+Durante la instalación nos solicitara unos parametros de nuestros pasos previos:
+
+*  IPv4 (automatically detected, if not enter the local IPv4 address): `192.168.1.90`
+*  Public IP (enter your public IP address): `ejemplo.duckdns.org`
+*  Protocol: `UDP`
+*  Port (change to your desired port): `2194`
+*  DNS: `Current system resolvers`
+*  Client name: `Lordpedal`
+
+Vamos a afinar la configuración de la VPN con capas extras de personalización, ahora debemos de conocer la IP de la nuestra red virtual **TUN0**
+
+```bash
+sudo ifconfig tun0 | grep 'inet'
+```
+En mi caso el valor de referencia es: `10.8.0.1`. Vamos a editar la configuración del servidor de [OpenVPN](https://es.wikipedia.org/wiki/OpenVPN){:target="_blank"}:
+
+```bash
+sudo nano /etc/openvpn/server/server.conf
+```
+Buscamos la linea donde el codigo empieza por (suele ser una única línea en según que casos alguna duplicada):
+
+```bash
+push "dhcp-option DNS
+```
+Y sustituimos la linea o si existen varias dejamos una sola que haga referencia al codigo push dhcp-option con lo siguiente:
+
+```bash
+push "dhcp-option DNS 10.8.0.1"
+```
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y reiniciamos el servicio OpenVPN:
+
+```bash
+sudo systemctl restart openvpn
+```
+Recordad que el fichero OVPN generado en nuestro caso se llamaba Lordpedal lo tendremos que pasar a nuestra carpeta de usuario.
+
+```bash
+sudo cp /root/Lordpedal.ovpn /home/pi && \
+sudo chown pi:pi /home/pi/Lordpedal.ovpn
+```
+Ahora ya podremos pasar el fichero OVPN a nuestro Smartphone/Tablet/Pendrive/... para poder conectarnos en remoto previa configuración router.
+Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo** `UDP` si has seguido la configuración que detallo paso a paso.
