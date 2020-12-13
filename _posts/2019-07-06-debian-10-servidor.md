@@ -429,7 +429,7 @@ A partir de este momento nuestra red cableada la identificaremos con el nombre d
 Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
 La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [Duck DNS](https://www.duckdns.org/){:target="_blank"}.
 
-Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **ejemplo.duckdns.org**. Y el procedimiento de instalación en nuestra red es vía **cron**.
+Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**. Y el procedimiento de instalación en nuestra red es vía **cron**.
 Adjunto [tutorial de configuración en GNU/Linux](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}.
 
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
@@ -443,7 +443,7 @@ Buscamos la línea:
 
 Y la modificamos con nuestra cuenta en DuckDNS:
 
-> 127.0.0.1       localhost ejemplo.duckdns.org 
+> 127.0.0.1       localhost lordpedal.duckdns.org 
 
 
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
@@ -462,7 +462,7 @@ sudo ./openvpn-install.sh
 Durante la instalación nos solicitara unos parametros de nuestros pasos previos:
 
 *  IPv4 (automatically detected, if not enter the local IPv4 address): `192.168.1.90`
-*  Public IP (enter your public IP address): `ejemplo.duckdns.org`
+*  Public IP (enter your public IP address): `lordpedal.duckdns.org`
 *  Protocol: `UDP`
 *  Port (change to your desired port): `2194`
 *  DNS: `Current system resolvers`
