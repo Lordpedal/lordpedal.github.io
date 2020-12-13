@@ -3,6 +3,12 @@ permalink: /about/
 title: "Acerca de"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+Hola! **Bienvenid@** a este pequeño espacio donde me parecio interesante el poder **publicar y conservar** a modo de archivo `pequeños trucos, consejos y/o tutoriales` sobre tematica inicialmente enfocada al mundo `GNU/Linux`.
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+Adicionalmente se ha creado un canal en [Telegram](https://web.telegram.org/){:target="_blank"}, donde se iran publicando enlaces de la comunidad: 
+
+{:refdef: style="text-align: left;"}
+[![alt text]({{ site.baseurl }}/images/bot.png "Canal de Noticias"){:height="120px" width="120px"}](https://telegram.me/Lordpedal_RSS){:target="_blank"}
+{: refdef}
+
+Un cordial saludo
