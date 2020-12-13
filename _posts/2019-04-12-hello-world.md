@@ -21,4 +21,4 @@ print_hi('Overclock Server')
 #=> prints 'Welcome to Overclock Server' to STDOUT.
 {% endhighlight %}
 
-#### Remarcar que la `configuración expuesta` a lo largo del portfolio es `completamente funcional en el contexto definido`. **Cualquier variación** sobre las diferentes configuraciones detalladas en los posts, **no preveo el correcto funcionamiento del sistema**.
+Remarcar que la `configuración expuesta` a lo largo del portfolio es `completamente funcional en el contexto definido`. **Cualquier variación** sobre las diferentes configuraciones detalladas en los posts, **no preveo el correcto funcionamiento del sistema**.
