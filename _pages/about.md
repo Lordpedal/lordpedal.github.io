@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "Acerca de"
-excerpt: "[...] Estos son mis principios. Si no le gustan, tengo otros."
+excerpt: "Estos son mis principios. Si no le gustan, tengo otros."
 header:
   overlay_image: /assets/images/about.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
