@@ -1,6 +1,10 @@
 ---
 permalink: /privacy/
 title: "Privacidad"
+header:
+  video:
+    id: Lcrvgby_8E8
+    provider: youtube
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
