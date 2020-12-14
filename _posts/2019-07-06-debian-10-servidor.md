@@ -10,6 +10,10 @@ tags:
   - Debian
 author:
   - Lordpedal
+toc: true
+toc_sticky: true
+toc_label: "Secciones"
+toc_icon: "cog"
 ---
 
 En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian Buster a un uso diario, desde mi propia experiencia de usuario.
@@ -29,8 +33,6 @@ Resumiendo el procedimiento a grandes rasgos:
 El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, recordad sustituir dicho usuario por el que habéis creado durante la instalación.
 
 Planteado el guión inicial vamos a personalizar nuestra instalación, pero antes recordando que los ajustes en su mayor parte los ejecutaremos desde una *terminal de sistema*.
-
-{% include toc title="Secciones" icon="cog" %}
 
 ### AJUSTANDO PERFIL [SUDO](https://es.wikipedia.org/wiki/Sudo){:target="_blank"} 
 
