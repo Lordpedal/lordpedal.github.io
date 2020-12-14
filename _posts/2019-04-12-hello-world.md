@@ -6,8 +6,6 @@ categories:
   - Personal
 tags:
   - Personal
-author:
-  - Lordpedal
 ---
 
 Bienvenidos a `Overclock Server`, un proyecto que nace como apuesta personal de un equipo de entusiastas sobre el *I+D*.
