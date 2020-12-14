@@ -5,9 +5,9 @@ excerpt: "Nunca aceptes la forma en que las cosas se han hecho siempre, como la 
 header:
   overlay_image: /assets/images/privacidad.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-  caption: "Créditos imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
+  caption: "Imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
   actions:
-    - label: "+ Info"
+    - label: "Más info"
       url: "https://youtu.be/Lcrvgby_8E8"
 toc: true
 toc_sticky: true
