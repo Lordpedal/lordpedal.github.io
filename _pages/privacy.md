@@ -1,17 +1,22 @@
 ---
 permalink: /privacy/
 title: "Privacidad"
+excerpt: "Este espacio web [...]"
 header:
-  video:
-    id: Lcrvgby_8E8
-    provider: youtube
+  overlay_image: /assets/images/privacidad.jpg
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
+  caption: "Créditos imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
+  actions:
+    - label: "Privacidad en Internet y la GDPR"
+      url: "https://youtu.be/Lcrvgby_8E8"
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-Este web está comprometida a proteger la seguridad y privacidad de sus lectores. La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
+Este espacio web está comprometido a proteger la seguridad y privacidad de sus lectores.
+La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
 
 ### POLÍTICA DE COOKIES
 
