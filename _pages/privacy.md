@@ -1,11 +1,12 @@
 ---
 permalink: /privacy/
 title: "Privacidad"
+toc: true
+toc_label: "Secciones"
+toc_icon: "cog"
 ---
 
 Este web está comprometida a proteger la seguridad y privacidad de sus lectores. La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
-
-{% include toc title="Secciones" icon="cog" %}
 
 ### POLÍTICA DE COOKIES
 
