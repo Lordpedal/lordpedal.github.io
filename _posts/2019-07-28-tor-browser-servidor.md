@@ -8,8 +8,10 @@ tags:
   - GNU/Linux
   - Servidor
   - Debian
-author:
-  - Lordpedal
+toc: true
+toc_sticky: true
+toc_label: "Secciones"
+toc_icon: "cog"
 ---
 
 A menudo por la red podemos encontrar referencias a una red llamada **red Tor**. Sin embargo, la mayoría de usuarios no sabe lo que significa esta red, para qué sirve ni lo que se esconde en ella.
@@ -21,8 +23,6 @@ A diferencia de lo que piensan muchos usuarios, la red Tor **no es una red P2P**
 Hasta hace algún tiempo conectarse a la red Tor podia llegar a ser algo complicado para usuarios sin demasiada experiencia ya que había que instalar varias aplicaciones que hicieran de proxy y permitieran el acceso a esta red. También había que estar pendientes de ellas para evitar que por cualquier error se desconectara de los servidores exponiendo por completo nuestra identidad.<!--break-->
 
 Ahora es mucho más sencillo el poder conectarse a esta red. Con el fin de simplificar el acceso a un mayor número de usuarios, Tor Project ha lanzado un navegador web llamado Tor Browser que viene preparado para empezar a funcionar con tan sólo descargarlo sin necesidad de realizar ninguna configuración adicional.
-
-{% include toc title="Secciones" icon="cog" %}
 
 ### Debian 9 Stretch
 
