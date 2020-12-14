@@ -154,8 +154,6 @@ docker run -d \
 	portainer/portainer-ce
 ```
 
-Adjunto la salida que veremos en pantalla tras ejecutar el comando:
-
 Ahora debemos de configurarlo vía web, para ello entramos en un navegador web de nuestra red doméstica y apuntamos a la **dirección IP del servidor y el puerto 9000**, en mi caso:
 
 ```bash
