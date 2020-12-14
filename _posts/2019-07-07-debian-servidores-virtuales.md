@@ -44,7 +44,8 @@ También **recomiendo disponer de más de 4Gb de RAM** para no generar excesiva 
 Vamos a proceder a instalar el software necesario:
 
 ```bash
-sudo apt-get update && sudo apt-get -y install qemu-kvm libvirt-clients \
+sudo apt-get update && \
+sudo apt-get -y install qemu-kvm libvirt-clients \
 libvirt-daemon libvirt-daemon-system bridge-utils libguestfs-tools \
 genisoimage virtinst libosinfo-bin virt-manager
 ```
