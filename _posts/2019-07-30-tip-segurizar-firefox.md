@@ -6,8 +6,10 @@ categories:
   - Personal
 tags:
   - Personal
-author:
-  - Lordpedal
+toc: true
+toc_sticky: true
+toc_label: "Secciones"
+toc_icon: "cog"
 ---
 
 En esta entrada voy a compartir mi configuración sobre el navegador web [Firefox](https://www.mozilla.org/){:target="_blank"}, no voy a entrar a tratar de explicar ventajas y desventajas de usar un navegador web u otro, eso os lo dejo a vuestra elección.
@@ -22,8 +24,6 @@ A continuación deshabilito [WebRTC](https://es.wikipedia.org/wiki/WebRTC/){:tar
 Nos saldra un cartel con un mensaje que nos dira algo como `¡Zona hostil para manazas!` y un click en `¡Acepto el riesgo!`, dentro debemos de usar el buscador y desactivar (**true -> false**) estas dos sentencias `media.peerconnection.enabled` y `media.navigator.enabled`.
 
 Finalizado ya podremos cerrar la pestaña de configuración avanzada y pasaremos a instalar unos complementos de navegador que detallo para seguir securizando.
-
-{% include toc title="Secciones" icon="cog" %}
 
 ### [Privacy Badger](https://www.eff.org/privacybadger/){:target="_blank"}
 
