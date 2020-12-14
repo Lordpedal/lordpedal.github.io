@@ -4,7 +4,6 @@ permalink: /tags/
 layout: tags
 author_profile: true
 header:
-  overlay_image: /assets/images/tags.png
-  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
+  image: /assets/images/tags.png
   caption: "Imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
 ---
