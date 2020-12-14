@@ -16,12 +16,15 @@ toc_icon: "cog"
 
 La idea detrás de `Docker` es la de poder crear portables, para que las aplicaciones de software puedan ejecutarse **en cualquier máquina con Docker instalado**, independientemente del sistema operativo y de que máquina tenga por debajo, facilitando así también su expansión.
 
-Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.gitlab.io/debian-10-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.<!--break-->
+Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.gitlab.io/debian-10-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.
+
+### Instalación
 
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
 
 ```bash
-sudo apt-get update && sudo apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common htop multitail locate net-tools open-vm-tools
+sudo apt-get update && sudo apt-get -y install apt-transport-https ca-certificates \
+curl gnupg2 software-properties-common htop multitail locate net-tools open-vm-tools
 ```
 
 A continuación, vamos a agregar el repositorio de Docker y la clave GPC:
@@ -34,8 +37,11 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 Volvemos a actualizar repositorios del sistema e instalamos Docker:
 
 ```bash
-sudo apt-get update && sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get update && \
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 ```
+
+### GRUB: Fix Docker
 
 Una vez instalado, tendremos que configurar nuestro Grub de arranque del sistema para habilitar la memoria compartida y swap del sistema:
 
@@ -132,8 +138,11 @@ Con el sistema preparado para emular entornos **Docker**, vamos a realizar unos 
 ```bash
 cd $HOME && mkdir docker && cd $HOME/docker
 ```
+### Docker [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
 
-La gestión de Docker en un comienzo se realiza desde **TTY**, pero vamos a habilitar un Docker para la gestión de forma web:
+La gestión de Docker en un comienzo se realiza desde **TTY**, pero vamos a habilitar un Docker para la gestión de forma web.
+
+Portainer CE es una herramienta web open-source la cual se ejecuta ella misma como un container:
 
 ```bash
 docker run -d \
@@ -157,11 +166,7 @@ Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar
 
 Y listo, ya estara debidamente configurado para poder gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
-Os dejo algunas ideas conceptuales para que podais probar las funciones de este sistema de virtualización. 
-
-Más info en [Docker Hub](https://hub.docker.com/){:target="_blank"}.
-
-### [Watchtower](https://hub.docker.com/r/v2tec/watchtower/){:target="_blank"}
+### Docker [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
 
 Watchtower es una aplicación que controlará tus contenedores Docker en funcionamiento y observará los cambios en las imágenes a partir de los cuales se iniciaron originalmente esos contenedores. Si la Watchtower detecta que una imagen ha cambiado, se reiniciará automáticamente el contenedor utilizando la nueva imagen.
 
