@@ -2,6 +2,7 @@
 permalink: /privacy/
 title: "Privacidad"
 toc: true
+toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
