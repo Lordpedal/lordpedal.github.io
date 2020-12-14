@@ -1,6 +1,10 @@
 ---
 permalink: /about/
 title: "Acerca de"
+header:
+  overlay_image: /assets/images/about.png
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
+  caption: "Imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
 ---
 
 Hola! **Bienvenid@** a este pequeño espacio donde me parecio interesante el poder **publicar y conservar** a modo de archivo `pequeños trucos, consejos y/o tutoriales` sobre tematica inicialmente enfocada al mundo `GNU/Linux`.
