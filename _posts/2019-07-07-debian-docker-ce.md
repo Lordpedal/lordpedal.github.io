@@ -1,5 +1,5 @@
 ---
-title:  "Docker CE: Debian GNU/Linux"
+title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00 -0300
 last_modified_at: 2020-12-12T17:00:00-05:00
 categories:
@@ -18,7 +18,7 @@ La idea detrás de `Docker` es la de poder crear portables, para que las aplicac
 
 Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.
 
-### Instalación
+### Docker CE: Instalación
 
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
 
