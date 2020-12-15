@@ -368,7 +368,8 @@ sudo update-initramfs -u
 Agregamos la información a nuestro fstab, recuerda cambiar el valor **raid1** por el tipo de RAID que has elegido (por ejemplo: *raid5*):
 
 ```bash
-echo '/dev/md0 /media/raid1 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
+echo '/dev/md0 /media/raid1 ext4 defaults,nofail,discard 0 0' | \
+sudo tee -a /etc/fstab
 ```
 
 Reiniciamos el sistema:
