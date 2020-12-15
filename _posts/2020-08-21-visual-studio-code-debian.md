@@ -8,6 +8,7 @@ categories:
 tags:
   - GNU/Linux
   - Debian
+  - 3D
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
