@@ -131,3 +131,5 @@ pi@overclock:~$ sudo virsh list --all
  1     D10KVM                         running
  -     win10pro                       shut off
 ```
+
+> Y listo!
