@@ -20,10 +20,10 @@ La finalidad de un sistema RAID de discos consiste en crear un único volumen co
 
 <ul style="text-align: justify;">
   <li>
-<strong>Redundancia</strong>: Tolerancia a fallos en el caso de que uno falle, conocido como <code>&lt;strong>disk mirroring&lt;/strong></code>
+<strong>Redundancia</strong>: Tolerancia a fallos en el caso de que uno falle, conocido como <code><strong>disk mirroring</strong></code>
   </li>
   <li>
-<strong>Mayor velocidad</strong>: Haciendo que ese conjunto sea en realidad un tándem, conocido como <code>&lt;strong>disk striping&lt;/strong></code>
+<strong>Mayor velocidad</strong>: Haciendo que ese conjunto sea en realidad un tándem, conocido como <code><strong>disk striping</strong></code>
   </li>
 </ul>
 
@@ -33,30 +33,30 @@ Un sistema RAID se puede crear de las siguientes formas:
   <li>
 <strong>Hardware</strong>: Se puede usar hardware dedicado llamado controladores RAID o tarjetas RAID para configurar y administrar RAID independientemente del sistema operativo. Los verdaderos controladores RAID de hardware tendrán un procesador dedicado para administrar dispositivos RAID. <ul>
   <li>
-<code>&lt;strong>Ventajas&lt;/strong>: Rendimiento, sencillez y disponibilidad desde el arranque</code>
+<code><strong>Ventajas</strong>: Rendimiento, sencillez y disponibilidad desde el arranque</code>
   </li>
   <li>
-<code>&lt;strong>Desventajas&lt;/strong>: Dependencias de un proveedor y alto coste</code>
+<code><strong>Desventajas</strong>: Dependencias de un proveedor y alto coste</code>
   </li>
 </ul>
   </li>
   <li>
 <strong>Software</strong>: Configurado por el propio sistema operativo. Dado que la relación de los discos entre sí se define dentro del sistema operativo en lugar del firmware de un dispositivo de hardware. <ul>
   <li>
-<code>&lt;strong>Ventajas&lt;/strong>: Flexibilidad, código abierto y sin costes adicionales de hardware específico</code>
+<code><strong>Ventajas</strong>: Flexibilidad, código abierto y sin costes adicionales de hardware específico</code>
   </li>
   <li>
-<code>&lt;strong>Desventajas&lt;/strong>: Implementación específica según Sistema Operativo y leve carga adicional al procesador</code>
+<code><strong>Desventajas</strong>: Implementación específica según Sistema Operativo y leve carga adicional al procesador</code>
   </li>
 </ul>
   </li>
   <li>
 <strong>Fake-RAID</strong><em><code>(Hardware asistido por Software)</code></em>: Por lo general, este se encuentra en la funcionalidad RAID dentro de las propias placas base. El software RAID asistido por hardware es una implementación que usa firmware en el controlador o la tarjeta para administrar el RAID, pero usa la CPU normal para manejar el procesamiento. <ul>
   <li>
-<code>&lt;strong>Ventajas&lt;/strong>: Compatibilidad con varios sistemas operativos</code>
+<code><strong>Ventajas</strong>: Compatibilidad con varios sistemas operativos</code>
   </li>
   <li>
-<code>&lt;strong>Desventajas&lt;/strong>: Limitado soporte RAID 0/1, hardware específico y sobrecarga de rendimiento</code>
+<code><strong>Desventajas</strong>: Limitado soporte RAID 0/1, hardware específico y sobrecarga de rendimiento</code>
   </li>
 </ul>
   </li>
@@ -88,7 +88,7 @@ Las características de una matriz están determinadas por la configuración y l
 <strong>RAID 6</strong>: Es una variante del RAID 5 pero que emplea dos discos como backup en lugar de uno, y por lo tanto la velocidad es de n-2, siendo n el total de discos del conjunto. Es un RAID 5 pero un poco más seguro, con mayor gasto en inversión inicial.
   </li>
   <li style="text-align: justify;">
-<strong>RAID 10</strong> <code>&lt;em>(RAID 1+0)&lt;/em></code>: En esta variante consiste en hacer primero dos RAID 1 y luego un RAID 0 entre ellos, teniendo así en total 4 discos duros con 2 discos de tolerancia a fallos uno por cada RAID 1 y en RAID 0 para una mayor velocidad.
+<strong>RAID 10</strong> <code><em>(RAID 1+0)</em></code>: En esta variante consiste en hacer primero dos RAID 1 y luego un RAID 0 entre ellos, teniendo así en total 4 discos duros con 2 discos de tolerancia a fallos uno por cada RAID 1 y en RAID 0 para una mayor velocidad.
   </li>
 </ul>
   </li>
@@ -111,11 +111,11 @@ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 
 En mi caso obtengo los siguientes datos:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
-&lt;span class="highlight">NAME SIZE FSTYPE TYPE MOUNTPOINT&lt;br />&lt;/span>&lt;span class="highlight">sdc   16Gdisk&lt;br />sdd   16Gdisk&lt;br />sde   16Gdisk&lt;br />sdf   16Gdisk&lt;/span>&lt;br />sda  465Gdisk 
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
+<span class="highlight">NAME SIZE FSTYPE TYPE MOUNTPOINT<br /></span><span class="highlight">sdc   16Gdisk<br />sdd   16Gdisk<br />sde   16Gdisk<br />sdf   16Gdisk</span><br />sda  465Gdisk 
 ├─sda1 1Kpart /
-├─sda2   450G ext4   part /&lt;br />└─sda515G swap   part&lt;br />sdb  3,7Tdisk 
-└─sdb1   3,7T ext4   part /media/rednas</code>```
+├─sda2   450G ext4   part /<br />└─sda515G swap   part<br />sdb  3,7Tdisk 
+└─sdb1   3,7T ext4   part /media/rednas</code>
 
 Ya preparado el entorno, voy a exponer por segmentos como podriamos configurar diferentes RAID´s.
 
@@ -135,11 +135,11 @@ cat /proc/mdstat
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ cat /proc/mdstat 
-&lt;span class="highlight">Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] &lt;br />md0 : active raid0 sdd[1] sdc[0]&lt;/span>
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ cat /proc/mdstat 
+<span class="highlight">Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] <br />md0 : active raid0 sdd[1] sdc[0]</span>
   209584128 blocks super 1.2 512k chunks
 
-unused devices: &lt;none&gt;</code>```
+unused devices: <none&gt;</code>
 
 Formateamos el sistema de ficheros de nuestro RAID:
 
@@ -167,10 +167,10 @@ df -h -x devtmpfs -x tmpfs
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #3366ff;">~&lt;/span>$ df -h .x devtmpfs -x tmpfs
-Filesystem  Size  Used Avail Use% Mounted on&lt;br />/dev/sda2   443G   29G  391G   7% /
-&lt;span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas&lt;br />/dev/md0 31G   60M   28G   1% /media/raid0&lt;/span>
-</code>```
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #3366ff;">~</span>$ df -h .x devtmpfs -x tmpfs
+Filesystem  Size  Used Avail Use% Mounted on<br />/dev/sda2   443G   29G  391G   7% /
+<span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas<br />/dev/md0 31G   60M   28G   1% /media/raid0</span>
+</code>
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
@@ -184,13 +184,13 @@ sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdc /dev/
 
 Si los discos duros/memorias USB no llevan activa la casilla de arranque nos mostrara la siguiente advertencia a la que decimos de continuar <strong><span style="color: #ff0000;">(y)</span></strong>:
 
-<pre class="code-pre "><code>mdadm: Note: this array has metadata at the start and
+<code>mdadm: Note: this array has metadata at the start and
 may not be suitable as a boot device.  If you plan to
 store '/boot' on this device please ensure that
 your boot-loader understands md/v1.x metadata, or use
 --metadata=0.90
 mdadm: size set to 104792064K
-Continue creating array? &lt;strong>&lt;span class="highlight" style="color: #ff0000;">y&lt;/span>&lt;/strong></code>```
+Continue creating array? <strong><span class="highlight" style="color: #ff0000;">y</span></strong></code>
 
 Comprobamos que ha sido creado correctamente:
 
@@ -200,14 +200,14 @@ cat /proc/mdstat
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ cat /proc/mdstat</code>```
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ cat /proc/mdstat</code>
 
-<pre class="code-pre "><code>Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
-&lt;span class="highlight">md0 : active raid1 sdd[1] sdc[0]&lt;/span>
+<code>Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
+<span class="highlight">md0 : active raid1 sdd[1] sdc[0]</span>
   104792064 blocks super 1.2 [2/2] [UU]
-  &lt;span class="highlight">[====&gt;................]  resync = 20.2% (21233216/104792064) finish=6.9min speed=199507K/sec&lt;/span>
+  <span class="highlight">[====&gt;................]  resync = 20.2% (21233216/104792064) finish=6.9min speed=199507K/sec</span>
 
-unused devices: &lt;none&gt;</code>```
+unused devices: <none&gt;</code>
 
 Formateamos el sistema de ficheros de nuestro RAID:
 
@@ -235,10 +235,10 @@ df -h -x devtmpfs -x tmpfs
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
-Filesystem  Size  Used Avail Use% Mounted on&lt;br />/dev/sda2   443G   29G  391G   7% /
-&lt;span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas&lt;br />/dev/md0 16G   60M   14G   1% /media/raid1&lt;/span>
-</code>```
+<code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem  Size  Used Avail Use% Mounted on<br />/dev/sda2   443G   29G  391G   7% /
+<span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas<br />/dev/md0 16G   60M   14G   1% /media/raid1</span>
+</code>
 
 Un detalle a tener en cuenta sobre este tipo de RAID como explicamos al principio, si un disco duro se avería, este se podría sacar de servicio y meter otro en sustitución para volver a tener backup. Esto lo podríamos comprobar con el siguiente comando:
 
@@ -276,11 +276,11 @@ cat /proc/mdstat
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ cat /proc/mdstat 
-&lt;span class="highlight">Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] &lt;br />md0 : active raid5 sde[3] sdd[1] sdc[0]&lt;/span>
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ cat /proc/mdstat 
+<span class="highlight">Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] <br />md0 : active raid5 sde[3] sdd[1] sdc[0]</span>
   209584128 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 
-unused devices: &lt;none&gt;</code><code></code>```
+unused devices: <none&gt;</code><code></code>
 
 Formateamos el sistema de ficheros de nuestro RAID:
 
@@ -308,10 +308,10 @@ df -h -x devtmpfs -x tmpfs
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ df -h .x devtmpfs -x tmpfs
-Filesystem  Size  Used Avail Use% Mounted on&lt;br />/dev/sda2   443G   29G  391G   7% /
-&lt;span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas&lt;br />/dev/md0 31G   60M   28G   1% /media/raid5&lt;/span>
-</code>```
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ df -h .x devtmpfs -x tmpfs
+Filesystem  Size  Used Avail Use% Mounted on<br />/dev/sda2   443G   29G  391G   7% /
+<span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas<br />/dev/md0 31G   60M   28G   1% /media/raid5</span>
+</code>
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
@@ -331,12 +331,12 @@ cat /proc/mdstat
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ cat /proc/mdstat 
-&lt;span class="highlight">Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] &lt;br />md0 : active raid6 sdf[3] sde[2] sdd[1] sdc[0]&lt;/span>
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ cat /proc/mdstat 
+<span class="highlight">Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] <br />md0 : active raid6 sdf[3] sde[2] sdd[1] sdc[0]</span>
   209584128 blocks super 1.2 level 6, 512k chunk, algorithm 2 [4/4] [UUUU]
-  &lt;span class="highlight">[===&gt;.................]  recovery = 0.6% (668572/104792064) finish=10.3min speed=200808K/sec&lt;/span>
+  <span class="highlight">[===&gt;.................]  recovery = 0.6% (668572/104792064) finish=10.3min speed=200808K/sec</span>
 
-unused devices: &lt;none&gt;</code><code></code>```
+unused devices: <none&gt;</code><code></code>
 
 Formateamos el sistema de ficheros de nuestro RAID:
 
@@ -364,10 +364,10 @@ df -h -x devtmpfs -x tmpfs
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
-Filesystem  Size  Used Avail Use% Mounted on&lt;br />/dev/sda2   443G   29G  391G   7% /
-&lt;span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas&lt;br />/dev/md0 31G   60M   28G   1% /media/raid6&lt;/span>
-</code>```
+<code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem  Size  Used Avail Use% Mounted on<br />/dev/sda2   443G   29G  391G   7% /
+<span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas<br />/dev/md0 31G   60M   28G   1% /media/raid6</span>
+</code>
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
@@ -387,13 +387,13 @@ cat /proc/mdstat
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>&lt;span style="color: #339966;">pi@overclock&lt;/span>:&lt;span style="color: #0000ff;">~&lt;/span>$ cat /proc/mdstat 
-&lt;span class="highlight">Personalities : [raid6] [raid5] [raid4] [linear] [multipath] [raid0] [raid1] [raid10] 
-md0 : active raid10 sdf[3] sde[2] sdd[1] sdc[0]&lt;/span>
-  209584128 blocks super 1.2 512K chunks &lt;span class="highlight">2 near-copies&lt;/span> [4/4] [UUUU]
-  &lt;span class="highlight">[===&gt;.................]  resync = 18.1% (37959424/209584128) finish=13.8min speed=206120K/sec&lt;/span>
+<code><span style="color: #339966;">pi@overclock</span>:<span style="color: #0000ff;">~</span>$ cat /proc/mdstat 
+<span class="highlight">Personalities : [raid6] [raid5] [raid4] [linear] [multipath] [raid0] [raid1] [raid10] 
+md0 : active raid10 sdf[3] sde[2] sdd[1] sdc[0]</span>
+  209584128 blocks super 1.2 512K chunks <span class="highlight">2 near-copies</span> [4/4] [UUUU]
+  <span class="highlight">[===&gt;.................]  resync = 18.1% (37959424/209584128) finish=13.8min speed=206120K/sec</span>
 
-unused devices: &lt;none&gt;</code><code>&lt;br /></code>```
+unused devices: <none&gt;</code><code><br /></code>
 
 Formateamos el sistema de ficheros de nuestro RAID:
 
@@ -421,10 +421,10 @@ df -h -x devtmpfs -x tmpfs
 
 En mi caso obtengo el siguiente resultado:
 
-<pre class="code-pre "><code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
-Filesystem  Size  Used Avail Use% Mounted on&lt;br />/dev/sda2   443G   29G  391G   7% /
-&lt;span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas&lt;br />/dev/md0 31G   60M   28G   1% /media/raid10&lt;/span>
-</code>```
+<code>pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem  Size  Used Avail Use% Mounted on<br />/dev/sda2   443G   29G  391G   7% /
+<span class="highlight">/dev/sdb1   3,6T  2.8T  702G  80% /media/rednas<br />/dev/md0 31G   60M   28G   1% /media/raid10</span>
+</code>
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
@@ -454,4 +454,4 @@ Reiniciamos el sistema:
 sudo reboot
 ```
    
-Y listo!
+> Y listo!
