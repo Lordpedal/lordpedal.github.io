@@ -27,7 +27,7 @@ La finalidad de un sistema RAID de discos consiste en crear un único volumen co
   </li>
 </ul>
 
-## Tipos RAID
+## Tipos Sistemas RAID
 
 Un sistema RAID se puede crear de las siguientes formas:
 
@@ -64,7 +64,7 @@ Un sistema RAID se puede crear de las siguientes formas:
   </li>
 </ul>
 
-## Tipos configuración RAID
+## Tipos Configuración RAID
 
 Las características de una matriz están determinadas por la configuración y la relación de los discos, conocida como su nivel RAID. Los niveles RAID más comunes son:
 
@@ -100,7 +100,7 @@ Las características de una matriz están determinadas por la configuración y l
 
 Para configurar sobre nuestra base GNU/Linux Debian, he querido añadir este <strong><code>mini-tutorial</code> <span style="color: #ff0000;">basado en un RAID de Software </span></strong>que sería extensible a otras arquitecturas.
 
-## Dependencias
+## Instalar dependencias
 
 Comenzamos satisfaciendo las dependencias que necesitaremos:
 
@@ -116,7 +116,7 @@ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 ```
 Ya preparado el entorno, voy a exponer por segmentos como podriamos configurar diferentes RAID´s.
 
-## RAID0
+## Configurar RAID0
 
 Comenzamos creando la estructura:
 
@@ -156,7 +156,7 @@ df -h -x devtmpfs -x tmpfs
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
-## RAID1
+## Configurar RAID1
 
 Comenzamos creando la estructura:
 
@@ -228,7 +228,7 @@ sudo mdadm --manage /dev/md0 --add /dev/sdc
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
-## RAID5
+## Configurar RAID5
 
 Comenzamos creando la estructura:
 
@@ -269,7 +269,7 @@ df -h -x devtmpfs -x tmpfs
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
-## RAID6
+## Configurar RAID6
 
 Comenzamos creando la estructura:
 
@@ -310,7 +310,7 @@ df -h -x devtmpfs -x tmpfs
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
-## RAID10
+## Configurar RAID10
 
 Comenzamos creando la estructura:
 
@@ -351,7 +351,7 @@ df -h -x devtmpfs -x tmpfs
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
-## Montar RAID: Arranque Sistema
+## Configurar RAID: Arranque Sistema
 
 Independiente del tipo de RAID que elijamos el montado del mismo al arranque del sistema es común y se realiza de la siguiente forma:
 
