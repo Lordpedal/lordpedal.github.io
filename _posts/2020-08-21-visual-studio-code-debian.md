@@ -17,9 +17,9 @@ toc_icon: "cog"
 
 <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">Visual Studio Code</a> es un editor IDE multi-plataforma desarrollado por Microsoft, gratuito y que sigue la filosofía de desarrollo del código abierto pero no es software libre.
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
-
 ## VSCode
+
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
 
 Abrimos una terminal de sistema y actualizamos repositorios
 
