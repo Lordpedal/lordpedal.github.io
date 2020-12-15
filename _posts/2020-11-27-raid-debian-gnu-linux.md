@@ -27,6 +27,8 @@ La finalidad de un sistema RAID de discos consiste en crear un único volumen co
   </li>
 </ul>
 
+## Tipos RAID
+
 Un sistema RAID se puede crear de las siguientes formas:
 
 <ul style="text-align: justify;">
@@ -62,6 +64,8 @@ Un sistema RAID se puede crear de las siguientes formas:
   </li>
 </ul>
 
+## Tipos configuración RAID
+
 Las características de una matriz están determinadas por la configuración y la relación de los discos, conocida como su nivel RAID. Los niveles RAID más comunes son:
 
 <ul style="text-align: justify;">
@@ -95,6 +99,8 @@ Las características de una matriz están determinadas por la configuración y l
 </ul>
 
 Para configurar sobre nuestra base GNU/Linux Debian, he querido añadir este <strong><code>mini-tutorial</code> <span style="color: #ff0000;">basado en un RAID de Software </span></strong>que sería extensible a otras arquitecturas.
+
+## Dependencias
 
 Comenzamos satisfaciendo las dependencias que necesitaremos:
 
@@ -166,7 +172,7 @@ store '/boot' on this device please ensure that
 your boot-loader understands md/v1.x metadata, or use
 --metadata=0.90
 mdadm: size set to 104792064K
-Continue creating array? <span class="highlight" style="color: #ff0000;">y</span>
+Continue creating array? y
 ```
 
 Comprobamos que ha sido creado correctamente:
