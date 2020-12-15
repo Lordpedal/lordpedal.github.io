@@ -18,13 +18,14 @@ La idea detrás de `Docker` es la de poder crear portables, para que las aplicac
 
 Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.
 
-### Docker CE: Instalación
+### Docker CE + docker-compose: Instalación
 
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
 
 ```bash
 sudo apt-get update && sudo apt-get -y install apt-transport-https ca-certificates \
-curl gnupg2 software-properties-common htop multitail locate net-tools open-vm-tools
+curl gnupg2 software-properties-common htop multitail locate net-tools \
+open-vm-tools python3-pip
 ```
 
 A continuación, vamos a agregar el repositorio de Docker y la clave GPC:
@@ -38,7 +39,14 @@ Volvemos a actualizar repositorios del sistema e instalamos Docker:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io && \
+sudo pip3 install docker-compose
+```
+
+Activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+
+```bash
+sudo usermod -aG docker $USER
 ```
 
 ### GRUB: Fix Docker
@@ -65,12 +73,6 @@ Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, ac
 
 ```bash
 sudo update-grub
-```
-
-Activamos permisos de ejecución a nuestro usuario del sistema evitando tener privilegios root:
-
-```bash
-sudo usermod -aG docker $USER
 ```
 
 Y reiniciamos el Servidor:
