@@ -18,51 +18,37 @@ toc_icon: "cog"
 
 ## VSCode
 
-Abrimos una terminal de sistema y seguimos los pasos:
-
-<li style="text-align: justify;">
-Actualizamos repositorios
-</li>
+Abrimos una terminal de sistema y actualizamos repositorios
 
 ```bash
 sudo apt-get update
 ```
 
-<li style="text-align: justify;">
 Instalamos las dependencias
-</li>
 
 ```bash
 sudo apt-get -y install software-properties-common apt-transport-https
 ```
 
-<li style="text-align: justify;">
 Descargamos la llave GPG del repositorio
-</li>
 
 ```bash
 sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 ```
 
-<li style="text-align: justify;">
 Instalamos el repositorio
-</li>
 
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 ```
 
-<li style="text-align: justify;">
 Actualizamos nuevamente repositorios
-</li>
 
 ```bash
 sudo apt-get update
 ```
 
-<li style="text-align: justify;">
 Instalamos VSCode
-</li>
 
 ```bash
 sudo apt-get -y install code
