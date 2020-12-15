@@ -17,6 +17,9 @@ toc_icon: "cog"
 
 <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">Visual Studio Code</a> es un editor IDE multi-plataforma desarrollado por Microsoft, gratuito y que sigue la filosofía de desarrollo del código abierto pero no es software libre.
 
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
+{: .full}
+
 ## VSCode
 
 Abrimos una terminal de sistema y actualizamos repositorios
@@ -58,6 +61,9 @@ sudo apt-get -y install code
 ## PlatformIO IDE
 
 La primera parte del proceso esta finalizada, ya solo nos queda saber que para poder compilar el firmware de Marlin es instalar el plugin <a href="https://platformio.org/" target="_blank" rel="noreferrer noopener">PlatformIO IDE</a>.
+
+![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/platformide.jpg)
+{: .full}
 
 <li style="text-align: justify;">
 Abrimos <strong>VSCode > Extension Manager</strong>
