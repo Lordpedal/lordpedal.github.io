@@ -76,4 +76,4 @@ Abrimos <strong>VSCode > Extension Manager</strong>
 <strong><code>Instalamos</code></strong> la extensión <strong>PlatformIO IDE</strong>
 </li>
 
-> Y listo
+> Y listo!
