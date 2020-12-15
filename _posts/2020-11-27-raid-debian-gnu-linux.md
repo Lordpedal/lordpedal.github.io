@@ -121,7 +121,8 @@ Ya preparado el entorno, voy a exponer por segmentos como podriamos configurar d
 Comenzamos creando la estructura:
 
 ```bash
-sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sdc /dev/sdd
+sudo mdadm --create --verbose /dev/md0 --level=0 \
+--raid-devices=2 /dev/sdc /dev/sdd
 ```
 
 Comprobamos que ha sido creado correctamente:
@@ -160,17 +161,18 @@ Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargad
 Comenzamos creando la estructura:
 
 ```bash
-sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdc /dev/sdd
+sudo mdadm --create --verbose /dev/md0 --level=1 \
+--raid-devices=2 /dev/sdc /dev/sdd
 ```
 
 Si los discos duros/memorias USB no llevan activa la casilla de arranque nos mostrara la siguiente advertencia a la que decimos de continuar <strong><span style="color: #ff0000;">(y)</span></strong>:
 
 ```bash
 mdadm: Note: this array has metadata at the start and
-may not be suitable as a boot device.  If you plan to
-store '/boot' on this device please ensure that
-your boot-loader understands md/v1.x metadata, or use
---metadata=0.90
+  may not be suitable as a boot device.  If you plan to
+  store '/boot' on this device please ensure that
+  your boot-loader understands md/v1.x metadata, or use
+  --metadata=0.90
 mdadm: size set to 104792064K
 Continue creating array? y
 ```
@@ -231,7 +233,8 @@ Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargad
 Comenzamos creando la estructura:
 
 ```bash
-sudo mdadm --create --verbose /dev/md0 --level=5 --raid-devices=3 /dev/sdc /dev/sdd /dev/sde
+sudo mdadm --create --verbose /dev/md0 --level=5 \
+--raid-devices=3 /dev/sdc /dev/sdd /dev/sde
 ```
 
 Comprobamos que ha sido creado correctamente:
@@ -271,7 +274,8 @@ Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargad
 Comenzamos creando la estructura:
 
 ```bash
-sudo mdadm --create --verbose /dev/md0 --level=6 --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+sudo mdadm --create --verbose /dev/md0 --level=6 \
+--raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
 ```
 
 Comprobamos que ha sido creado correctamente:
@@ -311,7 +315,8 @@ Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargad
 Comenzamos creando la estructura:
 
 ```bash
-sudo mdadm --create --verbose /dev/md0 --level=10 --layout=o3 --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+sudo mdadm --create --verbose /dev/md0 --level=10 \
+--layout=o3 --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
 ```
 
 Comprobamos que ha sido creado correctamente:
@@ -360,10 +365,10 @@ Posteriormente, regeneramos **`initramfs`** (sistema de archivos RAM inicial), p
 sudo update-initramfs -u
 ```
 
-Agregamos la información a nuestro <a href="https://blog.lordpedal.duckdns.org/fstab-debian-gnu-linux/" target="_blank" rel="noopener noreferrer">fstab</a>: `(número marcado en <strong><span style="color: #ff0000;">rojo</span></strong> cambiar según RAID seleccionado)`
+Agregamos la información a nuestro fstab: `(número marcado en <strong>negrita</strong> cambiar según RAID seleccionado)`
 
 ```bash
-echo '/dev/md0 /media/raid<strong><span style="color: #ff0000;"></span></strong> ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
+echo '/dev/md0 /media/raid**0** ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
 ```
 
 Reiniciamos el sistema:
