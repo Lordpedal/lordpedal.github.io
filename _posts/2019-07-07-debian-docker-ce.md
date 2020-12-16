@@ -465,6 +465,42 @@ pi@overclock:~$ ls $HOME/docker/wireguard/peer1/
 peer1.conf peer1.png privatekey-peer1 publickey-peer
 ```
 
-Tan solo nos faltaría abrir el puerto en nuestro **Router** de y tendríamos de forma sencilla acceso VPN a nuestra casa.
+Tan solo nos faltaría abrir el puerto en nuestro **Router** de y tendríamos de forma sencilla acceso `VPN` a nuestra casa.
+
+### Docker: [OctoPrint](https://hub.docker.com/r/octoprint/octoprint/){:target="_blank"}
+
+OctoPrint es una aplicación de controlador de impresión 3D de código abierto creada por Gina Häußge, desarrollada en Python.
+
+OctoPrint fue bifurcado del laminador de impresión Cura y está disponible bajo la misma licencia AGPL.
+
+Aunque en principio fue diseñado para ser ejecutado sobre una Raspberry Pi (**ARM**) es posible disfrutar de esta genial aplicación con otros medios.
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/octoprint
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Octoprint \
+	--device /dev/ttyACM0:/dev/ttyACM0
+	-p 5000:5000 \
+	-v $HOME/docker/octoprint:/home/octoprint \ 
+ 	--restart=always \
+	octoprint/octoprint
+ ```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `--device /dev/ttyACM0:/dev/ttyACM0` | Puerto comunicación, para poder identificarlo, en la terminal de nuestro sistema ejecutamos: `ls /dev | grep tty` y nos devolverá seguramente  **/dev/ttyACM0** o **/dev/ttyUSB0** |
+| `-p 5000:5000` | Puerto de acceso Web |
+| `-v $HOME/docker/octoprint:/home/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
+
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:5000` y completamos el asistente de configuración.
 
 >  Y listo!
