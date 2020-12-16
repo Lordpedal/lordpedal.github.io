@@ -410,4 +410,59 @@ https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
 
 Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
 
+### Docker: [Wireguard](https://hub.docker.com/r/linuxserver/wireguard/){:target="_blank"}
+
+Wireguard es un aplicación de software completamente gratuita que nos permitirá establecer túneles VPN.
+
+Este completo software incorpora todos los protocolos de comunicación y criptografía necesarios, para levantar una red privada virtual entre varios clientes y un servidor.
+
+WireGuard proporciona mejor rendimiento que el protocolo **IPsec** y que **OpenVPN** (tanto en velocidad como en latencia de las conexiones).
+
+```bash
+docker run -d \
+	--name=Wireguard \
+	--cap-add=NET_ADMIN \
+	--cap-add=SYS_MODULE \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-e SERVERURL=lordpedal.duckdns.org \
+	-e SERVERPORT=51820 \
+	-e PEERS=1 \
+	-e PEERDNS=1.1.1.1 \
+	-e INTERNAL_SUBNET=10.13.13.0 \
+	-p 51820:51820/udp \
+	-v $HOME/docker/wireguard:/config \
+	-v /lib/modules:/lib/modules \
+	--sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+	--restart=always \
+	ghcr.io/linuxserver/wireguard
+ ```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 51820/udp` | Puerto comunicación y protocolo
+| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-e SERVERURL=lordpedal.duckdns.org` | IP externa (nuestra DNS pública), si no tienes ninguna puedes usar la variable auto, entonces el contenedor tratata de determinar tu IP externa de forma automatica |
+| `-e SERVERPORT=51820` | Puerto externo para el host de Docker. Usado en el servidor |
+| -`e PEERS=1` | Numero de clientes VPN a crear.  Puedes usar el valor que necesites |
+| `-e PEERDNS=1.1.1.1` | Servidor de DNS a usar, en el caso he configurado el de Cloudflare `1.1.1.1`, si el valor especificado es auto, entonces se usaran las DNS de CoreDNS |
+| `-e INTERNAL_SUBNET=10.13.13.0` | Rango de subred interna para la comunicación entre el servidor y los clientes |
+| `-v $HOME/docker/wireguard:/config` | Carpeta donde alojaremos los clientes (peers) creados |
+| `-v /lib/modules:/lib/modules` | Mapea los modulos de nuestro sistema al contenedor |
+| `--sysctl="...` | Requerido para el modo cliente. Si lo agregamos a sysctl.conf del sistema no sería necesario ejecutar esta orden |
+
+Tras haber lanzado el servicio, navegamos a la carpeta donde se han creado los clientes de la *VPN*, si te fijas entre los ficheros dispones de uno de imagen que es un código [QR](https://es.wikipedia.org/wiki/C%C3%B3digo_QR){:target="_blank"}. Para facilitar por ejemplo la integración con la **App** de tu dispositivos móvil.
+
+```bash
+pi@overclock:~$ ls $HOME/docker/wireguard/peer1/
+peer1.conf peer1.png privatekey-peer1 publickey-peer
+```
+
+Tan solo nos faltaría abrir el puerto en nuestro **Router** de y tendríamos de forma sencilla acceso VPN a nuestra casa.
+
 >  Y listo!
