@@ -114,6 +114,24 @@ Y posteriormente identificando los discos duros/memorias USB:
 ```bash
 lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 ```
+
+En mi caso obtengo los siguientes datos:
+
+```bash
+pi@overclock:~$ lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
+NAME     SIZE FSTYPE TYPE MOUNTPOINT
+sdc       16G        disk
+sdd       16G        disk
+sde       16G        disk
+sdf       16G        disk
+sda      465G        disk 
+├─sda1     1K        part /
+├─sda2   450G ext4   part /
+└─sda5    15G swap   part
+sdb      3,7T        disk 
+└─sdb1   3,7T ext4   part /media/rednas
+```
+
 Ya preparado el entorno, voy a exponer por segmentos como podriamos configurar diferentes RAID´s.
 
 ## Configurar RAID0
@@ -130,6 +148,18 @@ Comprobamos que ha sido creado correctamente:
 ```bash
 cat /proc/mdstat
 ```
+
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ cat /proc/mdstat 
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
+md0 : active raid0 sdd[1] sdc[0]
+      209584128 blocks super 1.2 512k chunks
+
+unused devices: <none>
+```
+
 Formateamos el sistema de ficheros de nuestro RAID:
 
 ```bash
@@ -154,6 +184,16 @@ Comprobamos el espacio disponible:
 df -h -x devtmpfs -x tmpfs
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       443G   29G  391G   7% /
+/dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
+/dev/md0         31G   60M   28G   1% /media/raid0
+```
+
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
 ## Configurar RAID1
@@ -169,10 +209,10 @@ Si los discos duros/memorias USB no llevan activa la casilla de arranque nos mos
 
 ```bash
 mdadm: Note: this array has metadata at the start and
-  may not be suitable as a boot device.  If you plan to
-  store '/boot' on this device please ensure that
-  your boot-loader understands md/v1.x metadata, or use
-  --metadata=0.90
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
 mdadm: size set to 104792064K
 Continue creating array? y
 ```
@@ -183,6 +223,18 @@ Comprobamos que ha sido creado correctamente:
 cat /proc/mdstat
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ cat /proc/mdstat
+Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10] 
+md0 : active raid1 sdd[1] sdc[0]
+      104792064 blocks super 1.2 [2/2] [UU]
+      [====>................]  resync = 20.2% (21233216/104792064) finish=6.9min speed=199507K/sec
+
+unused devices: <none>
+```
+  
 Formateamos el sistema de ficheros de nuestro RAID:
 
 ```bash
@@ -205,6 +257,16 @@ Comprobamos el espacio disponible:
 
 ```bash
 df -h -x devtmpfs -x tmpfs
+```
+
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       443G   29G  391G   7% /
+/dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
+/dev/md0         16G   60M   14G   1% /media/raid1
 ```
 
 Un detalle a tener en cuenta sobre este tipo de RAID como explicamos al principio, si un disco duro se avería, este se podría sacar de servicio y meter otro en sustitución para volver a tener backup. Esto lo podríamos comprobar con el siguiente comando:
@@ -243,6 +305,17 @@ Comprobamos que ha sido creado correctamente:
 cat /proc/mdstat
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ cat /proc/mdstat 
+Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] 
+md0 : active raid5 sde[3] sdd[1] sdc[0]
+      209584128 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
+
+unused devices: <none>
+```
+  
 Formateamos el sistema de ficheros de nuestro RAID:
 
 ```bash
@@ -267,6 +340,16 @@ Comprobamos el espacio disponible:
 df -h -x devtmpfs -x tmpfs
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       443G   29G  391G   7% /
+/dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
+/dev/md0         31G   60M   28G   1% /media/raid5
+```
+
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
 
 ## Configurar RAID6
@@ -284,6 +367,18 @@ Comprobamos que ha sido creado correctamente:
 cat /proc/mdstat
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ cat /proc/mdstat 
+Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10] 
+md0 : active raid6 sdf[3] sde[2] sdd[1] sdc[0]
+      209584128 blocks super 1.2 level 6, 512k chunk, algorithm 2 [4/4] [UUUU]
+      [===>.................]  recovery = 0.6% (668572/104792064) finish=10.3min speed=200808K/sec
+
+unused devices: <none>
+```
+  
 Formateamos el sistema de ficheros de nuestro RAID:
 
 ```bash
@@ -308,6 +403,16 @@ Comprobamos el espacio disponible:
 df -h -x devtmpfs -x tmpfs
 ```
 
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       443G   29G  391G   7% /
+/dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
+/dev/md0         31G   60M   28G   1% /media/raid6
+```
+
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
  
 ## Configurar RAID10
@@ -323,6 +428,18 @@ Comprobamos que ha sido creado correctamente:
 
 ```bash
 cat /proc/mdstat
+```
+
+En mi caso obtengo elsiguiente resultado:
+
+```bash
+pi@overclock:~$ cat /proc/mdstat 
+Personalities : [raid6] [raid5] [raid4] [linear] [multipath] [raid0] [raid1] [raid10] 
+md0 : active raid10 sdf[3] sde[2] sdd[1] sdc[0]
+      209584128 blocks super 1.2 512K chunks 2 near-copies [4/4] [UUUU]
+      [===>.................]  resync = 18.1% (37959424/209584128) finish=13.8min speed=206120K/sec
+
+unused devices: <none>
 ```
 
 Formateamos el sistema de ficheros de nuestro RAID:
@@ -347,6 +464,16 @@ Comprobamos el espacio disponible:
 
 ```bash
 df -h -x devtmpfs -x tmpfs
+```
+
+En mi caso obtengo el siguiente resultado:
+
+```bash
+pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       443G   29G  391G   7% /
+/dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
+/dev/md0         31G   60M   28G   1% /media/raid10
 ```
 
 Solamente faltaría añadirlo a nuestro arranque del sistema para que sea cargado tras reiniciar el sistema de forma automática.
