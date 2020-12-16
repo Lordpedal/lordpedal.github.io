@@ -9,6 +9,10 @@ header:
   actions:
     - label: "Canal Telegram"
       url: "https://telegram.me/Lordpedal_RSS"
+toc: true
+toc_sticky: true
+toc_label: "Secciones"
+toc_icon: "cog"
 ---
 
 Hola! **Bienvenid@** a este pequeño espacio donde me parecio interesante el poder **publicar y conservar** a modo de archivo `pequeños trucos, consejos y/o tutoriales` sobre tematica inicialmente enfocada al mundo `GNU/Linux`.
