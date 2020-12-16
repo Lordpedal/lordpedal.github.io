@@ -8,5 +8,5 @@ tags:
   - Docker
   - Debian
   - GNU/Linux
-link: https://lordpedal.github.io/gnu/linux/debian-docker-ce/#docker-p3dns
+link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns
 ---
