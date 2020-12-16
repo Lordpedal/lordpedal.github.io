@@ -18,6 +18,45 @@ La idea detrás de `Docker` es la de poder crear portables, para que las aplicac
 
 Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.
 
+### Docker Hub: Fix GNU/Linux
+
+[Docker Hub](https://hub.docker.com/){:target="_blank"} recientemente actualizo su política de cuentas y accesos, limitando especialmente la creación de servicios Docker sin cuenta de usuario y nos podríamos encontrar con este fallo:
+
+```bash
+docker: Error response from daemon: toomanyrequests: You have reached your pull rate limit. 
+You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit.
+See 'docker run --help'.
+```
+
+Por lo que si no queremos tener excesivas limitaciones, crearemos una cuenta [FREE](https://www.docker.com/pricing){:target="_blank"}, con la cual tendremos las siguientes ventajas:
+
+- Repositorios públicos ilimitados
+- Gestión de usuarios con controles de acceso basados en roles
+- 1 equipo y 3 miembros del equipo
+- 200 solicitudes de imágenes de contenedores cada 6 horas
+- Autenticación de dos factores
+
+Proceso de configuración:
+
+1º Creamos una cuenta: Elegimos un usuario, vinculamos un correo electrónico y definimos una contraseña de acceso
+2º Dentro del servicio, hacemos clic en nuestra configuración de cuenta
+3º Hacemos clic en Seguridad y proporcionamos un nuevo Token de acceso
+4º Asignamos un nombre al acceso Token y lo creamos
+5º Anotamos el Token generado y cerramos la web **(recordar que el Token no podremos volver a visionarlo)**
+
+Sobre la terminal de nuestro sistema GNU/Linux en el que queremos configurar la cuenta de Docker, lanzamos la siguiente estructura de comando en la terminal:  
+
+```bash
+docker login -u usuario -p token
+```
+
+> Muestro ejemplo de configuración:
+
+```bash
+docker login -u lordpedal \
+-p d5587907-4519-4519-4519-d55879074519
+```
+
 ### Docker CE + docker-compose: Instalación AMD64
 
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
