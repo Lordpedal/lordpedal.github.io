@@ -500,3 +500,5 @@ sudo chown pi:pi /home/pi/Lordpedal.ovpn
 ```
 Ahora ya podremos pasar el fichero OVPN a nuestro Smartphone/Tablet/Pendrive/... para poder conectarnos en remoto previa configuración router.
 Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo** `UDP` si has seguido la configuración que detallo paso a paso.
+
+> Pendiente de seguir actualizando...
