@@ -18,18 +18,18 @@ toc_icon: "cog"
 Este espacio web está comprometido a proteger la seguridad y privacidad de sus lectores.
 La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
 
-### POLÍTICA DE COOKIES 🇪🇺
+### 🇪🇺 POLÍTICA DE COOKIES
 
 Este web utiliza cookies propias y puede utilizar cookies de terceros. Los motivos por los cuales utiliza cookies son básicamente dos:
 
 1.  Mejorar la experiencia de navegación del usuario.
 2.  Cumplir la normativa de la Ley [GDPR](https://www.eugdpr.org/){:target="_blank"}
 
-### ¿QUÉ ES UNA COOKIE? 🍪
+### 🍪 ¿QUÉ ES UNA COOKIE?
 
 Una cookie es un pequeño fichero de texto que se almacena en el navegador cada vez que visitamos una página web. La utilidad de esta cookie es almacenar información de la visita para que la próxima vez que se visite la misma web se pueda ofrecer el contenido adaptado a las necesidades y preferencias del visitante. En ningún caso una cookie contendrá información sensible como por ejemplo datos bancarios, números de teléfono, etc.
 
-### COOKIES UTILIZADAS EN EL BLOG 📓
+### 📓 COOKIES UTILIZADAS EN EL BLOG
 
 Esta web actualmente está utilizando las siguientes cookies con los siguientes fines:
 
@@ -41,7 +41,7 @@ Cookies de sesión: Se utilizan cookies de sesión para combatir el spam y asegu
 
 Usamos las cookies de terceros para asignar las licencias `Creative Commons`, [más info.](https://creativecommons.org/licenses/by/4.0/legalcode){:target="_blank"}
 
-### DESACTIVACIÓN O ELIMINACIÓN DE LAS COOKIES 🔥
+### 🔥 DESACTIVACIÓN O ELIMINACIÓN DE LAS COOKIES
 
 En el caso que no este conforme con las cookies las puede desactivar. La gran mayoría de navegadores se pueden configurar para que no acepten el uso de cookies.
 
@@ -53,7 +53,7 @@ En el caso que no este conforme con las cookies las puede desactivar. La gran ma
 
 **Nota: Al desactivar las cookies es posible que la experiencia de navegación no sea la adecuada por parte de los lectores.**
 
-### NOTAS ADICIONALES 📝
+### 📝 NOTAS ADICIONALES
 
 1.  Ni esta web ni sus representantes legales se hacen responsables ni del contenido ni de la veracidad de las políticas de privacidad que puedan tener los terceros mencionados en esta política de cookies.
 2.  Los navegadores web son las herramientas encargadas de almacenar las cookies y desde este lugar debe efectuar su derecho a la eliminación o desactivación de las mismas. Ni esta web ni sus representantes legales pueden garantizar la correcta o incorrecta manipulación de las cookies por parte de los mencionados navegadores.
