@@ -49,7 +49,7 @@ Activamos permisos de ejecución a nuestro usuario del sistema evitando tener qu
 sudo usermod -aG docker $USER
 ```
 
-### Docker CE + docker-compose: Instalación SBC
+### Docker CE + docker-compose: Instalación ARM
 
 Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
 
