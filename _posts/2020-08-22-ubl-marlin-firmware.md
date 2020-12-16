@@ -15,9 +15,9 @@ toc_icon: "cog"
 
 En esta entrada vamos a realizar una rápida comparativa entre los dos mejores sistemas actuales de nivelación con sensor:
 
-**Bilinear Leveling**: Sondea una cuadrícula y crea una malla para representar imperfecciones en la cama, dicha malla se almacena en la **RAM** no en la EEPROM.
+- **Bilinear Leveling**: Sondea una cuadrícula y crea una malla para representar imperfecciones en la cama, dicha malla se almacena en la **RAM** no en la EEPROM.
 
-**UBL (Unified Bed Leveling)**: Combina la nivelación Bilinear y el guardado de malla. Ademas agrega varias herramientas, como la edición matricial, para afinar los resultados del sondeo. Otra gran característica es que puede guardar múltiples mallas en la **EEPROM**.
+- **UBL (Unified Bed Leveling)**: Combina la nivelación Bilinear y el guardado de malla. Ademas agrega varias herramientas, como la edición matricial, para afinar los resultados del sondeo. Otra gran característica es que puede guardar múltiples mallas en la **EEPROM**.
 
 El nivelado basado en Bilinear lo considero obsoleto pudiendo disponer de UBL.
 
