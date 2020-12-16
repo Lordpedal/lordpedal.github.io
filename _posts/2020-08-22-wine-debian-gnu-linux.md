@@ -1,16 +1,12 @@
 ---
 title:  "Wine 5: Debian GNU/Linux"
-date:   2019-08-22 10:00:00 -0300
+date:   2020-08-22 10:00:00 -0300
 last_modified_at: 2020-12-16T10:15:00-05:00
 categories:
   - GNU/Linux
 tags:
   - GNU/Linux
   - Debian
-toc: true
-toc_sticky: true
-toc_label: "Secciones"
-toc_icon: "cog"
 ---
 
 [Wine](https://www.winehq.org/){:target="_blank"} te permite correr software de Windows en otros sistemas operativos.
