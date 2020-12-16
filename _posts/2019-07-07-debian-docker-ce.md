@@ -298,120 +298,6 @@ Los parámetros son mínimos pero vamos a detallarlos:
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Watchtower` |
 
-### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
-
-Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
-
-Es un docker que integra las siguientes herramientas:
-
-- [Pi-Hole](https://pi-hole.net/){:target="_blank"}: Conjunto de aplicaciones de entornos GNU/Linux, que van a darnos lugar a proveer una capa extra de seguridad en la web: **bloqueo de publicidad y entornos maliciosos de la red**.
-- [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
-- [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
-
-Primeramente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install curl && \
-mkdir -p $HOME/docker && \
-cd $HOME/docker
-```
-Clonamos el repositorio de P3DNS alojado en Github:
-
-```bash
-git clone https://github.com/Lordpedal/p3dns
-```
-
-Accedemos a la carpeta, le damos permisos de ejecución al script de configuración y lo ejecutamos:
-
-```bash
-cd p3dns && chmod +x configurar.sh && ./configurar.sh
-```
-
-El script nos va a preguntar por el puerto web que usara para su gestión y posteriormente la contraseña de acceso admin, dejo ejemplo:
-
-```bash
-pi@overclock:~/docker/p3dns$ ./configurar.sh
-Configurando Docker: Pi-hole
-Puerto web para gestion Pi-hole (recomendado 83): 83
-Contraseña web para gestion Pi-hole (por defecto lordpedal): lordpedal
-P3DNS: Configurado
-```
-
-Una vez configurado, lo levantamos para ser creado y ejecutado:
-
-```bash
-docker-compose up -d
-```
-
-Ahora para activar nuestro servidor de DNS, asignamos nuestro localhost como servidor de resolución DNS y protegemos el fichero contra escritura:
-
-```bash
-sudo mv /etc/resolv.conf /etc/resolv.conf.p3 && \
-echo "nameserver 127.0.0.1" | sudo tee -a /etc/resolv.conf && \
-sudo chattr +i /etc/resolv.conf
-```
-
-Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de **http://IP_Servidor:83** en mi caso.
-
-**Opcionalmente** dejo las listas de anti-publicidad que uso en Pi-Hole por si os interesan:
-
-```bash
-https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-https://mirror1.malwaredomains.com/files/justdomains
-http://sysctl.org/cameleon/hosts
-https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
-https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
-https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
-https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt
-https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
-https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
-https://zerodot1.gitlab.io/CoinBlockerLists/list.txt
-https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt
-https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt
-https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
-https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
-https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
-https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
-https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt
-https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt
-https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt
-https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt
-https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/adaway.org/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/adblock-nocoin-list/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/adguard-simplified/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/anudeepnd-adservers/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-ad/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-malvertising/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-malware/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-tracking/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/easylist/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/easyprivacy/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/eth-phishing-detect/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.2o7net/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.dead/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.risk/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.spam/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/kadhosts/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomainlist.com/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomains.com-immortaldomains/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomains.com-justdomains/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/matomo.org-spammers/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/mitchellkrogza-badd-boyz-hosts/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/pgl.yoyo.org/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/ransomwaretracker.abuse.ch/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/someonewhocares.org/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/spam404.com/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/stevenblack/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/winhelp2002.mvps.org/list.txt
-https://raw.githubusercontent.com/hectorm/hmirror/master/data/zerodot1-coinblockerlists-browser/list.txt
-https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
-```
-
-Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
-
 ### Docker: [Wireguard](https://hub.docker.com/r/linuxserver/wireguard/){:target="_blank"}
 
 Wireguard es un aplicación de software completamente gratuita que nos permitirá establecer túneles VPN.
@@ -587,5 +473,119 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 
 Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
+
+### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
+
+Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
+
+Es un docker que integra las siguientes herramientas:
+
+- [Pi-Hole](https://pi-hole.net/){:target="_blank"}: Conjunto de aplicaciones de entornos GNU/Linux, que van a darnos lugar a proveer una capa extra de seguridad en la web: **bloqueo de publicidad y entornos maliciosos de la red**.
+- [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
+- [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
+
+Primeramente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install curl && \
+mkdir -p $HOME/docker && \
+cd $HOME/docker
+```
+Clonamos el repositorio de P3DNS alojado en Github:
+
+```bash
+git clone https://github.com/Lordpedal/p3dns
+```
+
+Accedemos a la carpeta, le damos permisos de ejecución al script de configuración y lo ejecutamos:
+
+```bash
+cd p3dns && chmod +x configurar.sh && ./configurar.sh
+```
+
+El script nos va a preguntar por el puerto web que usara para su gestión y posteriormente la contraseña de acceso admin, dejo ejemplo:
+
+```bash
+pi@overclock:~/docker/p3dns$ ./configurar.sh
+Configurando Docker: Pi-hole
+Puerto web para gestion Pi-hole (recomendado 83): 83
+Contraseña web para gestion Pi-hole (por defecto lordpedal): lordpedal
+P3DNS: Configurado
+```
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Ahora para activar nuestro servidor de DNS, asignamos nuestro localhost como servidor de resolución DNS y protegemos el fichero contra escritura:
+
+```bash
+sudo mv /etc/resolv.conf /etc/resolv.conf.p3 && \
+echo "nameserver 127.0.0.1" | sudo tee -a /etc/resolv.conf && \
+sudo chattr +i /etc/resolv.conf
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de **http://IP_Servidor:83** en mi caso.
+
+**Opcionalmente** dejo las listas de anti-publicidad que uso en Pi-Hole por si os interesan:
+
+```bash
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://mirror1.malwaredomains.com/files/justdomains
+http://sysctl.org/cameleon/hosts
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
+https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
+https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt
+https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
+https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt
+https://zerodot1.gitlab.io/CoinBlockerLists/list.txt
+https://zerodot1.gitlab.io/CoinBlockerLists/list_browser.txt
+https://zerodot1.gitlab.io/CoinBlockerLists/list_optional.txt
+https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
+https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
+https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
+https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt
+https://ransomwaretracker.abuse.ch/downloads/CW_C2_DOMBL.txt
+https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt
+https://ransomwaretracker.abuse.ch/downloads/TC_C2_DOMBL.txt
+https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/adaway.org/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/adblock-nocoin-list/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/adguard-simplified/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/anudeepnd-adservers/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-ad/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-malvertising/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-malware/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/disconnect.me-tracking/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/easylist/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/easyprivacy/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/eth-phishing-detect/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.2o7net/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.dead/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.risk/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/fademind-add.spam/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/kadhosts/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomainlist.com/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomains.com-immortaldomains/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/malwaredomains.com-justdomains/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/matomo.org-spammers/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/mitchellkrogza-badd-boyz-hosts/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/pgl.yoyo.org/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/ransomwaretracker.abuse.ch/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/someonewhocares.org/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/spam404.com/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/stevenblack/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/winhelp2002.mvps.org/list.txt
+https://raw.githubusercontent.com/hectorm/hmirror/master/data/zerodot1-coinblockerlists-browser/list.txt
+https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
+```
+
+Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
 
 >  Y listo!
