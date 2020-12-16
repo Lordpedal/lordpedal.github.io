@@ -28,9 +28,9 @@ Un espacio creativo y personalizado donde crear manualidades en la red.</p>
 
 <p>En los siguientes bloques intentare detallarlas, aunque <code class="highlighter-rouge">algunas ya esten obsoletas</code> les guardo mi respeto y admiración.</p>
 <ul>
-<li id="-lenguajes-de-programación-y-scripting"><i class="fa fa-code" aria-hidden="true"></i> Lenguajes de programación y scripting</li>
+<li id="-lenguajes-de-programación-y-scripting">Lenguajes de programación y scripting</li>
 </ul>
-<p><code>Python • Powershell • Bash • ASM • HTML5 <em>…</em></code></p>
+<p><code>Python • Powershell • Bash • HTML5 • ASM <em>…</em></code></p>
 <ul>
 <li id="-sistemas-operativos">Sistemas Operativos</li>
 </ul>
