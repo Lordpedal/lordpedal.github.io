@@ -30,26 +30,26 @@ Un espacio creativo y personalizado donde crear manualidades en la red.</p>
 
 ## 🗺️ El camino del saber
 
-<p>En los siguientes bloques intentare detallarlas, aunque <code class="highlighter-rouge">algunas ya esten obsoletas</code> les guardo mi respeto y admiración.</p>
-<ul>
-<li id="-lenguajes-de-programación-y-scripting">Lenguajes de programación y scripting</li>
-</ul>
-<p><code>Python • Powershell • Bash • HTML5 • ASM <em>…</em></code></p>
-<ul>
-<li id="-sistemas-operativos">Sistemas Operativos</li>
-</ul>
-<p><code>MS-DOS 3.2 &lt;-&gt; Powershell • Microsoft Windows 3.11 &lt;-&gt; 10 • Apple OSX 10.4 &lt;-&gt; 10.14 • Debian 6.0 &lt;-&gt; 10 • Archlinux <em>…</em></code></p>
-<ul>
-<li id="-cloud">Cloud</li>
-</ul>
-<p><code>Nextcloud • Owncloud • Gitlab • Github <em>…</em></code></p>
-<ul>
-<li>Funciones, características y productos del servidor</li>
-</ul>
-<p><code>Servidor ficheros <em>(NFS, SMB &amp; FTP)</em> • Servidor Web <em>(Apache, Nginx &amp; Lighttpd)</em> • Bases de datos <em>(Básico: MySQL, PostgresSQL &amp; Oracle 10g)</em> • Backup &amp; Restauración <em>(Rsync, Clonezilla &amp; Norton Ghost)</em> • Hypervisor <em>(KVM, VMWare ESX &amp; HyperV)</em> • Virtualización de Software <em>(Qemu, LXC, Docker, VMware &amp; VBox)</em> • Servidores de Terminal <em>(Bash, Microsoft, Citrix XenApp)</em> • Monitoreo <em>(Cacti &amp; Zabbix) </em><em>…</em></code></p>
-<ul>
-<li id="-general">General</li>
-</ul>
-<p><code>Placas SBC • Gadgets • IoT • Ingeniería inversa <em>…</em></code></p>
+En los siguientes bloques intentare detallarlas, aunque `algunas ya esten obsoletas` les guardo mi respeto y admiración.
+
+- Lenguajes de programación y scripting
+
+`Python • Powershell • Bash • HTML5 • ASM …`
+
+- Sistemas Operativos
+
+`MS-DOS 3.2 a Powershell • Microsoft Windows 3.11 a 10 • Apple OSX 10.4 a 10.14 • Debian 6.0 a 10 • Archlinux ...`
+
+- Cloud
+
+`Nextcloud • Owncloud • Gitlab • Github ...`
+
+- Funciones, características y productos del servidor
+
+`Servidor ficheros <em>(NFS, SMB & FTP) • Servidor Web (Apache, Nginx & Lighttpd) • Bases de datos (Básico: MySQL, PostgresSQL & Oracle 10g) • Backup & Restauración (Rsync, Clonezilla & Norton Ghost) • Hypervisor (KVM, VMWare ESX & HyperV) • Virtualización de Software (Qemu, LXC, Docker, VMware & VBox) • Servidores de Terminal (Bash, Microsoft, Citrix XenApp) • Monitoreo (Cacti & Zabbix) ...`
+
+- General
+
+`Placas SBC • Gadgets • IoT • Ingeniería inversa ...`
 
 Un cordial saludo
