@@ -503,4 +503,48 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:5000` y completamos el asistente de configuración.
 
+### Docker: [PrivateBin](https://hub.docker.com/r/privatebin/nginx-fpm-alpine/){:target="_blank"}
+
+PrivateBin es un `«pastebin»` en línea minimalista de código abierto, donde el servidor no tiene ningún conocimiento de los datos guardados. 
+
+Los datos son **cifrados/descifrados en el navegador usando un encriptado 256 bits AES**.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/privatebin
+```
+
+Seguidamente descargamos el fichero de configuración del servicio:
+
+```bash
+curl -o $HOME/docker/privatebin/config.php \
+https://raw.githubusercontent.com/PrivateBin/PrivateBin/master/cfg/conf.sample.php
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=PrivateBin \
+	-e TZ=Europe/Madrid \
+	-p 8080:8080 \
+	-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro \
+	--read-only \
+	--restart=always \
+	privatebin/nginx-fpm-alpine
+ ```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-p 8080:8080` | Puerto de acceso Web `8080` |
+| `-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
+| `--read-only` | Protege el servicio en modo lectura |
+
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
+
 >  Y listo!
