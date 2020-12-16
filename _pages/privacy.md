@@ -25,11 +25,11 @@ Este web utiliza cookies propias y puede utilizar cookies de terceros. Los motiv
 1.  Mejorar la experiencia de navegación del usuario.
 2.  Cumplir la normativa de la Ley [GDPR](https://www.eugdpr.org/){:target="_blank"}
 
-### 🍪 ¿QUÉ ES UNA COOKIE?
+### ¿QUÉ ES UNA COOKIE 🍪?
 
 Una cookie es un pequeño fichero de texto que se almacena en el navegador cada vez que visitamos una página web. La utilidad de esta cookie es almacenar información de la visita para que la próxima vez que se visite la misma web se pueda ofrecer el contenido adaptado a las necesidades y preferencias del visitante. En ningún caso una cookie contendrá información sensible como por ejemplo datos bancarios, números de teléfono, etc.
 
-### 📓 COOKIES UTILIZADAS EN EL BLOG
+### COOKIES UTILIZADAS EN EL BLOG
 
 Esta web actualmente está utilizando las siguientes cookies con los siguientes fines:
 
