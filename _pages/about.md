@@ -38,18 +38,18 @@ En los siguientes bloques intentare detallarlas, aunque `algunas ya esten obsole
 
 - Sistemas Operativos
 
-`MS-DOS 3.2 a Powershell • Microsoft Windows 3.11 a 10 • Apple OSX 10.4 a 10.14 • Debian 6.0 a 10 • Archlinux ...`
+`MS-DOS 3.2 a Powershell • Microsoft Windows 3.11 a 10 • Apple OSX 10.4 a 10.14 • Debian 6.0 a 10 • Archlinux …`
 
 - Cloud
 
-`Nextcloud • Owncloud • Gitlab • Github ...`
+`Nextcloud • Gitlab • Github …`
 
 - Funciones, características y productos del servidor
 
-`Servidor ficheros <em>(NFS, SMB & FTP) • Servidor Web (Apache, Nginx & Lighttpd) • Bases de datos (Básico: MySQL, PostgresSQL & Oracle 10g) • Backup & Restauración (Rsync, Clonezilla & Norton Ghost) • Hypervisor (KVM, VMWare ESX & HyperV) • Virtualización de Software (Qemu, LXC, Docker, VMware & VBox) • Servidores de Terminal (Bash, Microsoft, Citrix XenApp) • Monitoreo (Cacti & Zabbix) ...`
+`Servidor ficheros <em>(NFS, SMB & FTP) • Servidor Web (Apache, Nginx & Lighttpd) • Bases de datos (Básico: MySQL, PostgresSQL & Oracle 10g) • Backup & Restauración (Rsync, Clonezilla & Norton Ghost) • Hypervisor (KVM, VMWare ESX & HyperV) • Software de Virtualización (Qemu, LXC, Docker, VMware & VBox) • Servidores de Terminal (Bash, Microsoft & Citrix XenApp) • Monitoreo (Cacti & Zabbix) …`
 
 - General
 
-`Placas SBC • Gadgets • IoT • Ingeniería inversa ...`
+`Placas SBC • Gadgets • IoT • Ingeniería inversa …`
 
 Un cordial saludo
