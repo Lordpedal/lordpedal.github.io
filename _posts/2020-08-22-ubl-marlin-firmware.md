@@ -90,7 +90,7 @@ Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para el
 #define BLTOUCH_DELAY 375
 ```
 
-<span style="color:red">**Nota**</span>📝: **Solamente si el BLTouch que tienes es v3.0 o superior** es necesario activar la siguiente opción `(configuration_adv.h)`:
+📝 <span style="color:red">**Nota:**</span> **Solamente si el BLTouch que tienes es v3.0 o superior** es necesario activar la siguiente opción `(configuration_adv.h)`:
 
 ```bash
 #define BLTOUCH_SET_5V_MODE
