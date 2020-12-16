@@ -474,6 +474,126 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
 
+### Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
+
+Gossa es un microservicio que nos permite crear un servidor web «**colaborativo**» en línea minimalista de código abierto, desarrollado en lenguaje Go.
+
+Desde la interfaz de usuario podremos entre otros:
+
+- Navegar entre archivos/directorios
+- Arrastrar y soltar para subir archivos/directorios
+- Interactuar con archivos/carpeta: moverlos, renombrarlos, borrarlos
+- Visualizar imágenes
+- Reproducción video en streaming
+- Editor de texto simple
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/gossa
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Gossa \
+	-v $HOME/docker/gossa:/shared \
+	-p 8001:8001 \
+	--restart=always \
+	pldubouilh/gossa
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-v $HOME/docker/gossa:/shared` | Ruta donde se almacena el contenido |
+| `-p 8001:8001` | Puerto de acceso Web `8001` |
+
+Tras haber lanzado el servicio, tendriamos el servicio disponible en la dirección `http://ip_servidor:8001`.
+
+| Teclas combinación | Acción |
+| ------ | ------ |
+| Ctrl/Meta + H | Muestra esta ayuda |
+| Flechas dirección/Intro | Navega por ficheros/carpetas browse files/folders |
+| Ctrl/Meta + C | Copia la URL al portapapeles |
+| Ctrl/Meta + E | Renombra fichero/carpeta |
+| Ctrl/Meta + Del | Borra fichero/carpeta |
+| Ctrl/Meta + U | Subir nuevo fichero/carpeta |
+| Ctrl/Meta + M | Crear un nuevo directorio |
+| Ctrl/Meta + X | Corta la ruta seleccionada |
+| Ctrl/Meta + V | Pegar la ruta prevamente cortada |
+| Ctrl/Meta + Enter | Descargar fichero seleccionado |
+| Click icono nueva carperta | Crear una nueva carpeta |
+| Click icono editor textos | Editor fichero texto |
+| Click icono fichero | Renombrar elemento |
+| Doble click icono fichero | Borrar elemento |
+| Arrastrar y soltar sobre UI | Mover elemento |
+| Arrastrar y soltar contenido externo | Subir ficheros/carpetas |
+| Cualquier otra letra 	Búsqueda |
+
+### Docker: [Nginx](https://hub.docker.com/r/amd64/nginx/){:target="_blank"}
+
+Nginx es un servidor web de código abierto que, desde su éxito inicial como servidor web, ahora también es usado como proxy inverso, cache de HTTP, y balanceador de carga.
+
+Entre sus características podriamos destacar:
+
+- Servidor de archivos estáticos, índices y autoindexado.
+- Proxy inverso con opciones de caché.
+- Balanceo de carga.
+- Tolerancia a fallos.
+- Soporte de HTTP y HTTP2 sobre SSL.
+- Soporte para FastCGI con opciones de caché.
+- Servidores virtuales basados en nombre y/o en dirección IP.
+- Streaming de archivos FLV y MP4.
+- Soporte para autenticación.
+- Compatible con IPv6
+- Soporte para protocolo SPDY
+- Compresión gzip.
+- Habilitado para soportar más de 10.000 conexiones simultáneas.
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/nginx
+```
+
+Ahora vamos a crear un ejemplo básico de web:
+
+```bash
+cat << EOF > $HOME/docker/nginx/index.html
+<HTML>
+<HEAD>
+<TITLE>Hola mundo</TITLE>
+</HEAD>
+<BODY>
+<P>Hola Mundo</P>
+</BODY>
+</HTML>
+EOF
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Nginx \
+	-v $HOME/docker/nginx:/usr/share/nginx/html:ro \
+	-p 8002:80 \
+	--restart=always \
+	amd64/nginx:alpine
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-v $HOME/docker/nginx:/usr/share/nginx/html:ro` | Ruta donde se almacena el contenido de la web |
+| `-p 8002:80` | Puerto de acceso Web `8002` |
+
+Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8002`
+
 ### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
 Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
