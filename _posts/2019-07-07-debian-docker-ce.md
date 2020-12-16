@@ -547,4 +547,45 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
 
+### Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
+
+Shaarli es un gestor de notas y enlaces que para uso personal.
+
+Su principal uso podría ser:
+
+- Para compartir, comentar y guardar enlaces y noticias interesantes
+- Para marcar enlaces útiles / frecuentes y compartirlos entre computadoras
+- Como una plataforma mínima de blog / microblog / escritura
+- Como una lista para leer más tarde
+- Para redactar y guardar artículos / publicaciones / ideas
+- Para guardar notas, documentación y fragmentos de código
+- Como un portapapeles / bloc de notas / pastebin compartido entre máquinas
+- Como una lista de tareas pendientes
+- Para almacenar listas de reproducción multimedia
+- Para mantener extractos / comentarios de páginas web que puedan desaparecer
+- Para realizar un seguimiento de las discusiones en curso
+- Para alimentar otros blogs, agregadores, redes sociales … utilizando feeds RSS
+
+Es un software muy ligero ya que no necesita de bases de datos para almacenar las entradas sino que es una aplicación de contenido estatico basada en PHP.
+
+```bash
+docker run -d \
+	--name=Shaarli \
+	-p 8000:80 \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	--restart=always \
+	shaarli/shaarli:latest
+ ```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 8000:80` | Puerto comunicación Externo:Interno |
+| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+
+Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
+
 >  Y listo!
