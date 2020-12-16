@@ -1,5 +1,7 @@
 ---
-title: "P3DNS: Docker"
+title:  "P3DNS: Docker"
+date:   2020-12-03 08:00:00 -0300
+last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - Docker
 tags:
@@ -8,5 +10,3 @@ tags:
   - GNU/Linux
 link: https://lordpedal.github.io/gnu/linux/debian-docker-ce/#docker-p3dns
 ---
-
-[P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"} es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
