@@ -21,39 +21,30 @@ toc_icon: "cog"
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
 
-Abrimos una terminal de sistema y actualizamos repositorios
+Abrimos una terminal de sistema, actualizamos repositorios e instalamos las dependencias:
 
 ```bash
-sudo apt-get update
+sudo apt-get update && \
+sudo apt-get -y install software-properties-common \
+apt-transport-https
 ```
 
-Instalamos las dependencias
-
-```bash
-sudo apt-get -y install software-properties-common apt-transport-https
-```
-
-Descargamos la llave GPG del repositorio
+Descargamos la llave GPG del repositorio:
 
 ```bash
 sudo wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 ```
 
-Instalamos el repositorio
+Agregamos el repositorio de Microsoft:
 
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 ```
 
-Actualizamos nuevamente repositorios
+Actualizamos nuevamente repositorios e instalamos VSCode:
 
 ```bash
-sudo apt-get update
-```
-
-Instalamos VSCode
-
-```bash
+sudo apt-get update && \
 sudo apt-get -y install code
 ```
 
@@ -62,18 +53,9 @@ sudo apt-get -y install code
 La primera parte del proceso esta finalizada, ya solo nos queda saber que para poder compilar el firmware de Marlin es instalar el plugin <a href="https://platformio.org/" target="_blank" rel="noreferrer noopener">PlatformIO IDE</a>.
 
 ![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/platformide.jpg)
-{: .full}
 
-<li style="text-align: justify;">
-Abrimos <strong>VSCode > Extension Manager</strong>
-</li>
-
-<li style="text-align: justify;">
-<strong><code>Buscamos</code></strong> el plugin oficial <strong>PlatformIO IDE</strong>
-</li>
-
-<li style="text-align: justify;">
-<strong><code>Instalamos</code></strong> la extensión <strong>PlatformIO IDE</strong>
-</li>
+- Abrimos **VSCode > Extension Manager**
+- `Buscamos` el plugin oficial **PlatformIO IDE**
+- `Instalamos` la extensión **PlatformIO IDE**
 
 > Y listo!
