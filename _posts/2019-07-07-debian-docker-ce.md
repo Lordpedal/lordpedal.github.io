@@ -4,10 +4,12 @@ date:   2019-07-08 10:00:00 -0300
 last_modified_at: 2020-12-15T17:00:00-05:00
 categories:
   - GNU/Linux
+  - Docker
 tags:
   - GNU/Linux
   - Servidor
   - Debian
+  - Docker
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
