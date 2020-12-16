@@ -492,7 +492,7 @@ Posteriormente, regeneramos **`initramfs`** (sistema de archivos RAM inicial), p
 sudo update-initramfs -u
 ```
 
-Agregamos la información a nuestro fstab, recuerda cambiar el valor **/media/raid1** por el tipo de RAID que has elegido (por ejemplo: */media/raid5*):
+Agregamos la información a nuestro fstab: ``(número marcado en <span style="color:red">**rojo**</span> cambiar según RAID seleccionado)``
 
 ```bash
 echo '/dev/md0 /media/raid1 ext4 defaults,nofail,discard 0 0' | \
