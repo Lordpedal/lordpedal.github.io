@@ -1,7 +1,7 @@
 ---
 title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00 -0300
-last_modified_at: 2020-12-12T17:00:00-05:00
+last_modified_at: 2020-12-15T17:00:00-05:00
 categories:
   - GNU/Linux
 tags:
@@ -189,7 +189,7 @@ Con el sistema preparado para emular entornos **Docker**, vamos a realizar unos 
 ```bash
 cd $HOME && mkdir docker && cd $HOME/docker
 ```
-### Docker [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
+### Docker: [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
 
 La gestión de Docker en un comienzo se realiza desde **TTY**, pero vamos a habilitar un Docker para la gestión de forma web.
 
@@ -217,7 +217,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-v $HOME/docker/portainer` | Ruta donde se almacena el contenido |
+| `-v $HOME/docker/portainer_ce` | Ruta donde se almacena el contenido |
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `-p 9000` | Puerto de acceso Web `9000` |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Portainer CE` |
@@ -234,7 +234,7 @@ Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar
 
 Y listo, ya estara debidamente configurado para poder gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
-### Docker [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
+### Docker: [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
 
 Watchtower es una aplicación que controlará tus contenedores Docker en funcionamiento y observará los cambios en las imágenes a partir de los cuales se iniciaron originalmente esos contenedores. Si la Watchtower detecta que una imagen ha cambiado, se reiniciará automáticamente el contenedor utilizando la nueva imagen.
 
@@ -253,7 +253,7 @@ Los parámetros son mínimos pero vamos a detallarlos:
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Watchtower` |
 
-### Docker [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
+### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
 Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
 
