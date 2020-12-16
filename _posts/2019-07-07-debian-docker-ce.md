@@ -342,6 +342,14 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
+Ahora para activar nuestro servidor de DNS, asignamos nuestro localhost como servidor de resolución DNS y protegemos el fichero contra escritura:
+
+```bash
+sudo mv /etc/resolv.conf /etc/resolv.conf.p3 && \
+echo "nameserver 127.0.0.1" | sudo tee -a /etc/resolv.conf && \
+sudo chattr +i /etc/resolv.conf
+```
+
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de **http://IP_Servidor:83** en mi caso.
 
 **Opcionalmente** dejo las listas de anti-publicidad que uso en Pi-Hole por si os interesan:
