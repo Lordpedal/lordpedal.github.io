@@ -10,5 +10,5 @@ tags:
   - 3D
   - Debian
   - GNU/Linux
-link: https://lordpedal.github.io/gnu/linux/debian-docker-ce/#docker-octoprint
+link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-octoprint
 ---
