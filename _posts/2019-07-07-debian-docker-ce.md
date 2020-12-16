@@ -36,7 +36,7 @@ Por lo que si no queremos tener excesivas limitaciones, crearemos una cuenta [FR
 - 200 solicitudes de imágenes de contenedores cada 6 horas
 - Autenticación de dos factores
 
-Proceso de configuración:
+> Proceso de configuración:
 
 **1º** Creamos una cuenta: Elegimos un usuario, vinculamos un correo electrónico y definimos una contraseña de acceso
 
