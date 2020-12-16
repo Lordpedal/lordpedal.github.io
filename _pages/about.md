@@ -17,7 +17,7 @@ De acuerdo, seré honesto, no es fácil escribir sobre uno mismo, pero intentar�
 
 ## 🌇 Proyectos
 
-<p>Mi principal proyecto en la red junto con este, es una pequeña bitácora llamda <a href="https://rincondeiris.club" target="_blank" rel="noopener noreferrer">Rincón de Iris</a>. 
+<p>Mi principal proyecto en la red junto con este, es una pequeña bitácora llamada <a href="https://rincondeiris.club" target="_blank" rel="noopener noreferrer">Rincón de Iris</a>. 
 Un espacio creativo y personalizado donde crear manualidades en la red.</p>
 
 ## 🏗️ Temas favoritos
