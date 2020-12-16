@@ -205,7 +205,7 @@ sudo mdadm --create --verbose /dev/md0 --level=1 \
 --raid-devices=2 /dev/sdc /dev/sdd
 ```
 
-Si los discos duros/memorias USB no llevan activa la casilla de arranque nos mostrara la siguiente advertencia a la que decimos de continuar <strong><span style="color: #ff0000;">(y)</span></strong>:
+Si los discos duros/memorias USB no llevan activa la casilla de arranque nos mostrara la siguiente advertencia a la que decimos de continuar (**y**):
 
 ```bash
 mdadm: Note: this array has metadata at the start and
