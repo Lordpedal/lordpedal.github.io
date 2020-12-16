@@ -38,11 +38,15 @@ Por lo que si no queremos tener excesivas limitaciones, crearemos una cuenta [FR
 
 Proceso de configuración:
 
-1º Creamos una cuenta: Elegimos un usuario, vinculamos un correo electrónico y definimos una contraseña de acceso
-2º Dentro del servicio, hacemos clic en nuestra configuración de cuenta
-3º Hacemos clic en Seguridad y proporcionamos un nuevo Token de acceso
-4º Asignamos un nombre al acceso Token y lo creamos
-5º Anotamos el Token generado y cerramos la web **(recordar que el Token no podremos volver a visionarlo)**
+**1º** Creamos una cuenta: Elegimos un usuario, vinculamos un correo electrónico y definimos una contraseña de acceso
+
+**2º** Dentro del servicio, hacemos clic en nuestra configuración de cuenta
+
+**3º** Hacemos clic en Seguridad y proporcionamos un nuevo Token de acceso
+
+**4º** Asignamos un nombre al acceso Token y lo creamos
+
+**5º** Anotamos el Token generado y cerramos la web **(recordar que el Token no podremos volver a visionarlo)**
 
 Sobre la terminal de nuestro sistema GNU/Linux en el que queremos configurar la cuenta de Docker, lanzamos la siguiente estructura de comando en la terminal:  
 
