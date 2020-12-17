@@ -10,3 +10,5 @@ tags:
   - GNU/Linux
 link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-hub-fix-gnulinux
 ---
+
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
