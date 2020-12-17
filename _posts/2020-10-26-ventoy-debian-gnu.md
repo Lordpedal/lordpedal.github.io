@@ -4,7 +4,6 @@ date:   2020-10-26 14:30:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - GNU/Linux
-
 tags:
   - GNU/Linux
   - Debian
@@ -140,3 +139,5 @@ Al finalizar veremos que la memoria USB se ha particionado en dos:
 
 1. **FAT** (aprox. 32mb): Partición que contiene la información de arranque.
 2. **exFAT** (resto de espacio libre): Partición donde guardaremos las ISOS, tal cual.
+
+> Y listo!
