@@ -8,6 +8,8 @@ tags:
   - 3D
 ---
 
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+
 Ajustar el **Offset del eje Z** es una tarea que especialmente debemos de realizar si hemos modificado nuestra **impresora 3D**, por ejemplo con un sensor de nivelado como vimos en la anterior entrada de UBL, aunque no sería el único contexto en el que fuese aplicable.
 
 Como veremos más adelante, en futuros posts sobre la configuración de **Marlin**, la opción más directa, sencilla y visual es realizarlo desde el propio [LCD](https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller){:target="_blank"} de la impresora (configurando [Baby Stepping](https://marlinfw.org/docs/gcode/M290.html){:target="_blank"}), pero si no dispones de LCD sino de [TFT](https://reprap.org/wiki/Mks_tft){:target="_blank"}, esta opción no se contempla de la misma forma y debe de realizarse desde una Terminal de comandos como pueda ser por ejemplo: [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, [Pronterface](https://www.pronterface.com/){:target="_blank"}, …
