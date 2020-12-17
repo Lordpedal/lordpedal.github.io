@@ -9,6 +9,8 @@ tags:
   - Debian
 ---
 
+![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
+
 Uno de las problemas más comunes de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio y sobre ella también la memoría swap.
 
 Como hemos visto en la anterior entrada, esta peculiaridad no esta exenta de incovenientes, pero gracias a [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} y **Zram** mejoramos sustancialmente este problema.
