@@ -10,6 +10,7 @@ tags:
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+{: .full}
 [Reverse Engineering for Beginners](https://beginners.re/){:target="_blank"} es un libro con un buen material de iniciación a las técnicas de ingenieria inversa.
 
 Está registrado bajo una licencia [Creative Commons](https://creativecommons.org/){:target="_blank"} y como peculiaridad no solamente puedes bajarlo y leerlo previo registro en su web sino que puedes ver su código latex y renderizar el libro a pdf como detallo a continuación con estos sencillos pasos.
