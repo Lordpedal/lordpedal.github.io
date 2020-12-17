@@ -10,7 +10,7 @@ tags:
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
-
+{: .full}
 [Ventoy](https://github.com/ventoy/Ventoy){:target="_blank"} es una novedosa herramienta de **código abierto**, especializada en crear unidades USB de arranque de forma simple.
 
 Su funcionamiento es muy básico, tan solo debes instalar la herramienta en una **memoria de almacenamiento USB** y luego copiar las imágenes ISO en el pendrive, así de fácil.
