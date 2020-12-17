@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png){: .full}
+![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png)
 
 En esta entrada, voy a recopilar los cambios que realizo sobre el firmware stock de `Marlin 2.0.x` para adaptarlo a mi impresora 3D, remarcando los cambios que se modifican.
 
