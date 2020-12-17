@@ -14,6 +14,8 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+
 <strong>RAID</strong> es un acrónimo del inglés que significa <strong>Redundant Array of Independent Disks,</strong> literalmente <em><code>matriz de discos independientes redundantes</code></em>, aunque no todos los sistemas RAID proporcionan redundancia.
 
 La finalidad de un sistema RAID de discos consiste en crear un único volumen con varios discos duros funcionando en conjunto:
