@@ -9,7 +9,7 @@ tags:
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
-
+{: .full}
 Los drivers [TMC](https://www.trinamic.com/){:target="_blank"} son una gran mejora en el mundo de la **impresión 3D**, sobre todo por sus opciones de configuración y resolución.
 
 En esta entrada vamos a ver la formula, que usaremos para el calculo de su amperaje máximo.
