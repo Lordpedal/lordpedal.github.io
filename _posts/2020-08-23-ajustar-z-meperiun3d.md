@@ -17,6 +17,8 @@ Como veremos más adelante, en futuros posts sobre la configuración de **Marlin
 
 El proceso no es laborioso de realizar pero se ha de realizar de forma especifica en la secuencia de comandos.
 
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+
 - **Calentar cama y fusor** a sus temperaturas de impresión habitual, esperando unos minutos para que se estabilicen las dilataciones que se producen
 
 - Fijamos el **desfase a valor 0** enviando el siguiente comando:
