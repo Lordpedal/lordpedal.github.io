@@ -13,6 +13,8 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+
 Recientemente me he encontrado en la necesidad de crear una red de tipo [bonding](https://wiki.debian.org/Bonding){:target="_blank"}, para un proyecto en el que estoy trabajando sobre una Raspberry que monitoriza mi **impresora 3D**.
 
 De forma sencilla podriamos describir la red tipo bonding: como la suma de dos o mas interfaces de red para actuar como una interfaz, en la cual podemos aumentar el ancho de banda o la redundancia de la red.
