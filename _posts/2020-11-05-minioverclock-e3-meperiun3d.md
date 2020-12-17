@@ -2,16 +2,15 @@
 title:  "miniOverclock E3: Meperiun3D"
 date:   2020-11-05 06:00:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
+header:
+  overlay_image: /assets/images/miniE3MP.png
+  caption: "Imagen: [**Lordpedal**](https://lordpedal.github.io)"
 categories:
   - 3D
 tags:
   - Personal
   - 3D
   - Marlin
-header:
-  overlay_image: /assets/images/miniE3MP.png
-  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-  caption: "Imagen: [**Lordpedal**](https://lordpedal.github.io)"
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
