@@ -10,7 +10,7 @@ tags:
 ---
 
 ![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
-
+{: .full}
 Desde hace algún tiempo, llevo usando una [Raspberry Pi](https://www.raspberrypi.org/){:target="_blank"} para hacer las funciones de servidor de impresión 3D, gracias a [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}.
 
 La peculiaridad de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio.
