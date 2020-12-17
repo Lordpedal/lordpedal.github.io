@@ -35,11 +35,11 @@ Swap:           15G          0B         15G
 
 También **recomiendo disponer de más de 4Gb de RAM** para no generar excesiva carga en la memoria [SWAP](https://es.wikipedia.org/wiki/Espacio_de_intercambio){:target="_blank"}. Realizada esta breve introducción pasemos a la acción.
 
-### KVM
+## KVM
 
 [KVM](https://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine){:target="_blank"} es una solución de virtualización completa para Linux en hardware x86 que contiene extensiones de virtualización (**Intel VT o AMD-V**). Consiste en un módulo de kernel cargable (`kvm.ko`), que proporciona la infraestructura de virtualización principal y un módulo específico del procesador (**kvm-intel.ko** *o* **kvm-amd.ko**).
 
-### Dependencias
+### Dependencias KVM
 
 Vamos a proceder a instalar el software necesario:
 
@@ -50,7 +50,7 @@ libvirt-daemon libvirt-daemon-system bridge-utils libguestfs-tools \
 genisoimage virtinst libosinfo-bin virt-manager
 ```
 
-### Permisos de usuario
+### Permisos de usuario KVM
 
 Ahora debemos de agregar nuestro usuario a los **grupos virtuales** y los recargamos al sistema:
 
@@ -130,6 +130,59 @@ pi@overclock:~$ sudo virsh list --all
 ----------------------------------------------------
  1     D10KVM                         running
  -     win10pro                       shut off
+```
+
+## VirtualBox
+
+[VirtualBox](https://www.virtualbox.org/){:target="_blank"} es un software de virtualización para arquitecturas `x86/amd64`, desarrollado por [Oracle](https://www.oracle.com/es/corporate/){:target="_blank"} como parte de su familia de productos de virtualización.
+
+Por medio de esta aplicación es posible instalar sistemas operativos adicionales, conocidos como `«sistemas invitados»`, dentro de otro sistema operativo `«anfitrión»`, cada uno con su propio ambiente virtual.
+
+Aunque prefiero usar [KVM](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/#kvm) para esta labor por su `integración en el Kernel de nuestro sistema`, también entiendo que quizás os interese descubir diversas alternativas funcionales.
+
+Para instalar sobre nuestra base Debian seguimos este mini-tutorial.
+
+- Actualizamos repositorios e instalamos las dependencias
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install dkms \
+module-assistant \
+linux-headers-$(uname -r)
+```
+
+- Descargamos la llave GPG del repositorio
+
+```bash
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | \
+sudo apt-key add -
+```
+
+- Instalamos el repositorio de Virtualbox
+
+```bash
+sudo sh -c "echo 'deb https://download.virtualbox.org/virtualbox/debian buster contrib' >> \
+/etc/apt/sources.list.d/virtualbox.list
+```
+
+
+- Actualizamos repositorios e instalamos el programa
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install virtualbox-6.1
+```
+
+- Agregamos nuestro usuario al grupo vboxusers
+
+```bash
+sudo usermod -aG vboxusers $USER
+```
+
+Reiniciamos sistema y listo
+
+```bash
+sudo reboot
 ```
 
 > Y listo!
