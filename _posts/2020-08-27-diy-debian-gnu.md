@@ -14,7 +14,7 @@ toc_icon: "cog"
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
-
+{: .full}
 La intención de esta entrada es la de crear un sistema **Minimal Debian 10 Live 64bits** que puede arrancarse desde CD/USB y ademas con soporte de Legacy BIOS o el hardware actual EFI.
 
 La información ha sido recopilada en su mayor parte de esta gran [guía](https://wiki.debian.org/DebianCustomCD){:target="_blank"}.
