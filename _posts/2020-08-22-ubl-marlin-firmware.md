@@ -14,7 +14,6 @@ toc_icon: "cog"
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
-
 En esta entrada vamos a realizar una rápida comparativa entre los dos mejores sistemas actuales de nivelación con sensor:
 
 - **Bilinear Leveling**: Sondea una cuadrícula y crea una malla para representar imperfecciones en la cama, dicha malla se almacena en la **RAM** no en la EEPROM.
