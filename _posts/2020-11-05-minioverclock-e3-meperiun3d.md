@@ -5,6 +5,10 @@ last_modified_at: 2020-12-12T16:45:00-05:00
 header:
   overlay_image: /assets/images/miniE3MP.png
   og_image: /assets/images/page-header-og-image.png
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  actions:
+    - label: "Learn More"
+      url: "https://unsplash.com"
 categories:
   - 3D
 tags:
