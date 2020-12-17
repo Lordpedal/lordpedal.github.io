@@ -594,6 +594,160 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8002`
 
+### Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
+
+RSS Bridge te permite obtener las novedades de servicios/webs que a priori no tienen esta opción habilitada.
+
+Lo que te permite este genial microservicio es de poder acceder a la posibilidad de poder seguir usando tu **lector RSS favorito**.
+
+Así podremos estar informados de las novedades sin necesidad de estar pendientes de visitar el sitio para ver si hay nuevas publicaciones.
+
+Como por ejemplo:
+
+- Telegram: Devuelve las últimas publicaciones de un canal
+- Wikileaks: Recibir los últimos articulos publicados
+- DuckDuckGo: Los resultados más recientes de búsquedad de este buscador
+- Google: Los resultados más recientes de búsquedad de este buscador
+- Thingiverse: Busqueda de contenido por categorías
+- Github: Estar al día sobre los cambios en el servicio
+- … (+260 "plugins" disponibles, consulta [Github](https://github.com/RSS-Bridge/rss-bridge/tree/master/bridges){:target="_blank"})
+
+Vamos a crear las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/rss
+```
+
+Ahora vamos a crear una lista de plugins por defecto, a posterior editando el fichero podremos añadir/borrar otros
+
+```bash
+cat << EOF > $HOME/docker/rss/plugins.txt
+TelegramBridge
+WikiLeaksBridge
+DuckDuckGoBridge
+GoogleSearchBridge
+WikipediaBridge
+ThingiverseBridge
+GithubSearchBridge
+EOF
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=RSS-Bridge \
+	-v $HOME/docker/rss/plugins.txt:/app/whitelist.txt \
+	-p 8003:80 \
+	--restart=always \
+	rssbridge/rss-bridge:latest
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-v $HOME/docker/rss/plugins.txt:/app/whitelist.txt` | Ruta donde se almacena el contenido de la web |
+| `-p 8003:80` | Puerto de acceso Web `8003` |
+
+Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8003`
+
+### Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
+
+Calibre es un **gestor y organizador de libros electrónicos** libre, que permite la conversión de numerosos formatos de archivos para libros electrónicos.
+
+Lo que hace es almacenar los libros en una base de datos y nos permite a continuación buscar de manera muy precisa lo que estamos buscando.
+
+Generalmente podemos almacenar los libros en base a muchos parámetros diferentes como el título, autor, editor o la fecha de publicación, de esta forma, nos resulta mucho más sencillo tener todo bien organizado.
+
+Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
+
+- Formatos de entrada: **ePub, HTML, PDF, RTF, txt, cbc, fb2, lit, MOBI, ODT, prc, pdb, PML, RB, cbz y cbr**
+- Formatos de salida: **ePub, fb2, OEB, lit, lrf, MOBI, pdb, pml, rb.3**
+
+Vamos a crear las carpetas donde alojar el proyecto::
+
+```bash
+mkdir -p $HOME/docker/calibre
+```
+
+A continuación, vamos a crear una contraseña codificada en formato md5 para poder acceder a la gestión remota, recuerda sustituir la palabra contraseña por la contraseña que quieras usar:
+
+```bash
+echo -n contraseña | openssl md5
+```
+
+Adjunto ejemplo de mi sistema y apuntamos el valor para anotarlo en la variable -e GUAC_PASS:
+
+```bash
+pi@overclock:~$ echo -n calibre | openssl md5
+(stdin)= fccc8f9fde7b6108c5f1932d7e9da5b1
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Calibre \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-e GUAC_USER=calibre \
+	-e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
+	-p 8085:8080 \
+	-p 8086:8081 \
+	-v $HOME/docker/calibre/config:/config \
+	--restart=always \
+	ghcr.io/linuxserver/calibre
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-e GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
+| `-e GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
+| `-p 8085:8080` | Puerto de acceso Escritorio `8085` |
+| `-p 8086:8081` | Puerto configuración Servidor `8086` |
+| `-v $HOME/docker/calibre/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
+|  `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
+
+Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
+
+### Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
+
+Shairport-sync es un reproductor de audio AirPlay, que reproduce el audio transmitido por iTunes, iOS, Apple TV, … y su vez desde fuentes AirPlay como Quicktime Player y Forked-daapd, entre otros.
+
+El audio reproducido por un dispositivo alimentado por Shairport-sync se mantiene sincronizado con la fuente y, por lo tanto, con dispositivos similares que reproducen la misma fuente.
+
+Funciona en GNU/Linux, FreeBSD y OpenBSD, basado en la versión 1.0 del protocolo no es compatible con la transmisión de vídeo, fotos ni audio multiroom (implementado en protocolo AirPlay 2.0)
+
+La creación del servicio es muy sencilla, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Shairport-sync \
+	--net host \
+	--device /dev/snd \
+	-e AIRPLAY_NAME=Overclock \
+	--restart=always \
+	kevineye/shairport-sync 
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `--net host` | Habilitamos el uso de la red host en vez de una virtual para docker |
+| `--device /dev/snd` | Damos privilegios a docker para usar la salida de sonido del host |
+| `-e AIRPLAY_NAME=Overclock` | Nombre personalizado para identificar servicio AirPlay |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
+
 ### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
 Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
