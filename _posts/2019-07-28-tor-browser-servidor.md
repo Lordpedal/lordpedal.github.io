@@ -15,6 +15,7 @@ toc_icon: "cog"
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+{: .full}
 A menudo por la red podemos encontrar referencias a una red llamada **red Tor**. Sin embargo, la mayoría de usuarios no sabe lo que significa esta red, para qué sirve ni lo que se esconde en ella.
 
 [TOR](https://www.torproject.org/){:target="_blank"} es una abreviatura de The Onion Project, un proyecto que busca el poder crear una red de comunicaciones distribuida de baja latencia por encima de la capa de internet de manera que nunca se revelen los datos de los usuarios que la utilizan, manteniéndose así como una red privada y anónima.
