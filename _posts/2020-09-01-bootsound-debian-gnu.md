@@ -10,7 +10,7 @@ tags:
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
-
+{: .full}
 Esta entrada es un tributo a la que mi entender, es la obra maestra de [Ridley Scott](https://es.wikipedia.org/wiki/Ridley_Scott){:target="_blank"}: [Alien (1979)](https://es.wikipedia.org/wiki/Alien:_el_octavo_pasajero){:target="_blank"}.
 
 Al comienzo de la película, la computadora de la nave espacial [Nostromo](https://youtu.be/2ywWFvjE-yU){:target="_blank"} se inicia en una ráfaga de parpadeos y ruido.
