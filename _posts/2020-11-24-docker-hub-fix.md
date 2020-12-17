@@ -12,3 +12,4 @@ link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-hub-
 ---
 
 ![DockerLinux]({{ site.url }}{{ site.baseurl }}/assets/images/DockerLinux.png)
+{: .full}
