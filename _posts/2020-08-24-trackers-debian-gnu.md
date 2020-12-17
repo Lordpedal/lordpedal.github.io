@@ -13,6 +13,8 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+
 [Fasttracker 2](https://web.archive.org/web/19980530083017/http://www.starbreeze.com/ft2.htm){:target="_blank"} supuso en mi «experiencia musical digital», un punto de partida y a día de hoy me recuerda más si cabe la evolución que hemos ido experimentando en la informática domestica.
 
 Mucho antes del boom tecnológico que conllevo el desarrollo del formato [MP3](https://es.wikipedia.org/wiki/MP3){:target="_blank"}, existió una alternativa en los **trackers musicales**, unas aplicaciones para crear música que se convirtieron en un fenómeno muy de moda en la década de los 90. Los más veteranos quizás sepan de que hablo si menciono formatos de archivo como **MOD, XM, S3M** o **IT**.
