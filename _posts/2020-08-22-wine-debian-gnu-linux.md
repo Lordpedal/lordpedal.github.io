@@ -10,6 +10,7 @@ tags:
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+{: .full}
 [Wine](https://www.winehq.org/){:target="_blank"} te permite correr software de Windows en otros sistemas operativos.
 
 Con Wine, puedes **instalar y ejecutar estas aplicaciones igual que lo haría en Windows**.
