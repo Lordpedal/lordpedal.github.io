@@ -12,3 +12,4 @@ link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dn
 ---
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+{: .full}
