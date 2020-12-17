@@ -11,7 +11,7 @@ tags:
 ---
 
 ![OctoPi]({{ site.url }}{{ site.baseurl }}/assets/images/OctoPI.png)
-
+{: .full}
 Un problema que os podeís encontrar si usáis la `conexión vía wifi` de la **Raspberry Pi**, por ejemplo para [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, es que esta pierda la conexión tras haber entrado en hibernación debido a una protección heredada de los sistemas `GNU/Linux` sobre redes inalambricas.
 Conectándonos por [SSH](https://es.wikipedia.org/wiki/Secure_Shell){:target="_blank"} o bien con desde la interfaz `tty1` podremos comprobar si esta activa o no dicha protección.
 
