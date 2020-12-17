@@ -958,7 +958,9 @@ Activo el menú personalizado con scripts:
 
 ### GCcodes Laminador
 
-## Inicio:
+Adjunto los gcodes de inicio de impresión y finalización de impresión que uso en el laminador.
+
+## Inicio
 
 ```bash
 M220 S100 ;Reset Alimentacion
@@ -979,7 +981,7 @@ G1 Z2.0 F3000 ;Mueve eje Z Arriba
 M117 lordpedal.github.io
 ```
 
-## Final:
+## Final
 
 ```bash
 G91 ;Posicionamiento relativo
