@@ -33,7 +33,7 @@ Los archivos a modificar son:
 - `Configuration.h` – Fichero de configuración Marlin
 - `Configuration_adv.h` – Fichero de configuración avanzada Marlin
 
-### Platformio.ini
+## Platformio.ini
 
 Cambio la variable de compilación con el ID de placa, en el mismo fichero se busca la referencia de nuestra placa:
 
@@ -41,7 +41,7 @@ Cambio la variable de compilación con el ID de placa, en el mismo fichero se bu
 default_envs = STM32F103RC_btt_512K
 ```
 
-### _Bootscreen.h
+## _Bootscreen.h
 
 En la ruta de la carpeta **Marlin**, encontraremos los ficheros `Configuration.h` y `Configuration_adv.h`, lo que vamos a hacer es crear el fichero `_Bootscreen.h`
 
@@ -155,7 +155,7 @@ B11111111,B11111111,B11111111,B11111111,B11111110,B00011111,B11111110,B00011111,
 
 Guardamos el fichero y salimos del editor.
 
-### _Statusscreen.h
+## _Statusscreen.h
 
 En la ruta de la carpeta **Marlin**, encontraremos los ficheros `Configuration.h` y `Configuration_adv.h`, lo que vamos a hacer es crear el fichero `_Statusscreen.h`
 
@@ -234,7 +234,7 @@ B11111011,B10110011,B11001110,B11100000,B00001100
 
 Guardamos el fichero y salimos del editor.
 
-### Configuration.h
+## Configuration.h
 
 Debemos de recordar que si una variable puede estar comentada (no se ejecuta) o descomentada (si se ejecuta).
 
@@ -609,7 +609,7 @@ Activo el soporte controlador ventilador:
 #define FAN_SOFT_PWM
 ```
 
-### Configuration_adv.h
+## Configuration_adv.h
 
 Debemos de recordar que si una variable puede estar comentada (no se ejecuta) o descomentada (si se ejecuta).
 
@@ -955,11 +955,11 @@ Activo el menú personalizado con scripts:
 #endif
 ```
 
-### GCcodes Laminador
+## GCcodes Laminador
 
 Adjunto los gcodes de inicio de impresión y finalización de impresión que uso en el laminador.
 
-## Inicio
+### Inicio
 
 ```bash
 M220 S100 ;Reset Alimentacion
@@ -980,7 +980,7 @@ G1 Z2.0 F3000 ;Mueve eje Z Arriba
 M117 lordpedal.github.io
 ```
 
-## Final
+### Final
 
 ```bash
 G91 ;Posicionamiento relativo
