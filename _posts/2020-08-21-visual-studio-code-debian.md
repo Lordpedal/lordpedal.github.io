@@ -16,6 +16,7 @@ toc_icon: "cog"
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+{: .full}
 [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"} es un editor IDE multi-plataforma desarrollado por Microsoft, gratuito y que sigue la filosofía de desarrollo del código abierto pero no es software libre.
 
 ## VSCode
