@@ -2,13 +2,6 @@
 title:  "miniOverclock E3: Meperiun3D"
 date:   2020-11-05 06:00:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
-header:
-  overlay_image: /assets/images/miniE3MP.png
-  og_image: /assets/images/page-header-og-image.png
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-  actions:
-    - label: "Learn More"
-      url: "https://unsplash.com"
 categories:
   - 3D
 tags:
@@ -20,6 +13,8 @@ toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
+
+![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png)
 
 En esta entrada, voy a recopilar los cambios que realizo sobre el firmware stock de `Marlin 2.0.x` para adaptarlo a mi impresora 3D, remarcando los cambios que se modifican.
 
