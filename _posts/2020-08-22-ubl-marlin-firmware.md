@@ -25,6 +25,8 @@ El nivelado basado en Bilinear lo considero obsoleto pudiendo disponer de UBL.
 
 Este tiene muchas más opciones de ajuste, en una placa con suficiente memoria como es el caso de la mayoria de las actuales **(+256kb)**.
 
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+
 ## Configurar UBL en Marlin 
 
 Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para ello activamos los siguientes ajustes en Marlin:
@@ -130,6 +132,8 @@ Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para el
 ```
 
 Tras finalizar ya tendriamos dispnible en nuestra impresora UBL.
+
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
 
 ## Activar/Configurar UBL
 
