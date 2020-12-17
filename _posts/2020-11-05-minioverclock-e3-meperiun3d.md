@@ -33,6 +33,8 @@ Los archivos a modificar son:
 - `Configuration.h` – Fichero de configuración Marlin
 - `Configuration_adv.h` – Fichero de configuración avanzada Marlin
 
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+
 ## Platformio.ini
 
 Cambio la variable de compilación con el ID de placa, en el mismo fichero se busca la referencia de nuestra placa:
