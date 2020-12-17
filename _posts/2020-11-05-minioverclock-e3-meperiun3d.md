@@ -27,11 +27,11 @@ Los cambios, a nivel de hardware más importantes sobre la base de origen de la 
 
 Los archivos a modificar son:
 
-- `Platformio.ini` – Fichero de configuración de compilación con [VSCode](https://lordpedal.github.io/gnu/linux/3d/visual-studio-code-debian/){:target="_blank"}
-- `_Bootscreen.h` – Fichero con logo de arranque
-- `_Statusscreen.h` – Fichero con logo en status LCD
-- `Configuration.h` – Fichero de configuración Marlin
-- `Configuration_adv.h` – Fichero de configuración avanzada Marlin
+- `Platformio.ini`: Fichero de configuración de compilación con [VSCode](https://lordpedal.github.io/gnu/linux/3d/visual-studio-code-debian/){:target="_blank"}
+- `_Bootscreen.h`: Fichero con logo de arranque
+- `_Statusscreen.h`: Fichero con logo en status LCD
+- `Configuration.h`: Fichero de configuración Marlin
+- `Configuration_adv.h`: Fichero de configuración avanzada Marlin
 
 ![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
 
