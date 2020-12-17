@@ -66,7 +66,7 @@ df -h
 Adjunto ejemplo filtrando el resultado:
 
 ```bash
-pi@ORPi3B:~$ df -h | grep log2ram
+pi@RPi3B:~$ df -h | grep log2ram
 log2ram 128M 13M 116M 10% /var/log
 ```
 
