@@ -148,9 +148,11 @@ LABEL linux
   KERNEL /live/vmlinuz
   APPEND initrd=/live/initrd boot=live nomodeset
 EOF
+```
 
 Creamos un segundo, y similar **menú de arranque para GRUB**. Este arranque es usado cuando arrancamos en `EFI/UEFI mode`:
 
+```bash
 cat <<'EOF' >$HOME/LIVE_BOOT/staging/boot/grub/grub.cfg
 search --set=root --file /DEBIAN_CUSTOM
 
