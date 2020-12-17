@@ -13,7 +13,6 @@ toc_icon: "cog"
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
-
 En esta entrada voy a compartir mi configuración sobre el navegador web [Firefox](https://www.mozilla.org/){:target="_blank"}, no voy a entrar a tratar de explicar ventajas y desventajas de usar un navegador web u otro, eso os lo dejo a vuestra elección.
 
 Entrando en materia, *¿es posible seguir mejorando la seguridad del navegador tras usar nuestro filtrado DNS?* Realmente si, aunque debemos de ser conscientes que **cuando tendemos a infinito en materia de seguridad tendemos a cero en experiencia usuario final y la restricción de calidad en el resultado esperado**.
