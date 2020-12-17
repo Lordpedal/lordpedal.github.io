@@ -39,7 +39,7 @@ También **recomiendo disponer de más de 4Gb de RAM** para no generar excesiva 
 
 [KVM](https://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine){:target="_blank"} es una solución de virtualización completa para Linux en hardware x86 que contiene extensiones de virtualización (**Intel VT o AMD-V**). Consiste en un módulo de kernel cargable (`kvm.ko`), que proporciona la infraestructura de virtualización principal y un módulo específico del procesador (**kvm-intel.ko** *o* **kvm-amd.ko**).
 
-### Dependencias KVM
+### Dependencias
 
 Vamos a proceder a instalar el software necesario:
 
@@ -50,7 +50,7 @@ libvirt-daemon libvirt-daemon-system bridge-utils libguestfs-tools \
 genisoimage virtinst libosinfo-bin virt-manager
 ```
 
-### Permisos de usuario KVM
+### Permisos de usuario
 
 Ahora debemos de agregar nuestro usuario a los **grupos virtuales** y los recargamos al sistema:
 
@@ -70,7 +70,7 @@ pi@overclock:~$ groups $USER
 pi : pi adm tty dialout cdrom floppy sudo audio dip video plugdev netdev kvm libvirt libvirt-qemu
 ```
 
-### Red Bridge KVM
+### Red Bridge
 
 Vamos a comprobar el acceso a la red desde KVM:
 
