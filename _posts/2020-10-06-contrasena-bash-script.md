@@ -15,7 +15,6 @@ Esta entrada voy a compartir un sencillo [Bash Script](https://es.wikipedia.org/
 
 Un posible cliente de este tipo de script puede ser por ejemplo:
 
-- Un PC con **SAI**
 - Un PC **Portatil**
 - Una **Raspberry u otra placa SBC**
 
