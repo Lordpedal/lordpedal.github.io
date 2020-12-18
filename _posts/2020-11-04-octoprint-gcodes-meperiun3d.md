@@ -69,7 +69,7 @@ Debemos de revisar los siguientes apartados para  poder continuar  sin errores:
 
 ![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
 
-### Configuration_adv.h
+### Marlin: Configuration_adv.h
 
 Editamos el fichero `Configuration_adv.h` y comprobamos que la siguiente variable se encuentra activa (por defecto lo esta):
 
