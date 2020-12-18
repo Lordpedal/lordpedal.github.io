@@ -194,9 +194,9 @@ Tras haber configurado estas opciones mencionadas en **Marlin**, tendriamos que 
 
 ## OctoPrint
 
-### Calcular PID del Hotend (Fusor)
-
 Vamos a calcularlo desde una Terminal de comandos como pueda ser por ejemplo: [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, Pronterface, para ello la impresora debe de estar conectada por USB para el envio de [Gcodes](https://es.wikipedia.org/wiki/G-code){:target="_blank"}.
+
+### Calcular PID del Hotend (Fusor)
 
 - El G-code encargado de ejecutar esta tarea es [M303](https://marlinfw.org/docs/gcode/M303.html){:target="_blank"}, vamos a calibrarlo para una impresora que normalmente imprime material [PLA](https://es.wikipedia.org/wiki/%C3%81cido_polil%C3%A1ctico){:target="_blank"}, en la terminal lanzamos:
 
@@ -226,8 +226,6 @@ M301 P19.56 I1.71 D80.26
 M500
 ```
 ### Calcular PID de Cama
-
-Vamos a calcularlo nuevamente desde una Terminal de comandos como pueda ser por ejemplo: [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, Pronterface, para ello la impresora debe de estar conectada por USB para el envio de [Gcodes](https://es.wikipedia.org/wiki/G-code){:target="_blank"}.
 
 - El G-code encargado de ejecutar esta tarea es [M303](https://marlinfw.org/docs/gcode/M303.html){:target="_blank"}, vamos a calibrarlo para una impresora que normalmente imprime material [PLA](https://es.wikipedia.org/wiki/%C3%81cido_polil%C3%A1ctico){:target="_blank"}, en la terminal lanzamos:
 
