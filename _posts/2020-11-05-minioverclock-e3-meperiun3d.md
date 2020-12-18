@@ -18,7 +18,7 @@ toc_icon: "cog"
 {: .full}
 En esta entrada, voy a recopilar los cambios que realizo sobre el firmware stock de `Marlin 2.0.x` para adaptarlo a mi impresora 3D, remarcando los cambios que se modifican.
 
-Los cambios, a nivel de hardware más importantes sobre la base de origen de la **Ender 3** *v1* son:
+Los cambios, a nivel de hardware más importantes sobre la base de origen de la **Ender 3** `v1` son:
 
 - **SKR Mini E3 v2.0 (TMC2209 UART x4)**
 - Termistor **ATC Semitec 104GT-2**
