@@ -24,7 +24,7 @@ Para poder configurar el script tan solo has de editar las siguientes variables:
 - `lordmac`: Dirección MAC tarjeta Red.
 - `IPServidor`: Dirección IP del Servidor.
 
-## Secciones
+## Wake On LAN
 
 Este mini-tutorial se encuentra divido en dos secciones:
 
