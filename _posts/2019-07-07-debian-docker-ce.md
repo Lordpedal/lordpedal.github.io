@@ -962,7 +962,7 @@ Consultamos el dispositivo de video disponibles en el sistema, para poder habili
 
 ```bash
 sudo lshw -c video && ls -l /dev/dri/
-```bash
+```
 
 Adjunto ejemplo de mi sistema:
 
