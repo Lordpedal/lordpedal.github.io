@@ -39,7 +39,7 @@ Añadimos el contenido del fichero y al menos modifica la variable `telegram=`:
 ```bash
 #!/bin/bash
 #
-# https://lordpedal.gitlab.io
+# https://lordpedal.github.io
 # Another fine release by Lordpedal
 #
 # ID Telegram (Consulta @Lordpedalbot)
