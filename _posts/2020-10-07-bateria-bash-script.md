@@ -38,7 +38,7 @@ Añadimos el contenido del fichero con las contraseñas generadas:
 ```bash
 #!/bin/bash
 #
-# https://lordpedal.gitlab.io
+# https://lordpedal.github.io
 # Another fine release by Lordpedal
 #
 # Variables trabajo
