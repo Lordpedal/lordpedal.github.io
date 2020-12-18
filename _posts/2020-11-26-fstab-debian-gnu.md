@@ -27,7 +27,7 @@ Los sistemas de archivos a definir en **/etc/fstab**, deben de guarda la siguien
 
 - `<dispositivo>` Es el directorio lógico que hace referencia a una partición o recurso, por ejemplo **/dev/sdb1 o UUID=40e3c0eb-e460-4bc3-8e72-3a7ab90ae743**
 - `<punto_de_montaje>` Es la carpeta en que se montaran los datos del sistema de archivos, por ejemplo **/media/rednas**
-- `<sistema_de_archivos>` Es el algoritmo que se utilizará para interpretarlo, por ejemplo: **ext2, ext3, ext4, vfat, ntfs, swap, ...**
+- `<sistema_de_archivos>` Es el algoritmo que se utilizará para interpretarlo, por ejemplo: **ext2, ext3, ext4, vfat, ntfs, swap,...**
 - `<opciones>` Es el lugar donde se especifican los parámetros que mount utilizará para montar el dispositivo, los más comunes son:
 	- `auto / noauto`: Con la opción auto, el dispositivo será montado automáticamente durante el inicio o en caso de que el comando mount -a sea ejecutado. Auto es el valor por defecto. Si no se desea que el dispositivo se monte automáticamente, se deberá substituir por noauto.
 	- `dev / nodev`: Interpretar / no interpretar dispositivos especiales de bloques en el sistema de archivos. Los dispositivos especiales de bloques son similares a discos (donde se puede acceder a los datos dado un número de bloque, y p.ej. tiene sentido tener un caché de bloques).
@@ -38,9 +38,9 @@ Los sistemas de archivos a definir en **/etc/fstab**, deben de guarda la siguien
 	- `uid=n ,gid=n`: Establece el identificador de usuario, uid, y el identificador de grupo, gid, para todos los archivos de la partición (n = valor id).
 	- `user / nouser`: Permite a cualquier usuario montar el sistema de archivos. Implica directamente las opciones noexec, nosuid y nodev a menos que se especifiquen otras. Si se utiliza la opción nouser, solo el usuario root podrá montar el sistema de archivos.
 	- `defaults`: Utiliza las opciones por defecto: **rw,suid,dev,exec,auto,nouser,async**.
-        - `nofail`: No devuelve error si no se puede montar el dispositivo.
-        - `noatime / nodiratime`: No actualiza los tiempos de acceso de inodo en el sistema de archivos o bien al directorio de sistema de archivos.
-        - `relatime`: Actualizar los tiempos de acceso al inodo en relación con el tiempo de modificación o cambio. La hora de acceso solo se actualiza si la hora de acceso anterior fue anterior a la hora de modificación o cambio actual.
+	- `nofail`: No devuelve error si no se puede montar el dispositivo.
+	- `noatime / nodiratime`: No actualiza los tiempos de acceso de inodo en el sistema de archivos o bien al directorio de sistema de archivos.
+	- `relatime`: Actualizar los tiempos de acceso al inodo en relación con el tiempo de modificación o cambio. La hora de acceso solo se actualiza si la hora de acceso anterior fue anterior a la hora de modificación o cambio actual.
 - `<dump>` Es el comando que utiliza dump para hacer respaldos del sistema de archivos, si es cero no se toma en cuenta ese dispositivo.
 - `<pass>` Indica el orden en que la aplicación fsck revisará la partición en busca de errores durante el inicio, si es cero el dispositivo no se revisa.
 
