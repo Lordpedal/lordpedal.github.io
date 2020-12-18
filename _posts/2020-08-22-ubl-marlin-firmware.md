@@ -27,9 +27,11 @@ Este tiene muchas más opciones de ajuste, en una placa con suficiente memoria c
 
 ![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
 
-## Configurar UBL en Marlin 
+## Firmware Marlin
 
-Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para ello activamos los siguientes ajustes en Marlin:
+Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para ello activamos los siguientes ajustes en Marlin.
+
+### Configurar UBL en Marlin 
 
 **1º** Definir posición de **BLTouch con respecto al Nozzle** `(configuration.h)`:
 
@@ -135,9 +137,11 @@ Tras finalizar ya tendriamos dispnible en nuestra impresora UBL.
 
 ![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
 
-## Activar/Configurar UBL
+## OctoPrint
 
-Pasos a seguir para realizar un nivelado UBL y guardado de malla desde una terminal: **Pronterface, OctoPrint**
+Pasos a seguir para realizar un nivelado UBL y guardado de malla desde una terminal: **Pronterface**, [**OctoPrint**](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}
+
+### Activar/Configurar UBL
 
 **1º** Comprobar que no hay obstrucciones en la zona de test, que cualquier superficie de impresión (cristal, fleje …) se encuentre bien colocado y limpio.
 
