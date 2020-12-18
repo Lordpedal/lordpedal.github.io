@@ -666,7 +666,7 @@ Ajusto la sensibilidad y alimentación del BLtouch:
 #define BLTOUCH_SET_5V_MODE
 ```
 
-Activo la opción [G35 Tramming y la configuramos segun entrada](https://lordpedal.github.io/){:target="_blank"}:
+Activo la opción [G35 Tramming y la configuramos segun entrada](https://lordpedal.github.io/3d/g35-tramming-meperiun3d/){:target="_blank"}:
 
 ```bash
 #define ASSISTED_TRAMMING
