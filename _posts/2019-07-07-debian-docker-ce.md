@@ -1079,4 +1079,168 @@ Ejemplo de configuración navegador **Firefox**:
 
 ![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png)
 
+## Docker: [MagicMirror](https://hub.docker.com/r/bastilimbach/docker-magicmirror/){:target="_blank"}²
+
+MagicMirror² es una plataforma de espejo modular inteligente, de código abierto.
+
+Con una lista cada vez mayor de [módulos/plugins instalables](https://docs.magicmirror.builders/modules/introduction.html){:target="_blank"} desarrolados por la comunidad libre, podremos convertir un **espejo** de pasillo o baño por ejemplo en nuestro propio **asistente personal**.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/magic/config && \
+mkdir -p $HOME/docker/magic/modules && \
+cd $HOME/docker/magic
+```
+
+Ahora vamos a crear el fichero de configuración docker-compose.yml:
+
+```bash
+cat << EOF > $HOME/docker/magic/docker-compose.yml
+version: '3'
+services:
+ magicmirror:
+  container_name: MagicMirror
+  image: bastilimbach/docker-magicmirror
+  restart: always
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - $HOME/docker/magic/config:/opt/magic_mirror/config
+   - $HOME/docker/magic/modules:/opt/magic_mirror/modules
+  ports:
+   - 9080:8080
+EOF
+```
+
+Y lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `9080:8080` | Puerto de configuración acceso **9080** |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+
+Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
+
+### Instalacíon + Fix: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+
+Este complemento nos dará mucho juego por ejemplo:
+
+- **Modo Standby**
+- **Reinicio remoto** (Necesario realizar FIX para Docker)
+- **Apagado remoto** (Necesario realizar FIX para Docker)
+
+Vamos a instalarlo y ver como configurarlo y modificarlo para esa labor, pero antes vamos a satisfacer posibles dependencias del sistema:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install git
+```
+
+Comenzamos con la instalación, que es tan sencilla como clonar el repositorio en la ruta modulos que anteriormente habiamos creado:
+
+```bash
+cd $HOME/docker/magic/modules && \
+sudo git clone https://github.com/EbenKouao/MMM-SmartTouch.git
+```
+
+Vamos a realizar un pequeño FIX para poder tener apagado y reinicio remoto, necesitamos editar la configuración del modulo:
+
+```bash
+sudo nano $HOME/docker/magic/modules/MMM-SmartTouch/node_helper.js
+```
+
+Buscamos y reemplazamos el contenido de estas dos lineas (no continuas):
+
+```bash
+require('child_process').exec('sudo poweroff', console.log)
+require('child_process').exec('sudo reboot', console.log)
+```
+
+Por el siguiente:
+
+```bash
+require('child_process').exec('echo "apagar" > /opt/magic_mirror/config/power.txt', console.log)
+require('child_process').exec('echo "reiniciar" > /opt/magic_mirror/config/power.txt', console.log)
+```
+
+Guardamos, salimos del editor y precargamos el modulo en la configuración de **MagicMirror²**:
+
+```bash
+sudo nano $HOME/docker/magic/config/config.js
+```
+
+Y añadimos la siguiente configuración dentro del apartado modules:
+
+```bash
+{ 
+    module: 'MMM-SmartTouch', 
+    position: 'bottom_center',
+    config: { 
+            } 
+},
+```
+
+Guardamos, salimos del editor y vamos a crear un script en la máquina host para que lea las variables para actuar en consecuencia:
+
+```bash
+mkdir -p $HOME/scripts && \
+nano $HOME/scripts/magicmirror.sh && \
+chmod +x $HOME/scripts/magicmirror.sh
+```
+
+Pegamos el siguiente contenido del script:
+
+```bash
+#!/bin/bash
+#
+# MagicMirror Docker Fix v.1
+# http://lordpedal.gitlab.io
+#
+# Inicia Ejecución bucle
+while :
+do
+# Lee variables de docker en host
+fichero="$HOME/docker/magic/config/power.txt"
+accion=`cat $fichero 2>/dev/null`
+# Condicional apagado y salida bucle
+if [ "$accion" == 'apagar' ];then
+   echo "Apagar"
+   sudo rm $fichero
+   sudo poweroff
+   break
+# Condicional reinicio y salida bucle
+elif [ "$accion" == 'reiniciar' ]; then
+   echo "Reiniciar"
+   sudo rm $fichero
+   sudo reboot
+   break
+# Si no cumple condicionales reinicia bucle
+else
+   sleep 1
+fi
+done
+```
+
+Guardamos, salimos del editor y añadimos una tarea al cron de nuestro usuario:
+
+```bash
+crontab -e
+```
+
+Y añadimos la siguiente linea al final del fichero, para que el script se cargue tras el inicio del sistema:
+
+```bash
+@reboot ~/scripts/magicmirror.sh >/dev/null 2>&1
+```
+
+Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva configuración:
+
+sudo reboot
+
 >  Y listo!
