@@ -120,7 +120,7 @@ UUID=79c2784f-2765-4f0e-951c-ac597750de26 /media/pendrive vfat umask=000 0 0
 
 ### [KVM](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/){:target="_blank"} ⇒ fstab
 
-Esta configuración requiere de modificaciones adicionales en la gestión de la maquina virtual (HOST)
+Esta configuración requiere de modificaciones adicionales en la gestión de la maquina virtual **(HOST)**
 
 [!KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png)
 
