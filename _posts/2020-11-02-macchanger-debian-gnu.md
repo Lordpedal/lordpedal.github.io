@@ -18,7 +18,7 @@ Esta dirección es una cadena de [seis octetos](https://es.wikipedia.org/wiki/By
 
 Es por así decirlo, un número de serie de fabricación que identifica inequívocamente a esa pieza de hardware.
 
-**¿Que quiere decir esto?** Que tu tarjeta de red tiene una MAC que la identifica, que es única y que cada vez que envías/consultas información por una red, esa dirección **MAC** viaja dentro del paquete de datos [TCP/IP](https://es.wikipedia.org/wiki/Familia_de_protocolos_de_internet){:target="_blank"}.
+**¿Que quiere decir esto?** Que tu tarjeta de red tiene una **MAC** que la identifica, que es única y que cada vez que envías/consultas información por una red, esa dirección **MAC** viaja dentro del paquete de datos [TCP/IP](https://es.wikipedia.org/wiki/Familia_de_protocolos_de_internet){:target="_blank"}.
 
 Por ejemplo los routers mantienen una [tabla ARP](https://es.wikipedia.org/wiki/Familia_de_protocolos_de_internet){:target="_blank"} que conserva los datos de las **MAC** de los dispositivos conectados a ellos, lo cual esto permitiría una manera de seguimiento de un dispositivo.
 
@@ -75,9 +75,11 @@ EOF'
 
 Como anteriormente hemos visto tengo una red tipo bridge **br0**, vamos a **activar**, arrancar y comprobar el servicio creado sobre dicha red:
 
+```bash
 sudo systemctl enable hackmac@br0.service && \
 sudo systemctl start hackmac@br0.service && \
 sudo systemctl status hackmac@br0.service
+```
 
 En mi caso la respuesta es la siguiente, donde se puede observar el cambio:
 
