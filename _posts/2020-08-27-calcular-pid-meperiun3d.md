@@ -37,7 +37,9 @@ Vamos a revisar los parametros y como se deberian de configurar, tomando como ba
 
 ![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
 
-## Additional Features: Eeprom
+## Firmware Marlin
+
+### Additional Features: Eeprom
 
 Para poder interactuar con la memoria de la impresora 3D, debemos de tener activa esta configuración
 
@@ -57,7 +59,7 @@ Para poder interactuar con la memoria de la impresora 3D, debemos de tener activ
 | [M501](https://marlinfw.org/docs/gcode/M501.html){:target="_blank"} | Lee configuración Eeprom |
 | [M502](https://marlinfw.org/docs/gcode/M502.html){:target="_blank"} | Resetea a valores fábrica `(definidos Marlin)` |
 
-## Thermal Settings
+### Thermal Settings
 
 Como veras tengo configurado el parametro **TEMP_SENSOR_0** y **TEMP_SENSOR_BED**, los parametros cuya parametro es 0 no estan habilitados, en caso de disponer de ellos tendriamos que configurarlo.
 
@@ -140,7 +142,7 @@ El listado de posibles termistores es amplio, algunos requieren configuraciones 
 * 999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
 ```
 
-## PID Settings
+### PID Settings
 
 Activamos la configuración `#define PIDTEMP` para poder usar el control de temperatura por **PID** en vez de **bang-bang**:
 
@@ -163,7 +165,7 @@ Activamos la configuración `#define PIDTEMP` para poder usar el control de temp
 #endif // PIDTEMP
 ```
 
-## PID > Bed Temperature Control
+### PID > Bed Temperature Control
 
 Activamos la configuración `#define PIDTEMPBED` para poder usar el control de temperatura por **PID** en vez de **bang-bang**:
 
@@ -190,7 +192,9 @@ Tras haber configurado estas opciones mencionadas en **Marlin**, tendriamos que 
 
 ![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
 
-## Calcular PID del Hotend (Fusor)
+## OctoPrint
+
+### Calcular PID del Hotend (Fusor)
 
 Vamos a calcularlo desde una Terminal de comandos como pueda ser por ejemplo: [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, Pronterface, para ello la impresora debe de estar conectada por USB para el envio de [Gcodes](https://es.wikipedia.org/wiki/G-code){:target="_blank"}.
 
@@ -221,7 +225,7 @@ M301 P19.56 I1.71 D80.26
 ```bash
 M500
 ```
-## Calcular PID de Cama
+### Calcular PID de Cama
 
 Vamos a calcularlo nuevamente desde una Terminal de comandos como pueda ser por ejemplo: [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}, Pronterface, para ello la impresora debe de estar conectada por USB para el envio de [Gcodes](https://es.wikipedia.org/wiki/G-code){:target="_blank"}.
 
