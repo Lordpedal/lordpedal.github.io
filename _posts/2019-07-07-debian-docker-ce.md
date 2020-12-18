@@ -22,7 +22,7 @@ La idea detrás de `Docker` es la de poder crear portables, para que las aplicac
 
 Te preguntaras, si ya hemos instalado [KVM para poder correr máquinas virtuales](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/){:target="_blank"} ¿**que me aporta Docker**? Pues realmente el concepto es algo similar, pero **un contenedor no es lo mismo que una máquina virtual**. Un contenedor es más ligero, ya que mientras que a una máquina virtual necesitas instalarle un sistema operativo para funcionar, un contenedor de Docker funciona utilizando el sistema operativo que tiene la máquina en la que se ejecuta el contenedor.
 
-### Docker Hub: Fix GNU/Linux
+## Docker Hub: Fix GNU/Linux
 
 [Docker Hub](https://hub.docker.com/){:target="_blank"} recientemente actualizo su política de cuentas y accesos, limitando especialmente la creación de servicios Docker sin cuenta de usuario y nos podríamos encontrar con este fallo:
 
@@ -64,8 +64,9 @@ docker login -u usuario -p token
 docker login -u lordpedal \
 -p d5587907-4519-4519-4519-d55879074519
 ```
+## Docker CE + docker-compose
 
-### Docker CE + docker-compose: Instalación AMD64
+### Instalación AMD64
 
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
 
@@ -96,7 +97,7 @@ Activamos permisos de ejecución a nuestro usuario del sistema evitando tener qu
 sudo usermod -aG docker $USER
 ```
 
-### Docker CE + docker-compose: Instalación ARM
+### Instalación ARM
 
 Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
 
@@ -236,7 +237,7 @@ Con el sistema preparado para emular entornos **Docker**, vamos a realizar unos 
 ```bash
 cd $HOME && mkdir docker && cd $HOME/docker
 ```
-### Docker: [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
+## Docker: [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
 
 La gestión de Docker en un comienzo se realiza desde **TTY**, pero vamos a habilitar un Docker para la gestión de forma web.
 
@@ -281,7 +282,7 @@ Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar
 
 Y listo, ya estara debidamente configurado para poder gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
-### Docker: [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
+## Docker: [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
 
 Watchtower es una aplicación que controlará tus contenedores Docker en funcionamiento y observará los cambios en las imágenes a partir de los cuales se iniciaron originalmente esos contenedores. Si la Watchtower detecta que una imagen ha cambiado, se reiniciará automáticamente el contenedor utilizando la nueva imagen.
 
@@ -300,7 +301,7 @@ Los parámetros son mínimos pero vamos a detallarlos:
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Watchtower` |
 
-### Docker: [Wireguard](https://hub.docker.com/r/linuxserver/wireguard/){:target="_blank"}
+## Docker: [Wireguard](https://hub.docker.com/r/linuxserver/wireguard/){:target="_blank"}
 
 Wireguard es un aplicación de software completamente gratuita que nos permitirá establecer túneles VPN.
 
@@ -355,7 +356,7 @@ peer1.conf peer1.png privatekey-peer1 publickey-peer
 
 Tan solo nos faltaría abrir el puerto en nuestro **Router** de y tendríamos de forma sencilla acceso `VPN` a nuestra casa.
 
-### Docker: [OctoPrint](https://hub.docker.com/r/octoprint/octoprint/){:target="_blank"}
+## Docker: [OctoPrint](https://hub.docker.com/r/octoprint/octoprint/){:target="_blank"}
 
 OctoPrint es una aplicación de controlador de impresión 3D de código abierto creada por Gina Häußge, desarrollada en Python.
 
@@ -391,7 +392,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:5000` y completamos el asistente de configuración.
 
-### Docker: [PrivateBin](https://hub.docker.com/r/privatebin/nginx-fpm-alpine/){:target="_blank"}
+## Docker: [PrivateBin](https://hub.docker.com/r/privatebin/nginx-fpm-alpine/){:target="_blank"}
 
 PrivateBin es un `«pastebin»` en línea minimalista de código abierto, donde el servidor no tiene ningún conocimiento de los datos guardados. 
 
@@ -435,7 +436,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
 
-### Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
+## Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
 
 Shaarli es un gestor de notas y enlaces que para uso personal.
 
@@ -476,7 +477,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
 
-### Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
+## Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
 
 Gossa es un microservicio que nos permite crear un servidor web «**colaborativo**» en línea minimalista de código abierto, desarrollado en lenguaje Go.
 
@@ -535,7 +536,7 @@ Tras haber lanzado el servicio, tendriamos el servicio disponible en la direcci�
 | Arrastrar y soltar contenido externo | Subir ficheros/carpetas |
 | Cualquier otra letra 	Búsqueda |
 
-### Docker: [Nginx](https://hub.docker.com/r/amd64/nginx/){:target="_blank"}
+## Docker: [Nginx](https://hub.docker.com/r/amd64/nginx/){:target="_blank"}
 
 Nginx es un servidor web de código abierto que, desde su éxito inicial como servidor web, ahora también es usado como proxy inverso, cache de HTTP, y balanceador de carga.
 
@@ -596,7 +597,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8002`
 
-### Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
+## Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
 
 RSS Bridge te permite obtener las novedades de servicios/webs que a priori no tienen esta opción habilitada.
 
@@ -654,7 +655,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8003`
 
-### Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
+## Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
 
 Calibre es un **gestor y organizador de libros electrónicos** libre, que permite la conversión de numerosos formatos de archivos para libros electrónicos.
 
@@ -719,7 +720,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
 
-### Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
+## Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
 
 Shairport-sync es un reproductor de audio AirPlay, que reproduce el audio transmitido por iTunes, iOS, Apple TV, … y su vez desde fuentes AirPlay como Quicktime Player y Forked-daapd, entre otros.
 
@@ -750,7 +751,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
 
-### Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
+## Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
 Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
 
@@ -864,7 +865,7 @@ https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
 
 Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
 
-### Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
+## Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
 
 File Browser es un tipo de software que crea una propia nube en nuestro servidor, dirigirlo a una ruta y luego acceder a sus archivos a través de una interfaz web agradable.
 
@@ -900,7 +901,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
 
-### Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
+## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
 
 Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
 
@@ -942,5 +943,106 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
+
+## Docker: [Jellyfin](https://hub.docker.com/r/linuxserver/jellyfin/){:target="_blank"}
+
+Jellyfin es un **servidor Multimedia** donde podremos tener todas nuestras películas, series, música, etc… Organizados y centralizados en un único lugar.
+
+La gran ventaja de Jellyfin, no solo es que sea **100% Software Libre y gratuito**, sino que tenemos la total garantía que todo nuestro contenido Multimedia, así como nuestras fotos o vídeos domésticos, mantienen la total privacidad, ya que nuestro servidor de Jellyfin, en ningún caso se conectará a servidores de terceros del mismo modo que lo hace `Plex` o `Emby`.
+
+Vamos a detallar como personalizar la creación y la posibilidad de utilizar la **aceleración por hardware**. 
+
+En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/jellyfin
+```
+
+Consultamos el dispositivo de video disponibles en el sistema, para poder habilitar la aceleración por hardware, anotamos la ruta que posteriormente usaremos:
+
+```bash
+sudo lshw -c video && ls -l /dev/dri/
+```bash
+
+Adjunto ejemplo de mi sistema:
+
+```bash
+pi@overclock:~$ sudo lshw -c video && ls -l /dev/dri/
+*-display
+  description: VGA compatible controller
+  product: HD Graphics 530
+  vendor: Intel Corporation
+  physical id: 2
+  bus info: pci@0000:00:02.0
+  version: 06
+  width: 64 bits
+  clock: 33MHz
+  capabilities: pciexpress msi pm vga_controller bus_master cap_list rom
+  configuration: driver=i915 latency=0
+  resources: irq:137 memory:de000000-deffffff memory:c0000000-cfffffff ioport:f000(size=64) memory:c0000-dffff
+total 0
+crw-rw---- 1 root video 226, 0 sep 2 17:59 card0
+crw-rw---- 1 root video 226, 64 sep 2 17:59 controlD64
+crw-rw---- 1 root video 226, 128 sep 2 17:59 renderD128
+```
+
+Y ya podriamos lanzar la creación y activación del servicio para un Procesador de PC 64bits:
+
+```bash
+docker run -d \
+	--name=Jellyfin \
+	-e UID=1000 \
+	-e GID=1000 \
+	-p 8096:8096 \
+	--device /dev/dri/renderD128:/dev/dri/renderD128 \
+	--device /dev/dri/card0:/dev/dri/card0 \
+	-v /media/rednas/NAS/LXC:/media \
+	-v $HOME/docker/jellyfin/config:/config \
+	-v $HOME/docker/jellyfin/cache:/cache \
+	--restart=always \
+	ghcr.io/linuxserver/jellyfin
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-p 8096:8096` | Puerto de acceso Web `8096` |
+| `--device /dev/dri/renderD128` | Ruta resultante de consulta: `ls -l /dev/dri/render*` |
+| `--device /dev/card0` | Ruta resultante de consulta: `ls -l /dev/dri/card*` |
+| `-v /media/rednas/NAS/LXC` | Ruta donde tenemos almacenado el contenido multimedia y compartimos en Jellyfin |
+| `-v $HOME/docker/jellyfin/config` | Ruta donde almacenaremos la **configuración** |
+| `-v $HOME/docker/jellyfin/cache` | Ruta donde almacenaremos la **cache** |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Jellyfin |
+
+Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la `http://ip_Servidor:8096` para iniciar el asistente de configuración.
+
+Para habilitar acceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
+
+> Panel de Control -> Reproducción -> Video Acceleration API (VAAPI) 
+
+Seleccionamos el dispositivo `VAAPI`, en mi caso **/dev/dri/renderD128**
+
+### M3U
+
+Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M3U Tuner -> Archivo o URL -> añadimos nuestra lista`, en mi caso a modo de ejemplo dejo listas de TDT/Radio en abierto:
+
+```bash
+https://www.tdtchannels.com/lists/tvradio.m3u8
+```
+
+Y hacemos click en **guardar**.
+
+### EPG
+
+Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guías -> XMLTV -> Archivo o URL -> añadimos nuestra programación`, en mi caso a modo de ejemplo dejo la guía para la lista añadida previamente:
+
+```bash
+https://www.tdtchannels.com/epg/TV.xml
+```
+
+Y hacemos click en **guardar**.
 
 >  Y listo!
