@@ -66,7 +66,7 @@ if grep -q up $macs/$nic/operstate; then
        sudo ethtool $nic | grep Wake-on
 fi
 done
-```bash
+```
 
 Guardamos el fichero, salimos del editor y le damos permisos de ejecución:
 
@@ -97,12 +97,12 @@ Interfaz enp5s0f0
 Interfaz enp5s0f1
 Interfaz lo 127.0.0.1
 Interfaz tun0 10.8.0.1
+```
 
 Interpretando los resultados observamos que la interfaz enp5s0f0:
 
-    Soporta Wake-on-Lan: pumbg
-    No se encuentra habilitada, Wake-on-Lan: d
-```
+- `Soporta Wake-on-Lan`: **pumbg**
+- **No se encuentra habilitada**, Wake-on-Lan: d
 
 Vamos a habilitar WOL en nuestra interfaz:
 
