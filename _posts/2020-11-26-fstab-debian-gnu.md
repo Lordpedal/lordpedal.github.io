@@ -124,7 +124,7 @@ Esta configuración requiere de modificaciones adicionales en la gestión de la 
 
 [!KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png)
 
-Y a posterior añadimos en el fstab de la maquina virtual (HUESPED)
+Y a posterior añadimos en el fstab de la maquina virtual **(HUESPED)**
 
 ```bash
 #
