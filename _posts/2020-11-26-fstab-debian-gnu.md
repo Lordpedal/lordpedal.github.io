@@ -30,14 +30,14 @@ Los sistemas de archivos a definir en **/etc/fstab**, deben de guarda la siguien
 - `<sistema_de_archivos>` Es el algoritmo que se utilizará para interpretarlo, por ejemplo: **ext2, ext3, ext4, vfat, ntfs, swap, ...**
 - `<opciones>` Es el lugar donde se especifican los parámetros que mount utilizará para montar el dispositivo, los más comunes son:
 	- `auto / noauto`: Con la opción auto, el dispositivo será montado automáticamente durante el inicio o en caso de que el comando mount -a sea ejecutado. Auto es el valor por defecto. Si no se desea que el dispositivo se monte automáticamente, se deberá substituir por noauto.
-        - `dev / nodev`: Interpretar / no interpretar dispositivos especiales de bloques en el sistema de archivos. Los dispositivos especiales de bloques son similares a discos (donde se puede acceder a los datos dado un número de bloque, y p.ej. tiene sentido tener un caché de bloques).
-        - `exec / noexec`: exec permite ejecutar binarios que están en la partición, mientras que noexec lo impide. noexec puede resultar útil en una partición que contenga binarios que se deseen ejecutar en el sistema, o que no deban ser ejecutados.
-        - `ro / rw`: Montar para sólo lectura o bien lectura/escritura.
-        - `sync / async`: Esta opción indica la manera en que se debe realizar la entrada y salida del sistema de archivos. sync especifica que se realice de manera síncrona. En particular sirve, si se está escribiendo en una unidad con la opción activada, para que los cambios sean realizados físicamente en el dispositivo a la vez que se invoca el comando correspondiente.
-        - `suid / nosuid`: Permite / bloquea la operación sobre los bits suid y sgid
-        - `uid=n ,gid=n`: Establece el identificador de usuario, uid, y el identificador de grupo, gid, para todos los archivos de la partición (n = valor id).
-        - `user / nouser`: Permite a cualquier usuario montar el sistema de archivos. Implica directamente las opciones noexec, nosuid y nodev a menos que se especifiquen otras. Si se utiliza la opción nouser, solo el usuario root podrá montar el sistema de archivos.
-        - `defaults`: Utiliza las opciones por defecto: **rw,suid,dev,exec,auto,nouser,async**.
+	- `dev / nodev`: Interpretar / no interpretar dispositivos especiales de bloques en el sistema de archivos. Los dispositivos especiales de bloques son similares a discos (donde se puede acceder a los datos dado un número de bloque, y p.ej. tiene sentido tener un caché de bloques).
+	- `exec / noexec`: exec permite ejecutar binarios que están en la partición, mientras que noexec lo impide. noexec puede resultar útil en una partición que contenga binarios que se deseen ejecutar en el sistema, o que no deban ser ejecutados.
+	- `ro / rw`: Montar para sólo lectura o bien lectura/escritura.
+	- `sync / async`: Esta opción indica la manera en que se debe realizar la entrada y salida del sistema de archivos. sync especifica que se realice de manera síncrona. En particular sirve, si se está escribiendo en una unidad con la opción activada, para que los cambios sean realizados físicamente en el dispositivo a la vez que se invoca el comando correspondiente.
+	- `suid / nosuid`: Permite / bloquea la operación sobre los bits suid y sgid	
+	- `uid=n ,gid=n`: Establece el identificador de usuario, uid, y el identificador de grupo, gid, para todos los archivos de la partición (n = valor id).
+	- `user / nouser`: Permite a cualquier usuario montar el sistema de archivos. Implica directamente las opciones noexec, nosuid y nodev a menos que se especifiquen otras. Si se utiliza la opción nouser, solo el usuario root podrá montar el sistema de archivos.
+	- `defaults`: Utiliza las opciones por defecto: **rw,suid,dev,exec,auto,nouser,async**.
         - `nofail`: No devuelve error si no se puede montar el dispositivo.
         - `noatime / nodiratime`: No actualiza los tiempos de acceso de inodo en el sistema de archivos o bien al directorio de sistema de archivos.
         - `relatime`: Actualizar los tiempos de acceso al inodo en relación con el tiempo de modificación o cambio. La hora de acceso solo se actualiza si la hora de acceso anterior fue anterior a la hora de modificación o cambio actual.
@@ -122,7 +122,7 @@ UUID=79c2784f-2765-4f0e-951c-ac597750de26 /media/pendrive vfat umask=000 0 0
 
 Esta configuración requiere de modificaciones adicionales en la gestión de la maquina virtual **(HOST)**
 
-[!KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png)
+![KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png)
 
 Y a posterior añadimos en el fstab de la maquina virtual **(HUESPED)**
 
