@@ -105,6 +105,14 @@ La configuración [más extendida y detallada la puedes revisar en el Github del
 
 ## [M73 Progress](https://plugins.octoprint.org/plugins/m73progress/){:target="_blank"}
 
+Permite ver el avance de impresión en el **LCD** como si se estuviese imprimiendo desde la **SD/microSD**.
+
+Si queremos instalarlo de forma manual, su link sería:
+
+```bash
+https://github.com/cesarvandevelde/OctoPrint-M73Progress/archive/master.zip
+```
+
 ### Configuración Marlin
 
 ![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
