@@ -24,6 +24,10 @@ Los valores que se obtienen al calibrar el PID son tres variables para obtener u
 - `Ki`: Es la parte **integral**, y la idea es reducir la oscilación, cuando llegue a la temperatura objetivo.
 - `Kd`: Es la parte **derivativa**, y se ajusta para que no te pases del valor objetivo y quemes el plástico.
 
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+
+## Firmware Marlin
+
 Para poder ajustar estos parametros debemos de tener debidamente configuradas las siguientes secciones en el [firmware de Marlin](https://marlinfw.org/){:target="_blank"} dentro del fichero `configuration.h`:
 
 - **Additional Features: Eeprom** (Gestión memoria)
@@ -34,10 +38,6 @@ Para poder ajustar estos parametros debemos de tener debidamente configuradas la
 Sino definimos el control por **PID en Fusor & Cama**, el firmware asume el funcionamiento de control por `bang-bang` (menos eficiente y preciso).
 
 Vamos a revisar los parametros y como se deberian de configurar, tomando como base la configuración de mi impresora **Ender 3**.
-
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
-
-## Firmware Marlin
 
 ### Additional Features: Eeprom
 
