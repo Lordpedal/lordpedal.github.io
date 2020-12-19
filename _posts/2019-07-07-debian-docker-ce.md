@@ -97,57 +97,6 @@ Activamos permisos de ejecución a nuestro usuario del sistema evitando tener qu
 sudo usermod -aG docker $USER
 ```
 
-### Instalación ARM
-
-Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install apt-transport-https \
-ca-certificates curl gnupg2 software-properties-common
-```
-
-Obtenemos la clave de firma Docker para paquetes:
-
-```bash
-sudo curl -fsSL https://download.docker.com/linux/\
-$(. /etc/os-release; echo "$ID")/gpg | \
-sudo apt-key add -
-```
-
-Añadimos los repositorios oficiales:
-
-```bash
-sudo echo "deb [arch=armhf] \
-https://download.docker.com/linux/\
-$(. /etc/os-release; echo "$ID") \
-$(lsb_release -cs) stable" | \
-sudo tee /etc/apt/sources.list.d/docker.list
-```
-
-Volvemos a actualizar repositorios del sistema e instalamos Docker:
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install docker-ce && \
-sudo pip3 install docker-compose
-```
-
-Confirmamos la creación del grupo Docker y activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
-
-```bash
-sudo groupadd docker && \
-sudo usermod -aG docker $(whoami)
-```
-
-Y reiniciamos la placa **SBC (Raspberry, Odroid, ...)**:
-
-```bash
-sudo reboot
-```
-
-### GRUB: Fix Docker AMD64
-
 Una vez instalado, tendremos que configurar nuestro Grub de arranque del sistema para habilitar la memoria compartida y swap del sistema:
 
 ```bash
@@ -232,11 +181,55 @@ Product License: Community Engine
 pi@overclock:~$
 ```
 
-Con el sistema preparado para emular entornos **Docker**, vamos a realizar unos preparativos para almacenar configuraciones y entornos en nuestra carpeta de usuario y posterior ejecución **scripts**.
+### Instalación ARM
+
+Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
 
 ```bash
-cd $HOME && mkdir docker && cd $HOME/docker
+sudo apt-get update && \
+sudo apt-get -y install apt-transport-https \
+ca-certificates curl gnupg2 software-properties-common
 ```
+
+Obtenemos la clave de firma Docker para paquetes:
+
+```bash
+sudo curl -fsSL https://download.docker.com/linux/\
+$(. /etc/os-release; echo "$ID")/gpg | \
+sudo apt-key add -
+```
+
+Añadimos los repositorios oficiales:
+
+```bash
+sudo echo "deb [arch=armhf] \
+https://download.docker.com/linux/\
+$(. /etc/os-release; echo "$ID") \
+$(lsb_release -cs) stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list
+```
+
+Volvemos a actualizar repositorios del sistema e instalamos Docker:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install docker-ce && \
+sudo pip3 install docker-compose
+```
+
+Confirmamos la creación del grupo Docker y activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+
+```bash
+sudo groupadd docker && \
+sudo usermod -aG docker $(whoami)
+```
+
+Y reiniciamos la placa **SBC (Raspberry, Odroid, ...)**:
+
+```bash
+sudo reboot
+```
+
 ## Docker: [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
 
 La gestión de Docker en un comienzo se realiza desde **TTY**, pero vamos a habilitar un Docker para la gestión de forma web.
