@@ -1488,4 +1488,170 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
+## Docker: [Transmission](https://hub.docker.com/r/linuxserver/transmission/){:target="_blank"}
+
+[Transmission](https://transmissionbt.com/){:target="_blank"} es un **cliente P2P liviano y de código abierto para la red BitTorrent**.
+
+Entre las principales características destacan:
+
+- Descarga selectiva y priorización de archivos.
+- Soporte para transmisiones cifradas.
+- Soporte de múltiples trackers.
+- Soporte para trackers HTTPS.
+- Compatibilidad con enlaces Magnet.
+- Bloqueo de IPs.
+- Mapeo automático de puertos (usando UPnP/NAT-PMP).
+- Auto-Ban de los clientes que envíen datos falsos.
+- …
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/transmission/{config,descargas}
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Transmission \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-e USER=empalador \
+	-e PASS=nocturno \
+	-e TRANSMISSION_WEB_HOME=/kettu/ \
+	-p 9091:9091 \
+	-p 51413:51413 \
+	-p 51413:51413/udp \
+	-v $HOME/docker/transmission/config:/config \
+	-v $HOME/docker/transmission/descargas:/downloads \
+	-v $HOME/docker/transmission/descargas:/watch \
+	--restart=always \
+	ghcr.io/linuxserver/transmission
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-e USER=empalador` | Usuario para hacer login en WebUI, te recomiendo modificarla | 
+| `-e PASS=nocturno` | Contraseña del usuario para hacer login en WebUI, te recomiendo modificarla |
+| `-e TRANSMISSION_WEB_HOME=/kettu/` | Skin que usaremos para gestión web. Disponibles tres skins: `/kettu/` , `/combustion-release/` y `/transmission-web-control/` O bien si no queremos usar ningún Skin extra, borramos la línea para no incluir la opción. |
+| `-p 9091:9091` | Puerto de gestión WebUI `9091` |
+| `-p 51413:51413` | Puerto descargas Torrents `TCP` |
+| `-p 51413:51413/udp` | Puerto descargas Torrents `UDP` |
+| `-v $HOME/docker/transmission/config:/config` | Ruta donde almacenaremos la **configuración** |
+| `-v $HOME/docker/transmission/descargas:/downloads` | Ruta donde almacenaremos las **descargas**. |
+| `-v $HOME/docker/transmission/descargas:/watch` | Ruta donde realiza **monitorizado** futuras descargas, si añadimos fichero .torrent este se descarga de forma automática. |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Transmission |
+
+Tras haber lanzado el servicio, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_Servidor:9091`
+
+### Notificación Descargas: Telegram
+
+Opcionalmente podemos añadirle notificación de descargas, para ello antes debemos detener el contenedor:
+
+```bash
+docker stop Transmission
+```
+
+Vamos a crear un script en la máquina host para que lea las variables y actuar en consecuencia:
+
+```bash
+cd $HOME/docker/transmission/config && \
+nano torrents.sh
+```
+
+Pegamos el siguiente contenido del script:
+
+```bash
+#!/bin/bash
+#
+# https://lordpedal.github.io
+# Another fine release by Lordpedal
+#
+# ID Telegram (Consulta @Lordpedalbot)
+telegram=79593223
+# BOT
+token=289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA
+url=https://api.telegram.org/bot$token
+# Variables
+IPServidor=192.168.1.90
+Puerto=9091
+User=empalador
+Pass=nocturno
+SERVER="$IPServidor:$Puerto --auth $User:$Pass"
+# Inicia secuencia
+TORRENTLIST=`transmission-remote $SERVER --list | sed -e '1d;$d;s/^ *//' | cut --only-delimited --delimiter=" " --fields=1`
+for TORRENTID in $TORRENTLIST
+do
+    DL_COMPLETED=`transmission-remote $SERVER --torrent $TORRENTID --info | grep "Percent Done: 100%"`
+    STATE_STOPPED=`transmission-remote $SERVER --torrent $TORRENTID --info | grep "State: Seeding\|Stopped\|Finished\|Idle"`
+    # Condicionales
+    if [ "$DL_COMPLETED" ] && [ "$STATE_STOPPED" ]; then
+        transmission-remote $SERVER --torrent $TORRENTID --remove
+    else
+        echo "Torrent #$TORRENTID no esta completo."
+    fi
+done
+# Notificacion
+/usr/bin/curl -s \
+        -o /dev/null \
+        -F chat_id="$telegram" \
+        -F text="$TR_TORRENT_NAME descargado correctamente en la ruta $TR_TORRENT_DIR" \
+        $url/sendMessage
+```
+
+Guardamos el fichero, salimos del editor y le damos permisos de ejecución:
+
+```bash
+chmod +x $HOME/docker/transmission/config/torrents.sh
+```
+Vamos a revisar las variables que debemos de modificar en el script:
+
+| Variable | Comentario |
+| ------ | ------ |
+| `telegram=79593223` | Sustiuimos el ID de nuestro telegram, puedes consultarlo en [@lordpedalbot](https://t.me/Lordpedalbot){:target="_blank"} |
+| `IPServidor=192.168.1.90` | Dirección IP del servidor donde estamos ejecutando el servicio de Transmission |
+| `User=empalador` | Usuario que definimos en la creación del **Docker Transmission** |
+| `Pass=nocturno` | Contraseña que definimos en la creación del **Docker Transmission** |
+
+Ahora le toca el turno a las opciones de Transmission, para ello editamos la configuración:
+
+```bash
+nano $HOME/docker/transmission/config/settings.json
+```
+Vamos a cambiar los parametros de la configuración stock a la modificada, se tiene que prestar atención a los signos de puntuación para evitar fallos de configuración:
+
+| Configuración Stock | **Configuración Modificada** |
+| ------ | ------ |
+| `"alt-speed-down": 50,` | `"alt-speed-down": 32768,` |
+| `"alt-speed-enabled": false,` | `"alt-speed-enabled": true,` |
+| `"alt-speed-up": 50,` | `"alt-speed-up": 4096,` |
+| `"blocklist-enabled": false,` | `"blocklist-enabled": true,` |
+| `"blocklist-url": "http://www.example.com/blocklist",` | `"blocklist-url": "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",` |
+| `"download-dir": "/downloads/complete",` | `"download-dir": "/downloads",` |
+| `"incomplete-dir": "/downloads/incomplete",` | `"incomplete-dir": "/downloads",` |
+| `"port-forwarding-enabled": true,` | `"port-forwarding-enabled": false,` |
+| `"script-torrent-done-enabled": false,` | `"script-torrent-done-enabled": true,` |
+| `"script-torrent-done-filename": "",` | `"script-torrent-done-filename": "/config/torrents.sh",` |
+| `"speed-limit-down": 100,` | `"speed-limit-down": 16384,` |
+| `"speed-limit-down-enabled": false,` | `"speed-limit-down-enabled": true,` |
+| `"speed-limit-up": 100,` | `"speed-limit-up": 2048,` |
+| `"speed-limit-up-enabled": false,` | `"speed-limit-up-enabled": true,` |
+| `"trash-original-torrent-files": false,` | `"trash-original-torrent-files": true,` |
+| `"utp-enabled": false,` | `"utp-enabled": true,` |
+
+Guardamos el fichero, salimos del editor y volvemos a iniciar el Docker ya debidamente configurado:
+
+```bash
+docker start Transmission
+```
+
+Con estos pasos ya tendremos configurado nuestro gestor de descargas `.Torrents` con un sencillo docker.
+
 > Y listo!
