@@ -1,6 +1,6 @@
 ---
 title:  "Debian 10 Buster: Servidor PC"
-date:   2019-07-06 10:00:00 -0300
+date:   2019-12-12 10:00:00 -0300
 last_modified_at: 2020-12-12T16:15:00-05:00
 categories:
   - GNU/Linux
@@ -161,8 +161,16 @@ Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futu
 sudo apt-get update && \
 sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
 hfsplus build-essential automake libtool uuid-dev psmisc linux-source yasm \
+minissdpd autoconf g++ subversion linux-source tofrodos git-core subversion dos2unix \
+make gcc automake cmake git-core dpkg-dev fakeroot pbuilder dh-make debhelper devscripts \
+patchutils quilt git-buildpackage pristine-tar git yasm cvs mercurial libexif* libid3tag* \
+libavutil* libavcodec-dev libavformat-dev libjpeg-dev libsqlite3-dev libexif-dev libid3tag0-dev \
+libogg-dev libvorbis-dev libflac-dev ffmpeg libssl-dev libgnutls-openssl-dev \
 linux-headers-`uname -r`
 ```
+
+
+
 ###  Configurando Idioma Sistema
 
 Ejecutaremos un pequeño asistente con la orden de terminal:
@@ -319,7 +327,7 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
 
 ## Redes
 
-Tras haber configurado nuestr sistema Base, vamos a configurar y segurizar nuestra red doméstica.
+Tras haber configurado nuestro sistema Base, vamos a configurar y segurizar nuestra red doméstica.
 
 ###  Identificando RED
 
@@ -524,5 +532,528 @@ sudo chown pi:pi /home/pi/Lordpedal.ovpn
 ```
 Ahora ya podremos pasar el fichero OVPN a nuestro Smartphone/Tablet/Pendrive/... para poder conectarnos en remoto previa configuración router.
 Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo** `UDP` si has seguido la configuración que detallo paso a paso.
+
+## Multimedia
+
+Continuamos añadiendole extras a nuestro Servidor esta vez desde el punto `multimedia`.
+
+#### Transmission
+
+Información ampliada Docker: [Transmission](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){:target="_blank"}
+
+### SAMBA
+
+**Samba** es una suite de aplicaciones Unix que habla el protocolo `SMB (Server Message Block)`. Los sistemas operativos Microsoft Windows y OS/2 utilizan SMB para compartir por red archivos e impresoras y para realizar tareas asociadas. Gracias al soporte de este protocolo, Samba permite a las máquinas Unix entrar en el juego, comunicándose con el mismo protocolo de red que Microsoft Windows y aparecer como otro sistema Windows en la red (desde la perspectiva de un cliente Windows).
+ Hoy en día, la suite Samba gira alrededor de un par de demonios Unix que permiten la compartición de recursos entre los clientes SMB de una red. Estos demonios son:
+
+- **smbd**: Demonio que permite la compartición de archivos e impresoras sobre una red SMB y proporciona autentificación y autorización de acceso para clientes SMB.
+- **nmbd**: Demonio que soporta el servicio de nombres NetBIOS y WINS, que es una implementación de Microsoft del servicio de nombres NetBIOS (NBNS). Este demonio también ayuda añadiendo la posibilidad de navegar por la red.
+
+Vamos a entrar a configurar nuestro Servidor para compartir información con otros Sistemas Operativos de casa:
+
+```bash
+sudo apt-get update && sudo apt-get install samba smbclient cifs-utils
+```
+
+Durante la instalación se nos consultara si queremos modificar `smb.conf para usar WINS sobre DHCP`, la responderemos `NO`. Ahora vamos a crear una carpeta que usaremos para que cualquier usuario de nuestra red deje información en el servidor:
+
+```bash
+mkdir -p /home/$USER/Samba && chmod 777 -R /home/$USER/Samba
+```
+
+Hacemos copia de seguridad del fichero `/etc/samba/smb.conf`:
+ 
+```bash
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+```
+ 
+Una vez que tenemos la copia hecha, editamos la configuración:
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+Al final del fichero añadimos el recurso a compartir, una carpeta sera pública para la red y la otra privada que nos solicitara usuario y contraseña:
+ 
+```bash
+[Compartido]
+  comment = Overclock Server - Publica
+  path = /home/pi/Samba
+  available = yes
+  writable = yes
+  browseable = yes
+  only guest = no
+  create mask = 0777
+  directory mask = 0777
+  public = yes
+
+[Descargas]
+  comment = Overclock Server - Privada
+  path = /home/pi/Torrents
+  available = yes
+  writable = yes
+  browseable = yes
+  only guest = no
+  create mask = 0777
+  directory mask = 0777</pre>
+```  
+
+En este mismo archivo, casi al principio, vas a encontrar la variable workgroup, quede de la siguiente forma:
+
+```bash
+workgroup = WORKGROUP
+```
+
+Guardamos los cambios, salimos del editor de texto y añadimos el usuario `pi` a samba y le ponemos clave:
+
+```bash
+sudo smbpasswd -a pi
+```
+
+Agregamos configuramos la opción de detectar las redes **SMB en el grupo de trabajo**, sino tienes ninguna definida dale al intro para continuar sin contraseña:
+
+```bash
+smbclient -L localhost
+```
+
+Solo nos queda reiniciar el servicio y tendriamos el sistema configurado:
+
+```bash
+sudo systemctl restart smbd && \
+sudo systemctl status smbd
+```
+
+Ahora desde el explorar de ficheros accedemos a la dirección ip del Servidor, veremos el recurso compartido. Al intentar acceder a la carpeta `privada`, nos pedirá un nombre de usuario y la contraseña (la que pusimos en el paso anterior).
+Si las credenciales son correctas, veremos el contenido de la carpeta que hemos compartido. 
+
+### VNC
+
+Como tenemos instalado un **entorno gráfico** en el Servidor puede ser interesante controlarlo de forma remota mediante `VNC`. **VNC** (inglés: Virtual Network Computing). Es también llamado software de escritorio remoto, no impone restricciones en el sistema operativo del ordenador servidor con respecto al del cliente: es posible compartir la pantalla de una máquina con cualquier sistema operativo que soporte VNC conectándose desde otro ordenador o dispositivo que disponga de un cliente VNC portado.
+Vamos a actualizar repositorios e instalar el servidor de VNC:
+
+```bash
+sudo apt update && \
+sudo apt-get -y install tightvncserver
+```
+
+Cuando termine la instalación lanzamos el programa para generar la configuración en nuestro sistema:
+
+```bash
+vncserver
+```
+
+Nos solicitara la creación de una contraseña y su posterior check:
+
+```bash
+Output
+You will require a password to access your desktops.
+
+Password: *****
+Verify: *****
+```
+
+Nos preguntara si queremos crear un password de visualización solo, la respuesta será `n`:
+
+```bash
+Would you like to enter a view-only password (y/n)? n
+```
+
+Y nos dira que ha creado la configuración necesaria en nuestra carpeta de usuario:
+
+```bash
+xauth:  file /home/pi/.Xauthority does not exist
+
+New 'X' desktop is your_hostname:1
+
+Creating default startup script /home/pi/.vnc/xstartup
+Starting applications specified in /home/pi/.vnc/xstartup
+Log file is /home/pi/.vnc/lordpedal:1.log
+```
+
+Para configurar el Servidor de VNC en nuestro Servidor tenemos que detener el programa en ejecución:
+
+```bash
+vncserver -kill :1
+```
+
+Hacemos un backup del fichero `xstartup` generado:
+
+```bash
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+```
+
+Vamos a crear el nuestro, personalizarlo y darle permisos de ejecución:
+
+```bash
+nano ~/.vnc/xstartup && \
+chmod +x ~/.vnc/xstartup
+```
+
+Y dentro del fichero anexamos la siguiente configuración (Escritorio MATE):
+
+```bash
+#!/bin/bash
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+export XKL_XMODMAP_DISABLE=1
+/usr/bin/mate-session &
+```
+
+Guardamos los cambios, salimos del editor de texto y ahora vamos a crear un servicio de autoarranque en [Systemd](https://es.wikipedia.org/wiki/Systemd){:target="_blank"} con nuestro editor nano:
+
+```bash
+sudo nano /etc/systemd/system/vncserver@.service
+```
+
+Y agregamos el siguiente codigo:
+
+```bash
+[Unit]
+Description=TightVNC Server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+
+PIDFile=/home/pi/.vnc/%H:%i.pid
+ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
+ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x720 :%i
+ExecStop=/usr/bin/vncserver -kill :%i
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Guardamos los cambios, salimos del editor de texto y recargamos los servcios de **Systemd**:
+
+```bash
+sudo systemctl daemon-reload
+```
+
+Ahora ya podemos habilitar el autoarranque de VNC tras reiniciar y habilitarlo en la sesión actual:
+
+```bash
+sudo systemctl enable vncserver@2.service && \
+sudo systemctl start vncserver@2.service
+```
+
+Si queremos comprobar como esta trabajando el servicio hacemos un check de status:
+
+```bash
+sudo systemctl status vncserver@2
+```
+
+En mi caso devuelve el siguiente código:
+
+```bash
+pi@lordpedal:~/.vnc$ sudo systemctl status vncserver@2
+● vncserver@2.service - TightVNC Server
+   Loaded: loaded (/etc/systemd/system/vncserver@2.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2019-04-14 16:21:22 CEST; 1 day 1h ago
+ Main PID: 1386 (Xtightvnc)
+   CGroup: /system.slice/system-vncserver.slice/vncserver@2.service
+           ├─ 1386 Xtightvnc :2 -desktop X -auth /home/pi/.Xauthority -geometry 1280x1024 -depth 24 -rfbwait 120000 -rfb           
+           ├─ 2005 /bin/sh /etc/X11/Xvnc-session
+           ├─ 2007 x-session-manager
+           ├─ 2031 dbus-launch --autolaunch 21d0957d47914be79fd212f1ac66978d --binary-syntax --close-stderr
+           ├─ 2035 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+           ├─ 2053 /usr/bin/dbus-launch --exit-with-session --sh-syntax
+           ├─ 2058 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+           ├─ 2075 /usr/bin/ssh-agent x-session-manager
+           ├─ 2077 /usr/lib/at-spi2-core/at-spi-bus-launcher
+           ├─ 2082 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-ad           
+           ├─ 2084 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+           ├─ 2089 /usr/lib/dconf/dconf-service
+           ├─ 2095 gnome-keyring-daemon --start
+           ├─ 2101 /usr/bin/mate-settings-daemon
+           ├─ 2105 marco
+           ├─ 2109 mate-panel
+           ├─ 2111 /usr/lib/gvfs/gvfsd
+           ├─ 2119 /usr/lib/gvfs/gvfsd-fuse /home/pi/.gvfs -f -o big_writes
+           ├─ 2136 /usr/bin/pulseaudio --start --log-target=syslog
+           ├─ 2166 mate-screensaver
+           ├─ 2168 nm-applet
+           ├─ 2171 mate-volume-control-applet
+           ├─ 2200 /usr/lib/mate-panel/wnck-applet
+```
+           
+A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera la `IP de acceso y el puerto 5902` junto con la contraseña que le hubiesemos definido:
+
+> vnc://192.168.1.90:5902
+
+#### MiniDLNA
+
+Información ampliada Docker: [MiniDLNA](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){:target="_blank"}
+
+### UDPXY
+
+Algunos tenemos contratados servicios de televisión por cable como puede ser **Movistar+** y aparte de ver los canales en la TV, queremos verlos a través del PC, móvil o tablet, por mayor comodidad. Pero no todos los dispositivos soportan [multicast](https://es.wikipedia.org/wiki/IP_Multicast){:target="_blank"}.
+
+Esto se soluciona con el software `udpxy`, el cual **convierte los protocolos multicast (RTP o UDP) en el protocolo unicast HTTP**.
+
+Primero vamos a preparar el entorno de compilación **(creamos carpeta compilación + bajamos source programa + descomprimimos + compilamos e instalamos)**:
+
+```bash
+cd && mkdir ~/source && cd ~/source && \
+wget http://www.udpxy.com/download/udpxy/udpxy-src.tar.gz && \
+tar -xzvf udpxy-src.tar.gz && rm udpxy-src.tar.gz && \
+cd udpxy* && make && sudo make install && \
+cd ~/source && rm -rf udpxy*
+```
+
+Realizados estos pasos, **udpxy estará correctamente instalado**, solo nos falta ejecutarlo asignarle un puerto `4022` donde realizara la escucha:
+
+```bash
+sudo udpxy -p 4022 &
+```
+
+Podemos comprobar que el programa esta funcionando correctamente, abriendo en un navegador web a traves de nuestra red local el siguiente enlace:
+
+> http://192.168.1.90:4022/status 
+
+Este paso tendriamos que realizarlo cada vez que iniciemos el servidor y deseemos hacer uso de udpxy, para ellos vamos a ayudarnos de `/etc/rc.local` para configurarlo debidamente:
+
+<pre>sudo nano /etc/rc.local</pre>
+
+Y lo dejamos con los cambios que hemos ido agregando para que quede de la siguiente forma: 
+
+```bash
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+#
+# IPTV
+/usr/local/bin/udpxy -p 4022 -B 270Kb -R 183 -H -1 -c 7 & >/dev/null 2>&1
+# SALIR
+exit 0
+```
+
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y cada vez que arranque tendremos operativo el servicio.
+
+### XUPNPD
+
+Y la última joya, este otro programa llamado [Xupnpd](http://xupnpd.org/){:target="_blank"}. Este **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
+
+Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemplo de **Movistar+, Youtube,...** a los dispositivos de la LAN. Existen múltiples cliente que pueden consumir este servicio, por ejemplo VLC y así no tener que crear un fichero .m3u en cada ordenador.
+
+Vamos nuevamente a preparar el entorno de trabajo para compilar el software:
+
+```bash
+cd ~/source && \
+git clone https://github.com/clark15b/xupnpd.git && \
+cd xupnpd/src && make && cd .. && \
+sudo mv src /etc/xupnpd
+```
+
+Finalizado este proceso ya tendremos compilado y disponible para configurar el programa:
+
+```bash
+sudo chown root:root -R /etc/xupnpd && \
+sudo cp /etc/xupnpd/xupnpd-x86 /etc/xupnpd/xupnpd && \
+sudo chmod 755 /etc/xupnpd/*.lua && \
+sudo nano /etc/xupnpd/xupnpd.lua
+```
+
+Adjunto **mi fichero de configuración** con la **configuración previa adquirida** en los procesos del **blog** `(br0, 192.168.1.90, 4022, ...)`:
+
+```bash
+cfg={}
+
+cfg.ui_auth_file='auth.txt'
+
+cfg.ui_session_file='/tmp/xupnpd.session'
+
+-- multicast interface for SSDP exchange, 'eth0', 'br0', 'br-lan' for example
+cfg.ssdp_interface='br0'
+
+-- 'cfg.ssdp_loop' enables multicast loop (if player and server in one host)
+cfg.ssdp_loop=0
+
+-- SSDP announcement interval
+cfg.ssdp_notify_interval=15
+
+-- SSDP announcement age
+cfg.ssdp_max_age=1800
+
+-- HTTP port for incoming connections
+cfg.http_port=4044
+
+-- syslog facility (syslog,local0-local7)
+cfg.log_facility='local0'
+
+-- 'cfg.daemon' detach server from terminal
+cfg.daemon=true
+
+-- silent mode - no logs, no pid file
+cfg.embedded=true
+
+-- 'cfg.debug' enables SSDP debug output to stdout (if cfg.daemon=false)
+-- 0-off, 1-basic, 2-messages
+cfg.debug=1
+
+-- external 'udpxy' url for multicast playlists (udp://@...)
+--cfg.udpxy_url='http://192.168.1.90:4022'
+
+-- downstream interface for builtin multicast proxy (comment 'cfg.udpxy_url' for processing 'udp://@...' playlists)
+cfg.mcast_interface='br0'
+
+-- 'cfg.proxy' enables proxy for injection DLNA headers to stream
+-- 0-off, 1-radio, 2-radio/TV
+cfg.proxy=0
+
+-- User-Agent for proxy
+cfg.user_agent='Mozilla/5.0'
+
+-- I/O timeout
+cfg.http_timeout=30
+
+-- enables UPnP/DLNA notify when reload playlist
+cfg.dlna_notify=true
+
+-- UPnP/DLNA subscribe ttl
+cfg.dlna_subscribe_ttl=1800
+
+-- group by 'group-title'
+cfg.group=true
+
+-- sort files
+cfg.sort_files=true
+
+-- Device name
+cfg.name='Lordpedal IPTV'
+
+-- static device UUID, '60bd2fb3-dabe-cb14-c766-0e319b54c29a' for example or nil
+cfg.uuid='60bd2fb3-dabe-cb14-c766-0e319b54c29a'
+
+-- max url cache size
+cfg.cache_size=8
+
+-- url cache item ttl (sec)
+cfg.cache_ttl=900
+
+-- default mime type (mpeg, mpeg_ts, mpeg1, mpeg2, ts, ...)
+cfg.default_mime_type='mpeg_ts'
+
+-- feeds update interval (seconds, 0 - disabled)
+cfg.feeds_update_interval=0
+cfg.playlists_update_interval=0
+
+-- playlist (m3u file path or path with alias
+playlist=
+{
+--    { './playlists/mozhay.m3u', 'Mozhay.tv' },
+--    { './localmedia', 'Local Media Files' }
+--    { './private', 'Private Media Files', '127.0.0.1;192.168.1.1' }  -- only for 127.0.0.1 and 192.168.1.1
+}
+
+-- feeds list (plugin, feed name, feed type)
+feeds=
+{
+    { 'vimeo',          'channel/hd',           'Vimeo HD Channel' },
+    { 'vimeo',          'channel/hdxs',         'Vimeo Xtreme sports' },
+    { 'vimeo',          'channel/mtb',          'Vimeo MTB Channel' },
+    { 'youtube',        'channel/top_rated',    'YouTube Top Rated' },
+--    { 'youtube',        'Drift0r',              'Drift0r' },
+--    { 'youtube',        'XboxAhoy',             'XboxAhoy' },
+--    { 'ag',             'videos',               'AG - New' },
+--    { 'ivi',            'new',                  'IVI - New' },
+--    { 'gametrailers',   'ps3',                   'GT - PS3' },
+--    { 'giantbomb',      'all',                  'GiantBomb - All' },
+--    { 'dreambox',       'http://192.168.0.1:8001/','Dreambox1' },
+}
+
+-- log ident, pid file end www root
+cfg.version='1.034'
+cfg.log_ident=arg[1] or 'xupnpd'
+cfg.pid_file='/var/run/'..cfg.log_ident..'.pid'
+cfg.www_root='./www/'
+cfg.tmp_path='/tmp/'
+cfg.plugin_path='./plugins/'
+cfg.config_path='./config/'
+cfg.playlists_path='./playlists/'
+--cfg.feeds_path='/tmp/xupnpd-feeds/'
+cfg.ui_path='./ui/'
+cfg.drive=''                    -- reload playlists only if drive state=active/idle, example: cfg.drive='/dev/sda'
+cfg.profiles='./profiles/'      -- device profiles feature
+
+dofile('xupnpd_main.lua')
+```
+
+Guardamos los cambios, salimos del editor de texto y vamos a editar una lista de prueba:
+
+```bash
+cd /etc/xupnpd/playlists && \
+sudo rm *.m3u && sudo nano Youtube.m3u
+```
+
+Y le agregamos el siguiente contenido de prueba:
+
+```bash
+#EXTM3U name="Youtube by Lordpedal" type=mp4 plugin=youtube
+#EXTINF:0 group-title="Youtube",Leo el camion
+https://www.youtube.com/watch?v=bSvfRukSU8Y
+#EXTINF:0 group-title="Youtube",Cleo y Cuquin
+https://www.youtube.com/watch?v=BGw9met3BaY
+#EXTINF:0 group-title="Youtube",Cleo y Cuquin (Karaoke)
+https://www.youtube.com/watch?v=3AcjgyPakwQ
+#EXTINF:0 group-title="Youtube",Pocoyo - Parte 1
+https://www.youtube.com/watch?v=SP05XjJFeoo
+#EXTINF:0 group-title="Youtube",Pocoyo - Parte 2
+https://www.youtube.com/watch?v=lkXBGs9iH2Y
+```
+
+Guardamos los cambios, salimos del editor de texto y ejecutamos el programa para probarlo:
+
+```bash
+sudo /etc/xupnpd/xupnpd &
+```
+
+Podemos comprobar que el programa esta funcionando correctamente, abriendo en un navegador web a traves de nuestra red local el siguiente enlace:
+
+> http://192.168.1.90:4044
+
+Este paso tendriamos que realizarlo cada vez que iniciemos el servidor y deseemos hacer uso de xupnpd, para ellos vamos a ayudarnos nuevamente de `/etc/rc.local` para configurarlo debidamente:
+
+```bash
+sudo nano /etc/rc.local
+```
+
+Y lo dejamos con los cambios que hemos ido agregando para que quede de la `siguiente forma definitiva`: 
+
+```bash
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+#
+# IPTV
+/usr/local/bin/udpxy -p 4022 -B 270Kb -R 183 -H -1 -c 7 & >/dev/null 2>&1
+/etc/xupnpd/xupnpd & >/dev/null 2>&1
+# SALIR
+exit 0
+```
+
+Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendremos operativo el servicio.
+
 
 > Pendiente de seguir actualizando...
