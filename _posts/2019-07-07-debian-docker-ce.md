@@ -1025,7 +1025,7 @@ Para habilitar acceleración por hardware, hacemos **login** con un usuario con 
 
 Seleccionamos el dispositivo `VAAPI`, en mi caso **/dev/dri/renderD128**
 
-### M3U
+### Lista M3U
 
 Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M3U Tuner -> Archivo o URL -> añadimos nuestra lista`, en mi caso a modo de ejemplo dejo listas de TDT/Radio en abierto:
 
@@ -1035,7 +1035,7 @@ https://www.tdtchannels.com/lists/tvradio.m3u8
 
 Y hacemos click en **guardar**.
 
-### EPG
+### Guía EPG
 
 Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guías -> XMLTV -> Archivo o URL -> añadimos nuestra programación`, en mi caso a modo de ejemplo dejo la guía para la lista añadida previamente:
 
