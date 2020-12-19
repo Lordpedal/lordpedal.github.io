@@ -537,7 +537,7 @@ Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo**
 
 Continuamos añadiendole extras a nuestro Servidor esta vez desde el punto `multimedia`.
 
-#### Transmission
+### Transmission
 
 Información ampliada Docker: [Transmission](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){:target="_blank"}
 
@@ -784,7 +784,7 @@ A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera
 
 > vnc://192.168.1.90:5902
 
-#### MiniDLNA
+### MiniDLNA
 
 Información ampliada Docker: [MiniDLNA](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){:target="_blank"}
 
@@ -844,7 +844,7 @@ Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y c
 
 ### XUPNPD
 
-Y la última joya, este otro programa llamado [Xupnpd](http://xupnpd.org/){:target="_blank"}. Este **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
+[Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
 
 Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemplo de **Movistar+, Youtube,...** a los dispositivos de la LAN. Existen múltiples cliente que pueden consumir este servicio, por ejemplo VLC y así no tener que crear un fichero .m3u en cada ordenador.
 
