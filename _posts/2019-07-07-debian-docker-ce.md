@@ -1839,4 +1839,177 @@ Haciendo clic en **Agregar Nuevos Enlaces**, veremos como los reconoce y podemos
 
 ![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker4.jpg)
 
+## Docker: [Traefik Maroilles](https://hub.docker.com/_/traefik/){:target="_blank"}
+
+[Traefik](https://traefik.io/){:target="_blank"} es una herramienta muy interesante para utilizar como proxy inverso y balanceador de carga, que facilita el despliegue de microservicios.
+
+Se integra con algunos componentes de nuestra infraestructura (**Docker, Docker Swarm, Kubernetes, …**) y se configura automáticamente leyendo sus metadatos.
+
+**Traefik** esta desarrollado en lenguaje **Go** y también se nos ofrece como una imagen oficial de **Docker**.
+
+En nuestro caso vamos a usar esta última por simplicidad, otro detalle de la configuración de este Docker es que las variables **backend hacen referencia a nuestra intranet** y las variables **frontend a la externa en internet**.
+
+Cabe mencionar que **Traefik** se integra también con varios servidores de SSL para **generar sus certificados** (por ejemplo Let´s Encrypt) y nos puede gestionar fácilmente la terminación SSL y las redirecciones de un protocolo a otro.
+
+En nuestro caso para aprovechar el servicio gratuito de generación de certificados Let´s Encrypt usaremos un certificado **wildcard para DuckDNS: Un certificado único que vale para todos los subdominios**.
+
+En esta entrada vamos a configurar subdominios, para acceder desde fuera de nuestra intranet a estos servicios:
+
+- [Jellyfin](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-jellyfin){:target="_blank"}: Puerto acceso intranet **ip_servidor:8096**
+- [Jitsi](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-jitsi){:target="_blank"}: Puerto acceso intranet **ip_servidor:8443**
+- [Nextcloud](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-nextcloud){:target="_blank"}: Puerto acceso intranet **ip_servidor:9443**
+
+Como proxy inverso **no tendremos que abrir los puertos específicos de nuestros contenedores Docker en la NAT de nuestro Router**, sino que seran accesibles a traves de los puertos **80 (HTTP) y 443 (HTTPS)** que si deberemos de abrirlos antes de continuar (**específicamente TCP, no UDP**).
+
+También aclarar que en caso de no usar esos servicios se deberían de eliminar las referencias a ellos del fichero de configuración `lordpedal.toml` o si queremos usar/añadir otros respetar la estructura de configuración.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker && \
+cd $HOME/docker
+```
+
+Clonamos el repositorio de Traefik que he alojado en Github:
+
+```bash
+git clone https://github.com/Lordpedal/traefik.git
+```
+
+Accedemos a la carpeta y le damos permisos de ejecución al script:
+
+```
+cd traefik && chmod +x traefik.sh
+```
+
+Ahora debemos de configurar el script con nuestros parámetros, que son basicamente estos:
+
+- **Token DuckDNS**
+- Identificar el **dominio para acceder al Dashboard** de Traefik  (frontend.rule)
+- Identificar el **dominio SSL para acceder al Dashboard** de Traefik (frontend.headers.SSLHost)
+
+Para ello editamos el fichero:
+
+```bash
+nano traefik.sh
+```
+
+Sustituimos obligatoriamente el valor Token de nuestro DuckDNS(**1111...**) y el nombre del mismo (**lordpedal.duckdns.org**) y opcionalmente el identificador dominio externo (**dashboard**):
+ 
+```bash
+-e DUCKDNS_TOKEN=11111111-1111-1111-1111-111111111111 \
+-l traefik.frontend.rule=Host:dashboard.lordpedal.duckdns.org \
+-l traefik.frontend.headers.SSLHost=dashboard.lordpedal.duckdns.org \
+```
+
+Guardamos el fichero, salimos del editor e instalamos la dependencia para seguir configurando:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install apache2-utils
+```
+
+Generamos una clave cifrada para acceder a nuestro Dashboard: `htpasswd -nb usuario contraseña` y la **reservamos para su posterior uso**. 
+
+Como ejemplo dejo esta de prueba:
+
+```bash
+pi@overclock:~/docker/traefik$ htpasswd -nb lordpedal lordpedal
+lordpedal:$apr1$82PqDBA.$K0.eDtWn34hwreIuGn4QU0
+```
+
+Abrimos el editor para configurar nuestras variables de servicio, marco en rojo las que debemos de cambiar y en verde las opcionales:
+
+```bash
+nano lordpedal.toml
+```
+
+Primeramente buscamos la cadena de usuario:clave y la sustituimos por la que hallamos generado de la variable entryPoints:
+
+```bash
+users = ["lordpedal:$apr1$82PqDBA.$K0.eDtWn34hwreIuGn4QU0"]
+```
+
+Sustituimos la dirección de email para generar los certificados SSL de la variable `acme`:
+
+```bash
+email = "lordpedal@protonmail.com"
+```
+
+Dominio wilcard de la variable `acme.domains`, recuerda sustituir **lordpedal** por tu dominio duckdns:
+
+```bash
+main = "*.lordpedal.duckdns.org"
+```
+
+Dominio de la `variable docker`, recuerda sustituir **lordpedal** por tu dominio duckdns:
+
+```bash
+domain = "lordpedal.duckdns.org"
+```
+
+IP de nuestro servidor donde estamos ejecutando **Jellyfin** de la variable **backend-jellyfin**:
+
+```bash
+url = "http://192.168.1.90:8096"
+```
+
+IP de nuestro servidor donde estamos ejecutando **Nextcloud** de la variable **backend-nextcloud**:
+
+```bash
+url = "http://192.168.1.90:9443"
+```
+
+IP de nuestro servidor donde estamos ejecutando **Jitsi** de la variable **backend-jitsi**:
+
+```bash
+url = "http://192.168.1.90:8443"
+```
+
+Dominios de nuestro servidor donde estemos ejecutando **Jellyfin** en las variables **frontend-jellyfin**, recuerda cambiar las variables `lordpedal`:
+
+```bash
+rule = "Host:jellyfin.lordpedal.duckdns.org"
+SSLHost = "jellyfin.lordpedal.duckdns.org"
+customFrameOptionsValue = "allow-from https://jellyfin.lordpedal.duckdns.org"
+```
+
+Dominios de nuestro servidor donde estemos ejecutando **Nextcloud** en las variables **frontend-nextcloud**, recuerda cambiar las variables `lordpedal`:
+
+```bash
+rule = "Host:nextcloud.lordpedal.duckdns.org"
+SSLHost = "nextcloud.lordpedal.duckdns.org"
+customFrameOptionsValue = "allow-from https://nextcloud.lordpedal.duckdns.org"
+```
+
+Dominios de nuestro servidor donde estemos ejecutando **Jitsi** en las variables **frontend-jitsi**, recuerda cambiar las variables `lordpedal`:
+
+```bash
+rule = "Host:jitsi.lordpedal.duckdns.org"
+SSLHost = "jitsi.lordpedal.duckdns.org"
+customFrameOptionsValue = "allow-from https://jitsi.lordpedal.duckdns.org"
+```
+
+Guardamos el fichero, salimos del editor, **creamos el fichero donde se almacenara nuestro certificado wildcard SSL autorenovable**:
+
+```bash
+touch acme.json && chmod 600 acme.json
+```
+
+Ejecutamos el script que va a crear nuestro docker ya debidamente configurado:
+
+```bash
+./traefik.sh
+```
+
+Al finalizar ya tendriamos accesibles desde fuera de la intranet:
+
+- Jellyfin → https://jellyfin.lordpedal.duckdns.org
+- Jitsi → https://jitsi.lordpedal.duckdns.org
+- [Nextcloud: Fix Traefik](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#%EF%B8%8Fbonus-tip-fix-traefik){:target="_blank"} → https://nextcloud.lordpedal.duckdns.org
+
+Si queremos comprobar la seguridad de nuestro servicio podemos por ejemplo consultar la web: [SSL Labs](https://www.ssllabs.com/index.html){:target="_blank"}
+
+![Traefik]({{ site.url }}{{ site.baseurl }}/assets/images/posts/traefikssl.jpg)
+
 > Y listo!
