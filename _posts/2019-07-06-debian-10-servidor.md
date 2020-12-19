@@ -456,7 +456,7 @@ Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
 
 ### P3DNS
 
-Antes de continuar debemos de instalar Docker y configurarlo como se detalla en este apartado.
+Antes de continuar debemos de realizar estos pasos:
 
 1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){:target="_blank"}
 2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){:target="_blank"}
