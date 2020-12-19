@@ -2078,7 +2078,7 @@ Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de
 
 ## Docker: [MiniDLNA](https://hub.docker.com/r/lordpedal/minidlna/){:target="_blank"}
 
-[MiniDLNA](https://sourceforge.net/projects/minidlna/){:target="_blank"} informalmente conocido como ReadyMedia, es un servidor streaming que funcionará perfectamente en una máquina con pocos recursos.
+[MiniDLNA](https://github.com/Lordpedal/minidlna){:target="_blank"} informalmente conocido como ReadyMedia, es un servidor streaming que funcionará perfectamente en una máquina con pocos recursos.
 
 **DLNA** es una interesante tecnología para compartir vídeo, música y imágenes entre los dispositivos conectados a nuestra red de manera sencilla.
 
