@@ -429,47 +429,6 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
 
-## Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
-
-Shaarli es un gestor de notas y enlaces que para uso personal.
-
-Su principal uso podría ser:
-
-- Para compartir, comentar y guardar enlaces y noticias interesantes
-- Para marcar enlaces útiles / frecuentes y compartirlos entre computadoras
-- Como una plataforma mínima de blog / microblog / escritura
-- Como una lista para leer más tarde
-- Para redactar y guardar artículos / publicaciones / ideas
-- Para guardar notas, documentación y fragmentos de código
-- Como un portapapeles / bloc de notas / pastebin compartido entre máquinas
-- Como una lista de tareas pendientes
-- Para almacenar listas de reproducción multimedia
-- Para mantener extractos / comentarios de páginas web que puedan desaparecer
-- Para realizar un seguimiento de las discusiones en curso
-- Para alimentar otros blogs, agregadores, redes sociales … utilizando feeds RSS
-
-Es un software muy ligero ya que no necesita de bases de datos para almacenar las entradas sino que es una aplicación de contenido estatico basada en PHP.
-
-```bash
-docker run -d \
-	--name=Shaarli \
-	-p 8000:80 \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	--restart=always \
-	shaarli/shaarli:latest
- ```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-p 8000:80` | Puerto comunicación Externo:Interno |
-| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-
-Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
-
 ## Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
 
 Gossa es un microservicio que nos permite crear un servidor web «**colaborativo**» en línea minimalista de código abierto, desarrollado en lenguaje Go.
@@ -647,71 +606,6 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 8003:80` | Puerto de acceso Web `8003` |
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8003`
-
-## Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
-
-Calibre es un **gestor y organizador de libros electrónicos** libre, que permite la conversión de numerosos formatos de archivos para libros electrónicos.
-
-Lo que hace es almacenar los libros en una base de datos y nos permite a continuación buscar de manera muy precisa lo que estamos buscando.
-
-Generalmente podemos almacenar los libros en base a muchos parámetros diferentes como el título, autor, editor o la fecha de publicación, de esta forma, nos resulta mucho más sencillo tener todo bien organizado.
-
-Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
-
-- Formatos de entrada: **ePub, HTML, PDF, RTF, txt, cbc, fb2, lit, MOBI, ODT, prc, pdb, PML, RB, cbz y cbr**
-- Formatos de salida: **ePub, fb2, OEB, lit, lrf, MOBI, pdb, pml, rb.3**
-
-Vamos a crear las carpetas donde alojar el proyecto::
-
-```bash
-mkdir -p $HOME/docker/calibre
-```
-
-A continuación, vamos a crear una contraseña codificada en formato md5 para poder acceder a la gestión remota, recuerda sustituir la palabra contraseña por la contraseña que quieras usar:
-
-```bash
-echo -n contraseña | openssl md5
-```
-
-Adjunto ejemplo de mi sistema y apuntamos el valor para anotarlo en la variable -e GUAC_PASS:
-
-```bash
-pi@overclock:~$ echo -n calibre | openssl md5
-(stdin)= fccc8f9fde7b6108c5f1932d7e9da5b1
-```
-
-Y ya podriamos lanzar la creación y activación del servicio:
-
-```bash
-docker run -d \
-	--name=Calibre \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-e GUAC_USER=calibre \
-	-e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
-	-p 8085:8080 \
-	-p 8086:8081 \
-	-v $HOME/docker/calibre/config:/config \
-	--restart=always \
-	ghcr.io/linuxserver/calibre
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-e GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
-| `-e GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
-| `-p 8085:8080` | Puerto de acceso Escritorio `8085` |
-| `-p 8086:8081` | Puerto configuración Servidor `8086` |
-| `-v $HOME/docker/calibre/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
-|  `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
-
-Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
 
 ## Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
 
@@ -1692,85 +1586,6 @@ Ejemplo de configuración navegador **Firefox**:
 
 ![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png)
 
-## Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
-
-File Browser es un tipo de software que crea una propia nube en nuestro servidor, dirigirlo a una ruta y luego acceder a sus archivos a través de una interfaz web agradable.
-
-Al usar el *Servidor* en modo `headless` quizas una de las cosas que cierta gente echa en falta, es tener un explorador de archivos con el que poder realizar tareas básicas, en resumen una forma cómoda y visual de trabajar.
-
-File Browser suple esa necesidad permitiendo el acceso a los archivos del servidor mediante el navegador web:
-
-- **Crear/renombrar/copiar/mover/visualizar/editar y eliminar archivos**
-- **Crear/renombrar/copiar/mover y eliminar carpetas**
-- **Buscar/descargar/subir y compartir contenido**
-- **Terminal de sistema**
-
-La creación del servicio es muy sencilla, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=Filebrowser \
-	-p 84:80 \
-	-v /home/$USER:/srv \
-	-e TZ="Europe/Madrid" \
-	--restart=always \
-	filebrowser/filebrowser:latest 
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-p 84:80` | Puerto de gestión Web `84` |
-| `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
-| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
-
-Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
-
-## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
-
-Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
-
-La simplicidad es la clave de Heimdall. ¿Por qué no utilizarlo como página de inicio de su navegador? Incluso tiene la capacidad de incluir una barra de búsqueda usando DuckDuckGo, Google o Bing.
-
-Una vez que agregas una aplicación al tablero a través de su interfaz fácil, puedes arrastrar y soltar para mover los botones como mejor te parezca, incluso también puedes crear diferentes páginas para ordenar las aplicaciones aún más.
-
-Preparamos el entorno de trabajo:
-
-```bash
-mkdir -p $HOME/docker/heimdall
-```
-
-Y lanzamos la creación del servicio, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=Heimdall \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-p 88:80 \
-	-p 448:443 \
-	-v $HOME/docker/heimdall:/config \
-	--restart always \
-	ghcr.io/linuxserver/heimdall
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
-| `-p 88:80` | Puerto de gestión Web `88` |
-| `-p 448:443` | Puerto de gestión Web SSL `448` |
-| `-v $HOME/docker/heimdall:/config` | Ruta base de navegación home de nuestro usuario del sistema |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
-
-Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
-
 ## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
 
 JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
@@ -2129,5 +1944,354 @@ docker-compose up -d
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8200` y con la transmisión del contenido multimedia por la red local.
 
 ![DLNA]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vlcdlna.jpg)
+
+## Docker: [Forked-daapd](https://hub.docker.com/r/linuxserver/daapd/){:target="_blank"}
+
+[Forked-daapd](https://github.com/mikebrady/shairport-sync){:target="_blank"} es un servidor multimedia para nuestra colección musical.
+
+Basado en **DAAP** (`Digital Audio Access Protocol`), protocolo ideado por Apple, pero potenciado para convertir nuestro servidor compatible con: **iTunes, dispositivos comerciales preparados para trabajar con Airplay, clientes MPD, …**
+
+En la anterior entrada comentamos que [Shairport-sync](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-shairport-sync) no era compatible con el protocolo `multiroom`, ahora gracias a este servidor podríamos emitir el mismo audio **emulando** multiroom reproduciendo la música en diferentes instancias de forma sincronizada.
+
+La lista de clientes soportados, lo convierten en un servidor ideal :
+
+- Clientes DAAP, como iTunes (OSX/Windows) o Rhythmbox (GNU/Linux)
+- Clientes remotos, como Apple Remote (iOS) o compatibles para Android
+- Dispositivos AirPlay, como AirPort Express, Shairport y altavoces comerciales
+- Dispositivos Chromecast
+- Clientes MPD, como mpc
+- Clientes de flujo de red MP3, como VLC (Multiplataforma) y casi cualquier otro reproductor de música que soporte streaming
+- Clientes RSP, como Roku Soundbridge
+
+Lista de formatos soportados:
+
+- **MPEG4**: mp4a, mp4v
+- **AAC**: alac
+- **MP3**: mpeg
+- **FLAC**: flac
+- **OGG VORBIS**: ogg
+- **Musepack**: mpc
+- **WMA**: wma (WMA Pro), wmal (WMA Lossless), wmav (WMA video)
+- **AIFF**: aif
+- **WAV**: wav
+- **Monkey’s audio**: ape
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/daapd/{config,musica} && \
+cd $HOME/docker/daapd
+```
+
+Ahora vamos a crear el fichero de configuración docker-compose.yml:
+
+```bash
+cat << EOF > $HOME/docker/daapd/docker-compose.yml
+version: "2.1"
+services:
+  daapd:
+    image: ghcr.io/linuxserver/daapd
+    container_name: Forked-daapd
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - $HOME/docker/daapd/config:/config
+      - $HOME/docker/daapd/musica:/music
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+
+| Parámetro | Función |
+| ------ | ------ |
+| `network_mode: host` | Habilitamos el uso de la **red host** en vez de una virtual para docker |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria Europa/Madrid |
+| `$HOME/docker/daapd/config:/config` | Ruta donde se alojan configuraciones del software , una vez este corriendo el docker, **recomiendo revisar el fichero forked-daapd.conf para personalizar el servicio** |
+| `$HOME/docker/daapd/musica:/music` | Ruta donde se aloja la música a compartir , **recomiendo cambiarla**. |
+
+Una vez configurado,  lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible.
+
+### Gestión Web
+
+Accedemos con un navegador web a la `http://ip_del_host:3689` para usar la interfaz web.
+
+En mi caso a modo ejemplo:
+
+> http://192.168.1.90:3689
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd1.jpg)
+
+Entramos en configuración del servidor para configurar la salida de audio mediante el protoclo **AirPlay** gracias a nuestro [Shairport-sync](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-shairport-sync):
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd2.jpg)
+
+Dentro del apartado salidas de audio, **activamos nuestra salida/s de audio wireless**:
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd3.jpg)
+
+Y podríamos **ajustar de forma independiente el volumen para cada salida**, muy útil en el caso de usar multiroom:
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd4.jpg)
+
+### Cliente Rhythmbox (GNU/Linux)
+
+En caso de no disponer de la aplicación en nuestra distro, una forma sencilla de disponer de ella, sería:
+
+```bash
+sudo apt-get update && \ 
+sudo apt-get -y install rhythmbox
+```
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd5.jpg)
+
+### Cliente Remote (iOS)
+
+Instalamos la App, la ejecutamos y le decimos **Conectar manualmente** ya que el dispositivo tiene que emparejarse
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd6.jpg)
+
+Nos solicita que debemos de emparejar el dispositivo con nuestro servidor con un código que anotamos, ejemplo: **9112**
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd7.jpg)
+
+Abrimos en un navegador web la siguiente estructura de ruta: `http://ip_del_servidor:3689/#/settings/remotes-outputs` y con el código que se ha generado en el dispositivo móvil lo emparejamos.
+
+En mi caso de la siguiente forma:
+
+> http://192.168.1.90:3689/#/settings/remotes-outputs
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd8.jpg)
+
+### Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)
+
+Cuando estemos reproduciendo audio con el servidor Forked-Daapd, de forma paralela a la salida de audio, se nos genera un fichero de audio en streaming mp3 en la ruta `http://ip_del_servidor:3689/stream.mp3`
+
+En mi caso de la siguiente forma:
+
+> http://192.168.1.90:3689/stream.mp3
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd9.jpg)
+
+### Clientes Chromecast
+
+**Forked-daapd** descubrirá los dispositivos **Chromecast** disponibles en su red y luego se podrá seleccionar el dispositivo como altavoz.
+
+No se requiere configuración.
+
+### Clientes MPD (Android, GNU/Linux, …)
+
+Los clientes MPD buscan sus servidores por defecto en los puertos 6600, Forked-daapd se encarga de servir audio por ese puerto también:http://ip_del_servidor:6600
+
+En nuestro caso sería de la siguiente forma:
+
+> http://192.168.1.90:6600
+
+A modo de ejemplo, en un dispositivo **Android hemos instalado una App llamada**: [M.A.L.P.](https://play.google.com/store/apps/details?id=org.gateshipone.malp&hl=es_ES&gl=ES){:target="_blank"}, para enviar el audio desde ese dispositivo ya que por defecto no soporta el protocolo AirPlay.
+
+Nos dirigimos a **Configuración/Perfiles**:
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd10.jpg)
+
+Agregamos los datos de nuestro Servidor y hacemos clic en guardar:
+
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd11.jpg)
+
+## Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
+
+Calibre es un **gestor y organizador de libros electrónicos** libre, que permite la conversión de numerosos formatos de archivos para libros electrónicos.
+
+Lo que hace es almacenar los libros en una base de datos y nos permite a continuación buscar de manera muy precisa lo que estamos buscando.
+
+Generalmente podemos almacenar los libros en base a muchos parámetros diferentes como el título, autor, editor o la fecha de publicación, de esta forma, nos resulta mucho más sencillo tener todo bien organizado.
+
+Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
+
+- Formatos de entrada: **ePub, HTML, PDF, RTF, txt, cbc, fb2, lit, MOBI, ODT, prc, pdb, PML, RB, cbz y cbr**
+- Formatos de salida: **ePub, fb2, OEB, lit, lrf, MOBI, pdb, pml, rb.3**
+
+Vamos a crear las carpetas donde alojar el proyecto::
+
+```bash
+mkdir -p $HOME/docker/calibre
+```
+
+A continuación, vamos a crear una contraseña codificada en formato md5 para poder acceder a la gestión remota, recuerda sustituir la palabra contraseña por la contraseña que quieras usar:
+
+```bash
+echo -n contraseña | openssl md5
+```
+
+Adjunto ejemplo de mi sistema y apuntamos el valor para anotarlo en la variable -e GUAC_PASS:
+
+```bash
+pi@overclock:~$ echo -n calibre | openssl md5
+(stdin)= fccc8f9fde7b6108c5f1932d7e9da5b1
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=Calibre \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-e GUAC_USER=calibre \
+	-e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
+	-p 8085:8080 \
+	-p 8086:8081 \
+	-v $HOME/docker/calibre/config:/config \
+	--restart=always \
+	ghcr.io/linuxserver/calibre
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-e GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
+| `-e GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
+| `-p 8085:8080` | Puerto de acceso Escritorio `8085` |
+| `-p 8086:8081` | Puerto configuración Servidor `8086` |
+| `-v $HOME/docker/calibre/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
+|  `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
+
+Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
+
+## Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
+
+Shaarli es un gestor de notas y enlaces que para uso personal.
+
+Su principal uso podría ser:
+
+- Para compartir, comentar y guardar enlaces y noticias interesantes
+- Para marcar enlaces útiles / frecuentes y compartirlos entre computadoras
+- Como una plataforma mínima de blog / microblog / escritura
+- Como una lista para leer más tarde
+- Para redactar y guardar artículos / publicaciones / ideas
+- Para guardar notas, documentación y fragmentos de código
+- Como un portapapeles / bloc de notas / pastebin compartido entre máquinas
+- Como una lista de tareas pendientes
+- Para almacenar listas de reproducción multimedia
+- Para mantener extractos / comentarios de páginas web que puedan desaparecer
+- Para realizar un seguimiento de las discusiones en curso
+- Para alimentar otros blogs, agregadores, redes sociales … utilizando feeds RSS
+
+Es un software muy ligero ya que no necesita de bases de datos para almacenar las entradas sino que es una aplicación de contenido estatico basada en PHP.
+
+```bash
+docker run -d \
+	--name=Shaarli \
+	-p 8000:80 \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	--restart=always \
+	shaarli/shaarli:latest
+ ```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 8000:80` | Puerto comunicación Externo:Interno |
+| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+
+Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
+
+## Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
+
+File Browser es un tipo de software que crea una propia nube en nuestro servidor, dirigirlo a una ruta y luego acceder a sus archivos a través de una interfaz web agradable.
+
+Al usar el *Servidor* en modo `headless` quizas una de las cosas que cierta gente echa en falta, es tener un explorador de archivos con el que poder realizar tareas básicas, en resumen una forma cómoda y visual de trabajar.
+
+File Browser suple esa necesidad permitiendo el acceso a los archivos del servidor mediante el navegador web:
+
+- **Crear/renombrar/copiar/mover/visualizar/editar y eliminar archivos**
+- **Crear/renombrar/copiar/mover y eliminar carpetas**
+- **Buscar/descargar/subir y compartir contenido**
+- **Terminal de sistema**
+
+La creación del servicio es muy sencilla, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Filebrowser \
+	-p 84:80 \
+	-v /home/$USER:/srv \
+	-e TZ="Europe/Madrid" \
+	--restart=always \
+	filebrowser/filebrowser:latest 
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 84:80` | Puerto de gestión Web `84` |
+| `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
+| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
+
+## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
+
+Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
+
+La simplicidad es la clave de Heimdall. ¿Por qué no utilizarlo como página de inicio de su navegador? Incluso tiene la capacidad de incluir una barra de búsqueda usando DuckDuckGo, Google o Bing.
+
+Una vez que agregas una aplicación al tablero a través de su interfaz fácil, puedes arrastrar y soltar para mover los botones como mejor te parezca, incluso también puedes crear diferentes páginas para ordenar las aplicaciones aún más.
+
+Preparamos el entorno de trabajo:
+
+```bash
+mkdir -p $HOME/docker/heimdall
+```
+
+Y lanzamos la creación del servicio, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Heimdall \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-p 88:80 \
+	-p 448:443 \
+	-v $HOME/docker/heimdall:/config \
+	--restart always \
+	ghcr.io/linuxserver/heimdall
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
+| `-p 88:80` | Puerto de gestión Web `88` |
+| `-p 448:443` | Puerto de gestión Web SSL `448` |
+| `-v $HOME/docker/heimdall:/config` | Ruta base de navegación home de nuestro usuario del sistema |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
 > Y listo!
