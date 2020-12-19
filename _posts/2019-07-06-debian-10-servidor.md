@@ -804,6 +804,204 @@ Y vemos los cambios realizados:
 ```
 A partir de este momento nuestra red cableada la identificaremos con el nombre de `br0` y la IP de nuestro servidor en casa sera `192.168.1.90`.
 
+### @Lordpedal BOT
+
+Adicional al [Canal de Telegram](https://telegram.me/Lordpedal_RSS){:target="_blank"} donde público enlaces de interés, también dispongo en la red de un `BOT` que podeis usar para notificar eventos en vuestro sistema con ayuda de unos scripts. 
+
+En Telegram podeís encontrarlo con el alías [@Lordpedalbot](https://telegram.me/Lordpedalbot){:target="_blank"}. **Cuando lo arranques te dará la bienvenida y te notificará el ID** que tienes en la red Telegram, este `ID` debes de anotarlo, porque será una variable que uses en los scripts que modificaremos a continuación.
+
+####  Protección TSHH
+
+La función de este bash script es la de informarte vía Telegram de una anomalía en la temperatura del sistema y proceder a un apagado del mismo de forma controlada. Vamos a crear el script:
+
+```bash
+mkdir -p $HOME/scripts && \
+cd $HOME/scripts && \
+nano tshh.sh && \
+chmod +x tshh.sh
+```
+
+Y le agregamos el siguiente contenido:
+
+```bash
+#!/bin/bash
+#
+# https://lordpedal.github.io
+# Another fine release by Lordpedal
+#
+# Fichero Log
+data=`date`
+usu=`uname`
+ini=`echo "Script alarma de temperatura ejecutada con éxito"`
+rutalog=/home/$USER
+# ID Telegram
+telegram=79593223
+# Temperatura máxima
+overheat=70
+# Calcula temperatura y crea temporales de calculo
+sensors | grep -oP 'Core 0.*?\+\K[0-9]+' > termopar
+# Ejecuta alarma y aviso por telegram
+while read tempactual
+do
+if [ "$tempactual" -ge "$overheat" ]
+then
+echo "$data - $usu - $ini. Ejecutada protección de temperatura. Alcanzados $tempactualºC" >> $rutalog/tshh.log
+/usr/bin/curl --silent --output /dev/null --data-urlencode "chat_id=$telegram" --data-urlencode "text=Temperatura del Sistema:$tempactualºC. Por seguridad ejecutado el protocolo de apagado sistema" "https://api.telegram.org/bot289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA/sendMessage"
+# Apaga el sistema
+sudo poweroff
+else
+echo "Temperatura de sistema: $tempactualºC"
+fi
+done<termopar
+# Borra los temporales generados
+rm termopar
+```
+
+> Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `overheat cambialo` según rangos de temperatura de tu procesador obtenido tras ejecutar: `sensors`, en mi caso el rango que obtenía era de (high = +84.0°C, crit = +100.0°C) por eso defino `70°C` como valor más conservador.
+
+Guardamos los cambios, salimos del editor de texto y programamos el sistema para que el script sea ejecutado cada `15 segundos`:
+
+```bash
+crontab -e
+```
+
+Y añadimos al final el fichero, recuerda sustituir `pi` por tu usuario:
+
+```bash
+*/1 * * * * /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 15 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 30 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+```
+
+Guardamos los cambios, salimos del editor de texto y listo ya tendriamos la protección activa. El fichero en mi caso queda de la siguiente forma:
+
+```bash
+pi@overclock:~$ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+#
+*/1 * * * * /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 15 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 30 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+```
+
+####  Notificación Arranque Servidor
+
+La función de este bash script es la de informarte vía Telegram de que el Servidor esta online. Vamos a crear el script:
+
+```bash
+mkdir -p $HOME/scripts && \
+cd $HOME/scripts && \
+nano overspeed.sh && \
+chmod +x overspeed.sh
+```
+
+Y le agregamos el siguiente contenido:
+
+```
+#!/bin/bash
+#
+# https://lordpedal.github.io
+# Another fine release by Lordpedal
+#
+# ID Telegram
+telegram=79593223
+# Mensaje Online
+mensaje='Overclock Server Online ... Another fine release by Lordpedal'
+# Inicia bucle chequeo de Red
+while true
+do
+    # Comprueba disponibilidad de Red
+    if ping -c 1 -W 5 google.com 1>/dev/null 2>&1
+    then
+        # Red disponible
+        echo "Conexion establecida..."
+        /usr/bin/curl --silent \
+                --output /dev/null \
+                --data-urlencode "chat_id=$telegram" \
+                --data-urlencode "text=$mensaje" \
+                "https://api.telegram.org/bot289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA/sendMessage"
+        # Termina bucle disponibilidad de Red
+        break
+    else
+        # Red no disponible
+        echo "Conexion no establecida..."
+    fi
+    # Espera 1s y reinicia bucle
+    sleep 1
+done
+```
+
+> Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `mensaje` cambialo por tu mensaje personalizado.
+
+Guardamos los cambios, salimos del editor de texto y programamos el sistema para que el script sea ejecutado tras reinicio de sistema y disponibilidad de red:
+
+```bash
+crontab -e
+```
+
+Y añadimos al final el fichero, recuerda sustituir `pi` por tu usuario:
+
+```bash
+@reboot /home/pi/scripts/overspeed.sh >/dev/null 2>&1
+```
+
+Guardamos los cambios, salimos del editor de texto y listo ya tendriamos la notificación activa. El fichero en mi caso queda de la siguiente forma:
+
+```bash
+pi@overclock:~$ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+#
+*/1 * * * * /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 15 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 30 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+*/1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
+@reboot /home/pi/scripts/overspeed.sh >/dev/null 2>&1
+```
+
 ### Configurando DNS Pública
 
 Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
