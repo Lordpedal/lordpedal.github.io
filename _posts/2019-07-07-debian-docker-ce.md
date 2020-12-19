@@ -2012,4 +2012,68 @@ Si queremos comprobar la seguridad de nuestro servicio podemos por ejemplo consu
 
 ![Traefik]({{ site.url }}{{ site.baseurl }}/assets/images/posts/traefikssl.jpg)
 
+## Docker: [Jitsi](https://github.com/jitsi/docker-jitsi-meet){:target="_blank"}
+
+[Jitsi](https://jitsi.org/){:target="_blank"} es un sistema gratuito y de código abierto para hacer videollamadas.
+
+Al ser de código abierto, sus servicios se ofrecen de forma gratuita y además, permite formar parte de su equipo de desarrolladores.
+
+Permite utilizarlo sin necesidad de registrarse ni de instalar ningún programa en tu ordenador, puedes usarlo desde el navegador otorgando los permisos necesarios a este para gestionar el micrófono y la webcam de tu PC, totalmente compatible con los principales sistemas operativos de escritorio: **Windows, MacOS y Linux**, además tienes versiones para plataformas móviles como **iOS y Android**.
+
+Otra posibilidad que nos da Jitsi es que podemos grabar las videollamadas, también podemos chatear, compartir pantalla, hay estadísticas de tiempo de charla de cada interlocutor, podemos transmitir directamente a YouTube en directo, opción de solo audio o solo vídeo, podemos levantar nuestra mano para captar la atención, etc.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/ && \
+cd $HOME/docker
+```
+
+Clonamos el repositorio de Jitsi alojado en Github:
+
+```bash
+git clone https://github.com/jitsi/docker-jitsi-meet.git
+```
+
+Cambiamos el nombre de carpeta y accedo a ella:
+
+```bash
+mv docker-jitsi-meet jitsi && cd jitsi
+```
+
+Creamos las carpetas del proyecto:
+
+```bash
+mkdir -p $HOME/docker/jitsi/.jitsi-meet-cfg/\
+{web/letsencrypt,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
+```
+
+Copiamos y abrimos el editor para personalizar las variables de entorno:
+
+```bash
+cp env.example .env && nano .env
+```
+
+En la columna izquierda dejo el valor que encontramos por defecto y en la derecha el que hemos de modificar. **Especial atención a la IP**, poner la del **servidor que ejecuta el docker**:
+
+| Configuración Stock | Configuración Personalizada |
+| ------ | ------ |
+| `CONFIG=~/.jitsi-meet-cfg` | `CONFIG=~/docker/jitsi/.jitsi-meet-cfg` |
+| `#DOCKER_HOST_ADDRESS=192.168.1.1` | `DOCKER_HOST_ADDRESS=192.168.1.90` |
+| `TZ=UTC` | `TZ=Europe/Madrid` |
+
+Guardamos el fichero, salimos del editor y ejecutamos el script de cifrado claves:
+
+```bash
+./gen-passwords.sh
+```
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
+
 > Y listo!
