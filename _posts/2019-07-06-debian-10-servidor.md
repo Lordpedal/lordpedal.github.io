@@ -457,10 +457,10 @@ Calculando la actualización... Hecho
 
 Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
 
-- Completely Fair Queuing-elevator=cfq
-- Deadline-elevator=deadline
-- NOOP-elevator=noop
-- Anticipatory-elevator=as
+- **Completely Fair Queuing-elevator=cfq**
+- **Deadline-elevator=deadline**
+- **NOOP-elevator=noop**
+- **Anticipatory-elevator=as**
 
 [Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
 
@@ -522,6 +522,173 @@ Faltaría reiniciar el Servidor para aplicar los nuevos cambios:
 
 ```bash
 reiniciar
+```
+
+### Modding
+
+Antes de empezar con la parte de **Modding**, necesitamos instalar una dependencia, que nos dara información sobre la temperatura de nuestro sistema.
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install lm-sensors
+```
+
+A continuación debemos de ejecutar un script instalado que nos detecta la configuración de nuestro `Servidor` y...
+
+```bash
+sudo sensors-detect
+```
+
+...**le damos continuamente a la tecla** `INTRO` (para que tome la respuesta por defecto que es siempre que sí y de esta forma buscará todos los chips que podría analizar) hasta que nos salga la siguiente pregunta: `Do you want to add these lines to /etc/modules automatically? (yes/NO)`. En este momento copiad y guardad en un documento de texto temporal lo que tenéis por encima entre los dos **cut here** (por ejemplo a mí me ha salido lo siguiente):
+
+```bash
+#----cut here----
+# Chip drivers
+coretemp
+#----cut here----
+```
+
+Le damos nuevamente a **INTRO** para que no añada esas líneas automáticamente al fichero de [modulos](https://es.wikipedia.org/wiki/M%C3%B3dulo_de_n%C3%BAcleo){:target="_blank"} ya que las agregaremos manualmente para evitar posibles fallos de incompatibilidad, para ello editamos el fichero:
+
+```bash
+sudo nano /etc/modules
+```
+
+Y agregamos la siguientes lineas al final del fichero:
+
+```bash
+# Chip drivers
+coretemp
+```
+
+Guardamos los cambios y salimos del editor de texto. Muestro como ha quedado mi fichero:
+
+```bash
+pi@overclock:~$ cat /etc/modules
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+#
+# Chip drivers
+coretemp
+```
+
+Recomiendo reiniciar el Servidor para activar los cambios:
+
+```bash
+sudo reboot
+```
+
+Tras el reinicio ya podremos ver la información que hemos configurado:
+
+```bash
+sensors
+```
+
+En mi caso la información devuelta es la siguiente:
+
+```bash
+pi@overclock:~$ sensors
+acpitz-virtual-0
+Adapter: Virtual device
+temp1:        +27.8°C  (crit = +119.0°C)
+temp2:        +29.8°C  (crit = +119.0°C)
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Physical id 0:  +33.0°C  (high = +84.0°C, crit = +100.0°C)
+Core 0:         +30.0°C  (high = +84.0°C, crit = +100.0°C)
+Core 1:         +30.0°C  (high = +84.0°C, crit = +100.0°C)
+Core 2:         +29.0°C  (high = +84.0°C, crit = +100.0°C)
+Core 3:         +27.0°C  (high = +84.0°C, crit = +100.0°C)
+```
+
+####  $USER/.BASHRC
+
+El fichero `.bashrc` es un archivo script que se ejecuta cada vez que una nueva sesión de terminal server se inicia en el modo interactivo. Esto es lo que ocurre cuando se inicia TTY o simplemente abrir una nueva pestaña de terminal. Este fichero contiene una serie de configuraciones para la sesión de terminal. Vamos a editarlo para mejorarlo:
+
+```bash
+cd /home/$USER && nano .bashrc
+```
+
+Buscamos la variable `#force_color_prompt=yes` y la descomentamos quedando en el fichero sin la # de la siguiente forma:
+
+```bash
+force_color_prompt=yes
+```bash
+
+Nos movemos con el editor al final del fichero y añadimos el siguiente script:
+
+```bash
+# MOTD
+show_temp(){
+    sensors | grep -oP 'Core 0.*?\+\K[0-9]+'
+}
+let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+let secs=$((${upSeconds}%60))
+let mins=$((${upSeconds}/60%60))
+let horas=$((${upSeconds}/3600%24))
+let dias=$((${upSeconds}/86400))
+UPTIME=`printf "%d dias, %02dh%02dm%02ds" "$dias" "$horas" "$mins" "$secs"`
+read one five fifteen rest < /proc/loadavg
+echo "$(tput setaf 2)
+`date +"%A, %e %B %Y, %r"`
+`uname -srmo`$(tput setaf 1)
+Tiempo de actividad..: ${UPTIME}
+Memoria RAM..........: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
+Promedios de carga...: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+Procesos activos.....: `ps ax | wc -l | tr -d " "`
+IP conexion por SSH..: $(echo $SSH_CLIENT | awk '{ print $1}')
+Temperatura Sistema..: $(show_temp)ºC
+$(tput sgr0)"
+```
+
+Guardamos los cambios, salimos del editor de texto y creamos el siguiente archivo:
+
+```bash
+nano .inputrc
+```
+
+Con el siguiente contenido:
+
+```bash
+# Flecha arriba
+"\e[A":history-search-backward
+# Flecha abajo
+"\e[B":history-search-forward
+```
+
+Guardamos los cambios, salimos del editor de texto y reiniciamos para ver los cambios.
+
+```bash
+reiniciar
+```
+
+Adjunto resultado de lo que veremos tras el reinicio:
+
+```bash
+Linux overclock 4.19.0-5-amd64 #1 SMP Debian 4.19.37-5 (2019-06-19) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+You have mail.
+Last login: Wed May  8 20:26:30 2019 from 192.168.1.80
+
+miércoles,  8 julio 2019, 09:09:02
+Linux 4.19.0-5-amd64 x86_64 GNU/Linux
+Tiempo de actividad..: 9 dias, 14h23m47s
+Memoria RAM..........: 27151572kB (Free) / 32831084kB (Total)
+Promedios de carga...: 0.08, 0.09, 0.09 (1, 5, 15 min)
+Procesos activos.....: 236
+IP conexion por SSH..: 192.168.1.112
+Temperatura Sistema..: 32.0ºC
+
+pi@overclock:~$
 ```
 
 ## Redes
@@ -731,6 +898,386 @@ sudo chown pi:pi /home/pi/Lordpedal.ovpn
 ```
 Ahora ya podremos pasar el fichero OVPN a nuestro Smartphone/Tablet/Pendrive/... para poder conectarnos en remoto previa configuración router.
 Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo** `UDP` si has seguido la configuración que detallo paso a paso.
+
+### SSH
+
+[SSH](https://es.wikipedia.org/wiki/SSH){:target="_blank"} es un protocolo de comunicación que encripta los datos que se intercambian, y es virtualmente imposible romper la privacidad de la comunicación. El acrónimo ssh viene del inglés: Secure SHell.
+
+El protocolo ssh es muy versátil, tiene un software cliente que posibilita el acceso a la línea de comandos, permite la transferencia de archivos y la creación de túneles seguros con soporte de comunicación para otros protocolos.
+
+Los clientes ssh se dividen en dos grupos:
+
+- Terminal SSH Es un emulador de terminal que permite acceder de forma remota desde un equipo a la línea de comandos del equipo remoto, utilizando el protocolo SSH.
+- Cliente SFTP Se trata de un cliente para transferencia de archivos que utiliza el Protocolo de Transferencia Segura de Archivos. Sus siglas significan en inglés (Secure File Transfer Protocol (SFTP)
+
+Entrando en materia, si durante la instalación de Debian no [instalamos SSH](http://www.openssh.com/){:target="_blank"} podemos activarlo de la siguiente forma: 
+
+```bash
+instalar openssh-server openssh-client
+```
+
+Realizado este punto o ya instalado anteriormente, sabemos que remotamente podremos acceder a nuestro Server desde nuestra red local con (**recuerda sustituir usuario `pi` e `ip` por tus datos**):
+
+```bash
+ssh pi@192.168.1.90
+```
+
+Pero recomiendo dar un paso más en la seguridad de nuestro sistema. Por ello ahora nos toca securizarlo en la medida de la posible (**cambiando puerto por defecto 22, usuario root, ...**), para ello editaremos el fichero de configuración SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Adjunto mi fichero de configuración con los `mods de seguridad activos`:
+
+```bash
+#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Port 69
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Authentication:
+
+LoginGraceTime 2m
+PermitRootLogin no
+#StrictModes yes
+MaxAuthTries 3
+MaxSessions 5
+
+#PubkeyAuthentication yes
+
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+X11Forwarding yes
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+#PermitTTY yes
+PrintMotd no
+#PrintLastLog yes
+#TCPKeepAlive yes
+#UseLogin no
+#UsePrivilegeSeparation sandbox
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
+```
+
+Guardamos los cambios, salimos del editor de texto y reiniciamos el servicio:
+
+```bash
+sudo systemctl restart ssh
+```
+
+Y a partir de este momento para conectarnos por SSH lo haremos de la siguiente forma:
+
+```bash
+ssh pi@192.168.1.90 -p 69
+```
+
+###  Fail2BAN
+
+`Fail2ban` es una **herramienta de seguridad escrita en Python** fundamental para cualquier servidor.
+
+La principal función de [Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page){:target="_blank"} es securizar un servidor del siguiente modo:
+
+1.  Evitando accesos indeseados a nuestro equipo o servidor.
+2.  Evitando ataques de fuerza bruta para que un tercero averigüe nuestra contraseña o tumbe el servidor.
+
+Por un lado está monitorizando las autenticaciones que una determinada IP hace a un determinado/s puerto/s y servicio/s. Para ello está consultando permanente los logs de autenticación de nuestro sistema como por ejemplo el **/var/log/auth.log**. Vamos a proceder a instalarlo:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install fail2ban
+```
+
+Una vez instalado vamos a configurarlo:
+
+```bash
+cd /etc/fail2ban && sudo nano jail.conf
+```
+
+Adjunto a modo resumen las opciones a buscar y modificar:
+
+```bash
+ignoreip = 127.0.0.1/8
+bantime  = 600
+maxretry = 5
+```
+
+Y segundo como las dejaremos (**en mi caso la IP es de rango 192.168.1.0**):
+
+```bash
+ignoreip = 127.0.0.1/8 192.168.1.0/24
+bantime  = 3600
+maxretry = 3</pre>
+```
+
+Una vez finalizada la edición, guardaremos los cambios, saldremos del editor de texto y lo activaremos en local:
+
+```bash
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+
+Ahora vamos a crear una configuración específica para aprovecharnos de notificaciones vía Telegram:
+
+```bash
+cd /etc/fail2ban/action.d && sudo nano telegram.conf
+```
+
+Y le agregamos el siguiente contenido:
+
+```bash
+# Fail2Ban configuration file
+#
+# Author: Lordpedal
+#
+
+[Definition]
+
+# Option:  actionstart
+# Notes.:  command executed once at the start of Fail2Ban.
+# Values:  CMD
+#
+actionstart = /etc/fail2ban/scripts/fail2ban-telegram.sh start 
+
+# Option:  actionstop
+# Notes.:  command executed once at the end of Fail2Ban
+# Values:  CMD
+#
+actionstop = /etc/fail2ban/scripts/fail2ban-telegram.sh stop
+
+# Option:  actioncheck
+# Notes.:  command executed once before each actionban command
+# Values:  CMD
+#
+actioncheck = 
+
+# Option:  actionban
+# Notes.:  command executed when banning an IP. Take care that the
+#          command is executed with Fail2Ban user rights.
+# Tags:    See jail.conf(5) man page
+# Values:  CMD
+#
+actionban = /etc/fail2ban/scripts/fail2ban-telegram.sh ban <ip>
+
+# Option:  actionunban
+# Notes.:  command executed when unbanning an IP. Take care that the
+#          command is executed with Fail2Ban user rights.
+# Tags:    See jail.conf(5) man page
+# Values:  CMD
+#
+actionunban = /etc/fail2ban/scripts/fail2ban-telegram.sh unban <ip>
+
+[Init]
+
+init = 21121981
+```
+
+Guardamos los cambios, salimos del editor de texto y crearemos el script de notificación:
+
+```bash
+cd /etc/fail2ban && \
+sudo mkdir scripts && \
+cd scripts && \
+sudo nano fail2ban-telegram.sh && \
+sudo chmod +x fail2ban-telegram.sh
+```
+
+Agregamos el siguiente bash script:
+
+```bash
+#!/bin/bash
+#
+# https://lordpedal.github.io
+# Another fine release by theBOSS
+#
+while true
+do
+    if ping -c 1 -W 3 google.com 1>/dev/null 2>&1
+    then
+        echo ""
+        break
+    else
+        echo ""
+    fi
+    sleep 1
+done
+# Opciones ejecucion
+info=`hostname -f`
+function show_uso {
+  echo "Fail2ban Telegram by Lordpedal"
+  echo ""
+  echo "Usar: $0 opcion <ip>"
+  echo ""
+  echo "Opcion: start      (Inicia notificaciones)"
+  echo "        stop       (Detiene notificaciones)"
+  echo "        ban <ip>   (Banea IP especificada) Ej: ban 192.168.1.2"
+  echo "        unban <ip> (Desbanea IP especificada) Ej: unban 192.168.1.2"
+  echo ""
+  exit
+}
+
+# Notificacion
+function send_msg {
+  # ID Telegram
+  telegram=79593223
+  # Enlace BOT
+  url="https://api.telegram.org/bot289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA/sendMessage"
+  # Envia mensaje
+  curl -s -X POST $url -d chat_id=$telegram -d text="$1"
+  exit
+}
+
+# Chequea argumentos de script
+if [ $# -lt 1 ]
+then
+  show_uso
+fi
+
+# Ejecuta una accion depende del argumento
+if [ $# -lt 1 ]
+then
+  show_uso
+fi
+
+# Ejecuta una accion depende del argumento
+if [ "$1" = 'start' ]
+then
+  msg="Seguridad+Fail2ban+ha+sido+iniciada+en+el+host+$info"
+  send_msg $msg
+elif [ "$1" = 'stop' ]
+then
+  msg="Seguridad+Fail2ban+ha+sido+detenida+en+el+host+$info"
+  send_msg $msg
+elif [ "$1" = 'ban' ]
+then
+  msg=$([ "$2" != '' ] && echo "Seguridad+Fail2ban+ha+baneado+a+$2+en+el+host+$info" || echo "Seguridad+Fail2ban+ha+baneado+una+ip+en+el+host+$info" )
+  send_msg $msg
+elif [ "$1" = 'unban' ]
+then
+  msg=$([ "$2" != '' ] && echo "Seguridad+Fail2ban+ha+desbaneado+a+$2+en+el+host+$info" || echo "Seguridad+Fail2ban+ha+desbaneado+una+ip+en+el+host+$info" )
+  send_msg $msg
+else
+  show_uso
+fi
+```
+
+Ahora vamos a finalizar la activación de `ssh`:
+
+```bash
+cd /etc/fail2ban/jail.d && \
+sudo nano jail-debian.local
+```
+
+Y le agregamos el siguiente contenido, recordemos que el puerto SSH que definimos anteriormente fue `69`:
+
+```bash
+[sshd]
+port     = 69
+filter   = sshd
+action = iptables[name=SSH, port=69, protocol=tcp]
+         telegram
+```
+
+Guardamos los cambios, salimos del editor de texto  y reiniciamos Fail2ban para activar los cambios realizados:
+
+```bash
+sudo systemctl restart fail2ban
+```
 
 ## Multimedia
 
@@ -1300,174 +1847,5 @@ ResultActive=yes
 ```
 
 Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponible para lanzar desde la **TTY** sin fallos.
-
-### SSH
-
-[SSH](https://es.wikipedia.org/wiki/SSH){:target="_blank"} es un protocolo de comunicación que encripta los datos que se intercambian, y es virtualmente imposible romper la privacidad de la comunicación. El acrónimo ssh viene del inglés: Secure SHell.
-
-El protocolo ssh es muy versátil, tiene un software cliente que posibilita el acceso a la línea de comandos, permite la transferencia de archivos y la creación de túneles seguros con soporte de comunicación para otros protocolos.
-
-Los clientes ssh se dividen en dos grupos:
-
-- Terminal SSH Es un emulador de terminal que permite acceder de forma remota desde un equipo a la línea de comandos del equipo remoto, utilizando el protocolo SSH.
-- Cliente SFTP Se trata de un cliente para transferencia de archivos que utiliza el Protocolo de Transferencia Segura de Archivos. Sus siglas significan en inglés (Secure File Transfer Protocol (SFTP)
-
-Entrando en materia, si durante la instalación de Debian no [instalamos SSH](http://www.openssh.com/){:target="_blank"} podemos activarlo de la siguiente forma: 
-
-```bash
-instalar openssh-server openssh-client
-```
-
-Realizado este punto o ya instalado anteriormente, sabemos que remotamente podremos acceder a nuestro Server desde nuestra red local con (**recuerda sustituir usuario `pi` e `ip` por tus datos**):
-
-```bash
-ssh pi@192.168.1.90
-```
-
-Pero recomiendo dar un paso más en la seguridad de nuestro sistema. Por ello ahora nos toca securizarlo en la medida de la posible (**cambiando puerto por defecto 22, usuario root, ...**), para ello editaremos el fichero de configuración SSH:
-
-```bash
-sudo nano /etc/ssh/sshd_config
-```
-
-Adjunto mi fichero de configuración con los `mods de seguridad activos`:
-
-```bash
-#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
-
-# This is the sshd server system-wide configuration file.  See
-# sshd_config(5) for more information.
-
-# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
-
-# The strategy used for options in the default sshd_config shipped with
-# OpenSSH is to specify options with their default value where
-# possible, but leave them commented.  Uncommented options override the
-# default value.
-
-Port 69
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-
-#HostKey /etc/ssh/ssh_host_rsa_key
-#HostKey /etc/ssh/ssh_host_ecdsa_key
-#HostKey /etc/ssh/ssh_host_ed25519_key
-
-# Ciphers and keying
-#RekeyLimit default none
-
-# Logging
-SyslogFacility AUTH
-LogLevel INFO
-
-# Authentication:
-
-LoginGraceTime 2m
-PermitRootLogin no
-#StrictModes yes
-MaxAuthTries 3
-MaxSessions 5
-
-#PubkeyAuthentication yes
-
-# Expect .ssh/authorized_keys2 to be disregarded by default in future.
-#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
-
-#AuthorizedPrincipalsFile none
-
-#AuthorizedKeysCommand none
-#AuthorizedKeysCommandUser nobody
-
-# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
-#HostbasedAuthentication no
-# Change to yes if you don't trust ~/.ssh/known_hosts for
-# HostbasedAuthentication
-#IgnoreUserKnownHosts no
-# Don't read the user's ~/.rhosts and ~/.shosts files
-#IgnoreRhosts yes
-
-# To disable tunneled clear text passwords, change to no here!
-#PasswordAuthentication yes
-PermitEmptyPasswords no
-
-# Change to yes to enable challenge-response passwords (beware issues with
-# some PAM modules and threads)
-ChallengeResponseAuthentication no
-
-# Kerberos options
-#KerberosAuthentication no
-#KerberosOrLocalPasswd yes
-#KerberosTicketCleanup yes
-#KerberosGetAFSToken no
-
-# GSSAPI options
-#GSSAPIAuthentication no
-#GSSAPICleanupCredentials yes
-#GSSAPIStrictAcceptorCheck yes
-#GSSAPIKeyExchange no
-
-# Set this to 'yes' to enable PAM authentication, account processing,
-# and session processing. If this is enabled, PAM authentication will
-# be allowed through the ChallengeResponseAuthentication and
-# PasswordAuthentication.  Depending on your PAM configuration,
-# PAM authentication via ChallengeResponseAuthentication may bypass
-# the setting of "PermitRootLogin without-password".
-# If you just want the PAM account and session checks to run without
-# PAM authentication, then enable this but set PasswordAuthentication
-# and ChallengeResponseAuthentication to 'no'.
-UsePAM yes
-
-#AllowAgentForwarding yes
-#AllowTcpForwarding yes
-#GatewayPorts no
-X11Forwarding yes
-#X11DisplayOffset 10
-#X11UseLocalhost yes
-#PermitTTY yes
-PrintMotd no
-#PrintLastLog yes
-#TCPKeepAlive yes
-#UseLogin no
-#UsePrivilegeSeparation sandbox
-#PermitUserEnvironment no
-#Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
-#UseDNS no
-#PidFile /var/run/sshd.pid
-#MaxStartups 10:30:100
-#PermitTunnel no
-#ChrootDirectory none
-#VersionAddendum none
-
-# no default banner path
-#Banner none
-
-# Allow client to pass locale environment variables
-AcceptEnv LANG LC_*
-
-# override default of no subsystems
-Subsystem       sftp    /usr/lib/openssh/sftp-server
-
-# Example of overriding settings on a per-user basis
-#Match User anoncvs
-#       X11Forwarding no
-#       AllowTcpForwarding no
-#       PermitTTY no
-#       ForceCommand cvs server
-```
-
-Guardamos los cambios, salimos del editor de texto y reiniciamos el servicio:
-
-```bash
-sudo systemctl restart ssh
-```
-
-Y a partir de este momento para conectarnos por SSH lo haremos de la siguiente forma:
-
-```bash
-ssh pi@192.168.1.90 -p 69
-```
 
 > Pendiente de seguir actualizando...
