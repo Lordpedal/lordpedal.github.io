@@ -1515,8 +1515,6 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_Servidor:9091`
 
-### Notificación Descargas: Telegram
-
 Opcionalmente podemos añadirle notificación de descargas, para ello antes debemos detener el contenedor:
 
 ```bash
