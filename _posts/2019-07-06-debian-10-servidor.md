@@ -454,7 +454,17 @@ Y la modificamos con nuestra cuenta en DuckDNS:
 
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
 
-### OPENVPN (Opcional)
+### VPN´s
+
+Una red privada virtual es una tecnología de red de ordenadores que permite una extensión segura de la red de área local sobre una red pública o no controlada como Internet.
+Permite que el ordenador en la red envíe y reciba datos sobre redes compartidas o públicas como si fuera una red privada, con toda la funcionalidad, seguridad y políticas de gestión de una red privada. 
+Esto se realiza estableciendo una conexión virtual punto a punto mediante el uso de conexiones dedicadas, cifrado o la combinación de ambos métodos.
+
+#### Wireguard (Recomendada)
+
+Información ampliada Docker: [Wireguard](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-wireguard){:target="_blank"}
+
+#### OpenVPN (Opcional)
 
 Teniendo ya fijada una DNS Pública, una IP estática interna y la redirección de puertos, ya podemos proceder a configurar de forma sencilla el acceso mediante [VPN](https://es.wikipedia.org/wiki/Red_privada_virtual){:target="_blank"}.
 Vamos a bajar un cliente asistente donde configuramemos nuestra red VPN:
