@@ -740,7 +740,7 @@ Continuamos añadiendole extras a nuestro Servidor esta vez desde el punto `mult
 
 Información ampliada Docker: [Transmission](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){:target="_blank"}
 
-### SAMBA
+### Samba
 
 **Samba** es una suite de aplicaciones Unix que habla el protocolo `SMB (Server Message Block)`. Los sistemas operativos Microsoft Windows y OS/2 utilizan SMB para compartir por red archivos e impresoras y para realizar tareas asociadas. Gracias al soporte de este protocolo, Samba permite a las máquinas Unix entrar en el juego, comunicándose con el mismo protocolo de red que Microsoft Windows y aparecer como otro sistema Windows en la red (desde la perspectiva de un cliente Windows).
  Hoy en día, la suite Samba gira alrededor de un par de demonios Unix que permiten la compartición de recursos entre los clientes SMB de una red. Estos demonios son:
@@ -1041,7 +1041,7 @@ exit 0
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y cada vez que arranque tendremos operativo el servicio.
 
-### XUPNPD
+### Xupnpd
 
 [Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
 
