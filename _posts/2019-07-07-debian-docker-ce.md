@@ -2076,4 +2076,58 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
 
+## Docker: [MiniDLNA](https://hub.docker.com/r/lordpedal/minidlna/){:target="_blank"}
+
+[MiniDLNA](https://sourceforge.net/projects/minidlna/){:target="_blank"} informalmente conocido como ReadyMedia, es un servidor streaming que funcionará perfectamente en una máquina con pocos recursos.
+
+**DLNA** es una interesante tecnología para compartir vídeo, música y imágenes entre los dispositivos conectados a nuestra red de manera sencilla.
+
+Puedes utilizar cualquier cliente que admita los protocolos DLNA para transmitir archivos multimedia desde tu Servidor, como por ejemplo Kodi y VLC.
+
+Vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install wget && \
+mkdir -p $HOME/docker/minidlna/{Descargas/Musica/Videos/Imagenes} && \
+cd $HOME/docker/minidlna
+```
+
+Bajamos el fichero docker-compose.yml alojado en Github:
+
+```bash
+wget https://raw.githubusercontent.com/Lordpedal/minidlna/main/docker-compose.yml
+```
+
+Editamos las variables de configuración:
+
+```bash
+nano docker-compose.yml
+```
+
+| Parámetro | Función |
+| ------ | ------ |
+| `- '~/docker/minidlna/Descargas:/media/Descargas'` | Definimos ruta donde alojamos las descargas a compartir por Red. |
+| `- '~/docker/minidlna/Musica:/media/Musica'` | Definimos ruta donde alojamos la Música a compartir por Red. |
+| `- '~/docker/minidlna/Videos:/media/Videos'` | Definimos ruta donde alojamos los Vídeos a compartir por Red. |
+| `- '~/docker/minidlna/Imagenes:/media/Imagenes'` | Definimos ruta donde alojamos las Imágenes a compartir por Red. |
+| `- MINIDLNA_MEDIA_DIR_1=AVP,/media/Descargas` | En esta variable definimos que el contenido de la carpeta Descargas puede contener: **Audio, Video y/o Imágenes**, que es lo que significa **AVP** |
+| `- MINIDLNA_MEDIA_DIR_2=A,/media/Musica` | Esta variable define que el contenido de la carpeta Música solo puede contener: **Audio**, que es lo que significa **A** |
+| `- MINIDLNA_MEDIA_DIR_3=V,/media/Videos` | Esta variable define que el contenido de la carpeta Vídeos solo puede contener: **Video**, que es lo que significa **V** |
+| `- MINIDLNA_MEDIA_DIR_4=P,/media/Imagenes` | Esta variable define que el contenido de la carpeta Imágenes solo puede contener: **Imágenes**, que es lo que significa **P** |
+| `- MINIDLNA_FRIENDLY_NAME=Lordpedal DLNA` | Esta variable define como se identifica el servicio de DLNA en nuestra Red. |
+| `- MINIDLNA_MAX_CONNECTIONS=7` | Esta variable define cuantos usuarios pueden reproducir el contenido DLNA al mismo tiempo en nuestra Red. |
+
+> **TIP**: Puedes especificar culaquier variable del fichero [minidlna.conf](http://manpages.ubuntu.com/manpages/raring/man5/minidlna.conf.5.html){:target="_blank"}, añadiendo la variable `MINIDLNA_` al fichero `docker-compose.yml`
+
+Guardamos el fichero, salimos del editor y ejecutamos la creación del servicio:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8200` y con la transmisión del contenido multimedia por la red local.
+
+![DLNA]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vlcdlna.jpg)
+
 > Y listo!
