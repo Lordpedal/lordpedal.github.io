@@ -34,7 +34,7 @@ El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la 
 
 Planteado el guión inicial vamos a personalizar nuestra instalación, pero antes recordando que los ajustes en su mayor parte los ejecutaremos desde una *terminal de sistema*.
 
-### AJUSTANDO PERFIL [SUDO](https://es.wikipedia.org/wiki/Sudo){:target="_blank"} 
+### Configurando: [SUDO](https://es.wikipedia.org/wiki/Sudo){:target="_blank"} 
 
 Lo primero con lo que comenzamos es añadiendo nuestro usuario al grupo `sudo` del sistema, para ello ejecutamos en la terminal:
 
@@ -89,7 +89,7 @@ exit
 ```
 Y ya tendremos configurado debidamente el perfil sudo en nuestro usuario de sistema.
 
-###  AJUSTANDO REPOSITORIOS SISTEMA
+###  Ajustando: Repositorios Sistema
 
 El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes){:target="_blank"} `Apt`/`Aptitude`/`Synaptic` de nuestra distribución se basa en un listado de fuentes de instalación. 
 Primero haremos un backup de las actuales y crearemos una personalizada:
@@ -127,7 +127,7 @@ sudo apt-get -y dist-upgrade
 ```
 Tras finalizar la actualización tendremos el sistema actualizado y con las últimas novedades/parches instalados.
 
-###  UTILIDADES SISTEMA
+###  Utilidades Sistema
 
 Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar el `driver necesario` para poder interactuar con el y no esta compilado en el kernel. Una solución sencilla es instalar un paquete con algunos de los principales drivers (3Com, Atheros, Radeon, …):
 
@@ -161,7 +161,7 @@ sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs 
 hfsplus build-essential automake libtool uuid-dev psmisc linux-source yasm \
 linux-headers-`uname -r`
 ```
-###  CONFIGURANDO IDIOMA SISTEMA
+###  Configurando Idioma Sistema
 
 Ejecutaremos un pequeño asistente con la orden de terminal:
 
@@ -181,7 +181,7 @@ Para la configuración regional predeterminada seleccionamos:
 [x] es-ES.UTF-8
 ```
 
-###  HABILITANDO INICIO EN [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
+###  Configurando [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
 Este paso aunque no es obligatorio en un entorno de Servidor, si lo considero que es altamente recomendado para optimizar recursos de sistema. Lo que vamos a hacer es deshabilitar el autoinicio del entorno gráfico instalado (recordemos [MATE](https://es.wikipedia.org/wiki/MATE){:target="_blank"}).
 Lo que debemos de hacer a continuacón es adaptar el sistema a un arranque sin gestor de inicio sesiones ([LightDM](https://es.wikipedia.org/wiki/LightDM){:target="_blank"}), para ello instalamos y configuramos la siguiente dependencia:
@@ -237,7 +237,7 @@ ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
 ```
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
 
-###  HABILITANDO RC.LOCAL
+###  Configurando RC.LOCAL
 
 Si no queremos crear un script único para la ejecución de un comando o un script cada vez que iniciamos un sistema tipo Unix (BSD, Gnu/Linux, etc) tenemos la posibilidad de llamarlo desde el fichero **/etc/rc.local**.
 Cualquier comando que coloquemos o script al que llamemos en dicho fichero será ejecutado al final del arranque, es decir, cuando todos los scripts que tenemos en el runlevel correspondiente hayan sido ejecutados. 
@@ -315,7 +315,7 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
  | sudo reboot | Reiniciar sistema |
  | sudo poweroff | Apagar sistema |
 
-###  IDENTIFICANDO RED
+###  Identificando RED
 
 Ahora vamos a proceder a configurar y securizar nuestra red doméstica.
 La primera tarea que debemos de realizar es encontrar el nombre de nuestro identificador de red y el rango de la misma.
@@ -338,7 +338,7 @@ Y entre los valores que muestra el comando me quedo con la siguiente informació
 
 Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){:target="_blank"}.
 
-### IPV4 Forward + BR0
+### Configurando RED
 
 Vamos a habilitar la [redicción de puertos sobre IPv4](https://es.wikipedia.org/wiki/Redirecci%C3%B3n_de_puertos){:target="_blank"} que posteriormente usaremos para entre otros configurar debidamente la VPN.
 
@@ -425,7 +425,7 @@ Y vemos los cambios realizados:
 ```
 A partir de este momento nuestra red cableada la identificaremos con el nombre de `br0` y la IP de nuestro servidor en casa sera `192.168.1.90`.
 
-### DNS Pública
+### Configurando DNS Pública
 
 Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
 La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [Duck DNS](https://www.duckdns.org/){:target="_blank"}.
