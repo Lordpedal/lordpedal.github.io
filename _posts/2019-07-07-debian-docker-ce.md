@@ -1127,9 +1127,9 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
 
-### Instalacíon + Fix: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+### Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
 
-Este complemento nos dará mucho juego por ejemplo:
+Este complemento nos dará mucho juego, por ejemplo nos permite activar:
 
 - **Modo Standby**
 - **Reinicio remoto** (Necesario realizar FIX para Docker)
@@ -1243,4 +1243,253 @@ Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva c
 
 sudo reboot
 
->  Y listo!
+## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
+
+TVHeadend es una aplicación servidor gestionada por un interface web que puede recibir streams de vídeo de diferentes fuentes:
+
+- Streams de IPTV por Internet.
+- Señal de TDT recibida por una tarjeta de TDT PCI/USB.
+- Señal de TV analógica recibida por una tarjeta de TV PCI/USB.
+- Señal de TV por satélite recibida mediante una tarjeta SAT PCI/USB.
+- Señal de televisión por cable.
+
+Una vez configurados los streams de vídeo (que se corresponderían con los canales de TV), podremos entre otros:
+
+- Grabarlos en un dispositivo de almacenamiento, funcionando como un PVR.
+- Retransmitirlos a otros puntos de nuestra red o a Internet.
+- Transcodificarlos a otro formato de vídeo.
+
+TVHeadend, es software 100% libre y gratuito, cuyo código fuente lo puedes encontrar en [Github](https://github.com/tvheadend/tvheadend){:target="_blank"}.
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/tvheadend/\
+{config/{data,m3u},grabaciones}
+```
+
+Vamos a satisfacer dependencias que posteriormente usaremos:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install ffmpeg curl wget
+```
+
+Y ya podriamos lanzar la creación y activación del servicio:
+
+```bash
+docker run -d \
+	--name=TVHeadend \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-p 9981:9981 \
+	-p 9982:9982 \
+	-v /etc/timezone:/etc/timezone:ro \
+	-v $HOME/docker/tvheadend/config:/config \
+	-v $HOME/docker/tvheadend/grabaciones:/recordings \
+	--restart=always \
+	ghcr.io/linuxserver/tvheadend
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `-p 9981:9981` | Puerto de acceso Web `9981` |
+| `-p 9982:9982` | Puerto de streaming `9982` |
+| `-v /etc/timezone:/etc/timezone:ro` | Clonado en modo lectura: hora del host feat. hora del contenedor |
+  	 
+-v $HOME/docker/tvheadend/config:/config 	Ruta donde almacenaremos la configuración
+-v $HOME/docker/tvheadend/grabaciones:/recordings 	
+
+Ruta donde almacenaremos las grabaciones.
+
+Ejemplo de ruta alternativa en un HD externo:
+
+-v /media/rednas/NAS/LXC/Descargas/IPTV:/recordings
+--restart=always 	Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend
+
+Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
+
+### Configurando usuario Admin TVHeadend
+
+> **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock1.png)
+
+> **Configuración > Usuarios > Contraseñas**: Click en Añadir, elegimos un usuario/contraseña y hacemos click en Crear
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock2.png)
+
+> **Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos click en Guardar
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock3.png)
+
+### Lista M3U
+
+Dejo dos opciones ejemplo de listas M3U para ser importadas a nuestro servidor.
+
+- M3U Personal:
+
+```bash
+curl -o $HOME/docker/tvheadend/config/m3u/lista.m3u \
+https://web.lordpedal.duckdns.org/images/lordpedal.m3u
+```
+
+- M3U TDT - Canales libres:
+
+```bash
+wget -qO $HOME/docker/tvheadend/config/m3u/lista.m3u \
+https://www.tdtchannels.com/lists/tv.m3u8
+```
+
+Para la configuración, voy a usar mi lista personal.
+
+Pero antes voy a desglosar la estructura de un canal de la lista *M3U*, para describir como **«automatizar»** en lo posible, todo el proceso de creación de `Muxes/Servicios/Canales` en TVHeadend.
+
+```bash
+#EXTINF:-1 tvh-epg="disable" tvh-chnum="1" tvg-id="1.movistar.tv" tvh-tags="Movistar TV|HDTV|Ocio y cultura" tvg-logo="https://web.lordpedal.duckdns.org/images/2543.jpg",La 1 HD
+http://192.168.1.90:2112/rtp/239.0.0.185:8208
+```
+| Parámetro | Función |
+| ------ | ------ |
+| `#EXTINF:-1` | Enlace Streaming |
+| `tvh-epg="disable"` | Deshabilita el EPG scan |
+| `tvh-chnum="1"` | Número de canal |
+| `tvg-id="1.movistar.tv"` | ID interno EPG |
+| `tvh-tags="Movistar TV|HDTV|Ocio y cultura"` | Categorías de canal |
+| `tvg-logo="https://web.lordpedal.duckdns.org/images/2543.jpg"` | Picon (logo) de canal |
+| `La 1 HD` | Nombre canal |
+| `http://192.168.1.90:2112/rtp/239.0.0.185:8208` | Enlace IP canal |
+
+>  **Configuración > Entradas DVB > Redes**: Hacemos click en Añadir y seleccionamos Red automática IPTV
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock4.png)
+
+Configuramos la red IPTV para que pueda realizar un escaneo de la misma y de esa forma agregar los Muxes. Al finalizar de configurar hacemos click en Crear
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock5.png)
+
+El proceso llevara algún tiempo, dependiendo sobre todo del número de canales que incluya la lista
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock6.png)
+
+> **Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos click en Guardar
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock7.png)
+
+> **Configuración > Entradas DVB > Servicios**: Hacemos click en Mapear todos los servicios
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock8.png)
+
+En la ventana de dialogo emergente, click en Mapear Servicios
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock9.png)
+
+Mostrara el proceso de convertir los Muxes en Servicios
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock10.png)
+
+> **Configuración > Canal / EPG > Canales**: Hacemos click en Mapear todos los servicios
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock11.png)
+
+En la ventana de dialogo emergente, click en Mapear Servicios
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock12.png)
+
+### Guía EPG
+
+Dejo tres opciones ejemplo de guías compatibles con el módulo Grabber, WebGrab+Plus XML incluido en el Docker.
+
+- **EPG SAT - Movistar+, ServusTV, Sport1 & ZFDinfo**:
+
+```bash
+wget -qO $HOME/docker/tvheadend/config/data/\
+guide.xml.gz \
+https://github.com/MPAndrew/EpgGratis/raw/master/\
+guide.xml.gz \
+&& gunzip -f $HOME/docker/tvheadend/config/data/\
+guide.xml.gz
+```
+
+- **EPG Personal**:
+
+```bash
+curl -o $HOME/docker/tvheadend/config/data/guide.xml \
+https://web.lordpedal.duckdns.org/images/guia.xml
+```
+
+- **EPG TDT - Canales libres**:
+
+```bash
+wget -qO $HOME/docker/tvheadend/config/data/\
+guide.xml.gz \
+https://www.tdtchannels.com/epg/\
+TV.xml.gz && \
+gunzip -f $HOME/docker/tvheadend/config/data/\
+guide.xml.gz
+```
+
+Para la configuración, voy a usar mi EPG Personal. Para ello voy a crear un script para automatizar la alimentación de EPG a TVHeadend, preparamos el entorno de trabajo y abrimos editor:
+
+```bash
+mkdir -p $HOME/scripts && cd $HOME/scripts && \
+nano epg.sh
+```
+
+Añadimos el contenido del script:
+
+```bash
+#!/bin/bash
+#
+# https://lordpedal.github.io
+# Another fine release by Lordpedal
+#
+curl -o $HOME/docker/tvheadend/config/data/guide.xml \
+https://web.lordpedal.duckdns.org/images/guia.xml
+```
+
+Guardamos el fichero, salimos del editor, le damos permisos de ejecución y los ejecutamos para almacenar nuestra EPG localmente:
+
+```bash
+chmod +x epg.sh && ./epg.sh
+```
+
+Vamos a crear una tarea programa en cron para su ejecución en segundo plano:
+
+```bash
+crontab -e
+```
+
+Añadiendo el siguiente código al final del fichero para que sea ejecutado cada día las 9:45am:
+
+```bash
+45 9 * * * ~/scripts/epg.sh >/dev/null 2>&1
+```
+
+Guardamos, salimos del editor y pasamos nuevamente al navegador para seguir configurando el servidor.
+
+> **Configuración > Canal / EPG > Módulos para Obtención de Guía**: Seleccionamos el grabber WebGrab+Plus XML y lo habilitamos
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock13.png)
+
+Hacemos click en Guardar
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock14.png)
+
+> **Configuración > Canal / EPG > Obtener Guía**: Configuramos el cron de TVHeadend para que la guía EPG la anexe a la programación a las 10am (la descarga la tenemos programada en el servidor a las 9:45am)
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock15.png)
+
+Al finalizar de configurar la tarea cron, hacemos click en Volver a ejecutar los capturadores de EPG internos (el proceso se puede demorar unos minutos)
+
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock16.png)
+
+Con estos pasos ya tendremos configurado nuestro propio servidor de Televisión con un sencillo docker.
+
+> Y listo!
