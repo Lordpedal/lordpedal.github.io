@@ -966,40 +966,6 @@ https://www.tdtchannels.com/epg/TV.xml
 
 Y hacemos click en **guardar**.
 
-## Docker: [Tor-Privoxy](https://hub.docker.com/r/rdsubhas/tor-privoxy-alpine/){:target="_blank"}
-
-`Tor` es una red que implementa una **técnica llamada Onion Routing** (enrutado cebolla por el número de capas que emplea) diseñada con vistas a proteger las comunicaciones, la idea es cambiar el modo de enrutado tradicional de Internet para **garantizar el anonimato y la privacidad de los datos**.
-
-Si lo combinamos con `Privoxy` obtendremos un **servidor proxy con filtrado de la red Tor**.
-
-La creación del servicio es muy sencilla, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=TorPrivoxy \
-	-p 8118:8118 \
-	-p 9060:9050 \
-	--restart=always \
-	rdsubhas/tor-privoxy-alpine 
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-p 8118:8118` | Puerto de configuración Privoxy **8118** |
-| `-p 9060:9050` | Puerto de comunicación Red Tor **9050** |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
-
-Tras haber lanzado el servicio, ya tendriamos disponible el proxy a usar bajo demanda:
-
-- Si el proxy lo vamos a usar sobre el servidor donde esta instalado el servicio de docker, usaremos: `127.0.0.1:8118`
-- Si el proxy lo vamos a usar sobre otro cliente de nuestra red, usaremos la `IP del servidor:8118`, ejemplo: **192.168.1.90:8118**
-
-Ejemplo de configuración navegador **Firefox**:
-
-![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png)
-
 ## Docker: [MagicMirror](https://hub.docker.com/r/bastilimbach/docker-magicmirror/){:target="_blank"}²
 
 MagicMirror² es una plataforma de espejo modular inteligente, de código abierto.
@@ -1230,8 +1196,6 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend |
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
-
-### TVHeadend: Usuario Admin
 
 > **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
 
@@ -1781,5 +1745,39 @@ Y añadimos nuestro enlace externo:
  ```
 
 Guardamos el fichero, salimos del editor y **reiniciamos el docker de Nextcloud** para que sea efectivo el cambio.
+
+## Docker: [Tor-Privoxy](https://hub.docker.com/r/rdsubhas/tor-privoxy-alpine/){:target="_blank"}
+
+`Tor` es una red que implementa una **técnica llamada Onion Routing** (enrutado cebolla por el número de capas que emplea) diseñada con vistas a proteger las comunicaciones, la idea es cambiar el modo de enrutado tradicional de Internet para **garantizar el anonimato y la privacidad de los datos**.
+
+Si lo combinamos con `Privoxy` obtendremos un **servidor proxy con filtrado de la red Tor**.
+
+La creación del servicio es muy sencilla, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=TorPrivoxy \
+	-p 8118:8118 \
+	-p 9060:9050 \
+	--restart=always \
+	rdsubhas/tor-privoxy-alpine 
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 8118:8118` | Puerto de configuración Privoxy **8118** |
+| `-p 9060:9050` | Puerto de comunicación Red Tor **9050** |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+
+Tras haber lanzado el servicio, ya tendriamos disponible el proxy a usar bajo demanda:
+
+- Si el proxy lo vamos a usar sobre el servidor donde esta instalado el servicio de docker, usaremos: `127.0.0.1:8118`
+- Si el proxy lo vamos a usar sobre otro cliente de nuestra red, usaremos la `IP del servidor:8118`, ejemplo: **192.168.1.90:8118**
+
+Ejemplo de configuración navegador **Firefox**:
+
+![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png)
 
 > Y listo!
