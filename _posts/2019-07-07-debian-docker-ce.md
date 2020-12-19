@@ -1771,4 +1771,72 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
+## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
+
+JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
+
+Los enlaces de descargas especificados por el usuario son separados en paquetes para permitir pausar y continuar las descargas individualmente, las principales características son:
+
+- Permite descargas múltiples sin estar presente.
+- Es compatible con múltiples portales.
+- Funciona como gestor de descargas convencional.
+- Permite continuar descargas pausadas.
+- Interfaz amigable.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/jd2/{config,descargas} && \
+cd $HOME/docker/jd2
+```
+
+Ahora vamos a crear el fichero de configuración docker-compose.yml:
+
+```bash
+cat << EOF > $HOME/docker/jd2/docker-compose.yml
+version: "2"
+services:
+  jdownloader-2:
+    image: jlesage/jdownloader-2
+    container_name: jdownloader2
+    ports:
+      - 5800:5800
+    volumes:
+      - $HOME/docker/jd2/config:/config:rw
+      - $HOME/docker/jd2/descargas:/output:rw
+    restart: always
+EOF
+```
+
+Y lo levantamos para ser creado y ejecutado:
+
+```
+docker-compose up -d
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `5800:5800` | Puerto de configuración acceso `5800` |
+| `$HOME/docker/jd2/config:/config:rw` | Ruta donde se almacena la configuración del programa |
+| `$HOME/docker/jd2/descargas:/output:rw` | Ruta donde se almacenan las **descargas** |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+
+Tras haber lanzado el servicio, ya tendríamos acceso desde `http://ip_servidor:5800`
+
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker1.jpg)
+
+Un detalle a tener en cuenta es que el portapapeles no soporta el copiado y pegado directamente. Para pasar enlaces tenemos que hacer clic en **Clipboard**
+
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker2.jpg)
+
+En la ventana emergente que nos aparece **pegamos el link y lo enviamos**
+
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker3.jpg)
+
+Haciendo clic en **Agregar Nuevos Enlaces**, veremos como los reconoce y podemos agregarlos a descargar
+
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker4.jpg)
+
 > Y listo!
