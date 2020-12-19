@@ -46,7 +46,7 @@ En los siguientes bloques intentare detallarlas, aunque `algunas ya esten obsole
 
 - Funciones, características y productos del servidor
 
-`Servidor ficheros <em>(NFS, SMB & FTP) • Servidor Web (Apache, Nginx & Lighttpd) • Bases de datos (Básico: MySQL, PostgresSQL & Oracle 10g) • Backup & Restauración (Rsync, Clonezilla & Norton Ghost) • Hypervisor (KVM, VMWare ESX & HyperV) • Software de Virtualización (Qemu, LXC, Docker, VMware & VBox) • Servidores de Terminal (Bash, Microsoft & Citrix XenApp) • Monitoreo (Cacti & Zabbix) …`
+`Servidor ficheros (NFS, SMB & FTP) • Servidor Web (Apache, Nginx & Lighttpd) • Bases de datos (Básico: MySQL, PostgresSQL & Oracle 10g) • Backup & Restauración (Rsync, Clonezilla & Norton Ghost) • Hypervisor (KVM, VMWare ESX & HyperV) • Software de Virtualización (Qemu, LXC, Docker, VMware & VBox) • Servidores de Terminal (Bash, Microsoft & Citrix XenApp) • Monitoreo (Cacti & Zabbix) …`
 
 - General
 
