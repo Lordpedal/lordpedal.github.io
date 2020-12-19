@@ -454,6 +454,13 @@ Y la modificamos con nuestra cuenta en DuckDNS:
 
 Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
 
+### P3DNS
+
+Antes de continuar debemos de instalar Docker y configurarlo como se detalla en este apartado.
+
+1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){:target="_blank"}
+2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){:target="_blank"}
+
 ### VPN´s
 
 Una red privada virtual es una tecnología de red de ordenadores que permite una extensión segura de la red de área local sobre una red pública o no controlada como Internet.
