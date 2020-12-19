@@ -25,7 +25,7 @@ github_username: lordpedal
 minimal_mistakes_skin: air
 locale: es-ES
 #words_per_minute: 200
-url: "http://lordpedal.github.io"
+url: "https://lordpedal.github.io"
 baseurl: ""
 timezone: Europe/Madrid # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 search: true
