@@ -1241,7 +1241,9 @@ Y añadimos la siguiente linea al final del fichero, para que el script se cargu
 
 Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva configuración:
 
+```bash
 sudo reboot
+```
 
 ## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
 
