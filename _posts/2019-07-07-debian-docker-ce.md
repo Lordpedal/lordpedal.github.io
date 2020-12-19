@@ -1953,7 +1953,7 @@ Basado en **DAAP** (`Digital Audio Access Protocol`), protocolo ideado por Apple
 
 En la anterior entrada comentamos que [Shairport-sync](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-shairport-sync) no era compatible con el protocolo `multiroom`, ahora gracias a este servidor podríamos emitir el mismo audio **emulando** multiroom reproduciendo la música en diferentes instancias de forma sincronizada.
 
-La lista de clientes soportados, lo convierten en un servidor ideal :
+La lista de clientes soportados, lo convierten en un servidor ideal:
 
 - Clientes DAAP, como iTunes (OSX/Windows) o Rhythmbox (GNU/Linux)
 - Clientes remotos, como Apple Remote (iOS) o compatibles para Android
