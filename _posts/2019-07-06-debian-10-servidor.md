@@ -30,6 +30,8 @@ Resumiendo el procedimiento a grandes rasgos:
 4.  **Importante** tildar para instalar en sistema durante asistente instalación: `Entorno de escritorio Debian + MATE + SSH server + Utilidades estándar del sistema Debian`, el resto de opciones recomiendo descartarlas.
 5.  Disfrutar de las bondades de un gran sistema operativo y una gran comunidad asociada al mismo.
 
+## Sistema Base
+
 El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, recordad sustituir dicho usuario por el que habéis creado durante la instalación.
 
 Planteado el guión inicial vamos a personalizar nuestra instalación, pero antes recordando que los ajustes en su mayor parte los ejecutaremos desde una *terminal de sistema*.
@@ -315,9 +317,12 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
  | sudo reboot | Reiniciar sistema |
  | sudo poweroff | Apagar sistema |
 
+## Redes
+
+Tras haber configurado nuestr sistema Base, vamos a configurar y segurizar nuestra red doméstica.
+
 ###  Identificando RED
 
-Ahora vamos a proceder a configurar y securizar nuestra red doméstica.
 La primera tarea que debemos de realizar es encontrar el nombre de nuestro identificador de red y el rango de la misma.
 
 Este comando nos dara la información esperada:
