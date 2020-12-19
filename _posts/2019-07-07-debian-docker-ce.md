@@ -556,7 +556,13 @@ https://raw.githubusercontent.com/hectorm/hmirror/master/data/zerodot1-coinblock
 https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
 ```
 
-Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
+Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador:
+
+![P3DNS Cloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnscloud.jpg)
+
+Y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS:
+
+![P3DNS Leak]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnsleak.jpg)
 
 ## Docker: [Jellyfin](https://hub.docker.com/r/linuxserver/jellyfin/){:target="_blank"}
 
@@ -1450,6 +1456,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
 
+![Shairport]({{ site.url }}{{ site.baseurl }}/assets/images/posts/shairport.jpg)
+
 ## Docker: [Forked-daapd](https://hub.docker.com/r/linuxserver/daapd/){:target="_blank"}
 
 [Forked-daapd](https://github.com/mikebrady/shairport-sync){:target="_blank"} es un servidor multimedia para nuestra colección musical.
@@ -1756,6 +1764,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
 
+![File Browser]({{ site.url }}{{ site.baseurl }}/assets/images/posts/filebrowser.jpg)
+
 ## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
 
 Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
@@ -1798,6 +1808,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
+
+![Heimdall]({{ site.url }}{{ site.baseurl }}/assets/images/posts/heimdall.jpg)
 
 ## Docker: [Tor-Privoxy](https://hub.docker.com/r/rdsubhas/tor-privoxy-alpine/){:target="_blank"}
 
