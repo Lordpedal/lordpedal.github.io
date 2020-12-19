@@ -1308,7 +1308,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
 
-### Configurando usuario Admin TVHeadend
+### TVHeadend: Usuario Admin
 
 > **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
 
