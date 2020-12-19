@@ -169,8 +169,6 @@ libogg-dev libvorbis-dev libflac-dev ffmpeg libssl-dev libgnutls-openssl-dev \
 linux-headers-`uname -r`
 ```
 
-
-
 ###  Configurando Idioma Sistema
 
 Ejecutaremos un pequeño asistente con la orden de terminal:
@@ -324,6 +322,207 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
  | sudo su | Iniciar sesion como ROOT |
  | sudo reboot | Reiniciar sistema |
  | sudo poweroff | Apagar sistema |
+
+### Alías
+
+En informática `alias` es una **orden disponible** en varios **intérpretes de comandos** tales como los **shells de Unix, 4DOS/4NT y Windows PowerShell**, que permite reemplazar una palabra o serie de palabras con otra. Su uso principal es el de abreviar órdenes o para añadir argumentos de forma predeterminada a una orden que se usa con mucha frecuencia. Los alias se mantienen hasta que se termina la sesión en la terminal, pero normalmente se suelen añadir en el fichero de configuración del intérprete de órdenes para de esta forma siempre están disponibles para todas las sesiones de terminal.
+
+Un ejemplo clarifica este tema de forma sencilla, en **TTY** un alías que suelo usar es `reiniciar`, que ejecuta la orden `sudo reboot`.
+
+Para configurar los alías editaremos el fichero de configuración de nuestra distro para que tanto el usuario `root` como `pi` tengan acceso a ellos:
+
+```bash
+sudo nano /etc/bash.bashrc
+```
+
+Y añadiremos al final del fichero los alías que definamos, adjunto mi fichero de configuración:
+
+```bash
+# System-wide .bashrc file for interactive bash(1) shells.
+
+# To enable the settings / commands in this file for login shells as well,
+# this file has to be sourced in /etc/profile.
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, overwrite the one in /etc/profile)
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+# Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
+# If this is an xterm set the title to user@host:dir
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+#    ;;
+#*)
+#    ;;
+#esac
+
+# enable bash completion in interactive shells
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi
+
+# if the command-not-found package is installed, use it
+if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
+        function command_not_found_handle {
+                # check because c-n-f could've been removed in the meantime
+                if [ -x /usr/lib/command-not-found ]; then
+                   /usr/lib/command-not-found -- "$1"
+                   return $?
+                elif [ -x /usr/share/command-not-found/command-not-found ]; then
+                   /usr/share/command-not-found/command-not-found -- "$1"
+                   return $?
+                else
+                   printf "%s: command not found\n" "$1" >&2
+                   return 127
+                fi
+        }
+fi
+#
+# Alias
+#
+alias reiniciar="sudo reboot"
+alias apagar="sudo poweroff"
+alias instalar="sudo apt-get -y install"
+alias desinstalar="sudo apt-get -y purge"
+alias actualizar="sudo apt-get autoclean && sudo apt-get clean && sudo apt-get -y autoremove && sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get moo"
+alias limpiarcache="sudo ldconfig && sudo sync && sudo sysctl -w vm.drop_caches=2 && sudo sync"
+alias win="startx"
+alias enlaces="sudo nano /etc/bash.bashrc"
+alias grubfix="sudo nano /etc/default/grub && sudo update-grub"
+```
+
+Guardamos los cambios, salimos del editor de texto y para activarlos tendremos que volver a abrir la sesión TTY para ello solo basta con salir de ella:
+
+```bash
+exit
+```
+
+Y cuando tengamos de nuevo la **TTY** operativa con lanzar el comando `actualizar` se nos actualizara el **Sistema Operativo** a las última versión disponible.
+
+Dejo un extracto de la ejecución del comando:
+
+```bash
+pi@overclock:~$ actualizar
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+Ign:1 http://ftp.es.debian.org/debian buster InRelease
+Obj:2 http://ftp.es.debian.org/debian buster-updates InRelease
+Obj:3 http://deb.debian.org/debian buster-backports InRelease
+Obj:4 http://security.debian.org/debian-security buster/updates InRelease
+Obj:5 http://ftp.es.debian.org/debian buster Release
+Leyendo lista de paquetes... Hecho
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Calculando la actualización... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Calculando la actualización... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+                 (__)
+                 (oo)
+           /------\/
+          / |    ||
+         *  /\---/\
+            ~~   ~~
+..."Have you mooed today?"...
+```
+
+### GRUB
+
+[Grub](https://es.wikipedia.org/wiki/GNU_GRUB){:target="_blank"} es el **gestor de arranque** que tengo instalado con la distro GNU/Linux Debian. La distro esta instalada sobre un disco SSD, y aquí voy añadir un pequeño MOD casi obligado para prolongar la vida del mismo.
+
+Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
+
+- Completely Fair Queuing-elevator=cfq
+- Deadline-elevator=deadline
+- NOOP-elevator=noop
+- Anticipatory-elevator=as
+
+[Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
+
+Lanzamos el alías de edición de Grub:
+
+```bash
+grubfix
+```
+
+Y aquí dejo mi fichero de configuración para un SSD (Opción habilitada `elevator=noop`), aunque si tu HD no es SSD también se ha demostrado una mejora de rendimiento.
+
+```bash
+# If you change this file, run 'update-grub' afterwards to update
+# /boot/grub/grub.cfg.
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=0
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX="elevator=noop"
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"
+
+# Uncomment to disable graphical terminal (grub-pc only)
+#GRUB_TERMINAL=console
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo'
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_RECOVERY="true"
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE="480 440 1"
+```
+
+Guardamos los cambios, salimos del editor de texto y se nos regenera el fichero BOOT con los cambios realizados:
+
+```bash
+pi@overclock:~$ grubfix
+Generando un fichero de configuración de grub...
+Found background image: /usr/share/images/desktop-base/desktop-grub.png
+Encontrada imagen de linux: /boot/vmlinuz-4.19.0-5-amd64
+Encontrada imagen de memoria inicial: /boot/initrd.img-4.19.0-5-amd64
+hecho
+```
+
+Faltaría reiniciar el Servidor para aplicar los nuevos cambios:
+
+```bash
+reiniciar
+```
 
 ## Redes
 
@@ -1055,5 +1254,220 @@ exit 0
 
 Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendremos operativo el servicio.
 
+### Kodi
+
+[Kodi](https://kodi.tv/){:target="_blank"} hace años que dejamos de conocerlo como XBMC (Xbox Media Center), pero incluso cuando llevaba aquel nombre ya se había convertido en uno de los **centros multimedia más populares y completos** que podíamos descargar en diferentes plataformas, y lo sigue siendo, solo que incluso mejor.
+
+**Kodi es una aplicación gratuita y open source mantenida por voluntarios y donaciones**. La versión oficial no incluye ningún tipo de contenido multimedia, solo las opciones para que gestiones el tuyo propio. Ese contenido puede provenir de tu disco, de una ubicación remota, un DVD, un Blu-ray, un servicio en la nube, etc.
+
+Y podrías pensar, **¿Porque instalar Kodi en el Servidor?** La respuesta para mi es sencilla, **un servidor en mi caso no deja de ser un PC**, con el que puedo disfrutar de contenido multimedia.
+
+Aprovechando los **alías** haremos uso de ellos para instalar `Kodi` con la siguiente sentencia:
+
+```bash
+instalar kodi
+```
+
+Y listo, ya lo tendriamos instalado y funcional si estamos dentro del entorno gráfico en nuestro caso MATE, pero como nos gusta ir un paso más te habras dado cuenta que desde TTY no inicia debidamente.
+
+La solución pasa por añadir un nuevo alías a nuestro base de datos, para ello lanzamos en la terminal:
+
+```bash
+enlaces
+```
+
+Se nos abrira el fichero `/etc/bash.bashrc` con el editor `nano`. Añadimos el alías de Kodi al final del fichero:
+
+```bash
+alias kodi="/usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/kodi-standalone -- :0 -nolisten tcp vt7"
+```
+
+Guardamos los cambios, salimos del editor de texto y editamos las opciones de apagado en Kodi:
+
+```bash
+sudo nano /etc/polkit-1/localauthority/50-local.d/custom-actions.pkla
+```
+
+Y agregamos el siguiente contenido:
+
+```bash
+[Actions for kodi user]
+Identity=unix-user:pi
+Action=org.freedesktop.upower.*;org.freedesktop.consolekit.system.*;org.freedesktop.udisks.*;org.freedesktop.login1.*
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+```
+
+Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponible para lanzar desde la **TTY** sin fallos.
+
+### SSH
+
+[SSH](https://es.wikipedia.org/wiki/SSH){:target="_blank"} es un protocolo de comunicación que encripta los datos que se intercambian, y es virtualmente imposible romper la privacidad de la comunicación. El acrónimo ssh viene del inglés: Secure SHell.
+
+El protocolo ssh es muy versátil, tiene un software cliente que posibilita el acceso a la línea de comandos, permite la transferencia de archivos y la creación de túneles seguros con soporte de comunicación para otros protocolos.
+
+Los clientes ssh se dividen en dos grupos:
+
+- Terminal SSH Es un emulador de terminal que permite acceder de forma remota desde un equipo a la línea de comandos del equipo remoto, utilizando el protocolo SSH.
+- Cliente SFTP Se trata de un cliente para transferencia de archivos que utiliza el Protocolo de Transferencia Segura de Archivos. Sus siglas significan en inglés (Secure File Transfer Protocol (SFTP)
+
+Entrando en materia, si durante la instalación de Debian no [instalamos SSH](http://www.openssh.com/){:target="_blank"} podemos activarlo de la siguiente forma: 
+
+```bash
+instalar openssh-server openssh-client
+```
+
+Realizado este punto o ya instalado anteriormente, sabemos que remotamente podremos acceder a nuestro Server desde nuestra red local con (**recuerda sustituir usuario `pi` e `ip` por tus datos**):
+
+```bash
+ssh pi@192.168.1.90
+```
+
+Pero recomiendo dar un paso más en la seguridad de nuestro sistema. Por ello ahora nos toca securizarlo en la medida de la posible (**cambiando puerto por defecto 22, usuario root, ...**), para ello editaremos el fichero de configuración SSH:
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Adjunto mi fichero de configuración con los `mods de seguridad activos`:
+
+```bash
+#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Port 69
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Authentication:
+
+LoginGraceTime 2m
+PermitRootLogin no
+#StrictModes yes
+MaxAuthTries 3
+MaxSessions 5
+
+#PubkeyAuthentication yes
+
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+PermitEmptyPasswords no
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+#GSSAPIStrictAcceptorCheck yes
+#GSSAPIKeyExchange no
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+X11Forwarding yes
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+#PermitTTY yes
+PrintMotd no
+#PrintLastLog yes
+#TCPKeepAlive yes
+#UseLogin no
+#UsePrivilegeSeparation sandbox
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# override default of no subsystems
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#       X11Forwarding no
+#       AllowTcpForwarding no
+#       PermitTTY no
+#       ForceCommand cvs server
+```
+
+Guardamos los cambios, salimos del editor de texto y reiniciamos el servicio:
+
+```bash
+sudo systemctl restart ssh
+```
+
+Y a partir de este momento para conectarnos por SSH lo haremos de la siguiente forma:
+
+```bash
+ssh pi@192.168.1.90 -p 69
+```
 
 > Pendiente de seguir actualizando...
