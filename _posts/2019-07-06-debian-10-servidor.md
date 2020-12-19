@@ -616,7 +616,7 @@ Buscamos la variable `#force_color_prompt=yes` y la descomentamos quedando en el
 
 ```bash
 force_color_prompt=yes
-```bash
+```
 
 Nos movemos con el editor al final del fichero y añadimos el siguiente script:
 
