@@ -1068,7 +1068,7 @@ Y a partir de este momento para conectarnos por SSH lo haremos de la siguiente f
 ssh pi@192.168.1.90 -p 69
 ```
 
-###  Fail2BAN
+####  Fail2BAN
 
 `Fail2ban` es una **herramienta de seguridad escrita en Python** fundamental para cualquier servidor.
 
