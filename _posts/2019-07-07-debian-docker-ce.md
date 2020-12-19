@@ -1654,4 +1654,132 @@ docker start Transmission
 
 Con estos pasos ya tendremos configurado nuestro gestor de descargas `.Torrents` con un sencillo docker.
 
+## Docker: [Nextcloud](https://hub.docker.com/r/linuxserver/nextcloud/){:target="_blank"}
+
+[Nextcloud](https://nextcloud.com/){:target="_blank"} es un completo software que nos permitirá **sincronizar archivos, carpetas, calendarios y contactos entre múltiples dispositivos**.
+
+Su funcionalidad es similar al software Dropbox, Google, … aunque es de tipo **código abierto**, permitiendo a quien lo desee instalarlo en un **servidor privado** y tener el **control total de todos sus datos**.
+
+Centrado específicamente en **proporcionar a sus usuarios seguridad, privacidad y el control total de todos sus datos**, de tal forma que sean totalmente transparentes, ya que dichos datos se almacenan localmente en nuestra red local, no se suben a ninguna nube pública ni servidor externo si no queremos. 
+
+**Nextcloud** es un proyecto que deriva de [ownCloud](https://owncloud.com/), que también es un software de servicio de alojamiento en la nube.
+
+Entre las principales características destacan:
+
+- Los archivos son almacenados en estructuras de directorio convencionales y se pueden acceder vía WebDAV si es necesario.
+- Los archivos son encriptados en la transmisión y opcionalmente durante el almacenamiento.
+- Los usuarios pueden manejar calendarios (CalDAV), contactos (CardDAV), tareas programadas y reproducir contenido multimedia (Ampache).
+- Permite la administración de usuarios y grupos de usuarios (vía OpenID o LDAP) y definir permisos de acceso.
+- Posibilidad de añadir aplicaciones (de un solo clic) y conexiones con Dropbox, Google Drive y Amazon S3.
+- Disponibilidad de acceso a diferentes bases de datos mediante SQLite, MariaDB, MySQL y PostgreSQL.
+- Posibilidad de integrar los editores en línea ONLYOFFICE mediante la aplicación oficial.
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/nextcloud && \
+cd $HOME/docker/nextcloud
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml`:
+
+```bash
+cat << EOF > $HOME/docker/nextcloud/docker-compose.yml
+version: "2"
+services:
+  nextcloud:
+    image: ghcr.io/linuxserver/nextcloud
+    container_name: Nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ~/docker/nextcloud/config:/config
+      - ~/docker/nextcloud/data:/data
+    ports:
+      - 9443:443
+    restart: always
+  mariadb:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: MariaDB
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=overclock_server
+      - TZ=Europe/Madrid
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=lordpedal
+    volumes:
+      - ~/docker/nextcloud/mariadb:/config
+    ports:
+      - 3306:3306
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `MYSQL_ROOT_PASSWORD=overclock_server` | **Contraseña usuario ROOT** , necesaria para proteger la base de datos, **recomiendo cambiarla** |
+| `MYSQL_PASSWORD=lordpedal` | **Contraseña Base de datos** para configurar el servicio y poder interactuar con la base de datos, **recomiendo cambiarla** |
+
+Una vez configurado,  lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el servicio, ya tendríamos el servicio disponible, y accederíamos con un navegador web a la `https://ip_del_host:9443` para iniciar asistente de instalación.
+
+En mi caso a modo ejemplo:
+
+> https://192.168.1.90:9443
+
+Cuando la página cargue en el navegador nos arrojara la siguiente advertencia, que no es más que recordarnos que estamos haciendo la consulta de navegación con el protocolo **https** y no disponemos de los **certificados SSL**
+
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud0.jpg)
+
+A continuación veremos el asistente de instalación, **desplegamos la opción que marco en rojo y elegimos MySQL/MariaDB como base de datos en vez de SQLite**:
+
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud1.jpg)
+
+Ahora vamos a finalizar la configuración **sustituyendo los datos que se encuentran marcados en rojo, dejando el resto tal cual la imagen**, cuando este debidamente configurado hacemos clic en **Completar la instalación**
+
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud2.jpg)
+
+Al finalizar ya tendremos nuestra propia nube de almacenamiento local de una forma muy sencilla.
+
+### ⛑️Bonus TIP: Fix Traefik
+
+Para poder acceder a nuestro servicio desde fuera de la intranet, por ejemplo con un proxy inverso, tenemos que configurar el redireccionado:
+
+```bash
+sudo nano ~/docker/nextcloud/config/www/nextcloud/config/config.php
+```
+
+Buscamos:
+
+ ```bash
+ array (
+   0 => '192.168.1.90:9443',
+ ),
+ ```
+
+Y añadimos nuestro enlace externo:
+
+ ```bash
+ array (
+   0 => '192.168.1.90:9443',
+   1 => 'nextcloud.lordpedal.duckdns.org',
+ ),
+ ```
+
+Guardamos el fichero, salimos del editor y **reiniciamos el docker de Nextcloud** para que sea efectivo el cambio.
+
 > Y listo!
