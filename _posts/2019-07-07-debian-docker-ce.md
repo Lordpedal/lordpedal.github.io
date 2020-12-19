@@ -865,85 +865,6 @@ https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
 
 Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS.
 
-## Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
-
-File Browser es un tipo de software que crea una propia nube en nuestro servidor, dirigirlo a una ruta y luego acceder a sus archivos a través de una interfaz web agradable.
-
-Al usar el *Servidor* en modo `headless` quizas una de las cosas que cierta gente echa en falta, es tener un explorador de archivos con el que poder realizar tareas básicas, en resumen una forma cómoda y visual de trabajar.
-
-File Browser suple esa necesidad permitiendo el acceso a los archivos del servidor mediante el navegador web:
-
-- **Crear/renombrar/copiar/mover/visualizar/editar y eliminar archivos**
-- **Crear/renombrar/copiar/mover y eliminar carpetas**
-- **Buscar/descargar/subir y compartir contenido**
-- **Terminal de sistema**
-
-La creación del servicio es muy sencilla, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=Filebrowser \
-	-p 84:80 \
-	-v /home/$USER:/srv \
-	-e TZ="Europe/Madrid" \
-	--restart=always \
-	filebrowser/filebrowser:latest 
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-p 84:80` | Puerto de gestión Web `84` |
-| `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
-| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
-
-Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
-
-## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
-
-Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
-
-La simplicidad es la clave de Heimdall. ¿Por qué no utilizarlo como página de inicio de su navegador? Incluso tiene la capacidad de incluir una barra de búsqueda usando DuckDuckGo, Google o Bing.
-
-Una vez que agregas una aplicación al tablero a través de su interfaz fácil, puedes arrastrar y soltar para mover los botones como mejor te parezca, incluso también puedes crear diferentes páginas para ordenar las aplicaciones aún más.
-
-Preparamos el entorno de trabajo:
-
-```bash
-mkdir -p $HOME/docker/heimdall
-```
-
-Y lanzamos la creación del servicio, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=Heimdall \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-p 88:80 \
-	-p 448:443 \
-	-v $HOME/docker/heimdall:/config \
-	--restart always \
-	ghcr.io/linuxserver/heimdall
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
-| `-p 88:80` | Puerto de gestión Web `88` |
-| `-p 448:443` | Puerto de gestión Web SSL `448` |
-| `-v $HOME/docker/heimdall:/config` | Ruta base de navegación home de nuestro usuario del sistema |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
-
-Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
-
 ## Docker: [Jellyfin](https://hub.docker.com/r/linuxserver/jellyfin/){:target="_blank"}
 
 Jellyfin es un **servidor Multimedia** donde podremos tener todas nuestras películas, series, música, etc… Organizados y centralizados en un único lugar.
@@ -1487,5 +1408,84 @@ Al finalizar de configurar la tarea cron, hacemos click en Volver a ejecutar los
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock16.png)
 
 Con estos pasos ya tendremos configurado nuestro propio servidor de Televisión con un sencillo docker.
+
+## Docker: [File Browser](https://hub.docker.com/r/filebrowser/filebrowser/){:target="_blank"}
+
+File Browser es un tipo de software que crea una propia nube en nuestro servidor, dirigirlo a una ruta y luego acceder a sus archivos a través de una interfaz web agradable.
+
+Al usar el *Servidor* en modo `headless` quizas una de las cosas que cierta gente echa en falta, es tener un explorador de archivos con el que poder realizar tareas básicas, en resumen una forma cómoda y visual de trabajar.
+
+File Browser suple esa necesidad permitiendo el acceso a los archivos del servidor mediante el navegador web:
+
+- **Crear/renombrar/copiar/mover/visualizar/editar y eliminar archivos**
+- **Crear/renombrar/copiar/mover y eliminar carpetas**
+- **Buscar/descargar/subir y compartir contenido**
+- **Terminal de sistema**
+
+La creación del servicio es muy sencilla, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Filebrowser \
+	-p 84:80 \
+	-v /home/$USER:/srv \
+	-e TZ="Europe/Madrid" \
+	--restart=always \
+	filebrowser/filebrowser:latest 
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-p 84:80` | Puerto de gestión Web `84` |
+| `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
+| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
+
+## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
+
+Heimdall es una forma de organizar todos esos enlaces a sus sitios web y aplicaciones web más utilizados de una manera sencilla.
+
+La simplicidad es la clave de Heimdall. ¿Por qué no utilizarlo como página de inicio de su navegador? Incluso tiene la capacidad de incluir una barra de búsqueda usando DuckDuckGo, Google o Bing.
+
+Una vez que agregas una aplicación al tablero a través de su interfaz fácil, puedes arrastrar y soltar para mover los botones como mejor te parezca, incluso también puedes crear diferentes páginas para ordenar las aplicaciones aún más.
+
+Preparamos el entorno de trabajo:
+
+```bash
+mkdir -p $HOME/docker/heimdall
+```
+
+Y lanzamos la creación del servicio, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Heimdall \
+	-e PUID=1000 \
+	-e PGID=1000 \
+	-e TZ=Europe/Madrid \
+	-p 88:80 \
+	-p 448:443 \
+	-v $HOME/docker/heimdall:/config \
+	--restart always \
+	ghcr.io/linuxserver/heimdall
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
+| `-p 88:80` | Puerto de gestión Web `88` |
+| `-p 448:443` | Puerto de gestión Web SSL `448` |
+| `-v $HOME/docker/heimdall:/config` | Ruta base de navegación home de nuestro usuario del sistema |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
 > Y listo!
