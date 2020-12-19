@@ -444,37 +444,6 @@ Tras haber lanzado el servicio, tendriamos el servicio disponible en la direcci�
 | Arrastrar y soltar contenido externo | Subir ficheros/carpetas |
 | Cualquier otra letra 	Búsqueda |
 
-## Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
-
-Shairport-sync es un reproductor de audio AirPlay, que reproduce el audio transmitido por iTunes, iOS, Apple TV, … y su vez desde fuentes AirPlay como Quicktime Player y Forked-daapd, entre otros.
-
-El audio reproducido por un dispositivo alimentado por Shairport-sync se mantiene sincronizado con la fuente y, por lo tanto, con dispositivos similares que reproducen la misma fuente.
-
-Funciona en GNU/Linux, FreeBSD y OpenBSD, basado en la versión 1.0 del protocolo no es compatible con la transmisión de vídeo, fotos ni audio multiroom (implementado en protocolo AirPlay 2.0)
-
-La creación del servicio es muy sencilla, tan solo ejecutaremos:
-
-```bash
-docker run -d \
-	--name=Shairport-sync \
-	--net host \
-	--device /dev/snd \
-	-e AIRPLAY_NAME=Overclock \
-	--restart=always \
-	kevineye/shairport-sync 
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `--net host` | Habilitamos el uso de la red host en vez de una virtual para docker |
-| `--device /dev/snd` | Damos privilegios a docker para usar la salida de sonido del host |
-| `-e AIRPLAY_NAME=Overclock` | Nombre personalizado para identificar servicio AirPlay |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
-
-Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
-
 ## Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
 Es un proyecto en el que he estado trabajando, para segurizar nuestras conexiones domésticas a nivel de DNS.
@@ -689,172 +658,6 @@ https://www.tdtchannels.com/epg/TV.xml
 ```
 
 Y hacemos click en **guardar**.
-
-## Docker: [MagicMirror](https://hub.docker.com/r/bastilimbach/docker-magicmirror/){:target="_blank"}²
-
-MagicMirror² es una plataforma de espejo modular inteligente, de código abierto.
-
-Con una lista cada vez mayor de [módulos/plugins instalables](https://docs.magicmirror.builders/modules/introduction.html){:target="_blank"} desarrolados por la comunidad libre, podremos convertir un **espejo** de pasillo o baño por ejemplo en nuestro propio **asistente personal**.
-
-Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
-
-```bash
-mkdir -p $HOME/docker/magic/config && \
-mkdir -p $HOME/docker/magic/modules && \
-cd $HOME/docker/magic
-```
-
-Ahora vamos a crear el fichero de configuración docker-compose.yml:
-
-```bash
-cat << EOF > $HOME/docker/magic/docker-compose.yml
-version: '3'
-services:
- magicmirror:
-  container_name: MagicMirror
-  image: bastilimbach/docker-magicmirror
-  restart: always
-  volumes:
-   - /etc/localtime:/etc/localtime:ro
-   - $HOME/docker/magic/config:/opt/magic_mirror/config
-   - $HOME/docker/magic/modules:/opt/magic_mirror/modules
-  ports:
-   - 9080:8080
-EOF
-```
-
-Y lo levantamos para ser creado y ejecutado:
-
-```bash
-docker-compose up -d
-```
-
-Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
-
-| Parámetro | Función |
-| ------ | ------ |
-| `9080:8080` | Puerto de configuración acceso **9080** |
-| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
-
-Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
-
-### Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
-
-Este complemento nos dará mucho juego, por ejemplo nos permite activar:
-
-- **Modo Standby**
-- **Reinicio remoto** (Necesario realizar FIX para Docker)
-- **Apagado remoto** (Necesario realizar FIX para Docker)
-
-Vamos a instalarlo y ver como configurarlo y modificarlo para esa labor, pero antes vamos a satisfacer posibles dependencias del sistema:
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install git
-```
-
-Comenzamos con la instalación, que es tan sencilla como clonar el repositorio en la ruta modulos que anteriormente habiamos creado:
-
-```bash
-cd $HOME/docker/magic/modules && \
-sudo git clone https://github.com/EbenKouao/MMM-SmartTouch.git
-```
-
-Vamos a realizar un pequeño FIX para poder tener apagado y reinicio remoto, necesitamos editar la configuración del modulo:
-
-```bash
-sudo nano $HOME/docker/magic/modules/MMM-SmartTouch/node_helper.js
-```
-
-Buscamos y reemplazamos el contenido de estas dos lineas (no continuas):
-
-```bash
-require('child_process').exec('sudo poweroff', console.log)
-require('child_process').exec('sudo reboot', console.log)
-```
-
-Por el siguiente:
-
-```bash
-require('child_process').exec('echo "apagar" > /opt/magic_mirror/config/power.txt', console.log)
-require('child_process').exec('echo "reiniciar" > /opt/magic_mirror/config/power.txt', console.log)
-```
-
-Guardamos, salimos del editor y precargamos el modulo en la configuración de **MagicMirror²**:
-
-```bash
-sudo nano $HOME/docker/magic/config/config.js
-```
-
-Y añadimos la siguiente configuración dentro del apartado modules:
-
-```bash
-{ 
-    module: 'MMM-SmartTouch', 
-    position: 'bottom_center',
-    config: { 
-            } 
-},
-```
-
-Guardamos, salimos del editor y vamos a crear un script en la máquina host para que lea las variables para actuar en consecuencia:
-
-```bash
-mkdir -p $HOME/scripts && \
-nano $HOME/scripts/magicmirror.sh && \
-chmod +x $HOME/scripts/magicmirror.sh
-```
-
-Pegamos el siguiente contenido del script:
-
-```bash
-#!/bin/bash
-#
-# MagicMirror Docker Fix v.1
-# http://lordpedal.gitlab.io
-#
-# Inicia Ejecución bucle
-while :
-do
-# Lee variables de docker en host
-fichero="$HOME/docker/magic/config/power.txt"
-accion=`cat $fichero 2>/dev/null`
-# Condicional apagado y salida bucle
-if [ "$accion" == 'apagar' ];then
-   echo "Apagar"
-   sudo rm $fichero
-   sudo poweroff
-   break
-# Condicional reinicio y salida bucle
-elif [ "$accion" == 'reiniciar' ]; then
-   echo "Reiniciar"
-   sudo rm $fichero
-   sudo reboot
-   break
-# Si no cumple condicionales reinicia bucle
-else
-   sleep 1
-fi
-done
-```
-
-Guardamos, salimos del editor y añadimos una tarea al cron de nuestro usuario:
-
-```bash
-crontab -e
-```
-
-Y añadimos la siguiente linea al final del fichero, para que el script se cargue tras el inicio del sistema:
-
-```bash
-@reboot ~/scripts/magicmirror.sh >/dev/null 2>&1
-```
-
-Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva configuración:
-
-```bash
-sudo reboot
-```
 
 ## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
 
@@ -1562,70 +1365,6 @@ Si queremos comprobar la seguridad de nuestro servicio podemos por ejemplo consu
 
 ![Traefik]({{ site.url }}{{ site.baseurl }}/assets/images/posts/traefikssl.jpg)
 
-## Docker: [Jitsi](https://github.com/jitsi/docker-jitsi-meet){:target="_blank"}
-
-[Jitsi](https://jitsi.org/){:target="_blank"} es un sistema gratuito y de código abierto para hacer videollamadas.
-
-Al ser de código abierto, sus servicios se ofrecen de forma gratuita y además, permite formar parte de su equipo de desarrolladores.
-
-Permite utilizarlo sin necesidad de registrarse ni de instalar ningún programa en tu ordenador, puedes usarlo desde el navegador otorgando los permisos necesarios a este para gestionar el micrófono y la webcam de tu PC, totalmente compatible con los principales sistemas operativos de escritorio: **Windows, MacOS y Linux**, además tienes versiones para plataformas móviles como **iOS y Android**.
-
-Otra posibilidad que nos da Jitsi es que podemos grabar las videollamadas, también podemos chatear, compartir pantalla, hay estadísticas de tiempo de charla de cada interlocutor, podemos transmitir directamente a YouTube en directo, opción de solo audio o solo vídeo, podemos levantar nuestra mano para captar la atención, etc.
-
-Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos la carpeta donde alojar el proyecto:
-
-```bash
-mkdir -p $HOME/docker/ && \
-cd $HOME/docker
-```
-
-Clonamos el repositorio de Jitsi alojado en Github:
-
-```bash
-git clone https://github.com/jitsi/docker-jitsi-meet.git
-```
-
-Cambiamos el nombre de carpeta y accedo a ella:
-
-```bash
-mv docker-jitsi-meet jitsi && cd jitsi
-```
-
-Creamos las carpetas del proyecto:
-
-```bash
-mkdir -p $HOME/docker/jitsi/.jitsi-meet-cfg/\
-{web/letsencrypt,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
-```
-
-Copiamos y abrimos el editor para personalizar las variables de entorno:
-
-```bash
-cp env.example .env && nano .env
-```
-
-En la columna izquierda dejo el valor que encontramos por defecto y en la derecha el que hemos de modificar. **Especial atención a la IP**, poner la del **servidor que ejecuta el docker**:
-
-| Configuración Stock | Configuración Personalizada |
-| ------ | ------ |
-| `CONFIG=~/.jitsi-meet-cfg` | `CONFIG=~/docker/jitsi/.jitsi-meet-cfg` |
-| `#DOCKER_HOST_ADDRESS=192.168.1.1` | `DOCKER_HOST_ADDRESS=192.168.1.90` |
-| `TZ=UTC` | `TZ=Europe/Madrid` |
-
-Guardamos el fichero, salimos del editor y ejecutamos el script de cifrado claves:
-
-```bash
-./gen-passwords.sh
-```
-
-Una vez configurado, lo levantamos para ser creado y ejecutado:
-
-```bash
-docker-compose up -d
-```
-
-Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
-
 ## Docker: [MiniDLNA](https://hub.docker.com/r/lordpedal/minidlna/){:target="_blank"}
 
 [MiniDLNA](https://github.com/Lordpedal/minidlna){:target="_blank"} informalmente conocido como ReadyMedia, es un servidor streaming que funcionará perfectamente en una máquina con pocos recursos.
@@ -1679,6 +1418,37 @@ docker-compose up -d
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8200` y con la transmisión del contenido multimedia por la red local.
 
 ![DLNA]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vlcdlna.jpg)
+
+## Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
+
+Shairport-sync es un reproductor de audio AirPlay, que reproduce el audio transmitido por iTunes, iOS, Apple TV, … y su vez desde fuentes AirPlay como Quicktime Player y [Forked-daapd](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-forked-daapd), entre otros.
+
+El audio reproducido por un dispositivo alimentado por Shairport-sync se mantiene sincronizado con la fuente y, por lo tanto, con dispositivos similares que reproducen la misma fuente.
+
+Funciona en GNU/Linux, FreeBSD y OpenBSD, basado en la versión 1.0 del protocolo no es compatible con la transmisión de vídeo, fotos ni audio multiroom (implementado en protocolo AirPlay 2.0)
+
+La creación del servicio es muy sencilla, tan solo ejecutaremos:
+
+```bash
+docker run -d \
+	--name=Shairport-sync \
+	--net host \
+	--device /dev/snd \
+	-e AIRPLAY_NAME=Overclock \
+	--restart=always \
+	kevineye/shairport-sync 
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `--net host` | Habilitamos el uso de la red host en vez de una virtual para docker |
+| `--device /dev/snd` | Damos privilegios a docker para usar la salida de sonido del host |
+| `-e AIRPLAY_NAME=Overclock` | Nombre personalizado para identificar servicio AirPlay |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+
+Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
 
 ## Docker: [Forked-daapd](https://hub.docker.com/r/linuxserver/daapd/){:target="_blank"}
 
@@ -2293,5 +2063,235 @@ En la ventana emergente que nos aparece **pegamos el link y lo enviamos**
 Haciendo clic en **Agregar Nuevos Enlaces**, veremos como los reconoce y podemos agregarlos a descargar
 
 ![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker4.jpg)
+
+## Docker: [Jitsi](https://github.com/jitsi/docker-jitsi-meet){:target="_blank"}
+
+[Jitsi](https://jitsi.org/){:target="_blank"} es un sistema gratuito y de código abierto para hacer videollamadas.
+
+Al ser de código abierto, sus servicios se ofrecen de forma gratuita y además, permite formar parte de su equipo de desarrolladores.
+
+Permite utilizarlo sin necesidad de registrarse ni de instalar ningún programa en tu ordenador, puedes usarlo desde el navegador otorgando los permisos necesarios a este para gestionar el micrófono y la webcam de tu PC, totalmente compatible con los principales sistemas operativos de escritorio: **Windows, MacOS y Linux**, además tienes versiones para plataformas móviles como **iOS y Android**.
+
+Otra posibilidad que nos da Jitsi es que podemos grabar las videollamadas, también podemos chatear, compartir pantalla, hay estadísticas de tiempo de charla de cada interlocutor, podemos transmitir directamente a YouTube en directo, opción de solo audio o solo vídeo, podemos levantar nuestra mano para captar la atención, etc.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/ && \
+cd $HOME/docker
+```
+
+Clonamos el repositorio de Jitsi alojado en Github:
+
+```bash
+git clone https://github.com/jitsi/docker-jitsi-meet.git
+```
+
+Cambiamos el nombre de carpeta y accedo a ella:
+
+```bash
+mv docker-jitsi-meet jitsi && cd jitsi
+```
+
+Creamos las carpetas del proyecto:
+
+```bash
+mkdir -p $HOME/docker/jitsi/.jitsi-meet-cfg/\
+{web/letsencrypt,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
+```
+
+Copiamos y abrimos el editor para personalizar las variables de entorno:
+
+```bash
+cp env.example .env && nano .env
+```
+
+En la columna izquierda dejo el valor que encontramos por defecto y en la derecha el que hemos de modificar. **Especial atención a la IP**, poner la del **servidor que ejecuta el docker**:
+
+| Configuración Stock | Configuración Personalizada |
+| ------ | ------ |
+| `CONFIG=~/.jitsi-meet-cfg` | `CONFIG=~/docker/jitsi/.jitsi-meet-cfg` |
+| `#DOCKER_HOST_ADDRESS=192.168.1.1` | `DOCKER_HOST_ADDRESS=192.168.1.90` |
+| `TZ=UTC` | `TZ=Europe/Madrid` |
+
+Guardamos el fichero, salimos del editor y ejecutamos el script de cifrado claves:
+
+```bash
+./gen-passwords.sh
+```
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
+
+## Docker: [MagicMirror](https://hub.docker.com/r/bastilimbach/docker-magicmirror/){:target="_blank"}²
+
+MagicMirror² es una plataforma de espejo modular inteligente, de código abierto.
+
+Con una lista cada vez mayor de [módulos/plugins instalables](https://docs.magicmirror.builders/modules/introduction.html){:target="_blank"} desarrolados por la comunidad libre, podremos convertir un **espejo** de pasillo o baño por ejemplo en nuestro propio **asistente personal**.
+
+Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/magic/config && \
+mkdir -p $HOME/docker/magic/modules && \
+cd $HOME/docker/magic
+```
+
+Ahora vamos a crear el fichero de configuración docker-compose.yml:
+
+```bash
+cat << EOF > $HOME/docker/magic/docker-compose.yml
+version: '3'
+services:
+ magicmirror:
+  container_name: MagicMirror
+  image: bastilimbach/docker-magicmirror
+  restart: always
+  volumes:
+   - /etc/localtime:/etc/localtime:ro
+   - $HOME/docker/magic/config:/opt/magic_mirror/config
+   - $HOME/docker/magic/modules:/opt/magic_mirror/modules
+  ports:
+   - 9080:8080
+EOF
+```
+
+Y lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `9080:8080` | Puerto de configuración acceso **9080** |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+
+Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
+
+### Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+
+Este complemento nos dará mucho juego, por ejemplo nos permite activar:
+
+- **Modo Standby**
+- **Reinicio remoto** (Necesario realizar FIX para Docker)
+- **Apagado remoto** (Necesario realizar FIX para Docker)
+
+Vamos a instalarlo y ver como configurarlo y modificarlo para esa labor, pero antes vamos a satisfacer posibles dependencias del sistema:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install git
+```
+
+Comenzamos con la instalación, que es tan sencilla como clonar el repositorio en la ruta modulos que anteriormente habiamos creado:
+
+```bash
+cd $HOME/docker/magic/modules && \
+sudo git clone https://github.com/EbenKouao/MMM-SmartTouch.git
+```
+
+Vamos a realizar un pequeño FIX para poder tener apagado y reinicio remoto, necesitamos editar la configuración del modulo:
+
+```bash
+sudo nano $HOME/docker/magic/modules/MMM-SmartTouch/node_helper.js
+```
+
+Buscamos y reemplazamos el contenido de estas dos lineas (no continuas):
+
+```bash
+require('child_process').exec('sudo poweroff', console.log)
+require('child_process').exec('sudo reboot', console.log)
+```
+
+Por el siguiente:
+
+```bash
+require('child_process').exec('echo "apagar" > /opt/magic_mirror/config/power.txt', console.log)
+require('child_process').exec('echo "reiniciar" > /opt/magic_mirror/config/power.txt', console.log)
+```
+
+Guardamos, salimos del editor y precargamos el modulo en la configuración de **MagicMirror²**:
+
+```bash
+sudo nano $HOME/docker/magic/config/config.js
+```
+
+Y añadimos la siguiente configuración dentro del apartado modules:
+
+```bash
+{ 
+    module: 'MMM-SmartTouch', 
+    position: 'bottom_center',
+    config: { 
+            } 
+},
+```
+
+Guardamos, salimos del editor y vamos a crear un script en la máquina host para que lea las variables para actuar en consecuencia:
+
+```bash
+mkdir -p $HOME/scripts && \
+nano $HOME/scripts/magicmirror.sh && \
+chmod +x $HOME/scripts/magicmirror.sh
+```
+
+Pegamos el siguiente contenido del script:
+
+```bash
+#!/bin/bash
+#
+# MagicMirror Docker Fix v.1
+# http://lordpedal.gitlab.io
+#
+# Inicia Ejecución bucle
+while :
+do
+# Lee variables de docker en host
+fichero="$HOME/docker/magic/config/power.txt"
+accion=`cat $fichero 2>/dev/null`
+# Condicional apagado y salida bucle
+if [ "$accion" == 'apagar' ];then
+   echo "Apagar"
+   sudo rm $fichero
+   sudo poweroff
+   break
+# Condicional reinicio y salida bucle
+elif [ "$accion" == 'reiniciar' ]; then
+   echo "Reiniciar"
+   sudo rm $fichero
+   sudo reboot
+   break
+# Si no cumple condicionales reinicia bucle
+else
+   sleep 1
+fi
+done
+```
+
+Guardamos, salimos del editor y añadimos una tarea al cron de nuestro usuario:
+
+```bash
+crontab -e
+```
+
+Y añadimos la siguiente linea al final del fichero, para que el script se cargue tras el inicio del sistema:
+
+```bash
+@reboot ~/scripts/magicmirror.sh >/dev/null 2>&1
+```
+
+Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva configuración:
+
+```bash
+sudo reboot
+```
 
 > Y listo!
