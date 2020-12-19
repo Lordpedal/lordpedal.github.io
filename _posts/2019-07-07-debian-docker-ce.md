@@ -1302,16 +1302,9 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 9981:9981` | Puerto de acceso Web `9981` |
 | `-p 9982:9982` | Puerto de streaming `9982` |
 | `-v /etc/timezone:/etc/timezone:ro` | Clonado en modo lectura: hora del host feat. hora del contenedor |
-  	 
--v $HOME/docker/tvheadend/config:/config 	Ruta donde almacenaremos la configuración
--v $HOME/docker/tvheadend/grabaciones:/recordings 	
-
-Ruta donde almacenaremos las grabaciones.
-
-Ejemplo de ruta alternativa en un HD externo:
-
--v /media/rednas/NAS/LXC/Descargas/IPTV:/recordings
---restart=always 	Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend
+| `-v $HOME/docker/tvheadend/config:/config` | Ruta donde almacenaremos la configuración |
+| `-v $HOME/docker/tvheadend/grabaciones:/recordings` | Ruta donde almacenaremos las grabaciones |
+| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend |
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
 
@@ -1355,6 +1348,7 @@ Pero antes voy a desglosar la estructura de un canal de la lista *M3U*, para des
 #EXTINF:-1 tvh-epg="disable" tvh-chnum="1" tvg-id="1.movistar.tv" tvh-tags="Movistar TV|HDTV|Ocio y cultura" tvg-logo="https://web.lordpedal.duckdns.org/images/2543.jpg",La 1 HD
 http://192.168.1.90:2112/rtp/239.0.0.185:8208
 ```
+
 | Parámetro | Función |
 | ------ | ------ |
 | `#EXTINF:-1` | Enlace Streaming |
