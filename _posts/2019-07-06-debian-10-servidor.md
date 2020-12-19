@@ -1381,7 +1381,7 @@ Agregamos el siguiente bash script:
 #!/bin/bash
 #
 # https://lordpedal.github.io
-# Another fine release by theBOSS
+# Another fine release by Lordpedal
 #
 while true
 do
@@ -1786,7 +1786,7 @@ exit 0
 
 Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y cada vez que arranque tendremos operativo el servicio.
 
-### Xupnpd
+### Xupnpd V1
 
 [Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
 
@@ -1999,6 +1999,178 @@ exit 0
 
 Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendremos operativo el servicio.
 
+### Xupnpd V2
+
+Acabamos de ver Xupnpd servia como DLNA de canales y contenido multimedia de forma excepcional. 
+
+Entonces ¿para que añadir otro Xupnpd? La respuesta es bien sencilla a mi modo de ver. Si bien la `V1` funciona a la perfección con enlaces **unicast** no reproduce de forma correcta enlaces [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming){:target="_blank"} y la `v2` en mi experiencia le ocurre lo opuesto. Por este motivo he decidido que coexistan los dos en el `Servidor`. Vamos a clonar el repositorio:
+
+```bash
+cd ~/source && \
+git clone https://github.com/clark15b/xupnpd2.git
+```
+
+Ahora vamos a preparar el entorno de compilación, compilar y configurar el programa:
+
+```bash
+cd ~/source/xupnpd2 && \
+cp Makefile.linux Makefile && \
+make && \
+cp xupnpd xupnpd2 && \
+mv xupnpd.cfg xupnpd.cfg.old && \
+nano xupnpd.cfg
+```
+
+Y le agregamos el siguiente contenido tal cual:
+
+```bash
+#
+# Copyright (C) 2015-2018 Anton Burdinuk
+# clark15b@gmail.com
+# http://xupnpd.org
+#
+
+# log level: 0 - silent, 1 - errors, 2 - info, 3 - HTTP, 4 - HTTP with headers, 5 - SOAP, 6 - SSDP, 7 - internal, 8 - debug
+log_level=0
+
+# log destination
+#log_file=xupnpd.log
+#log_file=udp://127.0.0.1:514/local0
+
+# detach from terminal
+daemon_mode=true
+
+# media
+media_root=media/
+
+# default multicast UDP/RTP interface
+multicast_interface=br0
+
+# SSDP settings
+ssdp_interface=br0               # multicast interface for SSDP exchange, 'auto', 'eth0', 'br0', 'br-lan' for example ('auto', 'lo' and IP for Windows)
+ssdp_broadcast_delay=15
+ssdp_max_age=1800
+ssdp_group_address=239.255.255.250
+ssdp_group_port=1900
+ssdp_server=eXtensible UPnP agent
+ssdp_loop=false
+ssdp_ttl=1
+
+# HTTP settings
+#http_proxy=user:pass@192.168.6.5:8080
+http_port=3044
+http_live_port=40000
+http_backlog=5
+http_rcv_timeout=20
+http_snd_timeout=0
+http_keep_alive_timeout=15
+http_keep_alive_max=10000
+http_max_post_size=4096
+http_www_root=www/
+http_templates=/index.html,/dev.xml
+
+# live streams settings
+live_rcv_timeout=120            # timeout for stream source and/or filter
+live_snd_timeout=60             # timeout for client before drop current chunk
+
+# UPnP/DLNA settings
+upnp_device_name=Lordpedal IPTV v2      # utf-8
+upnp_device_uuid=630852f5-6bbd-4068-8f38-7d76f19eb154
+upnp_sid_ttl=1800
+upnp_objid_offset=100
+upnp_live_length=0              # length for live and http stream ('-1' ?)
+upnp_live_type=ts               # default type for live streams
+upnp_http_type=mp4              # default type for http streams
+upnp_logo_profile=JPEG_TN       # type of logos
+upnp_hdr_content_disp=true      # Content-Disposition: attachment; filename="file.mp4"
+
+# IO charset
+# valid code pages: windows-1251, cp866, utf8, latin1
+# windows-1251 default for Windows
+# utf8 for other
+#io_charset=windows-1251
+
+# db
+db_file=xupnpd.db
+
+# reset all dlna extras to '*'
+disable_dlna_extras=false
+
+# media excludes
+#mime_type_avi=video/x-msvideo
+#upnp_proto_avi=http-get:*:video/avi:
+#dlna_extras_avi=*
+
+#dlna_extras_ts=DLNA.ORG_PN=AVC_TS_HD_50_AC3;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+#dlna_extras_ts=DLNA.ORG_PN=MPEG_TS_HD_NA;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_ts=DLNA.ORG_PN=AVC_TS_HD_50_AC3;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_ts=DLNA.ORG_PN=MPEG_TS_HD_NA;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_avi=DLNA.ORG_PN=PV_DIVX_DX50;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_mp4=DLNA.ORG_PN=AVC_MP4_MP_HD_AAC_MULT5;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_mkv=DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_mpeg=DLNA.ORG_PN=MPEG_PS_PAL;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_wmv=DLNA.ORG_PN=WMVHIGH_FULL;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_mp3=DLNA.ORG_PN=MP3;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+
+# from old xupnpd
+mime_type_ts=video/mpeg
+upnp_proto_ts=http-get:*:video/mpeg:
+dlna_extras_ts=DLNA.ORG_PN=MPEG_PS_PAL;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_ts=*;DLNA.ORG_OP=00;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+#dlna_extras_ts=DLNA.ORG_PN=MPEG_PS_PAL;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+#dlna_extras_ts=*;DLNA.ORG_OP=00;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+dlna_extras_ts=DLNA.ORG_PN=MPEG_TS_HD_NA;DLNA.ORG_OP=11;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000
+```
+
+Guardamos los cambios (**Ctrl+O**), salimos del editor de texto (**Ctrl+X**), movemos el programa a la ruta `/etc` y le damos permisos `root`:
+
+```bash
+cd ~/source && \
+sudo mv xupnpd2 /etc && \
+sudo chown root:root -R /etc/xupnpd2
+```
+
+A continuación vamos a generar una lista de canales y enlaces públicos:
+
+```bash
+sudo rm /etc/xupnpd2/media/example.m3u && \
+sudo nano /etc/xupnpd2/media/IPTV.m3u
+```
+
+Y le agregamos el siguiente contenido:
+
+```bash
+#EXTM3U
+#EXT-X-M3U: type=ts handler=hls name="IPTV by Lordpedal"
+#EXTINF:0 group-title="IPTV",Red Bull TV HD
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8
+```
+
+Guardamos los cambios, salimos del editor de texto y configuramos arranque del programa al inciar el sistema:
+
+```bash
+sudo nano /etc/rc.local
+```
+
+Y le agregamos el siguiente contenido una línea previa de la consigna `exit 0`:
+
+```bash
+# Xupnpd v2
+/etc/xupnpd2/xupnpd2 & >/dev/null 2>&1
+```
+
+Guardamos los cambios, salimos del editor de texto y solo nos queda activar el programa en la sesión actual:
+
+```bash
+sudo /etc/xupnpd2/xupnpd2 &
+```
+
+Podemos comprobar que el programa esta funcionando correctamente, abriendo en un navegador web a traves de nuestra red local el siguiente enlace:
+
+> http://192.168.1.90:3044
+
+**NOTA**: Recuerda sustituir `192.168.1.90` por la `IP de tu Servidor`
+
 ### Kodi
 
 [Kodi](https://kodi.tv/){:target="_blank"} hace años que dejamos de conocerlo como XBMC (Xbox Media Center), pero incluso cuando llevaba aquel nombre ya se había convertido en uno de los **centros multimedia más populares y completos** que podíamos descargar en diferentes plataformas, y lo sigue siendo, solo que incluso mejor.
@@ -2045,5 +2217,39 @@ ResultActive=yes
 ```
 
 Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponible para lanzar desde la **TTY** sin fallos.
+
+### Youtube-dl
+
+Youtube-dl es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming. 
+Primeramente debemos de actualizar los repositorios e instalar el paquete:
+
+```bash
+sudo apt-get update && sudo apt-get -y install youtube-dl
+```
+
+El problema que nos vamos a encontrar es que la versión que acabamos de instalar es antigua y con limitaciones de uso importantes. Si tratamos de actualizar el programa nos dira:
+
+```bash
+pi@overclock:~$ sudo youtube-dl -U
+It looks like you installed youtube-dl with a package manager, pip, setup.py or a tarball. Please use that to update.
+```
+
+Resumiendo nos viene a decir que no es posible actualizar sino es vía `APT`. 
+Para solucinar el problema vamos a forzar la actualización:
+
+```bash
+sudo wget -O /usr/bin/youtube-dl http://yt-dl.org/downloads/latest/youtube-dl && \
+sudo chmod a+rx /usr/bin/youtube-dl && \
+sudo wget http://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl && \
+sudo chmod a+rx /usr/local/bin/youtube-dl
+```
+
+Y si probamos nuevamente a actualizar:
+
+```bash
+pi@overclock:~$ sudo youtube-dl -U
+youtube-dl is up-to-date (2019.05.20)
+```
+Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
 
 > Pendiente de seguir actualizando...
