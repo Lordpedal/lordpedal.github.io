@@ -524,6 +524,96 @@ Faltaría reiniciar el Servidor para aplicar los nuevos cambios:
 reiniciar
 ```
 
+#### Optimizar SSD
+
+Si contamos con **más de 4GB de RAM**, podemos hacer que la carpeta temporal del sistema no use el disco duro. Es la carpeta donde escriben muchas aplicaciones que estamos usando. Son datos que se borran al apagar el ordenador, con lo que no nos importa que se escriban en RAM. Para activarlo editamos nuevamente fstab:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Y agregamos la siguiente sentencia al final del fichero:
+
+```bash
+# MODS SSD
+tmpfs   /tmp   tmpfs  noatime,nodiratime,nodev,nosuid,mode=1777,defaults    0   0
+```
+
+Guardamos los cambios y salimos del editor de texto. Adjunto como queda mi fichero **fstab**:
+
+```bash
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sdc2 during installation
+#
+# SSD
+UUID=ea691ed1-9a94-47b3-8534-3e00c7f0922f   /   ext4    noatime,nodelalloc,i_version,inode_readahead_blks=64,errors=remount-ro  0   1
+# SWAP 
+UUID=b64de4e0-eedf-4e31-aeeb-e460ef6ac57c   none    swap    sw  0   0
+#
+# Lector DVD
+#/dev/sr0   /media/cdrom0   udf,iso9660 user,noauto 0   0
+#
+# NAS
+UUID=2f42917d-7c1f-4b7f-bff0-963f19b9dcf5   /media/rednas   ext4    defaults,relatime  0    0
+#
+# MODS SSD
+tmpfs   /tmp    tmpfs   noatime,nodiratime,nodev,nosuid,mode=1777,defaults  0   0
+```
+
+La partición swap, como ya sabéis es una partición cuyo fin principal es su uso cuando la RAM está llena, pero la cual no está vacía aunque tengas la RAM a la mitad. Por ello es recomendable decirle al sistema que la use lo menos posible, sólo si es estrictamente necesario, editando:
+
+```bash
+sudo nano /etc/sysctl.conf
+```
+
+Y agregamos al final del fichero las siguientes ordenes:
+
+```bash
+#
+# MODS
+#
+vm.swappiness=1
+vm.vfs_cache_pressure=50
+vm.dirty_writeback_centisecs=1500
+```
+
+Guardamos los cambios y salimos del editor de texto. 
+
+Has de saber que cuando borramos un fichero, el sistema operativo lo marca como espacio utilizable. 
+Los discos SSD pueden encargarse de controlar dichos bloques de espacio y reagruparlos, con lo que a través de la controladora del disco, la gestión del espacio será más rápida. 
+Para que la controladora se encargue, le solicitamos que analice el disco desde el sistema operativo con el comando **fstrim**. 
+
+Vamos a programar esta tarea, para que la realice a diario:
+
+```bash
+sudo nano /etc/cron.daily/fstrim
+```
+
+Y agregamos el siguiente contenido:
+
+```bash
+#!/bin/sh
+/sbin/fstrim --all || true
+```
+
+Guardamos los cambios, salimos del editor de texto y le damos permisos de ejecución:
+
+```bash
+sudo chmod +x /etc/cron.daily/fstrim
+```
+
+Solamente nos queda reiniciar el Servidor para activar las nuevas mejoras:
+
+```bash
+sudo reboot
+```
+
 ### Modding
 
 Antes de empezar con la parte de **Modding**, necesitamos instalar una dependencia, que nos dara información sobre la temperatura de nuestro sistema.
@@ -2250,6 +2340,7 @@ Y si probamos nuevamente a actualizar:
 pi@overclock:~$ sudo youtube-dl -U
 youtube-dl is up-to-date (2019.05.20)
 ```
+
 Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
 
-> Pendiente de seguir actualizando...
+> Y listo!
