@@ -2028,7 +2028,7 @@ cd $HOME/docker/UDPXY
 Bajamos el fichero docker-compose.yml alojado en Github:
 
 ```bash
-https://raw.githubusercontent.com/Lordpedal/udpxy/main/docker-compose.yml
+wget https://raw.githubusercontent.com/Lordpedal/udpxy/main/docker-compose.yml
 ```
 
 Y ejecutamos la creación del servicio:
