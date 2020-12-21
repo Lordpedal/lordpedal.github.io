@@ -645,7 +645,7 @@ Para habilitar acceleración por hardware, hacemos **login** con un usuario con 
 
 Seleccionamos el dispositivo `VAAPI`, en mi caso **/dev/dri/renderD128**
 
-### Lista M3U
+> Lista M3U
 
 Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M3U Tuner -> Archivo o URL -> añadimos nuestra lista`, en mi caso a modo de ejemplo dejo listas de TDT/Radio en abierto:
 
@@ -655,7 +655,7 @@ https://www.tdtchannels.com/lists/tvradio.m3u8
 
 Y hacemos click en **guardar**.
 
-### Guía EPG
+> Guía EPG
 
 Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guías -> XMLTV -> Archivo o URL -> añadimos nuestra programación`, en mi caso a modo de ejemplo dejo la guía para la lista añadida previamente:
 
@@ -2188,7 +2188,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
 
-### Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+> Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
 
 Este complemento nos dará mucho juego, por ejemplo nos permite activar:
 
