@@ -1537,13 +1537,13 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible.
 
-### Gestión Web
+> Gestión Web
 
 Accedemos con un navegador web a la `http://ip_del_host:3689` para usar la interfaz web.
 
 En mi caso a modo ejemplo:
 
-> http://192.168.1.90:3689
+`http://192.168.1.90:3689`
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd1.jpg)
 
@@ -1559,7 +1559,7 @@ Y podríamos **ajustar de forma independiente el volumen para cada salida**, muy
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd4.jpg)
 
-### Cliente Rhythmbox (GNU/Linux)
+> Cliente Rhythmbox (GNU/Linux)
 
 En caso de no disponer de la aplicación en nuestra distro, una forma sencilla de disponer de ella, sería:
 
@@ -1570,7 +1570,7 @@ sudo apt-get -y install rhythmbox
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd5.jpg)
 
-### Cliente Remote (iOS)
+> Cliente Remote (iOS)
 
 Instalamos la App, la ejecutamos y le decimos **Conectar manualmente** ya que el dispositivo tiene que emparejarse
 
@@ -1584,33 +1584,33 @@ Abrimos en un navegador web la siguiente estructura de ruta: `http://ip_del_serv
 
 En mi caso de la siguiente forma:
 
-> http://192.168.1.90:3689/#/settings/remotes-outputs
+`http://192.168.1.90:3689/#/settings/remotes-outputs`
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd8.jpg)
 
-### Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)
+> Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)
 
 Cuando estemos reproduciendo audio con el servidor Forked-Daapd, de forma paralela a la salida de audio, se nos genera un fichero de audio en streaming mp3 en la ruta `http://ip_del_servidor:3689/stream.mp3`
 
 En mi caso de la siguiente forma:
 
-> http://192.168.1.90:3689/stream.mp3
+`http://192.168.1.90:3689/stream.mp3`
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd9.jpg)
 
-### Clientes Chromecast
+> Clientes Chromecast
 
 **Forked-daapd** descubrirá los dispositivos **Chromecast** disponibles en su red y luego se podrá seleccionar el dispositivo como altavoz.
 
 No se requiere configuración.
 
-### Clientes MPD (Android, GNU/Linux, …)
+> Clientes MPD (Android, GNU/Linux, …)
 
 Los clientes MPD buscan sus servidores por defecto en los puertos 6600, Forked-daapd se encarga de servir audio por ese puerto también:http://ip_del_servidor:6600
 
 En nuestro caso sería de la siguiente forma:
 
-> http://192.168.1.90:6600
+`http://192.168.1.90:6600`
 
 A modo de ejemplo, en un dispositivo **Android hemos instalado una App llamada**: [M.A.L.P.](https://play.google.com/store/apps/details?id=org.gateshipone.malp&hl=es_ES&gl=ES){:target="_blank"}, para enviar el audio desde ese dispositivo ya que por defecto no soporta el protocolo AirPlay.
 
