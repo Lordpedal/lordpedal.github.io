@@ -2008,6 +2008,45 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8002`
 
+## Docker: [UDPXY](https://hub.docker.com/r/lordpedal/udpxy/){:target="_blank"}
+
+**UDPXY** es un sencillo software, el cual convierte los protocolos **multicast** (RTP o UDP) en el protocolo **unicast** HTTP.
+
+ El principal motivo de esta conversión es:
+
+- No todos los elementos de red soportan multicast (sobretodo algunos switches y routers)
+- Quieres ver streaming de video en cliente que no tienen software  multicast disponible (ej: smartphones y tablets)
+- Quieres acceder a streaming desde una red distinta (ej: streaming de una localización a otra sobre Internet o en WAN/VPN)
+
+Vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/UDPXY && \
+cd $HOME/docker/UDPXY
+```
+
+Bajamos el fichero docker-compose.yml alojado en Github:
+
+```bash
+https://raw.githubusercontent.com/Lordpedal/udpxy/main/docker-compose.yml
+```
+
+Y ejecutamos la creación del servicio:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://ip_del_host:2112/status` para ver status web.
+
+**NOTA**: Recuerda que el puerto `Unicast` a usar es: **2112**
+
+> Ejemplo
+
+| Multicast | Unicast |
+| ------ | ------ |
+| `rtp://@239.0.5.185:8208` | `http://192.168.1.90:2112/rtp/239.0.5.185:8208` |
+
 ## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
 
 JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
