@@ -2040,7 +2040,7 @@ Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendr
 
 ### Xupnpd V2
 
-Información ampliada Docker: [UDPXY](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){:target="_blank"}
+Información ampliada Docker: [Xupnpd V2](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){:target="_blank"}
 
 ### Kodi
 
