@@ -2061,7 +2061,7 @@ cd $HOME/docker/xupnpdv2
 Bajamos el fichero docker-compose.yml alojado en Github:
 
 ```bash
-wget https://github.com/Lordpedal/xupnpdv2/blob/main/docker-compose.yml
+wget https://raw.githubusercontent.com/Lordpedal/xupnpdv2/main/docker-compose.yml
 ```
 
 Vamos a repasar las opciones editables:
