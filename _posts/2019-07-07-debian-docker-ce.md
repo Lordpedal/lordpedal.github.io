@@ -2047,6 +2047,38 @@ Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de
 | ------ | ------ |
 | `rtp://@239.0.5.185:8208` | `http://192.168.1.90:2112/rtp/239.0.5.185:8208` |
 
+## Docker: [Xupnpd v2](https://hub.docker.com/r/lordpedal/xupnpdv2/){:target="_blank"}
+
+**Xupnpd V2** es un software permite anunciar canales y contenido multimedia a través de **DLNA** en cooperación con MiniDLNA.
+
+ Si bien la `V1` funciona a la perfección con enlaces unicast no reproduce de forma correcta enlaces `HLS` la `v2` en mi experiencia le ocurre lo opuesto.
+ 
+```bash
+mkdir -p $HOME/docker/xupnpdv2/listas && \
+cd $HOME/docker/xupnpdv2
+```
+
+Bajamos el fichero docker-compose.yml alojado en Github:
+
+```bash
+wget https://github.com/Lordpedal/xupnpdv2/blob/main/docker-compose.yml
+```
+
+Vamos a repasar las opciones editables:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `-v $HOME/docker/xupnpdv2/listas:/xupnpd2/media` | Ruta donde se leen/almacenan listas localmente |
+
+
+Y ejecutamos la creación del servicio:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://ip_del_host:3044` para gestión web.
+
 ## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
 
 JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
