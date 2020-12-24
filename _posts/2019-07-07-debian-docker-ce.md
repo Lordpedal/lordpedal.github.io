@@ -750,7 +750,7 @@ Dejo dos opciones ejemplo de listas M3U para ser importadas a nuestro servidor.
 
 ```bash
 curl -o $HOME/docker/tvheadend/config/m3u/lista.m3u \
-https://web.lordpedal.duckdns.org/images/lordpedal.m3u
+https://lordpedal.github.io/lordpedal/lordpedal.m3u
 ```
 
 - M3U TDT - Canales libres:
@@ -765,7 +765,7 @@ Para la configuración, voy a usar mi lista personal.
 Pero antes voy a desglosar la estructura de un canal de la lista *M3U*, para describir como **«automatizar»** en lo posible, todo el proceso de creación de `Muxes/Servicios/Canales` en TVHeadend.
 
 ```bash
-#EXTINF:-1 tvh-epg="disable" tvh-chnum="1" tvg-id="1.movistar.tv" tvh-tags="Movistar TV|HDTV|Ocio y cultura" tvg-logo="https://web.lordpedal.duckdns.org/images/2543.jpg",La 1 HD
+#EXTINF:-1 tvh-epg="disable" tvh-chnum="1" tvg-id="1.movistar.tv" tvh-tags="Movistar TV|HDTV|Ocio y cultura" tvg-logo="https://lordpedal.github.io/lordpedal/images/2543.jpg",La 1 HD
 http://192.168.1.90:2112/rtp/239.0.0.185:8208
 ```
 
@@ -776,7 +776,7 @@ http://192.168.1.90:2112/rtp/239.0.0.185:8208
 | `tvh-chnum="1"` | Número de canal |
 | `tvg-id="1.movistar.tv"` | ID interno EPG |
 | `tvh-tags="Movistar TV|HDTV|Ocio y cultura"` | Categorías de canal |
-| `tvg-logo="https://web.lordpedal.duckdns.org/images/2543.jpg"` | Picon (logo) de canal |
+| `tvg-logo="https://lordpedal.github.io/lordpedal/images/2543.jpg"` | Picon (logo) de canal |
 | `La 1 HD` | Nombre canal |
 | `http://192.168.1.90:2112/rtp/239.0.0.185:8208` | Enlace IP canal |
 
@@ -835,7 +835,7 @@ guide.xml.gz
 
 ```bash
 curl -o $HOME/docker/tvheadend/config/data/guide.xml \
-https://web.lordpedal.duckdns.org/images/guia.xml
+https://lordpedal.github.io/lordpedal/guia.xml
 ```
 
 - **EPG TDT - Canales libres**:
@@ -865,7 +865,7 @@ Añadimos el contenido del script:
 # Another fine release by Lordpedal
 #
 curl -o $HOME/docker/tvheadend/config/data/guide.xml \
-https://web.lordpedal.duckdns.org/images/guia.xml
+https://lordpedal.github.io/lordpedal/guia.xml
 ```
 
 Guardamos el fichero, salimos del editor, le damos permisos de ejecución y los ejecutamos para almacenar nuestra EPG localmente:
