@@ -1635,7 +1635,7 @@ Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
 - Formatos de entrada: **ePub, HTML, PDF, RTF, txt, cbc, fb2, lit, MOBI, ODT, prc, pdb, PML, RB, cbz y cbr**
 - Formatos de salida: **ePub, fb2, OEB, lit, lrf, MOBI, pdb, pml, rb.3**
 
-Vamos a crear las carpetas donde alojar el proyecto::
+Vamos a crear las carpetas donde alojar el proyecto:
 
 ```bash
 mkdir -p $HOME/docker/calibre
@@ -1741,6 +1741,33 @@ File Browser suple esa necesidad permitiendo el acceso a los archivos del servid
 - **Buscar/descargar/subir y compartir contenido**
 - **Terminal de sistema**
 
+Vamos a crear las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/filebrowser
+```
+
+Creamos el fichero donde se va a alojar la base de datos:
+
+```bash
+touch $HOME/docker/filebrowser/filebrowser.db
+```
+
+A continuación creamos el fichero de configuración:
+
+````bash
+cat << EOF > $HOME/docker/filebrowser/filebrowser.json
+{
+  "port": 80,
+  "baseURL": "",
+  "address": "",
+  "log": "stdout",
+  "database": "/database.db",
+  "root": "/srv"
+}
+EOF
+```
+
 La creación del servicio es muy sencilla, tan solo ejecutaremos:
 
 ```bash
@@ -1748,6 +1775,8 @@ docker run -d \
 	--name=Filebrowser \
 	-p 84:80 \
 	-v /home/$USER:/srv \
+	-v  $HOME/docker/filebrowser/filebrowser.db:/database.db \
+	-v  $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json \
 	-e TZ="Europe/Madrid" \
 	--restart=always \
 	filebrowser/filebrowser:latest 
@@ -1759,6 +1788,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `-p 84:80` | Puerto de gestión Web `84` |
 | `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
+| `-v  $HOME/docker/filebrowser/filebrowser.db:/database.db` | Ruta alojamiento base de datos |
+| `-v  $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json` | Ruta alojamiento configuración |
 | `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
 
