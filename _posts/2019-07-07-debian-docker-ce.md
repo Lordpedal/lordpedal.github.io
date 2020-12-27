@@ -1775,11 +1775,11 @@ docker run -d \
 	--name=Filebrowser \
 	-p 84:80 \
 	-v /home/$USER:/srv \
-	-v  $HOME/docker/filebrowser/filebrowser.db:/database.db \
-	-v  $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json \
+	-v $HOME/docker/filebrowser/filebrowser.db:/database.db \
+	-v $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json \
 	-e TZ="Europe/Madrid" \
 	--restart=always \
-	filebrowser/filebrowser:latest 
+	filebrowser/filebrowser:latest
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1788,8 +1788,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `-p 84:80` | Puerto de gestión Web `84` |
 | `-v /home/$USER:/srv` | Ruta base de navegación home de nuestro usuario del sistema |
-| `-v  $HOME/docker/filebrowser/filebrowser.db:/database.db` | Ruta alojamiento base de datos |
-| `-v  $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json` | Ruta alojamiento configuración |
+| `-v $HOME/docker/filebrowser/filebrowser.db:/database.db` | Ruta alojamiento base de datos |
+| `-v $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json` | Ruta alojamiento configuración |
 | `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
 
