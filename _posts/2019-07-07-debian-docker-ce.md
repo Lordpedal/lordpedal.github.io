@@ -1755,7 +1755,7 @@ touch $HOME/docker/filebrowser/filebrowser.db
 
 A continuación creamos el fichero de configuración:
 
-````bash
+```bash
 cat << EOF > $HOME/docker/filebrowser/filebrowser.json
 {
   "port": 80,
