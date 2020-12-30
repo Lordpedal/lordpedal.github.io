@@ -246,12 +246,12 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=Portainer-CE \
-	-v $HOME/docker/portainer_ce:/data \
-	-v /var/run/docker.sock:/var/run/docker.sock \
-	-p 9000:9000 \
-	--restart=always \
-	portainer/portainer-ce
+--name=Portainer-CE \
+-v $HOME/docker/portainer_ce:/data \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-p 9000:9000 \
+--restart=always \
+portainer/portainer-ce
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -281,10 +281,10 @@ Watchtower es una aplicación que controlará tus contenedores Docker en funcion
 
 ```bash
 docker run -d \
-	--name=Watchtower \
-	-v /var/run/docker.sock:/var/run/docker.sock \
-	--restart=always \
-	containrrr/watchtower
+--name=Watchtower \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--restart=always \
+containrrr/watchtower
 ```
 
 Los parámetros son mínimos pero vamos a detallarlos:
@@ -304,23 +304,23 @@ WireGuard proporciona mejor rendimiento que el protocolo **IPsec** y que **OpenV
 
 ```bash
 docker run -d \
-	--name=Wireguard \
-	--cap-add=NET_ADMIN \
-	--cap-add=SYS_MODULE \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-e SERVERURL=lordpedal.duckdns.org \
-	-e SERVERPORT=51820 \
-	-e PEERS=1 \
-	-e PEERDNS=1.1.1.1 \
-	-e INTERNAL_SUBNET=10.13.13.0 \
-	-p 51820:51820/udp \
-	-v $HOME/docker/wireguard:/config \
-	-v /lib/modules:/lib/modules \
-	--sysctl="net.ipv4.conf.all.src_valid_mark=1" \
-	--restart=always \
-	ghcr.io/linuxserver/wireguard
+--name=Wireguard \
+--cap-add=NET_ADMIN \
+--cap-add=SYS_MODULE \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Europe/Madrid \
+-e SERVERURL=lordpedal.duckdns.org \
+-e SERVERPORT=51820 \
+-e PEERS=1 \
+-e PEERDNS=1.1.1.1 \
+-e INTERNAL_SUBNET=10.13.13.0 \
+-p 51820:51820/udp \
+-v $HOME/docker/wireguard:/config \
+-v /lib/modules:/lib/modules \
+--sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+--restart=always \
+ghcr.io/linuxserver/wireguard
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -367,12 +367,12 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=Octoprint \
-	--device /dev/ttyACM0:/dev/ttyACM0
-	-p 5000:5000 \
-	-v $HOME/docker/octoprint:/home/octoprint \ 
- 	--restart=always \
-	octoprint/octoprint
+--name=Octoprint \
+--device /dev/ttyACM0:/dev/ttyACM0
+-p 5000:5000 \
+-v $HOME/docker/octoprint:/home/octoprint \ 
+--restart=always \
+octoprint/octoprint
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -408,11 +408,11 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=Gossa \
-	-v $HOME/docker/gossa:/shared \
-	-p 8001:8001 \
-	--restart=always \
-	pldubouilh/gossa
+--name=Gossa \
+-v $HOME/docker/gossa:/shared \
+-p 8001:8001 \
+--restart=always \
+pldubouilh/gossa
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -610,17 +610,17 @@ Y ya podriamos lanzar la creación y activación del servicio para un Procesador
 
 ```bash
 docker run -d \
-	--name=Jellyfin \
-	-e UID=1000 \
-	-e GID=1000 \
-	-p 8096:8096 \
-	--device /dev/dri/renderD128:/dev/dri/renderD128 \
-	--device /dev/dri/card0:/dev/dri/card0 \
-	-v /media/rednas/NAS/LXC:/media \
-	-v $HOME/docker/jellyfin/config:/config \
-	-v $HOME/docker/jellyfin/cache:/cache \
-	--restart=always \
-	ghcr.io/linuxserver/jellyfin
+--name=Jellyfin \
+-e UID=1000 \
+-e GID=1000 \
+-p 8096:8096 \
+--device /dev/dri/renderD128:/dev/dri/renderD128 \
+--device /dev/dri/card0:/dev/dri/card0 \
+-v /media/rednas/NAS/LXC:/media \
+-v $HOME/docker/jellyfin/config:/config \
+-v $HOME/docker/jellyfin/cache:/cache \
+--restart=always \
+ghcr.io/linuxserver/jellyfin
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -701,17 +701,17 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=TVHeadend \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-p 9981:9981 \
-	-p 9982:9982 \
-	-v /etc/timezone:/etc/timezone:ro \
-	-v $HOME/docker/tvheadend/config:/config \
-	-v $HOME/docker/tvheadend/grabaciones:/recordings \
-	--restart=always \
-	ghcr.io/linuxserver/tvheadend
+--name=TVHeadend \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Europe/Madrid \
+-p 9981:9981 \
+-p 9982:9982 \
+-v /etc/timezone:/etc/timezone:ro \
+-v $HOME/docker/tvheadend/config:/config \
+-v $HOME/docker/tvheadend/grabaciones:/recordings \
+--restart=always \
+ghcr.io/linuxserver/tvheadend
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1454,12 +1454,12 @@ La creación del servicio es muy sencilla, tan solo ejecutaremos:
 
 ```bash
 docker run -d \
-	--name=Shairport-sync \
-	--net host \
-	--device /dev/snd \
-	-e AIRPLAY_NAME=Overclock \
-	--restart=always \
-	kevineye/shairport-sync 
+--name=Shairport-sync \
+--net host \
+--device /dev/snd \
+-e AIRPLAY_NAME=Overclock \
+--restart=always \
+kevineye/shairport-sync 
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1675,17 +1675,17 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=Calibre \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-e GUAC_USER=calibre \
-	-e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
-	-p 8085:8080 \
-	-p 8086:8081 \
-	-v $HOME/docker/calibre/config:/config \
-	--restart=always \
-	ghcr.io/linuxserver/calibre
+--name=Calibre \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Europe/Madrid \
+-e GUAC_USER=calibre \
+-e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
+-p 8085:8080 \
+-p 8086:8081 \
+-v $HOME/docker/calibre/config:/config \
+--restart=always \
+ghcr.io/linuxserver/calibre
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1727,12 +1727,12 @@ Es un software muy ligero ya que no necesita de bases de datos para almacenar la
 
 ```bash
 docker run -d \
-	--name=Shaarli \
-	-p 8000:80 \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	--restart=always \
-	shaarli/shaarli:latest
+--name=Shaarli \
+-p 8000:80 \
+-e PUID=1000 \
+-e PGID=1000 \
+--restart=always \
+shaarli/shaarli:latest
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1789,14 +1789,14 @@ La creación del servicio es muy sencilla, tan solo ejecutaremos:
 
 ```bash
 docker run -d \
-	--name=Filebrowser \
-	-p 84:80 \
-	-v /home/$USER:/srv \
-	-v $HOME/docker/filebrowser/filebrowser.db:/database.db \
-	-v $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json \
-	-e TZ="Europe/Madrid" \
-	--restart=always \
-	filebrowser/filebrowser:latest
+--name=Filebrowser \
+-p 84:80 \
+-v /home/$USER:/srv \
+-v $HOME/docker/filebrowser/filebrowser.db:/database.db \
+-v $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json \
+-e TZ="Europe/Madrid" \
+--restart=always \
+filebrowser/filebrowser:latest
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1832,15 +1832,15 @@ Y lanzamos la creación del servicio, tan solo ejecutaremos:
 
 ```bash
 docker run -d \
-	--name=Heimdall \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-p 88:80 \
-	-p 448:443 \
-	-v $HOME/docker/heimdall:/config \
-	--restart always \
-	ghcr.io/linuxserver/heimdall
+--name=Heimdall \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Europe/Madrid \
+-p 88:80 \
+-p 448:443 \
+-v $HOME/docker/heimdall:/config \
+--restart always \
+ghcr.io/linuxserver/heimdall
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1869,11 +1869,11 @@ La creación del servicio es muy sencilla, tan solo ejecutaremos:
 
 ```bash
 docker run -d \
-	--name=TorPrivoxy \
-	-p 8118:8118 \
-	-p 9060:9050 \
-	--restart=always \
-	rdsubhas/tor-privoxy-alpine 
+--name=TorPrivoxy \
+-p 8118:8118 \
+-p 9060:9050 \
+--restart=always \
+rdsubhas/tor-privoxy-alpine 
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1916,13 +1916,13 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=PrivateBin \
-	-e TZ=Europe/Madrid \
-	-p 8080:8080 \
-	-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro \
-	--read-only \
-	--restart=always \
-	privatebin/nginx-fpm-alpine
+--name=PrivateBin \
+-e TZ=Europe/Madrid \
+-p 8080:8080 \
+-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro \
+--read-only \
+--restart=always \
+privatebin/nginx-fpm-alpine
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -1979,11 +1979,11 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=RSS-Bridge \
-	-v $HOME/docker/rss/plugins.txt:/app/whitelist.txt \
-	-p 8003:80 \
-	--restart=always \
-	rssbridge/rss-bridge:latest
+--name=RSS-Bridge \
+-v $HOME/docker/rss/plugins.txt:/app/whitelist.txt \
+-p 8003:80 \
+--restart=always \
+rssbridge/rss-bridge:latest
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -2040,11 +2040,11 @@ Y ya podriamos lanzar la creación y activación del servicio:
 
 ```bash
 docker run -d \
-	--name=Nginx \
-	-v $HOME/docker/nginx:/usr/share/nginx/html:ro \
-	-p 8002:80 \
-	--restart=always \
-	amd64/nginx:alpine
+--name=Nginx \
+-v $HOME/docker/nginx:/usr/share/nginx/html:ro \
+-p 8002:80 \
+--restart=always \
+amd64/nginx:alpine
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
