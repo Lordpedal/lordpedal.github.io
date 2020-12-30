@@ -2242,6 +2242,50 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
 
+> 🎁 Bonus TIP
+
+Si queremos personalizar el aspecto del servicio, guardaremos el logo con el nombre y extensión: **watermark.png** y el icono como **favicon.ico** en la ruta `$HOME/docker/jitsi`
+
+![Jitsi]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmonzoom.png)
+
+Modificamos el fichero docker-compose.yml:
+
+```bash
+nano $HOME/docker/jitsi/docker-compose.yml
+```
+
+Buscamos la variable:
+
+```bash
+ volumes:
+     - ${CONFIG}/web:/config:Z
+     - ${CONFIG}/web/letsencrypt:/etc/letsencrypt:Z
+     - ${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts:Z
+```
+
+Y la modificamos:
+
+```bash
+ volumes:
+     - ${CONFIG}/web:/config:Z
+     - ${CONFIG}/web/letsencrypt:/etc/letsencrypt:Z
+     - ${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts:Z
+     - ./watermark.png:/usr/share/jitsi-meet/images/watermark.png
+     - ./favicon.ico:/usr/share/jitsi-meet/images/favicon.ico
+```
+
+Guardamos el fichero, salimos del editor y editamos el fichero de configuración y por ejemplo personalizamos el **APP_NAME**:
+
+```bash
+sudo nano $HOME/docker/jitsi/.jitsi-meet-cfg/web/interface_config.js
+```
+
+Guardamos el fichero (Control+o), salimos del editor (Control+x) y volvemos a ejecutar el comando docker-compose:
+
+```bash
+docker-compose up -d
+```
+
 ## Docker: [MagicMirror](https://hub.docker.com/r/bastilimbach/docker-magicmirror/){:target="_blank"}²
 
 MagicMirror² es una plataforma de espejo modular inteligente, de código abierto.
