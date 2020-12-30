@@ -1171,6 +1171,8 @@ Ahora vamos a finalizar la configuración **sustituyendo los datos que se encuen
 
 Al finalizar ya tendremos nuestra propia nube de almacenamiento local de una forma muy sencilla.
 
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmoncloud.jpg)
+
 ### ⛑️Bonus TIP: Fix Traefik
 
 Para poder acceder a nuestro servicio desde fuera de la intranet, por ejemplo con un proxy inverso, tenemos que configurar el redireccionado:
