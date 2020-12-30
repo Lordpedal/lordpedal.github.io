@@ -60,4 +60,6 @@ La primera parte del proceso esta finalizada, ya solo nos queda saber que para p
 - `Buscamos` el plugin oficial **PlatformIO IDE**
 - `Instalamos` la extensión **PlatformIO IDE**
 
+{% include video id="495816800" provider="vimeo" %}
+
 > Y listo!
