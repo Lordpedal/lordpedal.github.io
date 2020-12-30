@@ -2248,7 +2248,7 @@ Si queremos personalizar el aspecto del servicio, guardaremos el logo con el nom
 
 ![Jitsi]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmonzoom.png)
 
-Modificamos el fichero docker-compose.yml:
+Modificamos el fichero `docker-compose.yml`:
 
 ```bash
 nano $HOME/docker/jitsi/docker-compose.yml
