@@ -21,7 +21,7 @@ toc_icon: "cog"
 
 ## VSCode
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
+![VSCode]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.png)
 
 Abrimos una terminal de sistema, actualizamos repositorios e instalamos las dependencias:
 
@@ -54,10 +54,12 @@ sudo apt-get -y install code
 
 La primera parte del proceso esta finalizada, ya solo nos queda saber que para poder compilar el firmware de Marlin es instalar el plugin <a href="https://platformio.org/" target="_blank" rel="noreferrer noopener">PlatformIO IDE</a>.
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/posts/platformide.jpg)
+![PlatformIO]({{ site.url }}{{ site.baseurl }}/assets/images/posts/platformide.jpg)
 
 - Abrimos **VSCode > Extension Manager**
 - `Buscamos` el plugin oficial **PlatformIO IDE**
 - `Instalamos` la extensión **PlatformIO IDE**
+
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vscode.mp4)
 
 > Y listo!
