@@ -928,46 +928,61 @@ Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar cr
 mkdir -p $HOME/docker/transmission/{config,descargas}
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
-	--name=Transmission \
-	-e PUID=1000 \
-	-e PGID=1000 \
-	-e TZ=Europe/Madrid \
-	-e USER=empalador \
-	-e PASS=nocturno \
-	-e TRANSMISSION_WEB_HOME=/kettu/ \
-	-p 9091:9091 \
-	-p 51413:51413 \
-	-p 51413:51413/udp \
-	-v $HOME/docker/transmission/config:/config \
-	-v $HOME/docker/transmission/descargas:/downloads \
-	-v $HOME/docker/transmission/descargas:/watch \
-	--restart=always \
-	ghcr.io/linuxserver/transmission
+cat << EOF > $HOME/docker/transmission/docker-compose.yml
+version: "2.1"
+services:
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: Transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - TRANSMISSION_WEB_HOME=/kettu/
+      - USER=empalador
+      - PASS=nocturno
+    volumes:
+      - ~/docker/transmission/config:/config
+      - ~/docker/transmission/descargas:/downloads
+      - ~/docker/transmission/descargas:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: always
+EOF
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-e USER=empalador` | Usuario para hacer login en WebUI, te recomiendo modificarla | 
-| `-e PASS=nocturno` | Contraseña del usuario para hacer login en WebUI, te recomiendo modificarla |
-| `-e TRANSMISSION_WEB_HOME=/kettu/` | Skin que usaremos para gestión web. Disponibles tres skins: `/kettu/` , `/combustion-release/` y `/transmission-web-control/` O bien si no queremos usar ningún Skin extra, borramos la línea para no incluir la opción. |
-| `-p 9091:9091` | Puerto de gestión WebUI `9091` |
-| `-p 51413:51413` | Puerto descargas Torrents `TCP` |
-| `-p 51413:51413/udp` | Puerto descargas Torrents `UDP` |
-| `-v $HOME/docker/transmission/config:/config` | Ruta donde almacenaremos la **configuración** |
-| `-v $HOME/docker/transmission/descargas:/downloads` | Ruta donde almacenaremos las **descargas**. |
-| `-v $HOME/docker/transmission/descargas:/watch` | Ruta donde realiza **monitorizado** futuras descargas, si añadimos fichero .torrent este se descarga de forma automática. |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Transmission |
+| `- PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `- PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `- TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `- TRANSMISSION_WEB_HOME=/kettu/` | Skin que usaremos para gestión web. Disponibles tres skins: `/kettu/` , `/combustion-release/` y `/transmission-web-control/` O bien si no queremos usar ningún Skin extra, borramos la línea para no incluir la opción. |
+| `- USER=empalador` | Usuario para hacer login en WebUI, te recomiendo modificarla | 
+| `- PASS=nocturno` | Contraseña del usuario para hacer login en WebUI, te recomiendo modificarla |
+| `- ~/docker/transmission/config:/config` | Ruta donde almacenaremos la **configuración** |
+| `- ~/docker/transmission/descargas:/downloads` | Ruta donde almacenaremos las **descargas**. |
+| `- ~/docker/transmission/descargas:/watch` | Ruta donde realiza **monitorizado** futuras descargas, si añadimos fichero .torrent este se descarga de forma automática. |
+| `- 9091:9091` | Puerto de gestión WebUI `9091` |
+| `- 51413:51413` | Puerto descargas Torrents `TCP` |
+| `- 51413:51413/udp` | Puerto descargas Torrents `UDP` |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Transmission |
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
 
 Tras haber lanzado el servicio, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_Servidor:9091`
+
+> 🎁 Bonus TIP
 
 Opcionalmente podemos añadirle notificación de descargas, para ello antes debemos detener el contenedor:
 
@@ -1018,7 +1033,7 @@ done
 /usr/bin/curl -s \
         -o /dev/null \
         -F chat_id="$telegram" \
-        -F text="$TR_TORRENT_NAME descargado correctamente en la ruta $TR_TORRENT_DIR" \
+        -F text="$TR_TORRENT_NAME descargado correctamente" \
         $url/sendMessage
 ```
 
