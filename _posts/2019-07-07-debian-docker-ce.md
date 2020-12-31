@@ -54,8 +54,6 @@ Por lo que si no queremos tener excesivas limitaciones, crearemos una cuenta [FR
 
 **5º** Anotamos el Token generado y cerramos la web **(recordar que el Token no podremos volver a visionarlo)**
 
-![DockerHub]({{ site.url }}{{ site.baseurl }}/assets/images/posts/dockerhubtk.jpg)
-
 Sobre la terminal de nuestro sistema GNU/Linux en el que queremos configurar la cuenta de Docker, lanzamos la siguiente estructura de comando en la terminal:  
 
 ```bash
@@ -63,6 +61,8 @@ docker login -u usuario -p token
 ```
 
 > Muestro ejemplo de configuración:
+
+![DockerHub]({{ site.url }}{{ site.baseurl }}/assets/images/posts/dockerhubtk.jpg)
 
 ```bash
 docker login -u lordpedal \
