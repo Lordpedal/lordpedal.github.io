@@ -1,5 +1,6 @@
 ---
 title:  "**Debian 10 Buster**: Servidor PC"
+related: true
 date:   2019-07-06 10:00:00 -0300
 last_modified_at: 2020-12-31T11:00:00-05:00
 categories:
