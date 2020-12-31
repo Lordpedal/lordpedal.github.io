@@ -1,5 +1,5 @@
 ---
-title:  "**Bootsound**: Debian GNU/Linux"
+title:  "Bootsound: Debian GNU/Linux"
 date:   2020-09-01 17:00:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
