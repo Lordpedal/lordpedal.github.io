@@ -1,7 +1,7 @@
 ---
 title:  "**Debian 10 Buster**: *Servidor PC*"
-date:   2021-12-21 10:00:00 -0300
-last_modified_at: 2020-07-06T16:15:00-05:00
+date:   2019-07-06 10:00:00 -0300
+last_modified_at: 2020-12-31T11:00:00-05:00
 categories:
   - GNU/Linux
 tags:
@@ -1826,9 +1826,11 @@ Información ampliada Docker: [MiniDLNA](https://lordpedal.github.io/gnu/linux/d
 
 Información ampliada Docker: [UDPXY](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-udpxy){:target="_blank"}
 
-### Xupnpd V1
+### Xupnpd
 
-[Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`. 
+[Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`.
+
+#### Xupnpd V1
 
 Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemplo de **Movistar+, Youtube,...** a los dispositivos de la LAN. Existen múltiples cliente que pueden consumir este servicio, por ejemplo VLC y así no tener que crear un fichero .m3u en cada ordenador.
 
@@ -2038,7 +2040,7 @@ exit 0
 
 Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendremos operativo el servicio.
 
-### Xupnpd V2
+#### Xupnpd V2
 
 Información ampliada Docker: [Xupnpd V2](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){:target="_blank"}
 
