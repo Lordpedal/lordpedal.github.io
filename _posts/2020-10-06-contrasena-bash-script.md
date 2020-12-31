@@ -25,6 +25,7 @@ Como ejemplo en el script preconfiguro tres usuarios y acciones diferentes:
 | `Virginia` | `virg` | Arranca Entorno gráfico |
 | `Iris` | `iris` | Arranca Kodi |
 | `J.Marcos` | `jmla` | Arranca Terminal |
+{: .notice--info}
 
 Si introducimos erroneamente la contraseña x3 veces, el dispositivo se apagará a modo de filtro.
 
