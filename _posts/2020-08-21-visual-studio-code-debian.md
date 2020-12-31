@@ -1,5 +1,5 @@
 ---
-title:  "Visual Studio Code: Debian GNU/Linux"
+title:  "**Visual Studio Code**: Debian GNU/Linux"
 date:   2020-08-21 22:00:00 -0300
 last_modified_at: 2020-08-21T22:30:00-05:00
 categories:
@@ -13,6 +13,8 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
+header:
+  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
