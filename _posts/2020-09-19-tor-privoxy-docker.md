@@ -1,5 +1,5 @@
 ---
-title:  "**Tor-Privoxy**: Docker"
+title:  "Tor-Privoxy: Docker"
 date:   2020-09-19 07:30:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
