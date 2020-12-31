@@ -34,9 +34,9 @@ A continuación creamos el script:
 nano tgfile.sh
 ```
 
-Añadimos el contenido del fichero 
+Añadimos el contenido del fichero:
 
-**TIP**: Recuerda modificar la variable `telegram=`
+**TIP**: Recuerda modificar la variable `telegram=` por tu ID
 {: .notice--warning}
 
 ```bash
