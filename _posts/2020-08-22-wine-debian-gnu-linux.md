@@ -1,5 +1,5 @@
 ---
-title:  "Wine 5: Debian GNU/Linux"
+title:  "**Wine 5**: Debian GNU/Linux"
 date:   2020-08-22 10:00:00 -0300
 last_modified_at: 2020-12-16T10:15:00-05:00
 categories:
@@ -7,6 +7,8 @@ categories:
 tags:
   - GNU/Linux
   - Debian
+header:
+  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
