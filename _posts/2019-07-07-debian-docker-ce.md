@@ -266,6 +266,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `-p 9000` | Puerto de acceso Web `9000` |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Portainer CE` |
+{: .notice--warning}
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la ip:9000
 
@@ -297,6 +298,7 @@ Los parámetros son mínimos pero vamos a detallarlos:
 | ------ | ------ |
 | `-v /var/run/docker.sock` | Ruta donde lee la configuración Dockers |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Watchtower` |
+{: .notice--warning}
 
 ## Docker: [Wireguard](https://hub.docker.com/r/linuxserver/wireguard/){:target="_blank"}
 
@@ -343,6 +345,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v $HOME/docker/wireguard:/config` | Carpeta donde alojaremos los clientes (peers) creados |
 | `-v /lib/modules:/lib/modules` | Mapea los modulos de nuestro sistema al contenedor |
 | `--sysctl="...` | Requerido para el modo cliente. Si lo agregamos a sysctl.conf del sistema no sería necesario ejecutar esta orden |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, navegamos a la carpeta donde se han creado los clientes de la *VPN*, si te fijas entre los ficheros dispones de uno de imagen que es un código [QR](https://es.wikipedia.org/wiki/C%C3%B3digo_QR){:target="_blank"}. Para facilitar por ejemplo la integración con la **App** de tu dispositivos móvil.
 
@@ -386,6 +389,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `--device /dev/ttyACM0:/dev/ttyACM0` | Puerto comunicación, para poder identificarlo, en la terminal de nuestro sistema ejecutamos: `ls /dev | grep tty` y nos devolverá seguramente  **/dev/ttyACM0** o **/dev/ttyUSB0** |
 | `-p 5000:5000` | Puerto de acceso Web |
 | `-v $HOME/docker/octoprint:/home/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:5000` y completamos el asistente de configuración.
 
@@ -425,6 +429,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `-v $HOME/docker/gossa:/shared` | Ruta donde se almacena el contenido |
 | `-p 8001:8001` | Puerto de acceso Web `8001` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, tendriamos el servicio disponible en la dirección `http://ip_servidor:8001`.
 
@@ -446,7 +451,8 @@ Tras haber lanzado el servicio, tendriamos el servicio disponible en la direcci�
 | Doble click icono fichero | Borrar elemento |
 | Arrastrar y soltar sobre UI | Mover elemento |
 | Arrastrar y soltar contenido externo | Subir ficheros/carpetas |
-| Cualquier otra letra 	Búsqueda |
+| Cualquier otra letra Búsqueda |
+{: .notice--success}
 
 ## Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
 
@@ -505,6 +511,7 @@ sudo chattr +i /etc/resolv.conf
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:83` en mi caso.
 
 **Opcionalmente** dejo las listas de anti-publicidad que uso en Pi-Hole por si os interesan:
+{: .notice--info}
 
 ```bash
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
@@ -640,16 +647,19 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v $HOME/docker/jellyfin/config` | Ruta donde almacenaremos la **configuración** |
 | `-v $HOME/docker/jellyfin/cache` | Ruta donde almacenaremos la **cache** |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Jellyfin |
+{: .notice--warning}
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la `http://ip_Servidor:8096` para iniciar el asistente de configuración.
 
 Para habilitar acceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
 
-> Panel de Control -> Reproducción -> Video Acceleration API (VAAPI) 
+Panel de Control -> Reproducción -> Video Acceleration API (VAAPI)
+{: .notice--info}
 
 Seleccionamos el dispositivo `VAAPI`, en mi caso **/dev/dri/renderD128**
 
-> Lista M3U
+**Lista M3U**
+{: .notice--success}
 
 Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M3U Tuner -> Archivo o URL -> añadimos nuestra lista`, en mi caso a modo de ejemplo dejo listas de TDT/Radio en abierto:
 
@@ -659,7 +669,8 @@ https://www.tdtchannels.com/lists/tvradio.m3u8
 
 Y hacemos click en **guardar**.
 
-> Guía EPG
+**Guía EPG**
+{: .notice--success}
 
 Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guías -> XMLTV -> Archivo o URL -> añadimos nuestra programación`, en mi caso a modo de ejemplo dejo la guía para la lista añadida previamente:
 
@@ -731,18 +742,22 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v $HOME/docker/tvheadend/config:/config` | Ruta donde almacenaremos la configuración |
 | `-v $HOME/docker/tvheadend/grabaciones:/recordings` | Ruta donde almacenaremos las grabaciones |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend |
+{: .notice--warning}
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
 
-> **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
+**Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock1.png)
 
-> **Configuración > Usuarios > Contraseñas**: Click en Añadir, elegimos un usuario/contraseña y hacemos click en Crear
+**Configuración > Usuarios > Contraseñas**: Click en Añadir, elegimos un usuario/contraseña y hacemos click en Crear
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock2.png)
 
-> **Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos click en Guardar
+**Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos click en Guardar
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock3.png)
 
@@ -783,8 +798,10 @@ http://192.168.1.90:2112/rtp/239.0.0.185:8208
 | `tvg-logo="https://lordpedal.github.io/lordpedal/images/2543.jpg"` | Picon (logo) de canal |
 | `La 1 HD` | Nombre canal |
 | `http://192.168.1.90:2112/rtp/239.0.0.185:8208` | Enlace IP canal |
+{: .notice--warning}
 
->  **Configuración > Entradas DVB > Redes**: Hacemos click en Añadir y seleccionamos Red automática IPTV
+**Configuración > Entradas DVB > Redes**: Hacemos click en Añadir y seleccionamos Red automática IPTV
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock4.png)
 
@@ -796,11 +813,13 @@ El proceso llevara algún tiempo, dependiendo sobre todo del número de canales 
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock6.png)
 
-> **Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos click en Guardar
+**Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos click en Guardar
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock7.png)
 
-> **Configuración > Entradas DVB > Servicios**: Hacemos click en Mapear todos los servicios
+**Configuración > Entradas DVB > Servicios**: Hacemos click en Mapear todos los servicios
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock8.png)
 
@@ -812,7 +831,8 @@ Mostrara el proceso de convertir los Muxes en Servicios
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock10.png)
 
-> **Configuración > Canal / EPG > Canales**: Hacemos click en Mapear todos los servicios
+**Configuración > Canal / EPG > Canales**: Hacemos click en Mapear todos los servicios
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock11.png)
 
@@ -892,7 +912,8 @@ Añadiendo el siguiente código al final del fichero para que sea ejecutado cada
 
 Guardamos, salimos del editor y pasamos nuevamente al navegador para seguir configurando el servidor.
 
-> **Configuración > Canal / EPG > Módulos para Obtención de Guía**: Seleccionamos el grabber WebGrab+Plus XML y lo habilitamos
+**Configuración > Canal / EPG > Módulos para Obtención de Guía**: Seleccionamos el grabber WebGrab+Plus XML y lo habilitamos
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock13.png)
 
@@ -900,7 +921,8 @@ Hacemos click en Guardar
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock14.png)
 
-> **Configuración > Canal / EPG > Obtener Guía**: Configuramos el cron de TVHeadend para que la guía EPG la anexe a la programación a las 10am (la descarga la tenemos programada en el servidor a las 9:45am)
+**Configuración > Canal / EPG > Obtener Guía**: Configuramos el cron de TVHeadend para que la guía EPG la anexe a la programación a las 10am (la descarga la tenemos programada en el servidor a las 9:45am)
+{: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock15.png)
 
@@ -977,6 +999,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `- 51413:51413` | Puerto descargas Torrents `TCP` |
 | `- 51413:51413/udp` | Puerto descargas Torrents `UDP` |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Transmission |
+{: .notice--warning}
 
 Una vez configurado, lo levantamos para ser creado y ejecutado:
 
@@ -986,7 +1009,8 @@ docker-compose up -d
 
 Tras haber lanzado el servicio, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_Servidor:9091`
 
-> 🎁 Bonus TIP
+**🎁 Bonus TIP**
+{: .notice--info}
 
 Opcionalmente podemos añadirle notificación de descargas, para ello antes debemos detener el contenedor:
 
@@ -1054,6 +1078,7 @@ Vamos a revisar las variables que debemos de modificar en el script:
 | `IPServidor=192.168.1.90` | Dirección IP del servidor donde estamos ejecutando el servicio de Transmission |
 | `User=empalador` | Usuario que definimos en la creación del **Docker Transmission** |
 | `Pass=nocturno` | Contraseña que definimos en la creación del **Docker Transmission** |
+{: .notice--warning}
 
 Ahora le toca el turno a las opciones de Transmission, para ello editamos la configuración:
 
@@ -1080,6 +1105,7 @@ Vamos a cambiar los parametros de la configuración stock a la modificada, se ti
 | `"speed-limit-up-enabled": false,` | `"speed-limit-up-enabled": true,` |
 | `"trash-original-torrent-files": false,` | `"trash-original-torrent-files": true,` |
 | `"utp-enabled": false,` | `"utp-enabled": true,` |
+{: .notice--success}
 
 Guardamos el fichero, salimos del editor y volvemos a iniciar el Docker ya debidamente configurado:
 
@@ -1163,6 +1189,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
 | `MYSQL_ROOT_PASSWORD=overclock_server` | **Contraseña usuario ROOT** , necesaria para proteger la base de datos, **recomiendo cambiarla** |
 | `MYSQL_PASSWORD=lordpedal` | **Contraseña Base de datos** para configurar el servicio y poder interactuar con la base de datos, **recomiendo cambiarla** |
+{: .notice--warning}
 
 Una vez configurado,  lo levantamos para ser creado y ejecutado:
 
@@ -1174,7 +1201,8 @@ Tras haber lanzado el servicio, ya tendríamos el servicio disponible, y acceder
 
 En mi caso a modo ejemplo:
 
-> https://192.168.1.90:9443
+**https://192.168.1.90:9443**
+{: .notice--info}
 
 Cuando la página cargue en el navegador nos arrojara la siguiente advertencia, que no es más que recordarnos que estamos haciendo la consulta de navegación con el protocolo **https** y no disponemos de los **certificados SSL**
 
@@ -1433,8 +1461,10 @@ nano docker-compose.yml
 | `- MINIDLNA_MEDIA_DIR_4=P,/media/Imagenes` | Esta variable define que el contenido de la carpeta Imágenes solo puede contener: **Imágenes**, que es lo que significa **P** |
 | `- MINIDLNA_FRIENDLY_NAME=Lordpedal DLNA` | Esta variable define como se identifica el servicio de DLNA en nuestra Red. |
 | `- MINIDLNA_MAX_CONNECTIONS=7` | Esta variable define cuantos usuarios pueden reproducir el contenido DLNA al mismo tiempo en nuestra Red. |
+{: .notice--warning}
 
-> **TIP**: Puedes especificar culaquier variable del fichero [minidlna.conf](http://manpages.ubuntu.com/manpages/raring/man5/minidlna.conf.5.html){:target="_blank"}, añadiendo la variable `MINIDLNA_` al fichero `docker-compose.yml`
+**TIP**: Puedes especificar culaquier variable del fichero [minidlna.conf](http://manpages.ubuntu.com/manpages/raring/man5/minidlna.conf.5.html){:target="_blank"}, añadiendo la variable `MINIDLNA_` al fichero `docker-compose.yml`
+{: .notice--info}
 
 Guardamos el fichero, salimos del editor y ejecutamos la creación del servicio:
 
@@ -1474,6 +1504,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `--device /dev/snd` | Damos privilegios a docker para usar la salida de sonido del host |
 | `-e AIRPLAY_NAME=Overclock` | Nombre personalizado para identificar servicio AirPlay |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
 
@@ -1549,6 +1580,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `TZ=Europe/Madrid` | Zona horaria Europa/Madrid |
 | `$HOME/docker/daapd/config:/config` | Ruta donde se alojan configuraciones del software , una vez este corriendo el docker, **recomiendo revisar el fichero forked-daapd.conf para personalizar el servicio** |
 | `$HOME/docker/daapd/musica:/music` | Ruta donde se aloja la música a compartir , **recomiendo cambiarla**. |
+{: .notice--warning}
 
 Una vez configurado,  lo levantamos para ser creado y ejecutado:
 
@@ -1558,7 +1590,8 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible.
 
-> Gestión Web
+**Gestión Web**
+{: .notice--info}
 
 Accedemos con un navegador web a la `http://ip_del_host:3689` para usar la interfaz web.
 
@@ -1580,7 +1613,8 @@ Y podríamos **ajustar de forma independiente el volumen para cada salida**, muy
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd4.jpg)
 
-> Cliente Rhythmbox (GNU/Linux)
+**Cliente Rhythmbox (GNU/Linux)**
+{: .notice--info}
 
 En caso de no disponer de la aplicación en nuestra distro, una forma sencilla de disponer de ella, sería:
 
@@ -1591,7 +1625,8 @@ sudo apt-get -y install rhythmbox
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd5.jpg)
 
-> Cliente Remote (iOS)
+**Cliente Remote (iOS)**
+{: .notice--info}
 
 Instalamos la App, la ejecutamos y le decimos **Conectar manualmente** ya que el dispositivo tiene que emparejarse
 
@@ -1609,7 +1644,8 @@ En mi caso de la siguiente forma:
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd8.jpg)
 
-> Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)
+**Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)**
+{: .notice--info}
 
 Cuando estemos reproduciendo audio con el servidor Forked-Daapd, de forma paralela a la salida de audio, se nos genera un fichero de audio en streaming mp3 en la ruta `http://ip_del_servidor:3689/stream.mp3`
 
@@ -1619,13 +1655,15 @@ En mi caso de la siguiente forma:
 
 ![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd9.jpg)
 
-> Clientes Chromecast
+**Clientes Chromecast**
+{: .notice--info}
 
 **Forked-daapd** descubrirá los dispositivos **Chromecast** disponibles en su red y luego se podrá seleccionar el dispositivo como altavoz.
 
 No se requiere configuración.
 
-> Clientes MPD (Android, GNU/Linux, …)
+**Clientes MPD (Android, GNU/Linux, …)**
+{: .notice--info}
 
 Los clientes MPD buscan sus servidores por defecto en los puertos 6600, Forked-daapd se encarga de servir audio por ese puerto también:http://ip_del_servidor:6600
 
@@ -1705,6 +1743,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 8086:8081` | Puerto configuración Servidor `8086` |
 | `-v $HOME/docker/calibre/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
 |  `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
 
@@ -1746,6 +1785,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 8000:80` | Puerto comunicación Externo:Interno |
 | `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, accedemos `http://ip_servidor:8000` para completar el asistente de configuración.
 
@@ -1813,6 +1853,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json` | Ruta alojamiento configuración |
 | `-e TZ="Europe/Madrid"` | Zona horaria `Europa/Madrid` |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
 
@@ -1858,6 +1899,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 448:443` | Puerto de gestión Web SSL `448` |
 | `-v $HOME/docker/heimdall:/config` | Ruta base de navegación home de nuestro usuario del sistema |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrión vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
@@ -1887,6 +1929,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-p 8118:8118` | Puerto de configuración Privoxy **8118** |
 | `-p 9060:9050` | Puerto de comunicación Red Tor **9050** |
 | `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, ya tendriamos disponible el proxy a usar bajo demanda:
 
@@ -1931,13 +1974,13 @@ privatebin/nginx-fpm-alpine
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
-
 | Parámetro | Función |
 | ------ | ------ |
 | `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
 | `-p 8080:8080` | Puerto de acceso Web `8080` |
 | `-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
 | `--read-only` | Protege el servicio en modo lectura |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
 
@@ -1996,6 +2039,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `-v $HOME/docker/rss/plugins.txt:/app/whitelist.txt` | Ruta donde se almacena el contenido de la web |
 | `-p 8003:80` | Puerto de acceso Web `8003` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8003`
 
@@ -2057,6 +2101,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `-v $HOME/docker/nginx:/usr/share/nginx/html:ro` | Ruta donde se almacena el contenido de la web |
 | `-p 8002:80` | Puerto de acceso Web `8002` |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8002`
 
@@ -2093,11 +2138,10 @@ Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de
 
 **NOTA**: Recuerda que el puerto `Unicast` a usar es: **2112**
 
-> Ejemplo
-
 | Multicast | Unicast |
 | ------ | ------ |
 | `rtp://@239.0.5.185:8208` | `http://192.168.1.90:2112/rtp/239.0.5.185:8208` |
+{: .notice--info}
 
 ## Docker: [Xupnpd v2](https://hub.docker.com/r/lordpedal/xupnpdv2/){:target="_blank"}
 
@@ -2121,7 +2165,7 @@ Vamos a repasar las opciones editables:
 | Parámetro | Función |
 | ------ | ------ |
 | `-v $HOME/docker/xupnpdv2/listas:/xupnpd2/media` | Ruta donde se leen/almacenan listas localmente |
-
+{: .notice--warning}
 
 Y ejecutamos la creación del servicio:
 
@@ -2182,6 +2226,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `$HOME/docker/jd2/config:/config:rw` | Ruta donde se almacena la configuración del programa |
 | `$HOME/docker/jd2/descargas:/output:rw` | Ruta donde se almacenan las **descargas** |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, ya tendríamos acceso desde `http://ip_servidor:5800`
 
@@ -2248,6 +2293,7 @@ En la columna izquierda dejo el valor que encontramos por defecto y en la derech
 | `CONFIG=~/.jitsi-meet-cfg` | `CONFIG=~/docker/jitsi/.jitsi-meet-cfg` |
 | `#DOCKER_HOST_ADDRESS=192.168.1.1` | `DOCKER_HOST_ADDRESS=192.168.1.90` |
 | `TZ=UTC` | `TZ=Europe/Madrid` |
+{: .notice--warning}
 
 Guardamos el fichero, salimos del editor y ejecutamos el script de cifrado claves:
 
@@ -2263,7 +2309,8 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8000` o bien `https://IP_Servidor:8443`
 
-> 🎁 Bonus TIP
+**🎁 Bonus TIP**
+{: .notice--info}
 
 Si queremos personalizar el aspecto del servicio, guardaremos el logo con el nombre y extensión: **watermark.png** y el icono como **favicon.ico** en la ruta `$HOME/docker/jitsi`
 
@@ -2352,10 +2399,12 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `9080:8080` | Puerto de configuración acceso **9080** |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
 
 Tras haber lanzado el servicio, ya tendriamos acceso desde `http://ip_dispositivo:9080`.
 
-> Complemento: [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+**Complemento:** [MMM-SmartTouch](https://github.com/EbenKouao/MMM-SmartTouch){:target="_blank"}
+{: .notice--info}
 
 Este complemento nos dará mucho juego, por ejemplo nos permite activar:
 
