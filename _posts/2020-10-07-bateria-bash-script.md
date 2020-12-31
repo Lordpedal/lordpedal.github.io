@@ -1,5 +1,5 @@
 ---
-title:  "Batería: Bash Script"
+title:  "**Batería**: Bash Script"
 date:   2020-10-07 12:25:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
@@ -7,6 +7,8 @@ categories:
 tags:
   - GNU/Linux
   - Debian
+header:
+  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
