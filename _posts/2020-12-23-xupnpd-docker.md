@@ -1,5 +1,6 @@
 ---
 title:  "**Xupnpd v2**: Docker"
+related: true
 date:   2020-12-23 08:30:00 -0300
 last_modified_at: 2020-12-23T16:45:00-05:00
 categories:
