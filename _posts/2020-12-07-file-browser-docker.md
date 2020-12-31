@@ -1,5 +1,5 @@
 ---
-title:  "**File Browser**: Docker"
+title:  "File Browser: Docker"
 date:   2020-12-07 08:30:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
