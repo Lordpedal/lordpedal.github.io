@@ -237,14 +237,14 @@ fi
 echo "Another fine release by Lordpedal"
 ```
 
-**TIP**: Vamos a revisar los cambios que debemos de introducir en las variables obligatorias:
+Vamos a revisar los cambios que debemos de introducir en las variables obligatorias:
 
 | Variable | Comentario |
 | ------ | ------ |
 | `telegram=79593223` | Sustiuimos el **ID de nuestro telegram**, puedes consultarlo en [@lordpedalbot](https://t.me/Lordpedalbot){:target="_blank"} |
 | `lordmac=00:11:22:33:44:55` | Dirección MAC que obtuvimos en el Servidor de la interfaz de red, en el ejemplo del script **enp5s0f0** |
 | `IPServidor=192.168.1.90` | Dirección IP del servidor, en el ejemplo del script uso la del puente **br0** |
-{: .notice--warning}
+{: .notice--danger}
 
 Guardamos el fichero, salimos del editor y le damos permisos de ejecución:
 
