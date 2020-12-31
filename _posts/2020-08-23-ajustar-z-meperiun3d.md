@@ -1,5 +1,5 @@
 ---
-title:  "Ajustar Offset Z con Terminal: Meperiun3D"
+title:  "**Ajustar Offset Z con Terminal**: Meperiun3D"
 date:   2020-08-23 04:00:00 -0300
 last_modified_at: 2020-12-16T10:00:00-05:00
 categories:
@@ -7,6 +7,8 @@ categories:
 tags:
   - 3D
   - Marlin
+header:
+  teaser: /assets/images/Meperiun3D.png
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
