@@ -6,8 +6,6 @@ categories:
   - 3D
 tags:
   - 3D
-header:
-  teaser: /assets/images/miniE3MPth.png
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)

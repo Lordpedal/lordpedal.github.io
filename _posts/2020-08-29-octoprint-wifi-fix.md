@@ -8,8 +8,6 @@ tags:
   - GNU/Linux
   - Debian
   - 3D
-header:
-  teaser: /assets/images/Debianth.png
 ---
 
 ![OctoPi]({{ site.url }}{{ site.baseurl }}/assets/images/OctoPI.png)
