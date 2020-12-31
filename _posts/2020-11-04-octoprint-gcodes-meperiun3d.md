@@ -1,5 +1,5 @@
 ---
-title:  "**OctoPrint Optimizar GCodes**: Meperiun3D"
+title:  "OctoPrint Optimizar GCodes: Meperiun3D"
 date:   2020-11-04 07:45:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
