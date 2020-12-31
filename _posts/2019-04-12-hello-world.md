@@ -1,5 +1,5 @@
 ---
-title:  "**Hola, mundo!**"
+title:  "*Hola, mundo!* 👋"
 date:   2019-04-12 10:00:00 -0300
 last_modified_at: 2020-12-12T16:00:00-05:00
 categories:
