@@ -7,6 +7,8 @@ categories:
 tags:
   - GNU/Linux
   - Debian
+header:
+  teaser: /assets/images/Debianth.png
 ---
 
 ![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)

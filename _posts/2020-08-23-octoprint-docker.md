@@ -11,6 +11,8 @@ tags:
   - Debian
   - GNU/Linux
 link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-octoprint
+header:
+  teaser: /assets/images/Dockerth.png
 ---
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)

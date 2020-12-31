@@ -7,6 +7,8 @@ categories:
 tags:
   - 3D
   - Marlin
+header:
+  teaser: /assets/images/miniE3MPth.png
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
