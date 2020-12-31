@@ -1,5 +1,5 @@
 ---
-title:  "Bonding: Debian GNU/Linux"
+title:  "**Bonding**: Debian GNU/Linux"
 date:   2020-09-26 08:15:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
@@ -11,6 +11,8 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
+header:
+  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
