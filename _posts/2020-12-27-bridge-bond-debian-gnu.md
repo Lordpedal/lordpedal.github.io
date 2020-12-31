@@ -13,17 +13,6 @@ toc_label: "Secciones"
 toc_icon: "cog"
 header:
   teaser: /assets/images/Debian.png
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      share: true
-      related: true
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
