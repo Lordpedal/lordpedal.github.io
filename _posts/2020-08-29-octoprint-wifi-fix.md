@@ -1,5 +1,5 @@
 ---
-title:  "OctoPrint Wifi: Fix GNU/Linux"
+title:  "**OctoPrint Wifi**: Fix GNU/Linux"
 date:   2020-08-29 16:30:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
@@ -8,6 +8,8 @@ tags:
   - GNU/Linux
   - Debian
   - 3D
+header:
+  teaser: /assets/images/OctoPI.png
 ---
 
 ![OctoPi]({{ site.url }}{{ site.baseurl }}/assets/images/OctoPI.png)
