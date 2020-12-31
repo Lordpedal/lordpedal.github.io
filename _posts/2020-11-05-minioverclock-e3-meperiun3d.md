@@ -1,5 +1,5 @@
 ---
-title:  "miniOverclock E3: Meperiun3D"
+title:  "**miniOverclock E3**: Meperiun3D"
 date:   2020-11-05 06:00:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
@@ -12,6 +12,8 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
+header:
+  teaser: /assets/images/miniE3MP.png
 ---
 
 ![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png)
