@@ -27,7 +27,7 @@ Como ejemplo en el script preconfiguro tres usuarios y acciones diferentes:
 | `J.Marcos` | `jmla` | Arranca Terminal |
 {: .notice--info}
 
-Si introducimos erroneamente la contraseña x3 veces, el dispositivo se apagará a modo de filtro.
+Si introducimos erroneamente la contraseña **x3 veces**, el dispositivo se apagará a modo de filtro.
 
 Para configurarlo sobre nuestra base Debian seguimos este **mini-tutorial**. 
 
