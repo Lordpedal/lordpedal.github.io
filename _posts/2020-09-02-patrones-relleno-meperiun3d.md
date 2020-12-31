@@ -1,5 +1,5 @@
 ---
-title:  "Patrones de relleno: Meperiun3D"
+title:  "**Patrones de relleno**: Meperiun3D"
 date:   2020-09-02 11:45:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
@@ -12,6 +12,8 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
+header:
+  teaser: /assets/images/Meperiun3D.png
 ---
 
 ![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
