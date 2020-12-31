@@ -8,8 +8,6 @@ tags:
   - GNU/Linux
   - Debian
   - Servidor
-header:
-  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)

@@ -12,8 +12,6 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
-header:
-  teaser: /assets/images/miniE3MP.png
 ---
 
 ![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png)

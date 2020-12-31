@@ -9,8 +9,6 @@ tags:
   - Debian
   - GNU/Linux
 link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-privatebin
-header:
-  teaser: /assets/images/Docker.png
 ---
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)

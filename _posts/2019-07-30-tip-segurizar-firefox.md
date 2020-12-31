@@ -10,8 +10,6 @@ toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
-header:
-  teaser: /assets/images/Debian.png
 ---
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
