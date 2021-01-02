@@ -278,7 +278,9 @@ http://192.168.1.90:9000
 
 Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar los datos, hacemos click en `Create User`. En la siguiene pestaña que nos aparece, hacemos click en `Manage the local Docker environment` y posteriormente en `Connect`. 
 
-Y listo, ya estara debidamente configurado para poder gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
+![Portainer]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Portainer.gif)
+
+Debidamente configurado podremos gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
 ## Docker: [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
 
