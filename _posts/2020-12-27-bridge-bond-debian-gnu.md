@@ -59,7 +59,8 @@ Guardamos, salimos del editor e instalamos dependencias:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install ifenslave bridge-utils net-tools ifupdown
+sudo apt-get -y install ifenslave bridge-utils \
+net-tools ifupdown
 ```
 
 ## Configurar Red
