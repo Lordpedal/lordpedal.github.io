@@ -185,6 +185,18 @@ Product License: Community Engine
 pi@overclock:~$
 ```
 
+Vamos a repasar los principales comandos para interactuar con `docker-compose`:
+
+| Comando | Acción |
+| ------ | ------ |
+| `docker-compose -v` | Comprobar versión instalada |
+| `docker-compose up -d` | Crear y arrancar el contenedor |
+| `docker-compose stop` | Detiene la ejecución del contenedor |
+| `docker-compose start` | Arranca la ejecución del contenedor |
+| `docker-compose restart` | Reiniciar la ejecución del contenedor |
+| `docker-compose ps` | Lista contenedores |
+{: .notice--info}
+
 ### Instalación ARM
 
 Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
@@ -233,6 +245,18 @@ Y reiniciamos la placa **SBC (Raspberry, Odroid, ...)**:
 ```bash
 sudo reboot
 ```
+
+Vamos a repasar los principales comandos para interactuar con `docker-compose`:
+
+| Comando | Acción |
+| ------ | ------ |
+| `docker-compose -v` | Comprobar versión instalada |
+| `docker-compose up -d` | Crear y arrancar el contenedor |
+| `docker-compose stop` | Detiene la ejecución del contenedor |
+| `docker-compose start` | Arranca la ejecución del contenedor |
+| `docker-compose restart` | Reiniciar la ejecución del contenedor |
+| `docker-compose ps` | Lista contenedores |
+{: .notice--info}
 
 ## Docker: [Portainer CE](https://hub.docker.com/r/portainer/portainer-ce/){:target="_blank"}
 
