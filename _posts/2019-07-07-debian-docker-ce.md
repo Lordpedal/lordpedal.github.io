@@ -702,7 +702,8 @@ Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar cr
 
 ```bash
 mkdir -p $HOME/docker/tvheadend/\
-{config/{data,m3u},grabaciones}
+{config/{data,m3u},grabaciones} && \
+cd $HOME/docker/tvheadend
 ```
 
 Vamos a satisfacer dependencias que posteriormente usaremos:
@@ -712,39 +713,50 @@ sudo apt-get update && \
 sudo apt-get -y install ffmpeg curl wget
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
---name=TVHeadend \
--e PUID=1000 \
--e PGID=1000 \
--e TZ=Europe/Madrid \
--p 9981:9981 \
--p 9982:9982 \
--v /etc/timezone:/etc/timezone:ro \
--v $HOME/docker/tvheadend/config:/config \
--v $HOME/docker/tvheadend/grabaciones:/recordings \
---restart=always \
-ghcr.io/linuxserver/tvheadend
+cat << EOF > $HOME/docker/tvheadend/docker-compose.yml
+version: "2.1"
+services:
+  tvheadend:
+    image: ghcr.io/linuxserver/tvheadend
+    container_name: TVHeadend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ~/docker/tvheadend/config:/config
+      - ~/docker/tvheadend/grabaciones:/recordings
+    ports:
+      - 9981:9981
+      - 9982:9982
+    restart: always
+EOF
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-p 9981:9981` | Puerto de acceso Web `9981` |
-| `-p 9982:9982` | Puerto de streaming `9982` |
-| `-v /etc/timezone:/etc/timezone:ro` | Clonado en modo lectura: hora del host feat. hora del contenedor |
-| `-v $HOME/docker/tvheadend/config:/config` | Ruta donde almacenaremos la configuración |
-| `-v $HOME/docker/tvheadend/grabaciones:/recordings` | Ruta donde almacenaremos las grabaciones |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `~/docker/tvheadend/config:/config` | Ruta donde almacenaremos la configuración |
+| `~/docker/tvheadend/grabaciones:/recordings` | Ruta donde almacenaremos las grabaciones |
+| `9981:9981` | Puerto de acceso Web `9981` |
+| `9982:9982` | Puerto de streaming `9982` |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio TVHeadend |
 {: .notice--warning}
 
-Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
 
 **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
 {: .notice--info}
@@ -951,7 +963,8 @@ Entre las principales características destacan:
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/transmission/{config,descargas}
+mkdir -p $HOME/docker/transmission/{config,descargas} && \
+cd $HOME/docker/transmission
 ```
 
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
