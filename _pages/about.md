@@ -53,3 +53,5 @@ En los siguientes bloques intentare detallarlas, aunque `algunas ya esten obsole
 `Placas SBC • Gadgets • IoT • Ingeniería inversa …`
 
 Un cordial saludo
+
+![Groundhog]({{ site.url }}{{ site.baseurl }}/assets/images/Groundhog)
