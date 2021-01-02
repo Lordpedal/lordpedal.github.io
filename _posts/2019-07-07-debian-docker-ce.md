@@ -461,23 +461,23 @@ Tras haber lanzado el servicio, tendriamos el servicio disponible en la direcci�
 
 | Teclas combinación | Acción |
 | ------ | ------ |
-| Ctrl/Meta + H | Muestra esta ayuda |
-| Flechas dirección/Intro | Navega por ficheros/carpetas browse files/folders |
-| Ctrl/Meta + C | Copia la URL al portapapeles |
-| Ctrl/Meta + E | Renombra fichero/carpeta |
-| Ctrl/Meta + Del | Borra fichero/carpeta |
-| Ctrl/Meta + U | Subir nuevo fichero/carpeta |
-| Ctrl/Meta + M | Crear un nuevo directorio |
-| Ctrl/Meta + X | Corta la ruta seleccionada |
-| Ctrl/Meta + V | Pegar la ruta prevamente cortada |
-| Ctrl/Meta + Enter | Descargar fichero seleccionado |
-| Click icono nueva carperta | Crear una nueva carpeta |
-| Click icono editor textos | Editor fichero texto |
-| Click icono fichero | Renombrar elemento |
-| Doble click icono fichero | Borrar elemento |
-| Arrastrar y soltar sobre UI | Mover elemento |
-| Arrastrar y soltar contenido externo | Subir ficheros/carpetas |
-| Cualquier otra letra Búsqueda |
+| **Ctrl/Meta + H** | Muestra esta ayuda |
+| **Flechas dirección/Intro** | Navega por ficheros/carpetas browse files/folders |
+| **Ctrl/Meta + C** | Copia la URL al portapapeles |
+| **Ctrl/Meta + E** | Renombra fichero/carpeta |
+| **Ctrl/Meta + Del** | Borra fichero/carpeta |
+| **Ctrl/Meta + U** | Subir nuevo fichero/carpeta |
+| **Ctrl/Meta + M** | Crear un nuevo directorio |
+| **Ctrl/Meta + X** | Corta la ruta seleccionada |
+| **Ctrl/Meta + V** | Pegar la ruta prevamente cortada |
+| **Ctrl/Meta + Enter** | Descargar fichero seleccionado |
+| **Click icono nueva carperta** | Crear una nueva carpeta |
+| **Click icono editor textos** | Editor fichero texto |
+| **Click icono fichero** | Renombrar elemento |
+| **Doble click icono fichero** | Borrar elemento |
+| **Arrastrar y soltar sobre UI** | Mover elemento |
+| **Arrastrar y soltar contenido externo** | Subir ficheros/carpetas |
+| **Cualquier otra letra** | Búsqueda |
 {: .notice--success}
 
 ## Docker: [P3DNS](https://github.com/Lordpedal/p3dns/){:target="_blank"}
