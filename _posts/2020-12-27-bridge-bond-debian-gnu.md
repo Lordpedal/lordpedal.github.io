@@ -34,7 +34,7 @@ ip -br addr show
 En mi caso obtengo los siguientes datos, el ID de mi red Ethernet es eth0 y la red Wifi wlan0 para próximas referencias:
 
 ```bash
-pi@overclock:~$ ip -br link
+pi@overclock:~$ ip -br addr show
 lo               UNKNOWN
 enp0s31f6        UP
 enp5s0f0         DOWN
@@ -115,7 +115,7 @@ iface br0 inet static
 #        bridge_fd 0
 #        bridge_maxwait 0
 
-# Interfazz Red Bridge (IPv6)
+# Interfaz Red Bridge (IPv6)
 iface br0 inet6 auto
 	accept_ra 1
 ```
