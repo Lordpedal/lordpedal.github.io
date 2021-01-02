@@ -142,4 +142,6 @@ Al finalizar veremos que la memoria USB se ha particionado en dos:
 1. **FAT** (aprox. 32mb): Partición que contiene la información de arranque.
 2. **exFAT** (resto de espacio libre): Partición donde guardaremos las ISOS, tal cual.
 
+![VentoyUSB]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Ventoy.jpg)
+
 > Y listo!
