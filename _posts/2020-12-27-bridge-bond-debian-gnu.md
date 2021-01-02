@@ -31,7 +31,7 @@ Empezamos consultado las interfaces disponibles en el sistema desde la terminal:
 ip -br addr show
 ```
 
-En mi caso obtengo los siguientes datos, el ID de mi red Ethernet es eth0 y la red Wifi wlan0 para próximas referencias:
+En mi caso obtengo los siguientes datos para próximas referencias:
 
 ```bash
 pi@overclock:~$ ip -br addr show
