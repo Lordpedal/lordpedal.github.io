@@ -131,6 +131,8 @@ Si quieres actualizar el programa a su última versión, recuerda que deberas de
 cd $HOME/source/ft2-clone && git pull
 ```
 
+![FT2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FT2.jpg)
+
 Enjoy **FT2!**, si necesitas canciones te [recomiendo esta web](https://modarchive.org/){:target="_blank"}.
 
 > Y listo!
