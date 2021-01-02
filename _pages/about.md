@@ -54,4 +54,4 @@ En los siguientes bloques intentare detallarlas, aunque `algunas ya esten obsole
 
 Un cordial saludo
 
-![Groundhog]({{ site.url }}{{ site.baseurl }}/assets/images/Groundhog)
+![Groundhog]({{ site.url }}{{ site.baseurl }}/assets/images/Groundhog.gif)
