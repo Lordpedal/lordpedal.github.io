@@ -79,7 +79,7 @@ author:
       icon: "fas fa-fw fa-rss-square"
       url: "https://lordpedal.github.io/lordpedal/rss.html" 
     - label: "Canal Telegram"
-      icon: "fas fa-fw fa-telegram"
+      icon: "fas fa-fw fa-commenting"
       url: "https://t.me/lordpedal_rss" 
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
