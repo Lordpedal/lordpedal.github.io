@@ -14,14 +14,13 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
 {: .full}
-
 **FreshRSS** es un agregador de canales RSS libre y ligero donde mantener al día y sincronizados vuestros feed RSS.
 
 [FreshRSS](https://freshrss.org/){:target="_blank"} **FreshRSS** nos permitirá leer y seguir las novedades en diferentes sitios web de noticias, sin la necesidad de navegar de un sitio web a otro.
 
 Veamos sus principales características:
 
- * RSS y agregación atómica.
+ * RSS y agregación ATOM.
  * Opción de marcar un enlace como favorito para leerlo más adelante.
  * Funcionalidades de búsqueda y filtro de ayuda.
  * Estadísticas para mostrarnos la frecuencia de publicación de todos los sitios web que seguimos.
@@ -31,7 +30,9 @@ Veamos sus principales características:
  * Auto alojado: el código es libre, ya que utiliza una licencia AGPL3, por lo que podemos alojar nuestra propia instancia, que es justo lo que haremos en esta entrada.
  * Multiusuario.
 
-Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+Vamos a realizar unos pasos previos para preparar el entorno. 
+
+En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
 mkdir -p $HOME/docker/freshrss && \
