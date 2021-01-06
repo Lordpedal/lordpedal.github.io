@@ -1,7 +1,7 @@
 ---
 title:  "FreshRSS: Docker"
-date:   2021-01-06 18:30:00
-last_modified_at: 2021-01-06T18:45:00
+date:   2021-01-06 15:30:00
+last_modified_at: 2021-01-06T15:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -15,9 +15,9 @@ tags:
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
 {: .full}
 
-[FreshRSS](https://freshrss.org/){:target="_blank"} nos permitirá leer y seguir las novedades en diferentes sitios web de noticias, sin la necesidad de navegar de un sitio web a otro.
+**FreshRSS** es un agregador de canales RSS libre y ligero donde mantener al día y sincronizados vuestros feed RSS.
 
-Es un agregador de canales RSS libre y ligero donde mantener al día y sincronizados vuestros feed RSS.
+[FreshRSS](https://freshrss.org/){:target="_blank"} **FreshRSS** nos permitirá leer y seguir las novedades en diferentes sitios web de noticias, sin la necesidad de navegar de un sitio web a otro.
 
 Veamos sus principales características:
 
