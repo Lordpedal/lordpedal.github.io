@@ -1010,7 +1010,7 @@ chmod +x overspeed.sh
 
 Y le agregamos el siguiente contenido:
 
-```
+```bash
 #!/bin/bash
 #
 # https://lordpedal.github.io
