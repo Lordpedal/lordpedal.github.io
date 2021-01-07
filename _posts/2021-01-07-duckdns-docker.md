@@ -15,11 +15,12 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
 {: .full}
-[Duck DNS](https://www.duckdns.org/){:target="_blank"} un servicio DDNS (DNS dinámico) diseñado para convertir nuestra dirección IP pública, complicada de recordar, en un dominio mucho más sencillo de recordar y, además, mantenerlo siempre actualizado de manera que podamos estar seguros de que la conexión con nuestra red está siempre garantizada, incluso aunque tengamos IP dinámica.
+[DuckDNS](https://www.duckdns.org/){:target="_blank"} un servicio DDNS (DNS dinámico) diseñado para convertir nuestra dirección IP pública, complicada de recordar, en un dominio mucho más sencillo de recordar y, además, mantenerlo siempre actualizado de manera que podamos estar seguros de que la conexión con nuestra red está siempre garantizada, incluso aunque tengamos IP dinámica.
 
 Este servicio nos permite crear hasta 5 dominios DDNS totalmente gratuitos con una cuenta.
 
 Anteriormente [ya vimos de configurar **DuckDNS en el Servidor**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#configurando-dns-p%C3%BAblica){:target="_blank"}, aunque ahora lo dejo como servicio Docker para realizar la actualización de IP.
+{: .notice--info}
 
 Vamos a realizar unos pasos previos para preparar el entorno. 
 

@@ -1100,6 +1100,11 @@ La forma más sencilla es usar un proveedor de DNS públicas de calidad como por
 Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**. Y el procedimiento de instalación en nuestra red es vía **cron**.
 Adjunto [tutorial de configuración en GNU/Linux](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}.
 
+Antes de continuar debemos de realizar estos pasos:
+
+1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){:target="_blank"}
+2. Configuramos e instalamos: [DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){:target="_blank"}
+
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
 
 ```bash
