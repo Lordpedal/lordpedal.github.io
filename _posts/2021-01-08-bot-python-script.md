@@ -127,7 +127,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | Parámetro | Función |
 | ------ | ------ |
 | `TOKEN_BOT = '1579933052:AAH-SwCYA_u7Jx5OZiTBM8VPZN1kkkveCvk'` | Sustituir por Token de `bot` generador Telegram |
-| `CONTACTO_ID = '79593223'` | Susituir ID , Consultar @Lordpedalbot para obtener |
+| `CONTACTO_ID = '79593223'` | Sustituir ID , Consultar @Lordpedalbot para obtener |
 | `RSS_URL = 'https://lordpedal.github.io/lordpedal/feed.xml'` | Sustituir lista Feed de Noticias |
 {: .notice--warning}
 
