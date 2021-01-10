@@ -73,6 +73,7 @@ Vamos a repasar los principales atajos de teclado que encontramos en el editor [
  | Control + U | Pegar linea | 
  | Control + W | Buscar en el fichero |
  | Control + W + R | Buscar y reemplazar en el fichero |
+{: .notice--info}
 
 Añadimos privilegios sudo editando la configuración con nuestro editor *nano*:
 
@@ -84,7 +85,7 @@ Y agregamos la siguiente sentencia al final del archivo:
 ```bash
 pi ALL=(ALL) NOPASSWD: ALL
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y salimos de la sesión root.
+Guardamos los cambios, salimos del editor de texto y salimos de la sesión root.
 
 ```bash
 exit
@@ -117,7 +118,7 @@ deb http://ftp.es.debian.org/debian/ buster-updates main contrib non-free
 deb-src http://ftp.es.debian.org/debian/ buster-updates main contrib non-free
 ```
 
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y actualizamos el listado de paquetes de software y posibles actualizaciones del mismo:
+Guardamos los cambios, salimos del editor de texto y actualizamos el listado de paquetes de software y posibles actualizaciones del mismo:
 
 ```bash
 sudo apt-get clean && \
@@ -137,13 +138,10 @@ Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar 
 sudo apt-get update && \
 sudo apt-get -y install firmware-linux-nonfree
 ```
-Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche según dispongamos de un procesador `32bits` o `64bits`:
+Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche:
 
->  INTEL
-```bash
-sudo apt-get -y install intel-microcode
-```
 > AMD 64bits & INTEL 64bits  
+{: .notice--info}
 ```bash
 sudo apt-get -y install amd64-microcode
 ```
@@ -185,9 +183,7 @@ Para poner nuestro sistema en español, tenemos que marcar las siguientes opcion
 
 Para la configuración regional predeterminada seleccionamos:
 
-```bash
-[x] es-ES.UTF-8
-```
+- [x] es-ES.UTF-8
 
 ###  Configurando [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
@@ -223,7 +219,7 @@ Agregamos el siguiente contenido al fichero que estamos editando:
 needs_root_rights=yes
 allowed_users=anybody
 ```
-Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**. Ahora vamos a reconfigurar SystemD para el arranque en terminal:
+Guardamos los cambios y salimos del editor de texto. Ahora vamos a reconfigurar SystemD para el arranque en terminal:
 
 ```bash
 sudo systemctl set-default multi-user.target
@@ -243,7 +239,7 @@ Type=simple
 ExecStart=
 ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
 ```
-Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
+Guardamos los cambios y salimos del editor de texto.
 
 ###  Configurando RC.LOCAL
 
@@ -272,7 +268,7 @@ SysVStartPriority=99
 [Install]
 WantedBy=multi-user.target
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, ahora pasamos a crear el fichero **rc.local**
+Guardamos los cambios, salimos del editor de texto, ahora pasamos a crear el fichero **rc.local**
 
 ```bash
 sudo nano /etc/rc.local
@@ -296,7 +292,7 @@ Agregamos el siguiente contenido al fichero que estamos editando:
 # SALIR
 exit 0
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, debemos de darle permisos de ejecución al ficher creado:
+Guardamos los cambios, salimos del editor de texto, debemos de darle permisos de ejecución al ficher creado:
 
 ```bash
 sudo chmod +x /etc/rc.local
@@ -322,6 +318,7 @@ Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los p
  | sudo su | Iniciar sesion como ROOT |
  | sudo reboot | Reiniciar sistema |
  | sudo poweroff | Apagar sistema |
+{: .notice--info}
 
 ### Alías
 
@@ -461,6 +458,7 @@ Un Programador de E/S es la forma de manejar la lectura de los datos de los disp
 - **Deadline-elevator=deadline**
 - **NOOP-elevator=noop**
 - **Anticipatory-elevator=as**
+{: .notice--info}
 
 [Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
 
@@ -825,7 +823,7 @@ Y lo dejamos de la siguiente forma, como veras solamente has de eliminar la **#*
 ```bash
 net.ipv4.ip_forward=1
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y pasamos a configurar una [red Bridge](https://es.wikipedia.org/wiki/Puente_de_red){:target="_blank"} con [IP estática](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP){:target="_blank"}:
+Guardamos los cambios, salimos del editor de texto y pasamos a configurar una [red Bridge](https://es.wikipedia.org/wiki/Puente_de_red){:target="_blank"} con [IP estática](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP){:target="_blank"}:
 
 ```bash
 sudo apt-get update && \
@@ -852,7 +850,7 @@ iface br0 inet static
         bridge_fd 0
         bridge_maxwait 0
 ```        
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y nos queda corregir un posible fallo aunque no es común, en el fichero de resolución de DNS:
+Guardamos los cambios, salimos del editor de texto y nos queda corregir un posible fallo aunque no es común, en el fichero de resolución de DNS:
 
 ```bash
 sudo mv /etc/resolv.conf /etc/resolv.conf.bak && \
@@ -873,7 +871,7 @@ dns=none
 [ifupdown]
 managed=false
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y a continuación debemos de reiniciar el servidor para aplicar los nuevos cambios producidos en el dispositivo de red:
+Guardamos los cambios, salimos del editor de texto y a continuación debemos de reiniciar el servidor para aplicar los nuevos cambios producidos en el dispositivo de red:
 
 ```bash
 sudo reboot
@@ -947,7 +945,8 @@ done<termopar
 rm termopar
 ```
 
-> Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `overheat cambialo` según rangos de temperatura de tu procesador obtenido tras ejecutar: `sensors`, en mi caso el rango que obtenía era de (high = +84.0°C, crit = +100.0°C) por eso defino `70°C` como valor más conservador.
+**NOTA:** Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `overheat cambialo` según rangos de temperatura de tu procesador obtenido tras ejecutar: `sensors`, en mi caso el rango que obtenía era de (high = +84.0°C, crit = +100.0°C) por eso defino `70°C` como valor más conservador.
+{: .notice--warning}
 
 Guardamos los cambios, salimos del editor de texto y programamos el sistema para que el script sea ejecutado cada `15 segundos`:
 
@@ -1044,7 +1043,8 @@ do
 done
 ```
 
-> Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `mensaje` cambialo por tu mensaje personalizado.
+**NOTA:** Recuerda que el valor del `ID de Telegram` debes de **sustituirlo por el tuyo propio** y el valor `mensaje` cambialo por tu mensaje personalizado.
+{: .notice--warning}
 
 Guardamos los cambios, salimos del editor de texto y programamos el sistema para que el script sea ejecutado tras reinicio de sistema y disponibilidad de red:
 
@@ -1119,7 +1119,7 @@ Y la modificamos con nuestra cuenta en DuckDNS:
 > 127.0.0.1       localhost lordpedal.duckdns.org 
 
 
-Guardamos los cambios **(Ctrl+O)** y salimos del editor de texto **(Ctrl+X)**.
+Guardamos los cambios y salimos del editor de texto.
 
 ### P3DNS
 
@@ -1178,7 +1178,7 @@ Y sustituimos la linea o si existen varias dejamos una sola que haga referencia 
 ```bash
 push "dhcp-option DNS 10.8.0.1"
 ```
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)** y reiniciamos el servicio OpenVPN:
+Guardamos los cambios, salimos del editor de texto y reiniciamos el servicio OpenVPN:
 
 ```bash
 sudo systemctl restart openvpn
@@ -1224,8 +1224,6 @@ sudo nano /etc/ssh/sshd_config
 Adjunto mi fichero de configuración con los `mods de seguridad activos`:
 
 ```bash
-#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
-
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
 
@@ -1396,7 +1394,7 @@ Y segundo como las dejaremos (**en mi caso la IP es de rango 192.168.1.0**):
 ```bash
 ignoreip = 127.0.0.1/8 192.168.1.0/24
 bantime  = 3600
-maxretry = 3</pre>
+maxretry = 3
 ```
 
 Una vez finalizada la edición, guardaremos los cambios, saldremos del editor de texto y lo activaremos en local:
@@ -1548,6 +1546,9 @@ else
   show_uso
 fi
 ```
+
+**NOTA:** Recuerda que el valor del `ID de Telegram` debes de sustituirlo por el tuyo propio.
+{: .notice--warning}
 
 Ahora vamos a finalizar la activación de `ssh`:
 
@@ -2014,6 +2015,7 @@ sudo /etc/xupnpd/xupnpd &
 Podemos comprobar que el programa esta funcionando correctamente, abriendo en un navegador web a traves de nuestra red local el siguiente enlace:
 
 > http://192.168.1.90:4044
+{: .notice--info}
 
 Este paso tendriamos que realizarlo cada vez que iniciemos el servidor y deseemos hacer uso de xupnpd, para ellos vamos a ayudarnos nuevamente de `/etc/rc.local` para configurarlo debidamente:
 
