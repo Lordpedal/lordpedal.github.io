@@ -414,7 +414,8 @@ Y cuando tengamos de nuevo la **TTY** operativa con lanzar el comando `actualiza
 
 Dejo un extracto de la ejecución del comando:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ actualizar
 Leyendo lista de paquetes... Hecho
@@ -448,6 +449,7 @@ Calculando la actualización... Hecho
             ~~   ~~
 ..."Have you mooed today?"...
 ```
+
 </details>
 
 ### GRUB
@@ -511,7 +513,8 @@ GRUB_CMDLINE_LINUX="elevator=noop"
 
 Guardamos los cambios, salimos del editor de texto y se nos regenera el fichero BOOT con los cambios realizados:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ grubfix
 Generando un fichero de configuración de grub...
@@ -520,6 +523,7 @@ Encontrada imagen de linux: /boot/vmlinuz-4.19.0-5-amd64
 Encontrada imagen de memoria inicial: /boot/initrd.img-4.19.0-5-amd64
 hecho
 ```
+
 </details>
 
 Faltaría reiniciar el Servidor para aplicar los nuevos cambios:
@@ -635,13 +639,15 @@ sudo sensors-detect
 
 ...**le damos continuamente a la tecla** `INTRO` (para que tome la respuesta por defecto que es siempre que sí y de esta forma buscará todos los chips que podría analizar) hasta que nos salga la siguiente pregunta: `Do you want to add these lines to /etc/modules automatically? (yes/NO)`. En este momento copiad y guardad en un documento de texto temporal lo que tenéis por encima entre los dos **cut here** (por ejemplo a mí me ha salido lo siguiente):
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 #----cut here----
 # Chip drivers
 coretemp
 #----cut here----
 ```
+
 </details>
 
 Le damos nuevamente a **INTRO** para que no añada esas líneas automáticamente al fichero de [modulos](https://es.wikipedia.org/wiki/M%C3%B3dulo_de_n%C3%BAcleo){:target="_blank"} ya que las agregaremos manualmente para evitar posibles fallos de incompatibilidad, para ello editamos el fichero:
@@ -659,7 +665,8 @@ coretemp
 
 Guardamos los cambios y salimos del editor de texto. Muestro como ha quedado mi fichero:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ cat /etc/modules
 # /etc/modules: kernel modules to load at boot time.
@@ -670,6 +677,7 @@ pi@overclock:~$ cat /etc/modules
 # Chip drivers
 coretemp
 ```
+
 </details>
 
 Recomiendo reiniciar el Servidor para activar los cambios:
@@ -686,7 +694,8 @@ sensors
 
 En mi caso la información devuelta es la siguiente:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ sensors
 acpitz-virtual-0
@@ -702,6 +711,7 @@ Core 1:         +30.0°C  (high = +84.0°C, crit = +100.0°C)
 Core 2:         +29.0°C  (high = +84.0°C, crit = +100.0°C)
 Core 3:         +27.0°C  (high = +84.0°C, crit = +100.0°C)
 ```
+
 </details>
 
 ####  $USER/.BASHRC
@@ -767,7 +777,8 @@ reiniciar
 
 Adjunto resultado de lo que veremos tras el reinicio:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 Linux overclock 4.19.0-5-amd64 #1 SMP Debian 4.19.37-5 (2019-06-19) x86_64
 
@@ -791,6 +802,7 @@ Temperatura Sistema..: 32.0ºC
 
 pi@overclock:~$
 ```
+
 </details>
 
 ## Redes
@@ -809,7 +821,8 @@ ip a
 
 Y entre los valores que muestra el comando me quedo con la siguiente información:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master state UP 
         group default qlen 1000
@@ -817,6 +830,7 @@ Y entre los valores que muestra el comando me quedo con la siguiente informació
         inet 192.168.1.250/24 brd 192.168.1.255 scope global ens33
         valid_lft forever preferred_lft forever
 ```
+
 </details>
 
 Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){:target="_blank"}.
@@ -899,7 +913,8 @@ ip a
 ```
 Y vemos los cambios realizados:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP
         group default qlen 1000
@@ -907,6 +922,7 @@ Y vemos los cambios realizados:
         inet 192.168.1.90/24 brd 192.168.1.255 scope global br0
         valid_lft forever preferred_lft forever</pre>
 ```
+
 </details>
 
 A partir de este momento nuestra red cableada la identificaremos con el nombre de `br0` y la IP de nuestro servidor en casa sera `192.168.1.90`.
@@ -984,7 +1000,8 @@ Y añadimos al final el fichero, recuerda sustituir `pi` por tu usuario:
 
 Guardamos los cambios, salimos del editor de texto y listo ya tendriamos la protección activa. El fichero en mi caso queda de la siguiente forma:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ crontab -l
 # Edit this file to introduce tasks to be run by cron.
@@ -1015,6 +1032,7 @@ pi@overclock:~$ crontab -l
 */1 * * * * sleep 30 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 */1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 ```
+
 </details>
 
 ####  Notificación Arranque Servidor
@@ -1081,7 +1099,8 @@ Y añadimos al final el fichero, recuerda sustituir `pi` por tu usuario:
 
 Guardamos los cambios, salimos del editor de texto y listo ya tendriamos la notificación activa. El fichero en mi caso queda de la siguiente forma:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ crontab -l
 # Edit this file to introduce tasks to be run by cron.
@@ -1113,6 +1132,7 @@ pi@overclock:~$ crontab -l
 */1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 @reboot /home/pi/scripts/overspeed.sh >/dev/null 2>&1
 ```
+
 </details>
 
 ### Configurando DNS Pública
@@ -1711,7 +1731,8 @@ vncserver
 
 Nos solicitara la creación de una contraseña y su posterior check:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 Output
 You will require a password to access your desktops.
@@ -1719,19 +1740,23 @@ You will require a password to access your desktops.
 Password: *****
 Verify: *****
 ```
+
 </details>
 
 Nos preguntara si queremos crear un password de visualización solo, la respuesta será `n`:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 Would you like to enter a view-only password (y/n)? n
 ```
+
 </details>
 
 Y nos informara que ha creado la configuración necesaria en nuestra carpeta de usuario:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 xauth:  file /home/pi/.Xauthority does not exist
 
@@ -1741,6 +1766,7 @@ Creating default startup script /home/pi/.vnc/xstartup
 Starting applications specified in /home/pi/.vnc/xstartup
 Log file is /home/pi/.vnc/lordpedal:1.log
 ```
+
 </details>
 
 Para configurar el Servidor de VNC en nuestro Servidor tenemos que detener el programa en ejecución:
@@ -1821,7 +1847,8 @@ sudo systemctl status vncserver@2
 
 En mi caso devuelve el siguiente código:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@lordpedal:~/.vnc$ sudo systemctl status vncserver@2
 ● vncserver@2.service - TightVNC Server
@@ -1853,6 +1880,7 @@ pi@lordpedal:~/.vnc$ sudo systemctl status vncserver@2
            ├─ 2171 mate-volume-control-applet
            ├─ 2200 /usr/lib/mate-panel/wnck-applet
 ```
+
 </details>
            
 A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera la `IP de acceso y el puerto 5902` junto con la contraseña que le hubiesemos definido:
@@ -2145,11 +2173,13 @@ sudo apt-get update && sudo apt-get -y install youtube-dl
 
 El problema que nos vamos a encontrar es que la versión que acabamos de instalar es antigua y con limitaciones de uso importantes. Si tratamos de actualizar el programa nos dira:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ sudo youtube-dl -U
 It looks like you installed youtube-dl with a package manager, pip, setup.py or a tarball. Please use that to update.
 ```
+
 </details>
 
 Resumiendo nos viene a decir que no es posible actualizar sino es vía `APT`. 
@@ -2164,11 +2194,13 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 Y si probamos nuevamente a actualizar:
 
-<details><summary>Clic para mostrar código</summary>
+<details><summary>**Clic para mostrar código**</summary>
+
 ```bash
 pi@overclock:~$ sudo youtube-dl -U
 youtube-dl is up-to-date (2019.05.20)
 ```
+
 </details>
 
 Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
