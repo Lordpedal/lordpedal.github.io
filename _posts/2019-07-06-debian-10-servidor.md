@@ -143,7 +143,7 @@ Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos
 > AMD 64bits & INTEL 64bits  
 {: .notice--info}
 ```bash
-sudo apt-get -y install amd64-microcode
+sudo apt-get -y install amd64-microcode intel-microcode
 ```
 
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
