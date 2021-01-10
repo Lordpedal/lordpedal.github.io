@@ -63,16 +63,16 @@ Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que dur
 
 Vamos a repasar los principales atajos de teclado que encontramos en el editor [nano](https://es.wikipedia.org/wiki/GNU_Nano){:target="_blank"}:
 
- | Acción | Resultado |
- | ------ | ------ |
- | Control + O | Guardar fichero |
- | Control + X | Salir del editor |
- | Control + X | Salir del editor | 
- | Control + C | Muestra número linea donde se encuentra cursor | 
- | Control + K | Cortar linea | 
- | Control + U | Pegar linea | 
- | Control + W | Buscar en el fichero |
- | Control + W + R | Buscar y reemplazar en el fichero |
+| Acción | Resultado |
+| ------ | ------ |
+| Control + O | Guardar fichero |
+| Control + X | Salir del editor |
+| Control + X | Salir del editor | 
+| Control + C | Muestra número linea donde se encuentra cursor | 
+| Control + K | Cortar linea | 
+| Control + U | Pegar linea | 
+| Control + W | Buscar en el fichero |
+| Control + W + R | Buscar y reemplazar en el fichero |
 {: .notice--info}
 
 Añadimos privilegios sudo editando la configuración con nuestro editor *nano*:
@@ -311,13 +311,13 @@ sudo reboot
 ```
 Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los principales comandos terminal:
 
- | Comando terminal | Resultado |
- | ------ | ------ |
- | startx | Arrancar entorno gráfico (MATE) |
- | exit | Salir/Cerrar sesión TTY |
- | sudo su | Iniciar sesion como ROOT |
- | sudo reboot | Reiniciar sistema |
- | sudo poweroff | Apagar sistema |
+| Comando terminal | Resultado |
+| ------ | ------ |
+| startx | Arrancar entorno gráfico (MATE) |
+| exit | Salir/Cerrar sesión TTY |
+| sudo su | Iniciar sesion como ROOT |
+| sudo reboot | Reiniciar sistema |
+| sudo poweroff | Apagar sistema |
 {: .notice--info}
 
 ### Alías
@@ -447,6 +447,7 @@ Calculando la actualización... Hecho
             ~~   ~~
 ..."Have you mooed today?"...
 ```
+{: .notice--info}
 
 ### GRUB
 
@@ -454,10 +455,12 @@ Calculando la actualización... Hecho
 
 Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
 
-- **Completely Fair Queuing-elevator=cfq**
-- **Deadline-elevator=deadline**
-- **NOOP-elevator=noop**
-- **Anticipatory-elevator=as**
+```bash
+ - Completely Fair Queuing-elevator=cfq
+ - Deadline-elevator=deadline
+ - NOOP-elevator=noop
+ - Anticipatory-elevator=as
+```
 {: .notice--info}
 
 [Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
@@ -515,6 +518,7 @@ Encontrada imagen de linux: /boot/vmlinuz-4.19.0-5-amd64
 Encontrada imagen de memoria inicial: /boot/initrd.img-4.19.0-5-amd64
 hecho
 ```
+{: .notice--info}
 
 Faltaría reiniciar el Servidor para aplicar los nuevos cambios:
 
@@ -635,6 +639,7 @@ sudo sensors-detect
 coretemp
 #----cut here----
 ```
+{: .notice--info}
 
 Le damos nuevamente a **INTRO** para que no añada esas líneas automáticamente al fichero de [modulos](https://es.wikipedia.org/wiki/M%C3%B3dulo_de_n%C3%BAcleo){:target="_blank"} ya que las agregaremos manualmente para evitar posibles fallos de incompatibilidad, para ello editamos el fichero:
 
@@ -661,6 +666,7 @@ pi@overclock:~$ cat /etc/modules
 # Chip drivers
 coretemp
 ```
+{: .notice--info}
 
 Recomiendo reiniciar el Servidor para activar los cambios:
 
@@ -691,6 +697,7 @@ Core 1:         +30.0°C  (high = +84.0°C, crit = +100.0°C)
 Core 2:         +29.0°C  (high = +84.0°C, crit = +100.0°C)
 Core 3:         +27.0°C  (high = +84.0°C, crit = +100.0°C)
 ```
+{: .notice--info}
 
 ####  $USER/.BASHRC
 
@@ -778,6 +785,7 @@ Temperatura Sistema..: 32.0ºC
 
 pi@overclock:~$
 ```
+{: .notice--info}
 
 ## Redes
 
@@ -802,6 +810,7 @@ Y entre los valores que muestra el comando me quedo con la siguiente informació
         inet 192.168.1.250/24 brd 192.168.1.255 scope global ens33
         valid_lft forever preferred_lft forever
 ```
+{: .notice--info}
 
 Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){:target="_blank"}.
 
@@ -890,6 +899,8 @@ Y vemos los cambios realizados:
         inet 192.168.1.90/24 brd 192.168.1.255 scope global br0
         valid_lft forever preferred_lft forever</pre>
 ```
+{: .notice--info}
+
 A partir de este momento nuestra red cableada la identificaremos con el nombre de `br0` y la IP de nuestro servidor en casa sera `192.168.1.90`.
 
 ### @Lordpedal BOT
@@ -995,6 +1006,7 @@ pi@overclock:~$ crontab -l
 */1 * * * * sleep 30 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 */1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 ```
+{: .notice--info}
 
 ####  Notificación Arranque Servidor
 
@@ -1091,6 +1103,7 @@ pi@overclock:~$ crontab -l
 */1 * * * * sleep 45 && /home/pi/scripts/tshh.sh >/dev/null 2>&1
 @reboot /home/pi/scripts/overspeed.sh >/dev/null 2>&1
 ```
+{: .notice--info}
 
 ### Configurando DNS Pública
 
@@ -1112,12 +1125,15 @@ sudo nano /etc/hosts
 ```
 Buscamos la línea:
 
-> 127.0.0.1       localhost 
+```bash
+127.0.0.1       localhost 
+```
 
 Y la modificamos con nuestra cuenta en DuckDNS:
 
-> 127.0.0.1       localhost lordpedal.duckdns.org 
-
+```bash
+127.0.0.1       localhost lordpedal.duckdns.org 
+```
 
 Guardamos los cambios y salimos del editor de texto.
 
@@ -1592,7 +1608,8 @@ Información ampliada Docker: [Transmission](https://lordpedal.github.io/gnu/lin
 Vamos a entrar a configurar nuestro Servidor para compartir información con otros Sistemas Operativos de casa:
 
 ```bash
-sudo apt-get update && sudo apt-get install samba smbclient cifs-utils
+sudo apt-get update && sudo apt-get install samba \
+smbclient cifs-utils
 ```
 
 Durante la instalación se nos consultara si queremos modificar `smb.conf para usar WINS sobre DHCP`, la responderemos `NO`. Ahora vamos a crear una carpeta que usaremos para que cualquier usuario de nuestra red deje información en el servidor:
@@ -1691,14 +1708,16 @@ You will require a password to access your desktops.
 Password: *****
 Verify: *****
 ```
+{: .notice--info}
 
 Nos preguntara si queremos crear un password de visualización solo, la respuesta será `n`:
 
 ```bash
 Would you like to enter a view-only password (y/n)? n
 ```
+{: .notice--info}
 
-Y nos dira que ha creado la configuración necesaria en nuestra carpeta de usuario:
+Y nos informara que ha creado la configuración necesaria en nuestra carpeta de usuario:
 
 ```bash
 xauth:  file /home/pi/.Xauthority does not exist
@@ -1709,6 +1728,7 @@ Creating default startup script /home/pi/.vnc/xstartup
 Starting applications specified in /home/pi/.vnc/xstartup
 Log file is /home/pi/.vnc/lordpedal:1.log
 ```
+{: .notice--info}
 
 Para configurar el Servidor de VNC en nuestro Servidor tenemos que detener el programa en ejecución:
 
@@ -1819,6 +1839,7 @@ pi@lordpedal:~/.vnc$ sudo systemctl status vncserver@2
            ├─ 2171 mate-volume-control-applet
            ├─ 2200 /usr/lib/mate-panel/wnck-applet
 ```
+{: .notice--info}
            
 A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera la `IP de acceso y el puerto 5902` junto con la contraseña que le hubiesemos definido:
 
@@ -2113,6 +2134,7 @@ El problema que nos vamos a encontrar es que la versión que acabamos de instala
 pi@overclock:~$ sudo youtube-dl -U
 It looks like you installed youtube-dl with a package manager, pip, setup.py or a tarball. Please use that to update.
 ```
+{: .notice--info}
 
 Resumiendo nos viene a decir que no es posible actualizar sino es vía `APT`. 
 Para solucinar el problema vamos a forzar la actualización:
@@ -2130,6 +2152,7 @@ Y si probamos nuevamente a actualizar:
 pi@overclock:~$ sudo youtube-dl -U
 youtube-dl is up-to-date (2019.05.20)
 ```
+{: .notice--info}
 
 Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
 
