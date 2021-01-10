@@ -2139,6 +2139,14 @@ pi@overclock:~$ sudo youtube-dl -U
 youtube-dl is up-to-date (2019.05.20)
 ```
 
+<details>
+  <summary>Clic para expandir</summary>
+  ```bash
+  pi@overclock:~$ sudo youtube-dl -U
+  youtube-dl is up-to-date (2019.05.20)
+   ```
+</details>
+
 Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
 
 > Y listo!
