@@ -490,6 +490,99 @@ Es un docker que integra las siguientes herramientas:
 - [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
 - [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 
+**NOTA:** Si anteriormente teniamos instalado Pi-Hole + DNSCrypt-proxy desde la terminal (no Docker) tendremos que desinstalarlo.
+
+ 1. Realizar un backup del archivo de resolución de DNS.
+ 2. Generar un nuevo fichero de resolución de DNS: 1.1.1.1 para no perder acceso a Red.
+ 3. Desinstalar Pi-hole, las opciones a desinstalar con repuesta SI son: **`dhcpcd5 lighttpd php*`**
+ 4. Borrar el grupo del sistema pihole
+ 5. Detener y desactivar autorranque de dnscrypt-proxy
+ 6. Eliminar el servicio de autoarranque de dnscrypt-proxy
+ 7. Eliminar la carpeta y software dnscrypt-proxy
+
+```bash
+pi@overclock:~$ sudo mv /etc/resolv.conf /etc/resolv.conf.bak
+pi@overclock:~$ echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
+pi@overclock:~$ pihole uninstall
+  [?] Are you sure you would like to remove Pi-hole? [y/N] y
+  [] Root user check
+  [] Update local cache of available packages
+  [i] Existing PHP installation detected : PHP version 7.3.19-1~deb10u1
+  [i] Be sure to confirm if any dependencies should not be removed
+  [i] The following dependencies may have been added by the Pi-hole install:
+  dhcpcd5 git iproute2 whiptail dnsutils cron curl iputils-ping lsof netcat psmisc sudo unzip wget idn2 sqlite3 libcap2-bin 
+  dns-root-data libcap2 lighttpd php7.3-common php7.3-cgi php7.3-sqlite3 php7.3-xml php7.3-json php7.3-intl
+  [?] Do you wish to go through each dependency for removal? (Choosing No will leave all dependencies installed) [Y/n] Y
+  [?] Do you wish to remove dhcpcd5 from your system? [Y/N] Y
+  [i] Removed dhcpcd5
+  [?] Do you wish to remove git from your system? [Y/N] n
+  [i] Skipped git
+  [?] Do you wish to remove iproute2 from your system? [Y/N] n
+  [i] Skipped iproute2
+  [?] Do you wish to remove whiptail from your system? [Y/N] n
+  [i] Skipped whiptail
+  [?] Do you wish to remove dnsutils from your system? [Y/N] n
+  [i] Skipped dnsutils
+  [?] Do you wish to remove cron from your system? [Y/N] n
+  [i] Skipped cron
+  [?] Do you wish to remove curl from your system? [Y/N] n
+  [i] Skipped curl
+  [?] Do you wish to remove iputils-ping from your system? [Y/N] n
+  [i] Skipped iputils-ping
+  [?] Do you wish to remove lsof from your system? [Y/N] n
+  [i] Skipped lsof
+  [?] Do you wish to remove netcat from your system? [Y/N] n
+  [i] Skipped netcat
+  [?] Do you wish to remove psmisc from your system? [Y/N] n
+  [i] Skipped psmisc
+  [?] Do you wish to remove sudo from your system? [Y/N] n
+  [i] Skipped sudo
+  [?] Do you wish to remove unzip from your system? [Y/N] n
+  [i] Skipped unzip
+  [?] Do you wish to remove wget from your system? [Y/N] n
+  [i] Skipped wget
+  [?] Do you wish to remove idn2 from your system? [Y/N] n
+  [i] Skipped idn2
+  [?] Do you wish to remove sqlite3 from your system? [Y/N] n
+  [i] Skipped sqlite3
+  [?] Do you wish to remove libcap2-bin from your system? [Y/N] n
+  [i] Skipped libcap2-bin
+  [?] Do you wish to remove dns-root-data from your system? [Y/N] n
+  [i] Skipped dns-root-data
+  [?] Do you wish to remove libcap2 from your system? [Y/N] n
+  [i] Skipped libcap2
+  [?] Do you wish to remove lighttpd from your system? [Y/N] Y
+  [i] Removed lighttpd
+  [?] Do you wish to remove php7.3-common from your system? [Y/N] Y
+  [i] Removed php7.3-common
+  [i] Package php7.3-cgi not installed
+  [i] Package php7.3-sqlite3 not installed
+  [i] Package php7.3-xml not installed
+  [i] Package php7.3-json not installed
+  [i] Package php7.3-intl not installed
+  [] Removing dnsmasq config files
+  [] Removed Web Interface
+  [] Removed /etc/cron.d/pihole
+  [] Removed config files
+  [] Removed pihole-FTL
+  [] Removed pihole man page
+  [] Removed 'pihole' user
+  [] Unable to remove 'pihole' group
+
+  We're sorry to see you go, but thanks for checking out Pi-hole!
+     If you need help, reach out to us on GitHub, Discourse, Reddit or Twitter
+     Reinstall at any time: curl -sSL https://install.pi-hole.net | bash
+
+     Please reset the DNS on your router/clients to restore internet connectivity
+     Uninstallation Complete!
+
+pi@overclock:~$ sudo groupdel pihole
+pi@overclock:~$ sudo systemctl stop dncrypt-proxy && sudo systemctl disable dnscrypt-proxy
+pi@overclock:~$ cd /opt/dnscrypt-proxy && sudo ./dnscrypt-proxy -service uninstall
+pi@overclock:/opt/dnscrypt-proxy$ cd /opt && sudo rm -rf dnscrypt-proxy
+```
+{: .notice--warning}
+
 Primeramente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
 
 ```bash
