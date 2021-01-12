@@ -577,7 +577,7 @@ pi@overclock:~$ cd /opt/dnscrypt-proxy && sudo ./dnscrypt-proxy -service uninsta
 pi@overclock:/opt/dnscrypt-proxy$ cd /opt && sudo rm -rf dnscrypt-proxy
 ```
 
-Primeramente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
+Posteriormente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
 
 ```bash
 sudo apt-get update && \
