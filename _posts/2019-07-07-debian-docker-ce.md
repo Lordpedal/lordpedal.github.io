@@ -486,11 +486,11 @@ Es un proyecto en el que he estado trabajando, para segurizar nuestras conexione
 
 Es un docker que integra las siguientes herramientas:
 
-- [Pi-Hole](https://pi-hole.net/){:target="_blank"}: Conjunto de aplicaciones de entornos GNU/Linux, que van a darnos lugar a proveer una capa extra de seguridad en la web: **bloqueo de publicidad y entornos maliciosos de la red**.
+- [Pi-hole](https://pi-hole.net/){:target="_blank"}: Conjunto de aplicaciones de entornos GNU/Linux, que van a darnos lugar a proveer una capa extra de seguridad en la web: **bloqueo de publicidad y entornos maliciosos de la red**.
 - [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
 - [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 
-**NOTA:** Si anteriormente teniamos instalado Pi-Hole + DNSCrypt-proxy desde la terminal (no Docker) tendremos que desinstalarlo.
+**NOTA:** Si anteriormente teniamos instalado Pi-Hole + DNSCrypt-proxy desde la terminal (no Docker) tendremos que desinstalarlo:
 
  1. Realizar un backup del archivo de resolución de DNS.
  2. Generar un nuevo fichero de resolución de DNS: 1.1.1.1 para no perder acceso a Red.
@@ -499,6 +499,8 @@ Es un docker que integra las siguientes herramientas:
  5. Detener y desactivar autorranque de dnscrypt-proxy
  6. Eliminar el servicio de autoarranque de dnscrypt-proxy
  7. Eliminar la carpeta y software dnscrypt-proxy
+{: .notice--warning}
+
 
 ```bash
 pi@overclock:~$ sudo mv /etc/resolv.conf /etc/resolv.conf.bak
@@ -569,19 +571,11 @@ pi@overclock:~$ pihole uninstall
   [] Removed 'pihole' user
   [] Unable to remove 'pihole' group
 
-  We're sorry to see you go, but thanks for checking out Pi-hole!
-     If you need help, reach out to us on GitHub, Discourse, Reddit or Twitter
-     Reinstall at any time: curl -sSL https://install.pi-hole.net | bash
-
-     Please reset the DNS on your router/clients to restore internet connectivity
-     Uninstallation Complete!
-
 pi@overclock:~$ sudo groupdel pihole
 pi@overclock:~$ sudo systemctl stop dncrypt-proxy && sudo systemctl disable dnscrypt-proxy
 pi@overclock:~$ cd /opt/dnscrypt-proxy && sudo ./dnscrypt-proxy -service uninstall
 pi@overclock:/opt/dnscrypt-proxy$ cd /opt && sudo rm -rf dnscrypt-proxy
 ```
-{: .notice--warning}
 
 Primeramente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
 
