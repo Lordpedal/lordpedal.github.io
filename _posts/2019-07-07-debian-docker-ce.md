@@ -500,7 +500,7 @@ Es un docker que integra las siguientes herramientas:
  5. Detener y desactivar autorranque de `dnscrypt-proxy`
  6. Eliminar el servicio de autoarranque de `dnscrypt-proxy`
  7. Eliminar la carpeta y software `dnscrypt-proxy`
-{: .notice--warning}
+{: .notice--danger}
 
 ```bash
 pi@overclock:~$ sudo mv /etc/resolv.conf /etc/resolv.conf.bak
