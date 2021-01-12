@@ -490,8 +490,8 @@ Es un docker que integra las siguientes herramientas:
 - [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
 - [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 
+<div class="notice--warning" markdown="1">
 **NOTA:** Si anteriormente teniamos instalado Pi-hole + DNSCrypt-proxy desde la terminal bash, previamente tendremos que desinstalarlo:
-{: .notice--warning}
 
  1. Realizar un backup del archivo de resolución de DNS.
  2. Generar un nuevo fichero de resolución de DNS: `1.1.1.1` para no perder acceso a Red.
@@ -500,7 +500,6 @@ Es un docker que integra las siguientes herramientas:
  5. Detener y desactivar autorranque de `dnscrypt-proxy`
  6. Eliminar el servicio de autoarranque de `dnscrypt-proxy`
  7. Eliminar la carpeta y software `dnscrypt-proxy`
-{: .notice--danger}
 
 ```bash
 pi@overclock:~$ sudo mv /etc/resolv.conf /etc/resolv.conf.bak
@@ -576,6 +575,7 @@ pi@overclock:~$ sudo systemctl stop dncrypt-proxy && sudo systemctl disable dnsc
 pi@overclock:~$ cd /opt/dnscrypt-proxy && sudo ./dnscrypt-proxy -service uninstall
 pi@overclock:/opt/dnscrypt-proxy$ cd /opt && sudo rm -rf dnscrypt-proxy
 ```
+</div>
 
 Posteriormente vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos la carpeta donde alojar el proyecto:
 
