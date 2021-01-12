@@ -494,8 +494,8 @@ Es un docker que integra las siguientes herramientas:
 {: .notice--warning}
 
  1. Realizar un backup del archivo de resolución de DNS.
- 2. Generar un nuevo fichero de resolución de DNS: 1.1.1.1 para no perder acceso a Red.
- 3. Desinstalar Pi-hole, las opciones a desinstalar con repuesta SI son: **`dhcpcd5 lighttpd php*`**
+ 2. Generar un nuevo fichero de resolución de DNS: `1.1.1.1` para no perder acceso a Red.
+ 3. Desinstalar Pi-hole, las opciones a desinstalar con repuesta **SI** son: **`dhcpcd5 lighttpd php*`**
  4. Borrar el grupo del sistema pihole
  5. Detener y desactivar autorranque de dnscrypt-proxy
  6. Eliminar el servicio de autoarranque de dnscrypt-proxy
