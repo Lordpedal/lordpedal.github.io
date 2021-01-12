@@ -491,8 +491,6 @@ Es un docker que integra las siguientes herramientas:
 - [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 
 **NOTA:** Si anteriormente teniamos instalado Pi-hole + DNSCrypt-proxy desde la terminal bash, previamente tendremos que desinstalarlo:
-{: .notice--warning}
-
  1. Realizar un backup del archivo de resolución de DNS.
  2. Generar un nuevo fichero de resolución de DNS: `1.1.1.1` para no perder acceso a Red.
  3. Desinstalar Pi-hole, las opciones a desinstalar con repuesta **SI** son: **`dhcpcd5 lighttpd php*`**
