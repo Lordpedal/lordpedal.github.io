@@ -834,6 +834,169 @@ https://www.tdtchannels.com/epg/TV.xml
 
 Y hacemos click en **guardar**.
 
+** Bonus TIP**
+{: .notice--info}
+
+Opcionalmente podemos añadirle personalización de visualización CSS:
+
+```html
+/* Login Page Logo*/
+.imgLogoIcon {
+content: url(https://lordpedal.github.io/lordpedal/images/facemask.png) !important; }
+  
+/* Main Drawer Mobile Logo*/
+.adminDrawerLogo img {
+content: url(https://lordpedal.github.io/lordpedal/images/facemask.png) !important; }
+  
+/* Home Page Logo*/
+.pageTitleWithLogo {
+background-image: url(https://lordpedal.github.io/lordpedal/images/facemask.png) !important; }
+
+/* Darken background, only works with blue radiance*/
+.backgroundContainer.withBackdrop {background-color: #000000; filter: brightness(50%);}
+
+/*Adjust both "size-adjust" and "size" to modify size*/
+.headerTabs.sectionTabs {text-size-adjust: 100%;  font-size: 100%;}
+
+/*Top menu transparency*/
+.skinHeader.skinHeader-withBackground.headroom.noHomeButtonHeader {background:none; background-color:rgba(0, 0, 0, 0);}
+.skinHeader.skinHeader-withBackground.headroom {background:none; background-color:rgba(0, 0, 0, 0);}
+
+/*Narrow the login form*/
+#loginPage .readOnlyContent, #loginPage form {max-width: 22em;}
+
+/*Hide "please login" text, margin is to prevent login form moving too far up*/
+#loginPage h1 {display: none}
+#loginPage .padded-left.padded-right.padded-bottom-page {margin-top: 50px}
+
+/*Hide "manual" and "forgot" buttons*/
+#loginPage .raised.cancel.block.btnManual.emby-button {display: none}
+#loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
+
+/*Size episode preview images in a more compact way*/
+.listItemImage.listItemImage-large.itemAction.lazy {height: 140px;}
+
+/*Shrink cast thumnails, you can use just this part if you only want them smaller*/
+#castContent .card.portraitCard.personCard.card-hoverable.card-nofocustransform.card-withuserdata {width: 3.7cm; font-size: 80% !important;}
+#castContent .card.portraitCard.personCard.card-nofocustransform.card-withuserdata {width: 3.7cm; font-size: 80% !important;}
+#castContent .card.overflowPortraitCard.personCard.card-nofocustransform.card-withuserdata {width: 3.7cm; font-size: 80% !important;}
+
+/*Correct image aspect ratio behaviour, set border-radius to zero for square tiles*/
+/*#castContent .cardContent-button.cardImageContainer.coveredImage.cardContent.cardContent-shadow.itemAction.lazy {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground1.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground2.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground3.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground4.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardContent-button.cardImageContainer.coveredImage.defaultCardBackground.defaultCardBackground5.cardContent.cardContent-shadow.itemAction {background-size: cover; !important; border-radius: 1.7cm;}
+#castContent .cardScalable {width: 3.1cm !important; height: 3.1cm !important; border-radius: 1.7cm;}
+#castContent .cardOverlayContainer.itemAction {border-radius: 1.7cm;}*/
+
+/*Center the mouseover favorites and threedot menu*/
+#castContent .cardOverlayButton-br {bottom: 4%; right: 15%; width: 70%;}
+#castContent .cardOverlayButton.cardOverlayButton-hover.itemAction.paper-icon-button-light {width: 50%; vertical-align: middle;}
+#castContent .cardOverlayButton.cardOverlayButton-hover.itemAction.emby-button {width: 50%; vertical-align: middle;}
+
+@import url(https://fonts.googleapis.com/css?family=Karla:400,600,700);
+body {
+    font-family: 'Karla', sans-serif;
+}
+h1, h2, h3 {
+   font-family: 'Karla', sans-serif; text-transform: uppercase;
+   color: rgba(255, 255, 255, 0.87) !important;
+}
+h2, h3 {
+   letter-spacing: .3px;
+}
+
+}
+.emby-tab-button {
+   font-family: 'Karla' !important;
+   text-transform: uppercase;
+   letter-spacing: .5px;
+   color: rgba(255, 255, 255, 0.87) !important;
+}
+.emby-tab-button:active {
+   font-weight: 700 !important;
+   color: #cc3333 !important;
+}
+.emby-tab-button-active {
+   font-weight: 700 !important;
+   color: #cc3333 !important;
+}
+.emby-button {
+   text-transform: uppercase;
+}
+.button-link {
+   text-transform: uppercase;
+   color: #cc3333 !important;
+}
+.readOnlyContent {
+   color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* METADATA MANAGER */
+div.jstree-wholerow.jstree-wholerow-hovered {
+   background: #cc3333 !important;
+}
+div.jstree-wholerow.jstree-wholerow-clicked {
+   background: #cc3333 !important;
+}
+.button-accent-flat {
+   color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* RIBBON - COUNT/PLAYED INDICATOR */
+div.cardIndicators {
+   right: -1.5em;
+}
+div.cardIndicators div.playedIndicator.indicator {
+   margin-right: 2.2em;
+   background: #cc3333;
+}
+div.cardIndicators div.playedIndicator.indicator .indicatorIcon {
+   color: #000 !important;
+}
+div.countIndicator {
+   width: 75px;
+   transform: rotate(45deg);
+   border-radius: 0%;
+   background: #cc3333;
+   border: 1px solid rgba(255, 255, 255, 0.87);
+}
+div.listItem-content div.playedIndicator i {
+   transform: rotate(-45deg);
+}
+.listItemIndicators div.playedIndicator {
+   background: #cc3333 !important;
+}
+.listItemIndicators div.playedIndicator .indicatorIcon {
+   color: #000 !important;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+   width: 6px !important;
+}
+::-webkit-scrollbar-track {
+   background: #000 !important;
+}
+::-webkit-scrollbar-thumb {
+   background: #555 !important;
+}
+::-webkit-scrollbar-thumb:hover {
+   background: #888 !important;
+}
+
+.scrollbuttoncontainer-left {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+.scrollbuttoncontainer-right {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+```
+
 ## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
 
 TVHeadend es una aplicación servidor gestionada por un interface web que puede recibir streams de vídeo de diferentes fuentes:
