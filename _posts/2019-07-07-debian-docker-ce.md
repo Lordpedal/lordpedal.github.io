@@ -334,44 +334,69 @@ Este completo software incorpora todos los protocolos de comunicación y criptog
 
 WireGuard proporciona mejor rendimiento que el protocolo **IPsec** y que **OpenVPN** (tanto en velocidad como en latencia de las conexiones).
 
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
 ```bash
-docker run -d \
---name=Wireguard \
---cap-add=NET_ADMIN \
---cap-add=SYS_MODULE \
--e PUID=1000 \
--e PGID=1000 \
--e TZ=Europe/Madrid \
--e SERVERURL=lordpedal.duckdns.org \
--e SERVERPORT=51820 \
--e PEERS=1 \
--e PEERDNS=1.1.1.1 \
--e INTERNAL_SUBNET=10.13.13.0 \
--p 51820:51820/udp \
--v $HOME/docker/wireguard:/config \
--v /lib/modules:/lib/modules \
---sysctl="net.ipv4.conf.all.src_valid_mark=1" \
---restart=always \
-ghcr.io/linuxserver/wireguard
- ```
+mkdir -p $HOME/docker/wireguard && \
+cd $HOME/docker/wireguard
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+```bash
+cat << EOF > $HOME/docker/wireguard/docker-compose.yml
+version: "2.1"
+services:
+  wireguard:
+    image: ghcr.io/linuxserver/wireguard
+    container_name: Wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - SERVERURL=lordpedal.duckdns.org
+      - SERVERPORT=51820
+      - PEERS=1
+      - PEERDNS=1.1.1.1
+      - INTERNAL_SUBNET=10.13.13.0
+      - ALLOWEDIPS=0.0.0.0/0
+    volumes:
+      - '~/docker/wireguard:/config'
+      - '/lib/modules:/lib/modules'
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: always
+EOF
+```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-p 51820/udp` | Puerto comunicación y protocolo
-| `-e PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-e SERVERURL=lordpedal.duckdns.org` | IP externa (nuestra DNS pública), si no tienes ninguna puedes usar la variable auto, entonces el contenedor tratata de determinar tu IP externa de forma automatica |
-| `-e SERVERPORT=51820` | Puerto externo para el host de Docker. Usado en el servidor |
-| -`e PEERS=1` | Numero de clientes VPN a crear.  Puedes usar el valor que necesites |
-| `-e PEERDNS=1.1.1.1` | Servidor de DNS a usar, en el caso he configurado el de Cloudflare `1.1.1.1`, si el valor especificado es auto, entonces se usaran las DNS de CoreDNS |
-| `-e INTERNAL_SUBNET=10.13.13.0` | Rango de subred interna para la comunicación entre el servidor y los clientes |
-| `-v $HOME/docker/wireguard:/config` | Carpeta donde alojaremos los clientes (peers) creados |
-| `-v /lib/modules:/lib/modules` | Mapea los modulos de nuestro sistema al contenedor |
+| `-51820:51820/udp` | Puerto comunicación y protocolo
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `SERVERURL=lordpedal.duckdns.org` | IP externa (nuestra DNS pública), si no tienes ninguna puedes usar la variable auto, entonces el contenedor tratata de determinar tu IP externa de forma automatica |
+| `SERVERPORT=51820` | Puerto externo para el host de Docker. Usado en el servidor |
+| `PEERS=1` | Numero de clientes VPN a crear.  Puedes usar el valor que necesites |
+| `PEERDNS=1.1.1.1` | Servidor de DNS a usar, en el caso he configurado el de Cloudflare `1.1.1.1`, si el valor especificado es auto, entonces se usaran las DNS de CoreDNS |
+| `INTERNAL_SUBNET=10.13.13.0` | Rango de subred interna para la comunicación entre el servidor y los clientes |
+| `$HOME/docker/wireguard:/config` | Carpeta donde alojaremos los clientes (peers) creados |
+| `/lib/modules:/lib/modules` | Mapea los modulos de nuestro sistema al contenedor |
 | `--sysctl="...` | Requerido para el modo cliente. Si lo agregamos a sysctl.conf del sistema no sería necesario ejecutar esta orden |
 {: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
 
 Tras haber lanzado el servicio, navegamos a la carpeta donde se han creado los clientes de la *VPN*, si te fijas entre los ficheros dispones de uno de imagen que es un código [QR](https://es.wikipedia.org/wiki/C%C3%B3digo_QR){:target="_blank"}. Para facilitar por ejemplo la integración con la **App** de tu dispositivos móvil.
 
@@ -699,7 +724,8 @@ Vamos a detallar como personalizar la creación y la posibilidad de utilizar la 
 En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/jellyfin
+mkdir -p $HOME/docker/jellyfin{config,cache} && \
+cd $HOME/docker/jellyfin
 ```
 
 Consultamos el dispositivo de video disponibles en el sistema, para poder habilitar la aceleración por hardware, anotamos la ruta que posteriormente usaremos:
@@ -730,41 +756,56 @@ crw-rw---- 1 root video 226, 64 sep 2 17:59 controlD64
 crw-rw---- 1 root video 226, 128 sep 2 17:59 renderD128
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio para un Procesador de PC 64bits:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
---name=Jellyfin \
--e UID=1000 \
--e GID=1000 \
--p 8096:8096 \
---device /dev/dri/renderD128:/dev/dri/renderD128 \
---device /dev/dri/card0:/dev/dri/card0 \
--v /media/rednas/NAS/LXC:/media \
--v $HOME/docker/jellyfin/config:/config \
--v $HOME/docker/jellyfin/cache:/cache \
---restart=always \
-ghcr.io/linuxserver/jellyfin
+cat << EOF > $HOME/docker/jellyfin/docker-compose.yml
+version: "2.1"
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: Jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - '~/docker/jellyfin:/config'
+      - '/media/rednas/NAS/LXC:/data'
+    ports:
+      - 8096:8096
+      - 7359:7359/udp #Opcional_Red_Local
+      - 1900:1900/udp #Opcional_Descubrimiento_DLNA
+    devices:
+      - /dev/dri:/dev/dri #Opcional_Aceleracion_Video
+    restart: always
+EOF
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-p 8096:8096` | Puerto de acceso Web `8096` |
-| `--device /dev/dri/renderD128` | Ruta resultante de consulta: `ls -l /dev/dri/render*` |
-| `--device /dev/card0` | Ruta resultante de consulta: `ls -l /dev/dri/card*` |
-| `-v /media/rednas/NAS/LXC` | Ruta donde tenemos almacenado el contenido multimedia y compartimos en Jellyfin |
-| `-v $HOME/docker/jellyfin/config` | Ruta donde almacenaremos la **configuración** |
-| `-v $HOME/docker/jellyfin/cache` | Ruta donde almacenaremos la **cache** |
-| `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Jellyfin |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `8096:8096` | Puerto de acceso Web `8096` |
+| `7359:7359` | Puerto descubrimiento Red Local **(Opcional)** |
+| `1900:1900` | Puerto descubrimiento DLNA **(Opcional)** |
+| `/dev/dri:/dev/dri` | Aceleración Hardware Intel |
+| `/media/rednas/NAS/LXC:/data` | Ruta donde tenemos almacenado el contenido multimedia y compartimos en Jellyfin |
+| `~/docker/jellyfin:/config` | Ruta donde almacenaremos la **configuración** |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Jellyfin |
 {: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la `http://ip_Servidor:8096` para iniciar el asistente de configuración.
 
-Para habilitar acceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
+Para habilitar aceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
 
 Panel de Control -> Reproducción -> Video Acceleration API (VAAPI)
 {: .notice--info}
@@ -1823,7 +1864,8 @@ Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
 Vamos a crear las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/calibre
+mkdir -p $HOME/docker/calibre && \
+cd $HOME/docker/calibre
 ```
 
 A continuación, vamos a crear una contraseña codificada en formato md5 para poder acceder a la gestión remota, recuerda sustituir la palabra contraseña por la contraseña que quieras usar:
@@ -1839,37 +1881,50 @@ pi@overclock:~$ echo -n calibre | openssl md5
 (stdin)= fccc8f9fde7b6108c5f1932d7e9da5b1
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
---name=Calibre \
--e PUID=1000 \
--e PGID=1000 \
--e TZ=Europe/Madrid \
--e GUAC_USER=calibre \
--e GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 `#MD5` \
--p 8085:8080 \
--p 8086:8081 \
--v $HOME/docker/calibre/config:/config \
---restart=always \
-ghcr.io/linuxserver/calibre
+cat << EOF > $HOME/docker/calibre/docker-compose.yml
+version: "2.1"
+services:
+  calibre:
+    image: ghcr.io/linuxserver/calibre
+    container_name: Calibre
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - GUAC_USER=calibre
+      - GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 #Clave MD5
+    volumes:
+      - '~/docker/calibre/config:/config'
+    ports:
+      - 8085:8080
+      - 8086:8081
+    restart: always
+EOF
 ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-e GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
-| `-e GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
-| `-p 8085:8080` | Puerto de acceso Escritorio `8085` |
-| `-p 8086:8081` | Puerto configuración Servidor `8086` |
-| `-v $HOME/docker/calibre/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
-|  `--restart=always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
+| `GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
+| `$HOME/docker/calibre/config:/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
+| `8085:8080` | Puerto de acceso Escritorio `8085` |
+| `8086:8081` | Puerto configuración Servidor `8086` |
+|  `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
 {: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
 
 Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
 
