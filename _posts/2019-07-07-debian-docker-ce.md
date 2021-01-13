@@ -834,7 +834,7 @@ https://www.tdtchannels.com/epg/TV.xml
 
 Y hacemos click en **guardar**.
 
-** Bonus TIP**
+**Bonus TIP**
 {: .notice--info}
 
 Opcionalmente podemos añadirle personalización de visualización CSS:
