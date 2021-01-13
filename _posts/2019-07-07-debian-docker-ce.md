@@ -1763,7 +1763,7 @@ Vamos a preparar el entorno, en primer lugar satisfacemos dependencias y creamos
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install wget && \
-mkdir -p $HOME/docker/minidlna/{Descargas/Musica/Videos/Imagenes} && \
+mkdir -p $HOME/docker/minidlna/{Descargas,Musica,Videos,Imagenes} && \
 cd $HOME/docker/minidlna
 ```
 
