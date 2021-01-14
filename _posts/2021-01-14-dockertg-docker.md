@@ -39,8 +39,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TELEGRAM_NOTIFIER_BOT_TOKEN=289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA #Token_Telegram
-      - TELEGRAM_NOTIFIER_CHAT_ID=79593223 #ID_Telegram
+      - TELEGRAM_NOTIFIER_BOT_TOKEN=289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA
+      - TELEGRAM_NOTIFIER_CHAT_ID=79593223
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
