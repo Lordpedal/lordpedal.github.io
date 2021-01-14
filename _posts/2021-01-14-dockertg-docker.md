@@ -53,8 +53,8 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | ------ | ------ |
 | `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `TELEGRAM_NOTIFIER_BOT_TOKEN=289352425:...` | Añadimos el Token de nuestro Bot Telegram |
-| `TELEGRAM_NOTIFIER_CHAT_ID=79593223` | Añadimos el ID de nuestro Telegram, se puede consultar en [@Lordpedalbot](https://t.me/lordpedalbot){:target="_blank"} |
+| `TELEGRAM_NOTIFIER_BOT_TOKEN=289352425:...` | Token de nuestro Bot Telegram |
+| `TELEGRAM_NOTIFIER_CHAT_ID=79593223` | Cambiamos por nuestro ID Telegram, se puede consultar en [@Lordpedalbot](https://t.me/lordpedalbot){:target="_blank"} |
 | `/var/run/docker.sock:/var/run/docker.sock:ro` | Ruta donde lee la configuración Dockers |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
