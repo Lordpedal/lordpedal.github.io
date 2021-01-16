@@ -18,9 +18,15 @@ toc_icon: "cog"
 {: .full}
 
 <div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/rpios.mp4" type="video/mp4" />
+       <source src="{{ site.baseurl }}/assets/videos/rpios.webm"  type="video/webm"  />
+   </video>
+</div>
+
+<div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/sshrpi.mp4" type="video/mp4" />
-       <source src="{{ site.baseurl }}/assets/videos/sshrpi.ogv" type="video/ogg" />
        <source src="{{ site.baseurl }}/assets/videos/sshrpi.webm"  type="video/webm"  />
    </video>
 </div>
