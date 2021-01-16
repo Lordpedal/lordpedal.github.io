@@ -1,5 +1,5 @@
 ---
-title:  "Raspberry 4: Servidor ARM"
+title:  "Raspberry Pi 4B+: Servidor ARM"
 date:   2021-01-16 10:00:00 -0300
 last_modified_at: 2021-01-16T11:00:00-05:00
 categories:
