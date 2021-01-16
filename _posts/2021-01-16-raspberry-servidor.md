@@ -25,17 +25,4 @@ toc_icon: "cog"
    </video>
 </div>
 
-
-<figure class="large">
-    <div class="lordvideo">
-       <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-           <source src="{{ site.baseurl }}/assets/videos/sshrpi.mp4" type="video/mp4" />
-           <source src="{{ site.baseurl }}/assets/videos/sshrpi.ogv" type="video/ogg" />
-           <source src="{{ site.baseurl }}/assets/videos/sshrpi.webm"  type="video/webm"  />
-       </video>
-    </div>
-<figcaption>Habilitar SSH</figcaption>
-</figure>
-
-
 > Entrada en desarrollo
