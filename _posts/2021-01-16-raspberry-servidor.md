@@ -17,6 +17,8 @@ toc_icon: "cog"
 ![RPi]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
 {: .full}
 
+## Grabar SD
+
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/rpios.mp4" type="video/mp4" />
@@ -24,8 +26,10 @@ toc_icon: "cog"
    </video>
 </div>
 
+## SSH
+
 <div class="lordvideo">
-   <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/sshrpi.mp4" type="video/mp4" />
        <source src="{{ site.baseurl }}/assets/videos/sshrpi.webm"  type="video/webm"  />
    </video>
