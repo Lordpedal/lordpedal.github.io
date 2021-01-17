@@ -273,10 +273,11 @@ lzip xz-utils mpack arj cabextract
 Otro conjunto de **utilidades adicionales** a instalar que necesitaremos para futuros usos son:
 
 ```bash
-instalar mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
-hfsplus build-essential automake libtool uuid-dev psmisc yasm cvs \
-subversion tofrodos git-core subversion dos2unix make gcc mercurial \
-automake cmake dpkg-dev fakeroot pbuilder dh-make debhelper devscripts
+instalar mc htop curl git wget curl dnsutils ntfs-3g hfsprogs \
+hfsplus build-essential automake libtool uuid-dev psmisc yasm \
+subversion tofrodos git-core subversion dos2unix make mercurial \
+gcc automake cmake dpkg-dev fakeroot pbuilder dh-make debhelper \
+cvs devscripts bc
 ```
 
 > Entrada en desarrollo
