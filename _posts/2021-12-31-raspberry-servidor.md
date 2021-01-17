@@ -180,7 +180,7 @@ Desconecto teclado USB y salida Monitor/TV microHDMI, ya que el resto de configu
 
 ## Sistema Base
 
-El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, en caso de haber creado otro usuario y querer trabajar con el recordad sustituir la variable pi por la de vuestro usuario..
+El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, en caso de haber creado otro usuario y querer trabajar con el recordad sustituir la variable `pi` por la de vuestro usuario.
 
 ### [Alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"}
 
