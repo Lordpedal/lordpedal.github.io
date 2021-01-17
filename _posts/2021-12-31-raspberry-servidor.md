@@ -347,4 +347,11 @@ Y recargamos el fichero `.bashrc` para visualizar los cambios:
 source $HOME/.bashc
 ```
 
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/fixrpi.mp4" type="video/mp4" />
+       <source src="{{ site.baseurl }}/assets/videos/fixrpi.webm"  type="video/webm"  />
+   </video>
+</div>
+
 > Entrada en desarrollo
