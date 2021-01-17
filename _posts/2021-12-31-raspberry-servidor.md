@@ -188,6 +188,42 @@ Los parametros de la conexión SSH seran en mi caso:
  | ------ | ------ |
  | `192.168.1.227` | `22` |
 
+### FIX RPi
+
+Tras el arranque vemos que en la terminal de SSH nos devuelve el siguiente `"error"`:
+
+```bash
+Wi-Fi is currently blocked by rfkill.
+Use raspi-config to set the country before use.
+```
+
+Volvemos a ejecutar `raspi-config`:
+
+```bash
+sudo raspi-config
+```
+
+Nos aparece en pantalla un menú de dialogo:
+
+ * `1º System Options: Configure system settings` 
+   * `S4 Hostname: Set name for this computer on a network`
+     * `rpi4b`
+ * `4º Perfomance Options: Configure perfomance settings` 
+   * `P2 GPU Memory: Change the amount of memory made available to the GPU`
+     * `How much memory (MB) should the GPU have? 16`
+ * `5º Localisation Options: Configure language and regional settings` 
+   * `L4 WLAN Country: Set legal wireless channels for your country`
+     * `ES Spain`
+ * `Finish`
+   * `Would you like to reboot now? YES`
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/fixrpi.mp4" type="video/mp4" />
+       <source src="{{ site.baseurl }}/assets/videos/fixrpi.webm"  type="video/webm"  />
+   </video>
+</div>
+
 ### [Alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"}
 
 Para simplificar la administración del sistema añado los siguientes alías al sistema:
@@ -236,7 +272,7 @@ actualizar && eepromfix
 En mi caso la terminal devuelve el siguiente código:
 
 ```bash
-pi@raspberrypi:~ $ actualizar && eepromfix
+pi@rpi4b:~ $ actualizar && eepromfix
 Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias
 Leyendo la información de estado... Hecho
@@ -346,12 +382,5 @@ Y recargamos el fichero `.bashrc` para visualizar los cambios:
 ```bash
 source $HOME/.bashc
 ```
-
-<div class="lordvideo">
-   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
-       <source src="{{ site.baseurl }}/assets/videos/fixrpi.mp4" type="video/mp4" />
-       <source src="{{ site.baseurl }}/assets/videos/fixrpi.webm"  type="video/webm"  />
-   </video>
-</div>
 
 > Entrada en desarrollo
