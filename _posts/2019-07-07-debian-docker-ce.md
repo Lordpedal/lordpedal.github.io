@@ -91,7 +91,7 @@ Volvemos a actualizar repositorios del sistema e instalamos Docker:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io && \
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io python3-pip && \
 sudo pip3 install docker-compose
 ```
 
@@ -229,7 +229,7 @@ Volvemos a actualizar repositorios del sistema e instalamos Docker:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install docker-ce && \
+sudo apt-get -y install docker-ce python3-pip && \
 sudo pip3 install docker-compose
 ```
 

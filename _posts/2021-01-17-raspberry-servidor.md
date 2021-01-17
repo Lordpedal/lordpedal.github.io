@@ -1,7 +1,7 @@
 ---
 title:  "Raspberry Pi 4B+: Servidor ARM"
-date:   2019-12-31 10:00:00 -0300
-last_modified_at: 2019-12-31T11:00:00-05:00
+date:   2021-01-17 23:30:00
+last_modified_at: 2021-01-17T23:45:00
 categories:
   - GNU/Linux
 tags:
@@ -414,7 +414,7 @@ Actualizamos repositorios e instalamos dependencias:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install ifenslave wpasupplicant \
+instalar ifenslave wpasupplicant \
 bridge-utils net-tools ifupdown
 ```
 
@@ -497,7 +497,7 @@ iface br0 inet dhcp
 EOF
 ```
 
-**NOTA:** Al ejecutar el comando previo hemos habilitado la IP dinámica de **`br0`**, en caso de querarla estática (*recomendado*) tendras que editar el fichero con privilegios root (*sudo*) e intercambiar comentarios (#)
+**TIP:** Al ejecutar el comando previo hemos habilitado la IP dinámica de **`br0`**, en caso de querarla estática (*recomendado*) tendras que editar el fichero con privilegios root (*sudo*) e intercambiar comentarios (#)
 {: .notice--warning}
 
 Desactivamos el gestor de conexiones que usa la Raspberry por defecto (`dhcpcd`), para evitar conflictos en arranque:
@@ -536,7 +536,14 @@ bond0            UP
 br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64 
 ```
 
-TIP: Lo que hemos hecho es tener levantadas las redes eth0 & wlan0 para que en caso de fallo de la conexión se pueda balancear la carga gracias a la red bond0 y esa a su vez regulada mediante un puente br0.
+**NOTA:** Lo que hemos hecho es tener levantadas las redes eth0 & wlan0 para que en caso de fallo de la conexión se pueda balancear la carga gracias a la red bond0 y esa a su vez regulada mediante un puente br0.
 {: .notice--info}
 
-> Entrada en desarrollo
+### P3DNS
+
+Antes de continuar debemos de realizar estos pasos:
+
+1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-arm){:target="_blank"}
+2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){:target="_blank"}
+
+> Y listo!
