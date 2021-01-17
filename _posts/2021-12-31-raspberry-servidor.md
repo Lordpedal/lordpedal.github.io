@@ -120,7 +120,7 @@ Nos aparece en pantalla un menú de dialogo:
 
  * `3º Interface Options: Configure connections to peripherals` 
    * `P2 SSH: Enable/disable remote command line access using SSH`
-     * `¿Quieres habilitar el servidor SSH?``**YES**`
+     * `¿Quieres habilitar el servidor SSH?: YES`
  * `Finish`
 
 <div class="lordvideo">
