@@ -330,7 +330,7 @@ IP conexion por SSH..: $(echo $SSH_CLIENT | awk '{ print $1}')
 $(tput sgr0)"
 ```
 
-Guardamos el fichero (**Control + O**), salimos del editor (**Control + X**) y creamos el siguiente fichero:
+Guardamos el fichero (**Control + O**), salimos del editor (**Control + X**) y ejecutamos el siguiente comando:
 
 ```bash
 cat << EOF > $HOME/.inputrc
