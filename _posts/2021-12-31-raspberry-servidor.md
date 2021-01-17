@@ -294,4 +294,57 @@ gcc automake cmake dpkg-dev fakeroot pbuilder dh-make debhelper \
 cvs devscripts bc
 ```
 
+### [$USER/.BASHRC](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#userbashrc){:target="_blank"}
+
+Editamos el fichero .bashrc de neustro usuario:
+
+```bash
+nano $HOME/.bashrc
+```
+
+Añadimos al final del fichero el siguiente contenido:
+
+```bash
+# MOTD
+show_temp(){
+    echo "`cat /sys/class/thermal/thermal_zone0/temp`/1000"|bc -q
+}
+#
+let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
+#let secs=$((${upSeconds}%60))
+let mins=$((${upSeconds}/60%60))
+let horas=$((${upSeconds}/3600%24))
+let dias=$((${upSeconds}/86400))
+UPTIME=`printf "%d dias, %02dh%02dm%02ds" "$dias" "$horas" "$mins" "$secs"`
+read one five fifteen rest < /proc/loadavg
+#
+echo "$(tput setaf 2)
+`date +"%A, %e %B %Y, %r"`
+`uname -srmo`$(tput setaf 1)
+Tiempo de actividad..: ${UPTIME}
+Memoria RAM..........: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
+Promedios de carga...: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
+Procesos activos.....: `ps ax | wc -l | tr -d " "`
+Temperatura Sistema..: $(show_temp)ºC
+IP conexion por SSH..: $(echo $SSH_CLIENT | awk '{ print $1}')
+$(tput sgr0)"
+```
+
+Guardamos el fichero (**Control + O**), salimos del editor (**Control + X**) y creamos el siguiente fichero:
+
+```bash
+cat << EOF > $HOME/.inputrc
+# Flecha arriba
+"\e[A":history-search-backward
+# Flecha abajo
+"\e[B":history-search-forward
+EOF
+```
+
+Y recargamos el fichero `.bashrc` para visualizar los cambios:
+
+```bash
+source $HOME/.bashc
+```
+
 > Entrada en desarrollo
