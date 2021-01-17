@@ -233,10 +233,15 @@ sudo apt-get -y install docker-ce python3-pip && \
 sudo pip3 install docker-compose
 ```
 
-Confirmamos la creación del grupo Docker y activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+Confirmamos la creación del grupo Docker:
 
 ```bash
-sudo groupadd docker && \
+sudo groupadd docker
+```
+
+Activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+
+```bash
 sudo usermod -aG docker $(whoami)
 ```
 
