@@ -16,7 +16,7 @@ toc_icon: "cog"
 
 ![RPi]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
 {: .full}
-Anteriormente vimos como crear un [**Servidor doméstico con base de procesador PC (AMD64)**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/){:target="_blank"} en esta ocasión vamos a realizar la misma operación pero tomando como base una **placa SBC con procesador ARM**.
+Anteriormente vimos como crear un [**Servidor doméstico con base de procesador PC 64bits**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/){:target="_blank"} en esta ocasión vamos a realizar la misma operación pero tomando como base una **placa SBC con procesador ARM**.
 
 La placa elegida para el **mini-Servidor** es una `Raspberry Pi 4B+ 4Gb`, aunque el procedimiento también es compatible con modelos anteriores y otros modelos de placas SBC.
 
