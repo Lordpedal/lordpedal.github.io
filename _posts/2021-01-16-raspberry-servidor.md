@@ -45,9 +45,10 @@ En mi caso voy a recomendar la [**Raspberry Pi OS Lite**](https://downloads.rasp
 
 Una vez bajada la imagen ISO comprimida ya solo nos queda grabarla en la tarjeta microSD por ejemplo con:
 
- * Raspberry Pi Imager: https://www.raspberrypi.org/software/
- * Balena Etcher: https://www.balena.io/etcher/
- * Win32 Disk Imager: https://sourceforge.net/projects/win32diskimager/
+ * [Raspberry Pi Imager](https://www.raspberrypi.org/software/){:target="_blank"}
+ * [Balena Etcher](https://www.balena.io/etcher/){:target="_blank"}
+ * [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/){:target="_blank"}
+{: .notice--info}
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -63,7 +64,6 @@ Una vez finalizada la grabación de la tarjeta microSD esta la insertamos en la 
 Durante el proceso de arranque, la **partición root** de la tarjeta se expandira a la totalidad del espacio libre de la misma y veremos una pantalla de login donde se nos solicita un usuario y contraseña:
 
  | Usuario | Contraseña |
- | ------ | ------ |
  | `pi` | `raspberry` |
 {: .notice--success}
 
