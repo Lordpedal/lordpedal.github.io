@@ -176,7 +176,13 @@ Tras haber realizado estos pasos, apago la Raspberry Pi:
 sudo poweroff
 ```
 
-Desconecto teclado USB y salida Monitor/TV microHDMI, ya que el resto de configuración voy a realizarla por SSH, al ser un servidor headless.
+Desconecto teclado USB y salida Monitor/TV microHDMI, ya que **el resto de configuración voy a realizarla por SSH**, al ser un servidor headless.
+
+Los parametros de la conexión SSH seran en mi caso:
+
+ | IP RPi | Puerto SSH |
+ | ------ | ------ |
+ | `192.168.1.227` | `22` |
 
 ## Sistema Base
 
