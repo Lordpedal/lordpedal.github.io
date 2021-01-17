@@ -202,10 +202,24 @@ alias apagar="sudo poweroff"
 alias instalar="sudo apt-get -y install"
 alias desinstalar="sudo apt-get -y purge"
 alias actualizar="sudo apt-get autoclean && sudo apt-get clean && sudo apt-get -y autoremove && sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get moo"
-alias enlaces="sudo nano /etc/bash.bashrc"
 alias eepromfix="sudo rpi-eeprom-update -d -a"
+alias enlaces="sudo nano /etc/bash.bashrc"
 EOF
 ```
+
+Vamos a repasar los alías creados:
+
+ | Alías | Acción |
+ | ------ | ------ |
+ | `reiniciar` | Reiniciar la RPi |
+ | `apagar` | Apagar la RPi |
+ | `instalar` | Instala paquete/s de repositorios |
+ | `desinstalar` | Desinstala paquete/s de repositorios |
+ | `actualizar` | Actualiza Sistema Operativo |
+ | `eepromfix` | Actualiza el firmware del bootloader RPi |
+ | `enlaces` | Abre en el editor nano el fichero de configuración de alías |
+{: .notice--info}
+
 
 Para no tener que reiniciar/cerrar el sistema, recargo el fichero con las nuevas configuraciones:
 
