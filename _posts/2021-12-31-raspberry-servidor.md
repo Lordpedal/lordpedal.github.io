@@ -188,7 +188,7 @@ Los parametros de la conexión SSH seran en mi caso:
  | ------ | ------ |
  | `192.168.1.227` | `22` |
 
-### Fix RPi (Memoria & Wifi)
+### Fix RPi - Memoria & Wifi
 
 Tras el arranque vemos que en la terminal de SSH nos devuelve la siguiente **advertencia**:
 
