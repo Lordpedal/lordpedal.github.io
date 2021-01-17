@@ -296,7 +296,7 @@ cvs devscripts bc
 
 ### [$USER/.BASHRC](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#userbashrc){:target="_blank"}
 
-Editamos el fichero .bashrc de neustro usuario:
+Editamos el fichero .bashrc de nuestro usuario:
 
 ```bash
 nano $HOME/.bashrc
