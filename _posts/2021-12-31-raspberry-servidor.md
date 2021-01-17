@@ -31,7 +31,7 @@ Vamos a realizar un pequeño repaso de las especificaciones técnicas del dispos
  | **Memoria** | 1 GB / 2 GB / **4 GB** / 8GB LPDDR4 SDRAM |
  | **Conectividad** | Bluetooth 5.0, Wi-Fi 802.11ac, Gigabit Ethernet |
  | **Almacenamiento** | microSD |
- | **Puertos** | 2x micro HDMI, 2xUSB2.0, 2xUSB3.0, 1xRJ45, GPIO 40 pines, 1xCSI (Cámara), 1xDSI (Pantalla Táctil), 1xJack, 1xUSB-C (Alimentación) |
+ | **Puertos** | 2x microHDMI, 2xUSB2.0, 2xUSB3.0, 1xRJ45, GPIO 40 pines, 1xCSI (Cámara), 1xDSI (Pantalla Táctil), 1xJack, 1xUSB-C (Alimentación) |
  | **Dimensiones** | 88mm x 58mm x 19.5mm, 46g |
 {: .notice--info}
 
@@ -59,7 +59,7 @@ Una vez bajada la imagen ISO comprimida ya solo nos queda grabarla en la tarjeta
 
 ## Primer arranque RPi
 
-Una vez finalizada la grabación de la tarjeta microSD esta la insertamos en la Raspberry Pi y conectamos un cable de red a la toma RJ45, un teclado USB, cable mini-HDMI a un Monitor/TV y alimentamos la placa por el conector USB-C.
+Una vez finalizada la grabación de la tarjeta microSD esta la insertamos en la Raspberry Pi y conectamos un cable de red a la toma RJ45, un teclado USB, cable microHDMI a un Monitor/TV y alimentamos la placa por el conector USB-C.
 
 Durante el proceso de arranque, la **partición root** de la tarjeta se expandira a la totalidad del espacio libre de la misma y veremos una pantalla de login donde se nos solicita un usuario y contraseña:
 
@@ -176,6 +176,6 @@ Tras haber realizado estos pasos, apago la Raspberry Pi:
 sudo poweroff
 ```
 
-Desconecto teclado USB y salida Monitor/TV mini-HDMI, ya que el resto de configuración voy a realizarla por SSH, al ser un servidor headless. Es decir, estamos hablando de un dispositivo que no dispone de un monitor o pantalla en el que mostrar su información, por lo que es necesario que nos conectemos a él de forma remota para poder usarlo. 
+Desconecto teclado USB y salida Monitor/TV microHDMI, ya que el resto de configuración voy a realizarla por SSH, al ser un servidor headless.
 
 > Entrada en desarrollo
