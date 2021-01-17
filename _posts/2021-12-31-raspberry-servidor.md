@@ -57,7 +57,11 @@ Una vez bajada la imagen ISO comprimida ya solo nos queda grabarla en la tarjeta
    </video>
 </div>
 
-## Primer arranque RPi
+## Sistema Base
+
+El usuario de sistema sobre el que realizare la guía es `pi` que por defecto es el de Raspberry Pi.
+
+### Primer arranque RPi
 
 Una vez finalizada la grabación de la tarjeta microSD esta la insertamos en la Raspberry Pi y conectamos un cable de red a la toma RJ45, un teclado USB, cable microHDMI a un Monitor/TV y alimentamos la placa por el conector USB-C.
 
@@ -183,10 +187,6 @@ Los parametros de la conexión SSH seran en mi caso:
  | IP RPi | Puerto SSH |
  | ------ | ------ |
  | `192.168.1.227` | `22` |
-
-## Sistema Base
-
-El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, en caso de haber creado otro usuario y querer trabajar con el recordad sustituir la variable `pi` por la de vuestro usuario.
 
 ### [Alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"}
 
