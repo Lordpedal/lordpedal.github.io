@@ -1,7 +1,7 @@
 ---
 title:  "Raspberry Pi 4B+: Servidor ARM"
-date:   2021-12-31 10:00:00 -0300
-last_modified_at: 2021-12-31T11:00:00-05:00
+date:   2019-12-31 10:00:00 -0300
+last_modified_at: 2019-12-31T11:00:00-05:00
 categories:
   - GNU/Linux
 tags:
