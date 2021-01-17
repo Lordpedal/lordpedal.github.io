@@ -130,6 +130,46 @@ Nos aparece en pantalla un menú de dialogo:
    </video>
 </div>
 
+A continuación configuro franja horaria sistema con el asistente:
+
+```bash
+sudo dpkg-reconfigure tzdata
+```
+
+Ejemplo salida comando:
+
+```bash
+pi@raspberrypi:~ $ sudo dpkg-reconfigure tzdata
+
+Current default time zone: 'Europe/Madrid'
+Local time is now:      Sun Jan 17 08:19:36 CET 2021.
+Universal Time is now:  Sun Jan 17 08:19:36 UTC 2021.
+```
+
+Configuro idioma sistema con el siguiente asistente:
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+Para poner nuestro sistema en Español, tenemos que marcar las siguientes opciones en el asistente configuración de locales y deseleccionar cualquier otra que pudiese estar activa:
+
+- [ ] en_GB.UTF-8 UTF-8
+- [x] es_ES.UTF-8 UTF-8
+
+Para la configuración regional predeterminada seleccionamos:
+
+- [x] es-ES.UTF-8
+
+Ejemplo salida comando:
+
+```bash
+pi@raspberrypi:~ $ sudo dpkg-reconfigure locales
+Generating locales (this might take a while)...
+  es_ES.UTF-8... done
+Generation complete.
+```
+
 Tras haber realizado estos pasos, apago la Raspberry Pi:
 
 ```bash
