@@ -178,4 +178,81 @@ sudo poweroff
 
 Desconecto teclado USB y salida Monitor/TV microHDMI, ya que el resto de configuración voy a realizarla por SSH, al ser un servidor headless.
 
+## Sistema Base
+
+El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, en caso de haber creado otro usuario y querer trabajar con el recordad sustituir la variable pi por la de vuestro usuario..
+
+### [Alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"}
+
+Para simplificar la administración del sistema añado los siguientes alías al sistema:
+
+```bash
+cat << EOF | sudo tee -a /etc/bash.bashrc
+#
+# Alias
+#
+alias reiniciar="sudo reboot"
+alias apagar="sudo poweroff"
+alias instalar="sudo apt-get -y install"
+alias desinstalar="sudo apt-get -y purge"
+alias actualizar="sudo apt-get autoclean && sudo apt-get clean && sudo apt-get -y autoremove && sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get moo"
+alias enlaces="sudo nano /etc/bash.bashrc"
+alias eepromfix="sudo rpi-eeprom-update -d -a"
+EOF
+```
+
+Para no tener que reiniciar/cerrar el sistema, recargo el fichero con las nuevas configuraciones:
+
+```bash
+source /etc/bash.bashrc
+```
+
+Vamos a actualizar el sistema y el firmware del bootlader de la Raspberry Pi con los alías:
+
+```bash
+actualizar && eepromfix
+```
+
+En mi caso la terminal devuelve el siguiente código:
+
+```bash
+pi@raspberrypi:~ $ actualizar && eepromfix
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+Obj:1 http://archive.raspberrypi.org/debian buster InRelease
+Obj:2 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Leyendo lista de paquetes... Hecho
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Calculando la actualización... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias
+Leyendo la información de estado... Hecho
+Calculando la actualización... Hecho
+0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
+                 (__)
+                 (oo)
+           /------\/
+          / |    ||
+         *  /\---/\
+            ~~   ~~
+..."Have you mooed today?"...
+BCM2711 detected
+Dedicated VL805 EEPROM detected
+BOOTLOADER: up-to-date
+CURRENT: jue sep  3 12:11:43 UTC 2020 (1599135103)
+ LATEST: jue sep  3 12:11:43 UTC 2020 (1599135103)
+ FW DIR: /lib/firmware/raspberrypi/bootloader/default
+VL805: up-to-date
+CURRENT: 000138a1
+ LATEST: 000138a1
+```
+
 > Entrada en desarrollo
