@@ -383,4 +383,163 @@ Y recargamos el fichero `.bashrc` para visualizar los cambios:
 source $HOME/.bashc
 ```
 
+## Redes
+
+Tras haber configurado nuestro **sistema base**, vamos a configurar y segurizar nuestra red doméstica.
+
+### Configurando Red
+
+Vamos a habilitar la redicción de puertos sobre IPv4 que posteriormente usaremos para entre otros configurar otros servicios.
+
+```bash
+sudo sed -i "s/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g" "/etc/sysctl.conf"
+```
+
+Recargamos las variables en el sistema:
+
+```bash
+sudo sysctl -p
+```
+
+Habilitamos la carga del modulo bonding en el arranque del sistema:
+
+```bash
+cat << EOF | sudo tee -a /etc/modprobe.d/bonding.conf
+alias bond0 bonding
+options bonding mode=0 miimon=0
+EOF
+```
+
+Cargamos el modulo `bonding`:
+
+```bash
+sudo modprobe bonding
+```
+
+Actualizamos repositorios e instalamos dependencias:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install ifenslave wpasupplicant \
+bridge-utils net-tools ifupdown
+```
+
+Configuramos el acceso a la red Wifi, para ello editamos su configuración:
+
+```bash
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Añadimos el siguiente contenido, sustituyendo los valores `SSID & PSK` por los datos de nuestra conexión Wifi **respetando comillas**:
+
+```bash
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=ES
+
+network={
+ssid="Nombre_de_Wifi"
+psk="Clave_de_Wifi"
+}
+```
+
+Guardamos, salimos del editor y configuramos el fichero interfaces para definir la conexión bridge del bond:
+
+```bash
+cat << EOF | sudo tee -a /etc/network/interfaces
+#
+# Interfaz Loopback
+#
+auto lo
+iface lo inet loopback
+#
+# Interfaz Ethernet
+#
+auto eth0
+iface eth0 inet manual
+  bond-master bond0
+  bond-primary eth0 wlan0
+#
+# Interfaz Wifi
+#
+auto wlan0
+iface wlan0 inet manual
+  bond-master bond0
+  bond-primary eth0 wlan0
+  wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+#
+# Interfaz Bond
+#
+auto bond0
+iface bond0 inet manual
+  bond-slaves none
+  bond-mode active-backup
+  bond-miimon 100
+  bond-downdelay 200
+  bond-updelay 200
+#
+# Interfaz Bridge (IP dinámica)
+#
+auto br0
+iface br0 inet dhcp
+  bridge_ports bond0
+  bridge_stp off
+  bridge_fd 0
+  bridge_maxwait 0
+#
+# Interfaz Bridge (IP estática)
+#
+#auto br0
+#iface br0 inet static
+  #address 192.168.1.90
+  #netmask 255.255.255.0
+  #network 192.168.1.0
+  #broadcast 192.168.1.255
+  #gateway 192.168.1.1
+  #bridge_ports bond0
+  #bridge_stp off
+  #bridge_fd 0
+  #bridge_maxwait 0
+EOF
+```
+
+**NOTA:** Al ejecutar el comando previo hemos habilitado la IP dinámica de **`br0`**, en caso de querarla estática (*recomendado*) tendras que editar el fichero con privilegios root (*sudo*) e intercambiar comentarios (#)
+{: .notice--warning}
+
+Desactivamos el gestor de conexiones que usa la Raspberry por defecto (`dhcpcd`), para evitar conflictos en arranque:
+
+```bash
+sudo systemctl disable dhcpcd
+```
+
+Hacemos un backup de nuestro fichero de resolución DNS y configuramos uno nuevo con la `DNS de Cloudflare`:
+
+```bash
+sudo mv /etc/resolv.conf /etc/resolv.conf.bak && \
+echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
+```
+
+Reiniciamos el sistema para activar la nueva configuración de red:
+
+```bash
+reiniciar
+```
+
+Tras el reinicio comprobamos la red:
+
+```bash
+ip -br addr show
+```
+
+En mi caso me muestra el siguiente resultado:
+
+```bash
+pi@rpi4b:~ $ ip -br addr show
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             
+wlan0            UP             
+bond0            UP             
+br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64 
+```
+
 > Entrada en desarrollo
