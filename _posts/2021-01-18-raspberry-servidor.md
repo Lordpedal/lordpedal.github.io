@@ -410,12 +410,6 @@ options bonding mode=0 miimon=0
 EOF
 ```
 
-Cargamos el modulo `bonding`:
-
-```bash
-sudo modprobe bonding
-```
-
 Actualizamos repositorios e instalamos dependencias:
 
 ```bash
@@ -424,7 +418,7 @@ sudo apt-get -y install ifenslave wpasupplicant \
 bridge-utils net-tools ifupdown
 ```
 
-Configuramos el acceso a la red Wifi, para ello editamos su configuración:
+Configuramos el acceso a la red wifi, para poder **balancear carga** entre `eth0 & wlan0`:
 
 ```bash
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
@@ -541,5 +535,8 @@ wlan0            UP
 bond0            UP             
 br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64 
 ```
+
+TIP: Lo que hemos hecho es tener levantadas las redes eth0 & wlan0 para que en caso de fallo de la conexión se pueda balancear la carga gracias a la red bond0 y esa a su vez regulada mediante un puente br0.
+{: .notice--info}
 
 > Entrada en desarrollo
