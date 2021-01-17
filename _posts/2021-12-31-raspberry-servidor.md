@@ -190,7 +190,7 @@ Los parametros de la conexión SSH seran en mi caso:
 
 ### FIX RPi
 
-Tras el arranque vemos que en la terminal de SSH nos devuelve el siguiente `"error"`:
+Tras el arranque vemos que en la terminal de SSH nos devuelve la siguiente **advertencia**:
 
 ```bash
 Wi-Fi is currently blocked by rfkill.
