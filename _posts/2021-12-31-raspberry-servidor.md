@@ -261,4 +261,22 @@ CURRENT: 000138a1
  LATEST: 000138a1
 ```
 
+### Utilidades Sistema
+
+Si necesitamos **des/comprimir** algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
+
+```bash
+instalar zip unzip unace bzip2 lzop p7zip p7zip-full sharutils \
+lzip xz-utils mpack arj cabextract
+```
+
+Otro conjunto de **utilidades adicionales** a instalar que necesitaremos para futuros usos son:
+
+```bash
+instalar mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
+hfsplus build-essential automake libtool uuid-dev psmisc yasm cvs \
+subversion tofrodos git-core subversion dos2unix make gcc mercurial \
+automake cmake dpkg-dev fakeroot pbuilder dh-make debhelper devscripts
+```
+
 > Entrada en desarrollo
