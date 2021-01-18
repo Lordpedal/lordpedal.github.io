@@ -398,11 +398,11 @@ source $HOME/.bashc
 
 ### Log2RAM
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}.
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}
 
 ### ZRAM
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}.
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}
 
 ## Redes
 
