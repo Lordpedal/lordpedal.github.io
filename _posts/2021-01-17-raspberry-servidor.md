@@ -347,9 +347,9 @@ gcc automake cmake dpkg-dev fakeroot pbuilder dh-make debhelper \
 cvs devscripts bc
 ```
 
-### [$USER/.BASHRC](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#userbashrc){:target="_blank"}
+### $USER/.BASHRC
 
-Editamos el fichero .bashrc de nuestro usuario:
+Editamos el fichero [.bashrc](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#userbashrc){: .btn .btn--inverse}{:target="_blank"} de nuestro usuario:
 
 ```bash
 nano $HOME/.bashrc
