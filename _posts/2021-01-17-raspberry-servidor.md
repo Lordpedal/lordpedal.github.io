@@ -576,6 +576,6 @@ Antes de continuar debemos de realizar estos pasos:
  10. Configuramos e instalamos: [**File Browser**](https://lordpedal.github.io/docker/file-browser-docker/){:target="_blank"}, gestor de archivos vía web.
 {: .notice--primary}
 
-Más servicios [**consultar aquí**](https://lordpedal.github.io/categories/#docker){:target="_blank"}
+Más servicios consultar [`aquí`](https://lordpedal.github.io/categories/#docker){:target="_blank"}
 
 > Y listo!
