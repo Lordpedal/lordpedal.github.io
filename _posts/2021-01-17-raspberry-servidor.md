@@ -564,17 +564,17 @@ br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64
 
 Antes de continuar debemos de realizar estos pasos:
 
-1. Instalamos y configuramos: [**Docker**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-arm){:target="_blank"}
-2. Configuramos e instalamos: [**Portainer CE**](https://lordpedal.github.io/docker/portainer-docker/){:target="_blank"}, gestor de contenedores vía web.
-3. Configuramos e instalamos: [**Watchtower**](https://lordpedal.github.io/docker/watchtower-docker/){:target="_blank"}, actualizador de contenedores.
-4. Configuramos e instalamos: [**DockerTG**](https://lordpedal.github.io/gnu/linux/docker/dockertg-docker/){:target="_blank"}, notificador de cambios estado de contenedores vía Telegram.
-5. Configuramos e instalamos: [**P3DNS**](https://lordpedal.github.io/docker/p3dns-docker/){:target="_blank"}, seguridad redes y conexiones DNS.
-6. Configuramos e instalamos: [**DuckDNS**](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){:target="_blank"}, DNS externa.
-7. Configuramos e instalamos: [**Wireguard**](https://lordpedal.github.io/docker/wireguard-docker/){:target="_blank"}, VPN de gestión remota.
-8. Configuramos e instalamos: [**MiniDLNA**](https://lordpedal.github.io/docker/minidlna-docker/){:target="_blank"}, servidor de DLNA.
-9. Configuramos e instalamos: [**Transmission**](https://lordpedal.github.io/docker/transmission-docker/){:target="_blank"}, gestor de descargas P2P.
-10. Configuramos e instalamos: [**File Browser**](https://lordpedal.github.io/docker/file-browser-docker/){:target="_blank"}, gestor de archivos vía web.
-{: .notice}
+ * Instalamos y configuramos: [**Docker**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-arm){:target="_blank"}
+ * Configuramos e instalamos: [**Portainer CE**](https://lordpedal.github.io/docker/portainer-docker/){:target="_blank"}, gestor de contenedores vía web.
+ * Configuramos e instalamos: [**Watchtower**](https://lordpedal.github.io/docker/watchtower-docker/){:target="_blank"}, actualizador de contenedores.
+ * Configuramos e instalamos: [**DockerTG**](https://lordpedal.github.io/gnu/linux/docker/dockertg-docker/){:target="_blank"}, notificador de cambios estado de contenedores vía Telegram.
+ * Configuramos e instalamos: [**P3DNS**](https://lordpedal.github.io/docker/p3dns-docker/){:target="_blank"}, seguridad redes y conexiones DNS.
+ * Configuramos e instalamos: [**DuckDNS**](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){:target="_blank"}, DNS externa.
+ * Configuramos e instalamos: [**Wireguard**](https://lordpedal.github.io/docker/wireguard-docker/){:target="_blank"}, VPN de gestión remota.
+ * Configuramos e instalamos: [**MiniDLNA**](https://lordpedal.github.io/docker/minidlna-docker/){:target="_blank"}, servidor de DLNA.
+ * Configuramos e instalamos: [**Transmission**](https://lordpedal.github.io/docker/transmission-docker/){:target="_blank"}, gestor de descargas P2P.
+ * Configuramos e instalamos: [**File Browser**](https://lordpedal.github.io/docker/file-browser-docker/){:target="_blank"}, gestor de archivos vía web.
+{: .notice--success}
 
 Más servicios consultar [aquí](https://lordpedal.github.io/categories/#docker){: .btn .btn--inverse}{:target="_blank"}
 
