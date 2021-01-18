@@ -396,6 +396,14 @@ Y recargamos el fichero `.bashrc` para visualizar los cambios:
 source $HOME/.bashc
 ```
 
+### [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"}
+
+[**Ampliar información**](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} en entrada detallada.
+
+### [ZRAM](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){:target="_blank"}
+
+[**Ampliar información**](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){:target="_blank"} en entrada detallada.
+
 ## Redes
 
 Tras haber configurado nuestro **sistema base**, vamos a configurar y segurizar nuestra red doméstica.
