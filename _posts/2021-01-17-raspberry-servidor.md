@@ -122,7 +122,7 @@ sudo raspi-config
 
 Nos aparece en pantalla un menú de dialogo:
 
- * `3º Interface Options: Configure connections to peripherals` 
+ * `3 Interface Options: Configure connections to peripherals` 
    * `P2 SSH: Enable/disable remote command line access using SSH`
      * `¿Quieres habilitar el servidor SSH?: YES`
  * `Finish`
@@ -221,13 +221,13 @@ sudo raspi-config
 
 Nos aparece en pantalla un menú de dialogo:
 
- * `1º System Options: Configure system settings` 
+ * `1 System Options: Configure system settings` 
    * `S4 Hostname: Set name for this computer on a network`
      * `rpi4b`
- * `4º Perfomance Options: Configure perfomance settings` 
+ * `4 Perfomance Options: Configure perfomance settings` 
    * `P2 GPU Memory: Change the amount of memory made available to the GPU`
      * `How much memory (MB) should the GPU have? 16`
- * `5º Localisation Options: Configure language and regional settings` 
+ * `5 Localisation Options: Configure language and regional settings` 
    * `L4 WLAN Country: Set legal wireless channels for your country`
      * `ES Spain`
  * `Finish`
