@@ -396,11 +396,11 @@ Y recargamos el fichero `.bashrc` para visualizar los cambios:
 source $HOME/.bashc
 ```
 
-### [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"}
+### Log2RAM
 
 [`Ampliar información`](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} en entrada detallada.
 
-### [ZRAM](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){:target="_blank"}
+### ZRAM
 
 [`Ampliar información`](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){:target="_blank"} en entrada detallada.
 
