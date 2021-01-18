@@ -126,6 +126,7 @@ Nos aparece en pantalla un menú de dialogo:
    * `P2 SSH: Enable/disable remote command line access using SSH`
      * `¿Quieres habilitar el servidor SSH?: YES`
  * `Finish`
+{: .notice--warning}
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -229,6 +230,7 @@ Nos aparece en pantalla un menú de dialogo:
      * `ES Spain`
  * `Finish`
    * `Would you like to reboot now? YES`
+{: .notice--warning}
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
