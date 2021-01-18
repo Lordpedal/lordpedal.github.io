@@ -237,9 +237,9 @@ Nos aparece en pantalla un menú de dialogo:
    </video>
 </div>
 
-### [Alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"}
+### Alías
 
-Para simplificar la administración del sistema añado los siguientes alías al sistema:
+Para simplificar la administración del sistema añado los siguientes [`alías`](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"} al sistema:
 
 ```bash
 cat << EOF | sudo tee -a /etc/bash.bashrc
