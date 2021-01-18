@@ -239,7 +239,7 @@ Nos aparece en pantalla un menú de dialogo:
 
 ### Alías
 
-Para simplificar la administración del sistema añado los siguientes [`alías`](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){:target="_blank"} al sistema:
+Para simplificar la administración del sistema añado los siguientes [alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){: .btn .btn--inverse}{:target="_blank"} al sistema:
 
 ```bash
 cat << EOF | sudo tee -a /etc/bash.bashrc
@@ -398,11 +398,11 @@ source $HOME/.bashc
 
 ### Log2RAM
 
-[`Ampliar información`](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} en entrada detallada.
+[Ampliar información](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"} en entrada detallada.
 
 ### ZRAM
 
-[`Ampliar información`](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){:target="_blank"} en entrada detallada.
+[Ampliar información](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"} en entrada detallada.
 
 ## Redes
 
@@ -576,6 +576,6 @@ Antes de continuar debemos de realizar estos pasos:
  * Configuramos e instalamos: [**File Browser**](https://lordpedal.github.io/docker/file-browser-docker/){:target="_blank"}, gestor de archivos vía web.
 {: .notice--success}
 
-Más servicios consultar [aquí](https://lordpedal.github.io/categories/#docker){: .btn .btn--inverse}{:target="_blank"}
+Más servicios consultar [aquí](https://lordpedal.github.io/categories/#docker){: .btn .btn--success}{:target="_blank"}
 
 > Y listo!
