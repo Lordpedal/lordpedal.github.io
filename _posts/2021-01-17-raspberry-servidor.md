@@ -239,7 +239,7 @@ Nos aparece en pantalla un menú de dialogo:
 
 ### Alías
 
-Para simplificar la administración del sistema añado los siguientes [alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){: .btn .btn--inverse}{:target="_blank"}:
+Para simplificar la administración del sistema añado los siguientes [alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){: .btn .btn--inverse}{:target="_blank"}
 
 ```bash
 cat << EOF | sudo tee -a /etc/bash.bashrc
