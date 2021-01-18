@@ -574,6 +574,7 @@ Antes de continuar debemos de realizar estos pasos:
  8. Configuramos e instalamos: [**MiniDLNA**](https://lordpedal.github.io/docker/minidlna-docker/){:target="_blank"}, servidor de DLNA.
  9. Configuramos e instalamos: [**Transmission**](https://lordpedal.github.io/docker/transmission-docker/){:target="_blank"}, gestor de descargas P2P.
  10. Configuramos e instalamos: [**File Browser**](https://lordpedal.github.io/docker/file-browser-docker/){:target="_blank"}, gestor de archivos vía web.
+{: .notice--primary}
 
 Más servicios [**consultar aquí**](https://lordpedal.github.io/categories/#docker){:target="_blank"}
 
