@@ -161,12 +161,12 @@ Para poner nuestro sistema en Español, tenemos que marcar las siguientes opcion
 
 - [ ] en_GB.UTF-8 UTF-8
 - [x] es_ES.UTF-8 UTF-8
-{: .notice--success}
+{: .notice}
 
 Para la configuración regional predeterminada seleccionamos:
 
 - [x] es-ES.UTF-8
-{: .notice--success}
+{: .notice}
 
 Ejemplo salida comando:
 
