@@ -45,9 +45,9 @@ En mi caso voy a recomendar la [**Raspberry Pi OS Lite**](https://downloads.rasp
 
 Una vez bajada la imagen ISO comprimida ya solo nos queda grabarla en la tarjeta microSD por ejemplo con:
 
- * [Raspberry Pi Imager](https://www.raspberrypi.org/software/){:target="_blank"}
- * [Balena Etcher](https://www.balena.io/etcher/){:target="_blank"}
- * [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/){:target="_blank"}
+ * [**Raspberry Pi Imager**](https://www.raspberrypi.org/software/){:target="_blank"}
+ * [**Balena Etcher**](https://www.balena.io/etcher/){:target="_blank"}
+ * [**Win32 Disk Imager**](https://sourceforge.net/projects/win32diskimager/){:target="_blank"}
 {: .notice--info}
 
 <div class="lordvideo">
@@ -239,7 +239,7 @@ Nos aparece en pantalla un menú de dialogo:
 
 ### Alías
 
-Para simplificar la administración del sistema añado los siguientes [alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){: .btn .btn--inverse}{:target="_blank"} al sistema:
+Para simplificar la administración del sistema añado los siguientes [alías](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#al%C3%ADas){: .btn .btn--inverse}{:target="_blank"}:
 
 ```bash
 cat << EOF | sudo tee -a /etc/bash.bashrc
@@ -398,11 +398,11 @@ source $HOME/.bashc
 
 ### Log2RAM
 
-[Ampliar información](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"} en entrada detallada.
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}.
 
 ### ZRAM
 
-[Ampliar información](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"} en entrada detallada.
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}.
 
 ## Redes
 
