@@ -22,8 +22,8 @@ La placa elegida para el **mini-Servidor** es una `Raspberry Pi 4B+ 4Gb`, aunque
 
 Vamos a realizar un pequeño repaso de las especificaciones técnicas del dispositivo en cuestión:
 
- | Característica | Raspberry Pi 4 |
- | ------ | ------ |
+ | Raspberry Pi 4 |
+ | ------ |
  | **Procesador** | ARM Cortex-A72 `(ARMv8-A64 64 bit)` |
  | **Frecuencia de reloj** | 1.5 GHz |
  | **TDP** | 7.5 W |
