@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada voy a compartir un sencillo [Bash Script](https://es.wikipedia.org/wiki/Bash){:target="_blank"}, que nos va a permitir un encendido y notificación remota de nuestro [Servidor](https://lordpedal.github.io/gnu/linux/debian-10-servidor/){:target="_blank"} gracias a una RPi u otra placa SBC por ejemplo.
 

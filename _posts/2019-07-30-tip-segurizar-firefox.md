@@ -12,7 +12,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 En esta entrada voy a compartir mi configuración sobre el navegador web [Firefox](https://www.mozilla.org/){:target="_blank"}, no voy a entrar a tratar de explicar ventajas y desventajas de usar un navegador web u otro, eso os lo dejo a vuestra elección.
 

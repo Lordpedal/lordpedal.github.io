@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png)
+![miniOverclock E3]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png){: .align-center}
 {: .full}
 En esta entrada, voy a recopilar los cambios que realizo sobre el firmware stock de `Marlin 2.0.x` para adaptarlo a mi impresora 3D, remarcando los cambios que se modifican.
 
@@ -25,7 +25,7 @@ Los cambios, a nivel de hardware más importantes sobre la base de origen de la 
 - Extrusor **clon Bontech BMG**
 - Antclabs **BLTouch** v3.1
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 ## Firmware Marlin
 

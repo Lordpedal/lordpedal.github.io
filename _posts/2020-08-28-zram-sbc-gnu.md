@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
+![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
 Uno de las problemas más comunes de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio y sobre ella también la memoría swap.
 

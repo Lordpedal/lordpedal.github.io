@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 [Reverse Engineering for Beginners](https://beginners.re/){:target="_blank"} es un libro con un buen material de iniciación a las técnicas de ingenieria inversa.
 

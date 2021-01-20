@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada es un tributo a la que mi entender, es la obra maestra de [Ridley Scott](https://es.wikipedia.org/wiki/Ridley_Scott){:target="_blank"}: [Alien (1979)](https://es.wikipedia.org/wiki/Alien:_el_octavo_pasajero){:target="_blank"}.
 

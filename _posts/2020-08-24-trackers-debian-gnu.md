@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 [Fasttracker 2](https://web.archive.org/web/19980530083017/http://www.starbreeze.com/ft2.htm){:target="_blank"} supuso en mi «experiencia musical digital», un punto de partida y a día de hoy me recuerda más si cabe la evolución que hemos ido experimentando en la informática domestica.
 
@@ -131,7 +131,7 @@ Si quieres actualizar el programa a su última versión, recuerda que deberas de
 cd $HOME/source/ft2-clone && git pull
 ```
 
-![FT2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FT2.jpg)
+![FT2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FT2.jpg){: .align-center}
 
 Enjoy **FT2!**, si necesitas canciones te [recomiendo esta web](https://modarchive.org/){:target="_blank"}.
 

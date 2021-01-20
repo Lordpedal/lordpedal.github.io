@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada lo que pretendo es publicar a modo **TIP/Chuleta** como podríamos montar fácilmente unidades externas en nuestro sistema.
 
@@ -122,7 +122,7 @@ UUID=79c2784f-2765-4f0e-951c-ac597750de26 /media/pendrive vfat umask=000 0 0
 
 Esta configuración requiere de modificaciones adicionales en la gestión de la maquina virtual **(HOST)**
 
-![KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png)
+![KVM Fstab]({{ site.url }}{{ site.baseurl }}/assets/images/posts/kvmfstab.png){: .align-center}
 
 Y a posterior añadimos en el fstab de la maquina virtual **(HUESPED)**
 

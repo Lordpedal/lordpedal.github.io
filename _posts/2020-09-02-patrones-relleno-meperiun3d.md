@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 En esta entrada, vamos a realizar un repaso a los principales patrones de relleno que usaremos en la impresión 3D.
 
@@ -41,7 +41,7 @@ Las siguientes opciones de patrón están disponibles en el software:
 - `Cruz 3D`: Relleno 3D flexible
 - `Giroide`: Relleno con mayor fuerza para el peso más bajo.
 
-![Rellenos]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Patrones3D.png)
+![Rellenos]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Patrones3D.png){: .align-center}
 
 ## Rejilla
 

@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada voy a compartir un sencillo Script de Python creado por [Ljubiša Moćić](https://github.com/ljmocic){:target="_blank"} que he readaptado para darle un nuevo formato.
 
@@ -29,11 +29,11 @@ Para configurarlo sobre nuestra base Debian seguimos este **mini-tutorial**.
 **NOTA:** Usar solo Bot Oficial de Telegram
 {: .notice--info}
 
-![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot1.jpg)
+![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot1.jpg){: .align-center}
 
 - Creamos nuevo bot con el comando `/newbot`, le asignamos un nombre y obtendremos un Token
 
-![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot2.jpg)
+![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot2.jpg){: .align-center}
 
 - Anotamos Token obtenido para posterior uso
 
@@ -149,7 +149,7 @@ Guardamos, salimos del editor y reiniciamos el sistema para disfrutar la nueva c
 sudo reboot
 ```
 
-![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot3.jpg)
+![Telegram]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Telebot3.jpg){: .align-center}
 
 
 > Y listo!

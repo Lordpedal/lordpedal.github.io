@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Un **hipervisor** (en inglés `hypervisor`) o **monitor** de **máquina virtual** (`virtual machine monitor`) es una plataforma que permite aplicar diversas técnicas de control de [virtualización](https://es.wikipedia.org/wiki/Virtualizaci%C3%B3n){:target="_blank"} para utilizar, al mismo tiempo, diferentes [sistemas operativos](https://es.wikipedia.org/wiki/Sistema_operativo){:target="_blank"} (sin modificar o modificados, en el caso de [paravirtualización](https://es.wikipedia.org/wiki/Paravirtualizaci%C3%B3n){:target="_blank"}) en una misma computadora.
 

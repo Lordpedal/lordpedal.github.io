@@ -9,7 +9,7 @@ tags:
   - Marlin
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 Ajustar el **Offset del eje Z** es una tarea que especialmente debemos de realizar si hemos modificado nuestra **impresora 3D**, por ejemplo con un sensor de nivelado como vimos en la anterior entrada de UBL, aunque no sería el único contexto en el que fuese aplicable.
 
@@ -17,7 +17,7 @@ Como veremos más adelante, en futuros posts sobre la configuración de **Marlin
 
 El proceso no es laborioso de realizar pero se ha de realizar de forma especifica en la secuencia de comandos.
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 - **Calentar cama y fusor** a sus temperaturas de impresión habitual, esperando unos minutos para que se estabilicen las dilataciones que se producen
 

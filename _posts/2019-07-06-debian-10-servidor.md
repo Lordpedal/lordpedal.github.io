@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian Buster a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
 

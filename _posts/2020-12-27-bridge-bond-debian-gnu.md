@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada la tenía pendiente de publicar, tras los upgrades que realicé en mi [**Servidor**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/){:target="_blank"}.
 

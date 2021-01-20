@@ -12,7 +12,7 @@ tags:
   - Docker
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
 En esta entrada voy a compartir un sencillo Docker creado a partir de la base de [Aref Aslani](https://github.com/arefaslani/docker-telegram-notifier){:target="_blank"} que he actualizado y traducido notificaciones al idioma Español.
 

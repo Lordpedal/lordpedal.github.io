@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 A menudo por la red podemos encontrar referencias a una red llamada **red Tor**. Sin embargo, la mayoría de usuarios no sabe lo que significa esta red, para qué sirve ni lo que se esconde en ella.
 

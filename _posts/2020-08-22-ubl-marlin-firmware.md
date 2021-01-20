@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 En esta entrada vamos a realizar una rápida comparativa entre los dos mejores sistemas actuales de nivelación con sensor:
 
@@ -25,7 +25,7 @@ El nivelado basado en Bilinear lo considero obsoleto pudiendo disponer de UBL.
 
 Este tiene muchas más opciones de ajuste, en una placa con suficiente memoria como es el caso de la mayoria de las actuales **(+256kb)**.
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 ## Firmware Marlin
 
@@ -135,7 +135,7 @@ Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para el
 
 Tras finalizar ya tendriamos dispnible en nuestra impresora UBL.
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 ## OctoPrint
 

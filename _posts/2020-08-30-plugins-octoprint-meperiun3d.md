@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 Una de la grandes mejoras que OctoPrint nos puede aportar a nuestro proyecto de servidor de impresión 3D, es la escalabilidad.
 
@@ -29,7 +29,7 @@ Su instalación es bastante sencilla, resumida en estos pasos:
 - Hacemos clic en la pantalla, `Obtener más`
 - Elegimos el `plugins de repositorio` o bien le proporcionamos un `link de instalación`
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 Tras esta breve intro, os voy a dejar lo que a mi entender son todo un **«must I have»** en la experiencia 3D.
 
@@ -115,7 +115,7 @@ https://github.com/cesarvandevelde/OctoPrint-M73Progress/archive/master.zip
 
 ### Configuración Marlin
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 Pero para ello debemos de realizar un trabajo sobre nuestro Marlin para habilitar esta opción, tenemos que activar sobre el fichero `Configuration_adv.h` las siguientes opciones:
 

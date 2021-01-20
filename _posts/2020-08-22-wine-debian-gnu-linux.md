@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 [Wine](https://www.winehq.org/){:target="_blank"} te permite correr software de Windows en otros sistemas operativos.
 

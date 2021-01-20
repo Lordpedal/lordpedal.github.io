@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 El objetivo de los ajustes de los parámetros [PID](https://es.wikipedia.org/wiki/Controlador_PID){:target="_blank"} es lograr que el de control de temperatura corrija eficazmente y en el mínimo tiempo los efectos de las perturbaciones.
 
@@ -24,7 +24,7 @@ Los valores que se obtienen al calibrar el PID son tres variables para obtener u
 - `Ki`: Es la parte **integral**, y la idea es reducir la oscilación, cuando llegue a la temperatura objetivo.
 - `Kd`: Es la parte **derivativa**, y se ajusta para que no te pases del valor objetivo y quemes el plástico.
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 ## Firmware Marlin
 
@@ -190,7 +190,7 @@ Tras haber configurado estas opciones mencionadas en **Marlin**, tendriamos que 
 
 **Recuerda que tras flashear un firmware siempre debes de hacer un reset a la Eeprom** con los G-codes: **M502** y **M500** (ejecutar en ese orden)
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 ## OctoPrint
 

@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada lo que pretendo es publicar a modo `TIP/Chuleta` como podríamos alternar entre un arranque en modo **TTY** (Texto) o **Gráfico** (Gestor de ventanas), para entornos [GNU/Linux](https://es.wikipedia.org/wiki/GNU/Linux){:target="_blank"} con soporte [Systemd](https://es.wikipedia.org/wiki/Systemd){:target="_blank"}.
 

@@ -11,5 +11,5 @@ tags:
 link: https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}

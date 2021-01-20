@@ -12,7 +12,7 @@ tags:
   - Docker
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
 **FreshRSS** es un agregador de canales RSS libre y ligero donde mantener al día y sincronizados vuestros feed RSS.
 
@@ -82,23 +82,23 @@ Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederia
 
 Seleccionamos idioma y hacemos clic en **Ir al siguiente paso**
 
-![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS1.jpg)
+![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS1.jpg){: .align-center}
 
 El contenedor realiza un check de instalación, hacemos clic en **Ir al siguiente paso**
 
-![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS2.jpg)
+![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS2.jpg){: .align-center}
 
 Elegimos como base datos de almacenamiento `SQLite` y hacemos clic en **Enviar**
 
-![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS3.jpg)
+![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS3.jpg){: .align-center}
 
 Creamos un usuario y contraseña de gestión y hacemos clic en **Enviar**
 
-![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS4.jpg)
+![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS4.jpg){: .align-center}
 
 Instalación finalizada, hacemos clic en **Completar instalación**
 
-![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS5.jpg)
+![FreshRSS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/FreshRSS5.jpg){: .align-center}
 
 **TIP:** Si posteriormente queremos agregar extensiones adicionales, debemos de almacenarnos en la siguiente ruta `~/docker/freshrss/www/freshrss/extensions`
 {: .notice--info}

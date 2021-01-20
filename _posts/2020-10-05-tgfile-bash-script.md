@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada voy a compartir un sencillo [Bash Script](https://es.wikipedia.org/wiki/Bash){:target="_blank"}, que nos va a permitir enviar ficheros a demanda, desde nuestra `Estación de trabajo/PC/Servidor` a [Telegram](https://web.telegram.org/){:target="_blank"}.
 

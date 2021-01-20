@@ -16,7 +16,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![DockerLinux]({{ site.url }}{{ site.baseurl }}/assets/images/DockerLinux.png)
+![DockerLinux]({{ site.url }}{{ site.baseurl }}/assets/images/DockerLinux.png){: .align-center}
 {: .full}
 La idea detrás de `Docker` es la de poder crear portables, para que las aplicaciones de software puedan ejecutarse **en cualquier máquina con Docker instalado**, independientemente del sistema operativo y de que máquina tenga por debajo, facilitando así también su expansión.
 
@@ -62,7 +62,7 @@ docker login -u usuario -p token
 **Muestro ejemplo de configuración:**
 {: .notice--info}
 
-![DockerHub]({{ site.url }}{{ site.baseurl }}/assets/images/posts/dockerhubtk.jpg)
+![DockerHub]({{ site.url }}{{ site.baseurl }}/assets/images/posts/dockerhubtk.jpg){: .align-center}
 
 ```bash
 docker login -u lordpedal \
@@ -307,7 +307,7 @@ http://192.168.1.90:9000
 
 Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar los datos, hacemos click en `Create User`. En la siguiene pestaña que nos aparece, hacemos click en `Manage the local Docker environment` y posteriormente en `Connect`. 
 
-![Portainer]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Portainer.gif)
+![Portainer]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Portainer.gif){: .align-center}
 
 Debidamente configurado podremos gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
@@ -712,11 +712,11 @@ https://www.stopforumspam.com/downloads/toxic_domains_whole.txt
 
 Una forma de saber que todo esta debidamente trabajando, podemos consultar la web de [Cloudflare](https://www.cloudflare.com/ssl/encrypted-sni/){:target="_blank"} realizar un test al navegador:
 
-![P3DNS Cloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnscloud.jpg)
+![P3DNS Cloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnscloud.jpg){: .align-center}
 
 Y realizar un test en [DNS Leak Test](https://www.dnsleaktest.com/){:target="_blank"} para consultar la seguridad de nuestra DNS:
 
-![P3DNS Leak]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnsleak.jpg)
+![P3DNS Leak]({{ site.url }}{{ site.baseurl }}/assets/images/posts/p3dnsleak.jpg){: .align-center}
 
 ## Docker: [Jellyfin](https://hub.docker.com/r/linuxserver/jellyfin/){:target="_blank"}
 
@@ -1083,17 +1083,17 @@ Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederia
 **Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock1.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock1.png){: .align-center}
 
 **Configuración > Usuarios > Contraseñas**: Click en Añadir, elegimos un usuario/contraseña y hacemos click en Crear
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock2.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock2.png){: .align-center}
 
 **Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos click en Guardar
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock3.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock3.png){: .align-center}
 
 ### Lista M3U
 
@@ -1137,42 +1137,42 @@ http://192.168.1.90:2112/rtp/239.0.0.185:8208
 **Configuración > Entradas DVB > Redes**: Hacemos click en Añadir y seleccionamos Red automática IPTV
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock4.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock4.png){: .align-center}
 
 Configuramos la red IPTV para que pueda realizar un escaneo de la misma y de esa forma agregar los Muxes. Al finalizar de configurar hacemos click en Crear
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock5.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock5.png){: .align-center}
 
 El proceso llevara algún tiempo, dependiendo sobre todo del número de canales que incluya la lista
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock6.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock6.png){: .align-center}
 
 **Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos click en Guardar
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock7.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock7.png){: .align-center}
 
 **Configuración > Entradas DVB > Servicios**: Hacemos click en Mapear todos los servicios
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock8.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock8.png){: .align-center}
 
 En la ventana de dialogo emergente, click en Mapear Servicios
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock9.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock9.png){: .align-center}
 
 Mostrara el proceso de convertir los Muxes en Servicios
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock10.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock10.png){: .align-center}
 
 **Configuración > Canal / EPG > Canales**: Hacemos click en Mapear todos los servicios
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock11.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock11.png){: .align-center}
 
 En la ventana de dialogo emergente, click en Mapear Servicios
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock12.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock12.png){: .align-center}
 
 ### Guía EPG
 
@@ -1249,20 +1249,20 @@ Guardamos, salimos del editor y pasamos nuevamente al navegador para seguir conf
 **Configuración > Canal / EPG > Módulos para Obtención de Guía**: Seleccionamos el grabber WebGrab+Plus XML y lo habilitamos
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock13.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock13.png){: .align-center}
 
 Hacemos click en Guardar
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock14.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock14.png){: .align-center}
 
 **Configuración > Canal / EPG > Obtener Guía**: Configuramos el cron de TVHeadend para que la guía EPG la anexe a la programación a las 10am (la descarga la tenemos programada en el servidor a las 9:45am)
 {: .notice--info}
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock15.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock15.png){: .align-center}
 
 Al finalizar de configurar la tarea cron, hacemos click en Volver a ejecutar los capturadores de EPG internos (el proceso se puede demorar unos minutos)
 
-![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock16.png)
+![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock16.png){: .align-center}
 
 Con estos pasos ya tendremos configurado nuestro propio servidor de Televisión con un sencillo docker.
 
@@ -1541,19 +1541,19 @@ En mi caso a modo ejemplo:
 
 Cuando la página cargue en el navegador nos arrojara la siguiente advertencia, que no es más que recordarnos que estamos haciendo la consulta de navegación con el protocolo **https** y no disponemos de los **certificados SSL**
 
-![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud0.jpg)
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud0.jpg){: .align-center}
 
 A continuación veremos el asistente de instalación, **desplegamos la opción que marco en rojo y elegimos MySQL/MariaDB como base de datos en vez de SQLite**:
 
-![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud1.jpg)
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud1.jpg){: .align-center}
 
 Ahora vamos a finalizar la configuración **sustituyendo los datos que se encuentran marcados en rojo, dejando el resto tal cual la imagen**, cuando este debidamente configurado hacemos clic en **Completar la instalación**
 
-![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud2.jpg)
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cfgnextcloud2.jpg){: .align-center}
 
 Al finalizar ya tendremos nuestra propia nube de almacenamiento local de una forma muy sencilla.
 
-![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmoncloud.jpg)
+![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmoncloud.jpg){: .align-center}
 
 ### ⛑️Bonus TIP: Fix Traefik
 
@@ -1753,7 +1753,7 @@ Al finalizar ya tendriamos accesibles desde fuera de la intranet:
 
 Si queremos comprobar la seguridad de nuestro servicio podemos por ejemplo consultar la web: [SSL Labs](https://www.ssllabs.com/index.html){:target="_blank"}
 
-![Traefik]({{ site.url }}{{ site.baseurl }}/assets/images/posts/traefikssl.jpg)
+![Traefik]({{ site.url }}{{ site.baseurl }}/assets/images/posts/traefikssl.jpg){: .align-center}
 
 ## Docker: [MiniDLNA](https://hub.docker.com/r/lordpedal/minidlna/){:target="_blank"}
 
@@ -1809,7 +1809,7 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:8200` y con la transmisión del contenido multimedia por la red local.
 
-![DLNA]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vlcdlna.jpg)
+![DLNA]({{ site.url }}{{ site.baseurl }}/assets/images/posts/vlcdlna.jpg){: .align-center}
 
 ## Docker: [Shairport-sync](https://hub.docker.com/r/kevineye/shairport-sync/){:target="_blank"}
 
@@ -1843,7 +1843,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el script, ya tendríamos disponible el servicio en nuestra red WiFi.
 
-![Shairport]({{ site.url }}{{ site.baseurl }}/assets/images/posts/shairport.jpg)
+![Shairport]({{ site.url }}{{ site.baseurl }}/assets/images/posts/shairport.jpg){: .align-center}
 
 ## Docker: [Forked-daapd](https://hub.docker.com/r/linuxserver/daapd/){:target="_blank"}
 
@@ -1934,19 +1934,19 @@ En mi caso a modo ejemplo:
 
 `http://192.168.1.90:3689`
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd1.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd1.jpg){: .align-center}
 
 Entramos en configuración del servidor para configurar la salida de audio mediante el protoclo **AirPlay** gracias a nuestro [Shairport-sync](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-shairport-sync):
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd2.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd2.jpg){: .align-center}
 
 Dentro del apartado salidas de audio, **activamos nuestra salida/s de audio wireless**:
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd3.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd3.jpg){: .align-center}
 
 Y podríamos **ajustar de forma independiente el volumen para cada salida**, muy útil en el caso de usar multiroom:
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd4.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd4.jpg){: .align-center}
 
 **Cliente Rhythmbox (GNU/Linux)**
 {: .notice--info}
@@ -1958,18 +1958,18 @@ sudo apt-get update && \
 sudo apt-get -y install rhythmbox
 ```
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd5.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd5.jpg){: .align-center}
 
 **Cliente Remote (iOS)**
 {: .notice--info}
 
 Instalamos la App, la ejecutamos y le decimos **Conectar manualmente** ya que el dispositivo tiene que emparejarse
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd6.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd6.jpg){: .align-center}
 
 Nos solicita que debemos de emparejar el dispositivo con nuestro servidor con un código que anotamos, ejemplo: **9112**
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd7.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd7.jpg){: .align-center}
 
 Abrimos en un navegador web la siguiente estructura de ruta: `http://ip_del_servidor:3689/#/settings/remotes-outputs` y con el código que se ha generado en el dispositivo móvil lo emparejamos.
 
@@ -1977,7 +1977,7 @@ En mi caso de la siguiente forma:
 
 `http://192.168.1.90:3689/#/settings/remotes-outputs`
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd8.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd8.jpg){: .align-center}
 
 **Clientes Streaming (VLC, Webs, DLNA, Xupnpd, …)**
 {: .notice--info}
@@ -1988,7 +1988,7 @@ En mi caso de la siguiente forma:
 
 `http://192.168.1.90:3689/stream.mp3`
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd9.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd9.jpg){: .align-center}
 
 **Clientes Chromecast**
 {: .notice--info}
@@ -2010,11 +2010,11 @@ A modo de ejemplo, en un dispositivo **Android hemos instalado una App llamada**
 
 Nos dirigimos a **Configuración/Perfiles**:
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd10.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd10.jpg){: .align-center}
 
 Agregamos los datos de nuestro Servidor y hacemos clic en guardar:
 
-![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd11.jpg)
+![forked-daapd]({{ site.url }}{{ site.baseurl }}/assets/images/posts/daapd11.jpg){: .align-center}
 
 ## Docker: [Calibre](https://hub.docker.com/r/linuxserver/calibre/){:target="_blank"}
 
@@ -2206,7 +2206,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:84`, los datos de acceso iniciales son **admin:admin**
 
-![File Browser]({{ site.url }}{{ site.baseurl }}/assets/images/posts/filebrowser.jpg)
+![File Browser]({{ site.url }}{{ site.baseurl }}/assets/images/posts/filebrowser.jpg){: .align-center}
 
 ## Docker: [Heimdall](https://hub.docker.com/r/linuxserver/heimdall/){:target="_blank"}
 
@@ -2252,7 +2252,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la dirección `http://IP_Servidor:88`
 
-![Heimdall]({{ site.url }}{{ site.baseurl }}/assets/images/posts/heimdall.jpg)
+![Heimdall]({{ site.url }}{{ site.baseurl }}/assets/images/posts/heimdall.jpg){: .align-center}
 
 ## Docker: [Tor-Privoxy](https://hub.docker.com/r/rdsubhas/tor-privoxy-alpine/){:target="_blank"}
 
@@ -2287,7 +2287,7 @@ Tras haber lanzado el servicio, ya tendriamos disponible el proxy a usar bajo de
 
 Ejemplo de configuración navegador **Firefox**:
 
-![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png)
+![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png){: .align-center}
 
 ## Docker: [PrivateBin](https://hub.docker.com/r/privatebin/nginx-fpm-alpine/){:target="_blank"}
 
@@ -2579,19 +2579,19 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 Tras haber lanzado el servicio, ya tendríamos acceso desde `http://ip_servidor:5800`
 
-![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker1.jpg)
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker1.jpg){: .align-center}
 
 Un detalle a tener en cuenta es que el portapapeles no soporta el copiado y pegado directamente. Para pasar enlaces tenemos que hacer clic en **Clipboard**
 
-![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker2.jpg)
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker2.jpg){: .align-center}
 
 En la ventana emergente que nos aparece **pegamos el link y lo enviamos**
 
-![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker3.jpg)
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker3.jpg){: .align-center}
 
 Haciendo clic en **Agregar Nuevos Enlaces**, veremos como los reconoce y podemos agregarlos a descargar
 
-![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker4.jpg)
+![Jdownloader2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/jdown2docker4.jpg){: .align-center}
 
 ## Docker: [Jitsi](https://github.com/jitsi/docker-jitsi-meet){:target="_blank"}
 
@@ -2663,7 +2663,7 @@ Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de
 
 Si queremos personalizar el aspecto del servicio, guardaremos el logo con el nombre y extensión: **watermark.png** y el icono como **favicon.ico** en la ruta `$HOME/docker/jitsi`
 
-![Jitsi]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmonzoom.png)
+![Jitsi]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmonzoom.png){: .align-center}
 
 Modificamos el fichero `docker-compose.yml`:
 

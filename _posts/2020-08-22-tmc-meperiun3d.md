@@ -8,7 +8,7 @@ tags:
   - 3D
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 Los drivers [TMC](https://www.trinamic.com/){:target="_blank"} son una gran mejora en el mundo de la **impresión 3D**, sobre todo por sus opciones de configuración y resolución.
 

@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
+![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
 Desde hace algún tiempo, llevo usando una [Raspberry Pi](https://www.raspberrypi.org/){:target="_blank"} para hacer las funciones de servidor de impresión 3D, gracias a [OctoPrint](https://lordpedal.github.io/docker/3d/octoprint-docker/){:target="_blank"}.
 

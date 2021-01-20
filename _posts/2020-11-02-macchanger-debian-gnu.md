@@ -10,7 +10,7 @@ tags:
   - Servidor
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 [Macchanger](https://packages.debian.org/stable/macchanger){:target="_blank"} es una utilidad muy simple pero que mejora el anonimato enormemente, ya que  podemos alterar la [dirección MAC](https://es.wikipedia.org/wiki/Direcci%C3%B3n_MAC){:target="_blank"} de nuestra tarjeta de red.
 
@@ -50,7 +50,7 @@ sudo apt-get -y install macchanger
 
 Durante la instalación nos preguntara si queremos que macchanger cambie la **MAC de forma automática, seleccionamos NO** para evitar fallos de gestión de interfaces:
 
-![Macchanger]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Macchanger.jpg)
+![Macchanger]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Macchanger.jpg){: .align-center}
 
 A continuación vamos a crear un servicio [Systemd](https://es.wikipedia.org/wiki/Systemd){:target="_blank"} para que se ejecute al iniciar el sistema con la interfaz de red que elijamos y asigne una **MAC aleatoria**:
 

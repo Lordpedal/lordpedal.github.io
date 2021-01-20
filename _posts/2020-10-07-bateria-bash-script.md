@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Esta entrada voy a compartir un sencillo [Bash Script](https://es.wikipedia.org/wiki/Bash){:target="_blank"}, que nos va a notificar sobre la carga disponible en la batería de nuestro dispositivo para alargar la vida de la misma.
 

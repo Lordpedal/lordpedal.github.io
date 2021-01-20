@@ -9,7 +9,7 @@ tags:
   - Debian
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 [Ventoy](https://github.com/ventoy/Ventoy){:target="_blank"} es una novedosa herramienta de **código abierto**, especializada en crear unidades USB de arranque de forma simple.
 
@@ -142,6 +142,6 @@ Al finalizar veremos que la memoria USB se ha particionado en dos:
 1. **FAT** (aprox. 32mb): Partición que contiene la información de arranque.
 2. **exFAT** (resto de espacio libre): Partición donde guardaremos las ISOS, tal cual.
 
-![VentoyUSB]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Ventoy.jpg)
+![VentoyUSB]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Ventoy.jpg){: .align-center}
 
 > Y listo!

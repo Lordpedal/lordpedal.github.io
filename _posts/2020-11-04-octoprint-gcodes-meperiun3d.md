@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 En esta entrada, vamos a recordar que cuando usamos el software de laminado para un modelo de **impresión 3D**, generamos un archivo **GCode** y que este archivo es esencialmente: una lista secuencial de segmentos de línea conectados y organizados por capa.
 
@@ -25,7 +25,7 @@ El resultado es que algunas impresoras simplemente ralentizan la impresión, lo 
 
 El resultado es que el número de comandos de **GCode** necesarios para representar el modelo disminuye sustancialmente a medida que los grupos conectados de comandos de segmento se convierten en comandos de arco único.
 
-![Arc Welder]({{ site.url }}{{ site.baseurl }}/assets/images/posts/arcwelder1.png)
+![Arc Welder]({{ site.url }}{{ site.baseurl }}/assets/images/posts/arcwelder1.png){: .align-center}
 
 Todo este programa funciona bajo el supuesto de que el controlador de movimiento integrado de su impresora 3D acepta comandos de arco, específicamente **M115, G2** y **G3**.
 
@@ -33,7 +33,7 @@ Hace unos años, esto hubiera sido poco común ya que, técnicamente, la **impre
 
 Vamos a analizar el [Barco Benchy (STL)](https://www.thingiverse.com/thing:763622){:target="_blank"}
 
-![Benchy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/arcwelder2.png)
+![Benchy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/arcwelder2.png){: .align-center}
 
 El resultado es un archivo **GCode** que es un **56,2% más pequeño** (relación de compresión 2,3) con un **75,0% menos de comandos de extrusión / retracción**.
 
@@ -67,7 +67,7 @@ Debemos de revisar los siguientes apartados para  poder continuar  sin errores:
 - `Configuration_adv.h` – Fichero de configuración avanzada Marlin
 - `Dependencias OctoPrint` – Librerías de desarrollo Python 3
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 ### Marlin: Configuration_adv.h
 
@@ -99,7 +99,7 @@ sudo apt-get -y install python3-dev
 
 Y añadimos a nuestra colección de [plugins de OctoPrint](https://lordpedal.github.io/3d/plugins-octoprint-meperiun3d/){:target="_blank"} el siguiente:
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 ### [Arc Welder](https://plugins.octoprint.org/plugins/arc_welder/){:target="_blank"}
 

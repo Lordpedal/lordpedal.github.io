@@ -12,7 +12,7 @@ tags:
   - Docker
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
 [DuckDNS](https://www.duckdns.org/){:target="_blank"} un servicio DDNS (DNS dinámico) diseñado para convertir nuestra dirección IP pública, complicada de recordar, en un dominio mucho más sencillo de recordar y, además, mantenerlo siempre actualizado de manera que podamos estar seguros de que la conexión con nuestra red está siempre garantizada, incluso aunque tengamos IP dinámica.
 

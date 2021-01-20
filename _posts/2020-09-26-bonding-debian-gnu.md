@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 Recientemente me he encontrado en la necesidad de crear una red de tipo [bonding](https://wiki.debian.org/Bonding){:target="_blank"}, para un proyecto en el que estoy trabajando sobre una Raspberry que monitoriza mi **impresora 3D**.
 

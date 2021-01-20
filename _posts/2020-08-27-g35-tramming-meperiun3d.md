@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png)
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
 {: .full}
 Una de las mejoras que se introdujeron en el firmware [2.0.6](https://es.wikipedia.org/wiki/Controlador_PID){:target="_blank"} de **Marlin**, fue un asistente de ayuda al nivelado de cama, **Gcode** [G35](https://marlinfw.org/docs/gcode/G035.html){:target="_blank"}.
 
@@ -22,7 +22,7 @@ La principal función de este comando es que cuando lo ejecutemos, nos tomara le
 
 Es muy sencillo de configurar pero **debemos de tener instalado y configurado un sensor de nivelado** en la impresora 3D, en mi caso tengo un [BLTouch v3.1](https://www.antclabs.com/bltouch-v3){:target="_blank"}.
 
-![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg)
+![Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Marlin.jpg){: .align-center}
 
 ## Firmware Marlin
 
@@ -71,7 +71,7 @@ Quedando en mi caso de la siguiente forma:
 
 Adjunto detalle de configuración:
 
-![G35_Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/G35_Tramming_1.jpg)
+![G35_Marlin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/G35_Tramming_1.jpg){: .align-center}
 
 Tras haber configurado estas opciones mencionadas en **Marlin**, tendriamos que volver a **flashear el firmware** en la impresora para poder usarlo.
 
@@ -79,11 +79,11 @@ Tras haber configurado estas opciones mencionadas en **Marlin**, tendriamos que 
 
 Si dispones de **LCD** veras que se ha activado una nueva opción que te permite lanzarlo a demanda.
 
-![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg)
+![OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Octoprint.jpg){: .align-center}
 
 ## OctoPrint: Terminal
 
-![G35_OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/G35_Tramming_2.jpg)
+![G35_OctoPrint]({{ site.url }}{{ site.baseurl }}/assets/images/posts/G35_Tramming_2.jpg){: .align-center}
 
 Adjunto ejemplo de la corrección que me devuelve:
 

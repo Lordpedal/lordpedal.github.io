@@ -14,7 +14,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![RPi]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png)
+![RPi]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
 Anteriormente vimos como crear un [**Servidor doméstico con base de procesador PC 64bits**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/){:target="_blank"} en esta ocasión vamos a realizar la misma operación pero tomando como base una **placa SBC con procesador ARM**.
 

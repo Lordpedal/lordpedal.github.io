@@ -15,7 +15,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png)
+![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
 **RAID** es un acrónimo del inglés que significa **Redundant Array of Independent Disks**, literalmente `matriz de discos independientes redundantes`, aunque no todos los sistemas RAID proporcionan redundancia.
 
