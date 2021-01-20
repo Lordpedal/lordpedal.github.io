@@ -92,8 +92,8 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-![Bitwarden]({{ site.url }}{{ site.baseurl }}/assets/images/posts/bitwardendock.png)
-
 En mi caso, el servicio estaría disponible en la dirección web [https://bitwarden.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/bitwarden-docker/#bitwarden){: .btn .btn--inverse .btn--small}, tan solo faltaría crear una cuenta y empezar a disfrutarlo.
+
+![Bitwarden]({{ site.url }}{{ site.baseurl }}/assets/images/posts/bitwardendock.png)
 
 > Y listo!
