@@ -32,13 +32,12 @@ Las principales características son las siguientes:
  * Verificación de doble factor.
  * Generador de contraseñas seguras.
  * Elementos compartidos ilimitados.
-{: .notice--info}
 
 ## Instalación
 
 ### Traefik
 
-[Requisito obligatorio tener instalado **Traefik Maroilles:Docker**](https://lordpedal.github.io/docker/traefikv1-docker/){: .btn .btn--inverse}{:target="_blank"}
+[Requisito obligatorio tener instalado **Traefik Maroilles:Docker**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--inverse}{:target="_blank"}
 
 ### Bitwarden
 
