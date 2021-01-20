@@ -16,7 +16,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png)
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
 Bitwarden es un gestor de **contraseñas gratuito y de código abierto** que se puede albergar en tu propio servidor.
 
