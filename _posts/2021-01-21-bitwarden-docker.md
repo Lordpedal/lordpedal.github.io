@@ -37,7 +37,7 @@ Las principales características son las siguientes:
 
 ### Traefik
 
-[Requisito obligatorio tener instalado **Traefik Maroilles:Docker**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
+[Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
 
 ### Bitwarden
 
