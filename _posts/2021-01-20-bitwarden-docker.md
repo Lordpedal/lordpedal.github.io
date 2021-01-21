@@ -1,7 +1,7 @@
 ---
 title:  "Bitwarden: Docker"
-date:   2021-01-21 23:30:00
-last_modified_at: 2021-01-21T23:45:00
+date:   2021-01-20 23:30:00
+last_modified_at: 2021-01-20T23:45:00
 categories:
   - GNU/Linux
   - Docker
