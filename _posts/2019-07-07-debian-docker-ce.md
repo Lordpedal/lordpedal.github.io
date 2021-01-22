@@ -2355,6 +2355,8 @@ Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del se
 
 ![PrivateBin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}
 
+({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}
+
 ## Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
 
 RSS Bridge te permite obtener las novedades de servicios/webs que a priori no tienen esta opción habilitada.
