@@ -2289,7 +2289,7 @@ Ejemplo de configuración navegador **Firefox**:
 
 ![TorPrivoxy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/TorPrivoxy.png){: .align-center}
 
-## Docker: [PrivateBin](https://hub.docker.com/r/privatebin/nginx-fpm-alpine/){:target="_blank"}
+## Docker: [PrivateBin](https://hub.docker.com/r/jgeusebroek/privatebin){:target="_blank"}
 
 PrivateBin es un `«pastebin»` en línea minimalista de código abierto, donde el servidor no tiene ningún conocimiento de los datos guardados. 
 
@@ -2336,13 +2336,13 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 | Parámetro | Función |
 | ------ | ------ |
-| `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `-p 90:80` | Puerto de acceso Web `90` |
-| `-v $HOME/docker/privatebin/datos:/privatebin/data \` | Ruta donde se almacenan las notas encriptadas |
-| `-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
-| `--read-only` | Protege el servicio en modo lectura |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `read_only: true` | Protege el servicio en modo lectura |
+| `90:80` | Puerto de acceso Web `90` |
+| `~/docker/privatebin/datos:/privatebin/data` | Ruta donde se almacenan las notas encriptadas |
+| `~/docker/privatebin/config.php:/privatebin/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
 {: .notice--warning}
 
 Una vez configurado, lo levantamos para ser creado y ejecutado:
