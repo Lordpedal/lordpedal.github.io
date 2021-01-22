@@ -2353,13 +2353,9 @@ docker-compose up -d
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:90`
 
-![PrivateBin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}
-
 <figure>
     <a href="/assets/images/posts/Privatebin.jpg"><img src="/assets/images/posts/Privatebin.jpg"></a>
 </figure>
-
-![PrivateBin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}{:class="img-responsive"}
 
 ## Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
 
