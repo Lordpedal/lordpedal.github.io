@@ -309,6 +309,10 @@ Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar
 
 ![Portainer]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Portainer.gif){: .align-center}
 
+<figure>
+    <a href="/assets/images/posts/Portainer.gif"><img src="/assets/images/posts/Portainer.gif"></a>
+</figure>
+
 Debidamente configurado podremos gestionar (**Arrancar, Detener, Reiniciar, Borrar, SSH, ...**) los Dockers futuros desde la web.
 
 ## Docker: [Watchtower](https://hub.docker.com/r/containrrr/watchtower/){:target="_blank"}
