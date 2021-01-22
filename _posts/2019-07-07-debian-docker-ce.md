@@ -733,7 +733,7 @@ En primer lugar instalamos las dependencia y creamos las carpetas donde alojar e
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install lshw && \
-mkdir -p $HOME/docker/jellyfin{config,cache} && \
+mkdir -p $HOME/docker/jellyfin/{config,cache} && \
 cd $HOME/docker/jellyfin
 ```
 
