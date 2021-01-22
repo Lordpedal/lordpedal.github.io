@@ -2298,7 +2298,7 @@ Los datos son **cifrados/descifrados en el navegador usando un encriptado 256 bi
 Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/privatebin
+mkdir -p $HOME/docker/privatebin{config,datos}
 ```
 
 Seguidamente descargamos el fichero de configuración del servicio:
@@ -2314,11 +2314,14 @@ Y ya podriamos lanzar la creación y activación del servicio:
 docker run -d \
 --name=PrivateBin \
 -e TZ=Europe/Madrid \
--p 8080:8080 \
--v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro \
+-e UID=1000 \
+-e GID=1000 \
+-p 90:80 \
+-v $HOME/docker/privatebin/datos:/privatebin/data \
+-v $HOME/docker/privatebin/config.php:/privatebin/cfg/conf.php:ro \
 --read-only \
 --restart=always \
-privatebin/nginx-fpm-alpine
+jgeusebroek/privatebin
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -2326,12 +2329,15 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | Parámetro | Función |
 | ------ | ------ |
 | `-e TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `-p 8080:8080` | Puerto de acceso Web `8080` |
+| `-e UID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-e GID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `-p 90:80` | Puerto de acceso Web `90` |
+| `-v $HOME/docker/privatebin/datos:/privatebin/data \` | Ruta donde se almacenan las notas encriptadas |
 | `-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
 | `--read-only` | Protege el servicio en modo lectura |
 {: .notice--warning}
 
-Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:8080`
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:90`
 
 ## Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
 
