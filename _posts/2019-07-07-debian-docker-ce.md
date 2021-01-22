@@ -844,9 +844,8 @@ Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M
 https://www.tdtchannels.com/lists/tvradio.m3u8
 ```
 
-<figure class="half">
+<figure>
     <a href="/assets/images/posts/Jellyfin8.jpg"><img src="/assets/images/posts/Jellyfin8.jpg"></a>
-    <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
 </figure>
 
 Y hacemos click en **guardar**.
@@ -860,12 +859,16 @@ Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guí
 https://www.tdtchannels.com/epg/TV.xml
 ```
 
-<figure class="half">
+<figure>
     <a href="/assets/images/posts/Jellyfin9.jpg"><img src="/assets/images/posts/Jellyfin9.jpg"></a>
-    <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
 </figure>
 
 Y hacemos click en **guardar**.
+
+<figure class="half">
+    <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin11.jpg"><img src="/assets/images/posts/Jellyfin11.jpg"></a>
+</figure>
 
 **Bonus TIP**
 {: .notice--info}
@@ -1029,10 +1032,6 @@ div.listItem-content div.playedIndicator i {
   filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 ```
-
-<figure>
-    <a href="/assets/images/posts/Jellyfin11.jpg"><img src="/assets/images/posts/Jellyfin11.jpg"></a>
-</figure>
 
 ## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
 
