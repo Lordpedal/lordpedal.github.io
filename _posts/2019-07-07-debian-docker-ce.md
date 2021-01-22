@@ -2298,7 +2298,8 @@ Los datos son **cifrados/descifrados en el navegador usando un encriptado 256 bi
 Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/privatebin{config,datos}
+mkdir -p $HOME/docker/privatebin{config,datos} && \
+cd $HOME/docker/privatebin
 ```
 
 Seguidamente descargamos el fichero de configuración del servicio:
@@ -2308,20 +2309,27 @@ curl -o $HOME/docker/privatebin/config.php \
 https://raw.githubusercontent.com/PrivateBin/PrivateBin/master/cfg/conf.sample.php
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
---name=PrivateBin \
--e TZ=Europe/Madrid \
--e UID=1000 \
--e GID=1000 \
--p 90:80 \
--v $HOME/docker/privatebin/datos:/privatebin/data \
--v $HOME/docker/privatebin/config.php:/privatebin/cfg/conf.php:ro \
---read-only \
---restart=always \
-jgeusebroek/privatebin
+cat << EOF > $HOME/docker/privatebin/docker-compose.yml
+version: "3.1"
+services:
+  privatebin:
+    image: jgeusebroek/privatebin
+    container_name: PrivateBin
+    environment:
+      - TZ=Europe/Madrid
+      - UID=1000
+      - GID=1000
+    read_only: true
+    ports:
+      - 90:80
+    volumes:
+      - '~/docker/privatebin/datos:/privatebin/data'
+      - '~/docker/privatebin/config.php:/privatebin/cfg/conf.php:ro'
+    restart: always
+EOF
  ```
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
@@ -2336,6 +2344,12 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `-v $HOME/docker/privatebin/config.php:/srv/cfg/conf.php:ro` | Fichero donde se aloja la configuración del servicio web |
 | `--read-only` | Protege el servicio en modo lectura |
 {: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
 
 Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:90`
 
