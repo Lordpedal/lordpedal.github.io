@@ -812,7 +812,23 @@ docker-compose up -d
 
 Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiamos con un navegador web a la `http://ip_Servidor:8096` para iniciar el asistente de configuración.
 
+<figure class="third">
+    <a href="/assets/images/posts/Jellyfin1.jpg"><img src="/assets/images/posts/Jellyfin1.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin2.jpg"><img src="/assets/images/posts/Jellyfin2.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin3.jpg"><img src="/assets/images/posts/Jellyfin3.jpg"></a>
+</figure>
+
+<figure class="third">
+    <a href="/assets/images/posts/Jellyfin4.jpg"><img src="/assets/images/posts/Jellyfin4.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin5.jpg"><img src="/assets/images/posts/Jellyfin5.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin6.jpg"><img src="/assets/images/posts/Jellyfin6.jpg"></a>
+</figure>
+
 Para habilitar aceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
+
+<figure>
+    <a href="/assets/images/posts/Jellyfin7.jpg"><img src="/assets/images/posts/Jellyfin7.jpg"></a>
+</figure>
 
 Panel de Control -> Reproducción -> Video Acceleration API (VAAPI)
 {: .notice--info}
@@ -828,6 +844,11 @@ Entraremos en `Panel de Control -> Televisión en directo -> Sintonizadores -> M
 https://www.tdtchannels.com/lists/tvradio.m3u8
 ```
 
+<figure class="half">
+    <a href="/assets/images/posts/Jellyfin8.jpg"><img src="/assets/images/posts/Jellyfin8.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
+</figure>
+
 Y hacemos click en **guardar**.
 
 **Guía EPG**
@@ -838,6 +859,11 @@ Entraremos en `Panel de Control -> Televisión en directo -> Proveedores de guí
 ```bash
 https://www.tdtchannels.com/epg/TV.xml
 ```
+
+<figure class="half">
+    <a href="/assets/images/posts/Jellyfin9.jpg"><img src="/assets/images/posts/Jellyfin9.jpg"></a>
+    <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
+</figure>
 
 Y hacemos click en **guardar**.
 
@@ -1003,6 +1029,10 @@ div.listItem-content div.playedIndicator i {
   filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 ```
+
+<figure>
+    <a href="/assets/images/posts/Jellyfin11.jpg"><img src="/assets/images/posts/Jellyfin11.jpg"></a>
+</figure>
 
 ## Docker: [TVHeadend](https://hub.docker.com/r/linuxserver/tvheadend/){:target="_blank"}
 
