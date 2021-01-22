@@ -728,9 +728,11 @@ La gran ventaja de Jellyfin, no solo es que sea **100% Software Libre y gratuito
 
 Vamos a detallar como personalizar la creación y la posibilidad de utilizar la **aceleración por hardware**. 
 
-En primer lugar creamos las carpetas donde alojar el proyecto:
+En primer lugar instalamos las dependencia y creamos las carpetas donde alojar el proyecto:
 
 ```bash
+sudo apt-get update && \
+sudo apt-get -y install lshw && \
 mkdir -p $HOME/docker/jellyfin{config,cache} && \
 cd $HOME/docker/jellyfin
 ```
