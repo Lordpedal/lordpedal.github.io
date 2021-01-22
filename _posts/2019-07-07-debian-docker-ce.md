@@ -733,7 +733,7 @@ En primer lugar instalamos las dependencia y creamos las carpetas donde alojar e
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install lshw && \
-mkdir -p $HOME/docker/jellyfin/{config,cache} && \
+mkdir -p $HOME/docker/jellyfin/{config,datos} && \
 cd $HOME/docker/jellyfin
 ```
 
@@ -779,14 +779,13 @@ services:
       - PGID=1000
       - TZ=Europe/Madrid
     volumes:
-      - '~/docker/jellyfin:/config'
-      - '/media/rednas/NAS/LXC:/data'
+      - '~/docker/jellyfin/config:/config'
+      - '~/docker/jellyfin/datos:/data'
     ports:
       - 8096:8096
-      - 7359:7359/udp #Opcional_Red_Local
-      - 1900:1900/udp #Opcional_Descubrimiento_DLNA
+      - 7359:7359/udp
     devices:
-      - /dev/dri:/dev/dri #Opcional_Aceleracion_Video
+      - /dev/dri:/dev/dri
     restart: always
 EOF
 ```
@@ -799,10 +798,9 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `8096:8096` | Puerto de acceso Web `8096` |
 | `7359:7359` | Puerto descubrimiento Red Local **(Opcional)** |
-| `1900:1900` | Puerto descubrimiento DLNA **(Opcional)** |
 | `/dev/dri:/dev/dri` | Aceleración Hardware Intel |
-| `/media/rednas/NAS/LXC:/data` | Ruta donde tenemos almacenado el contenido multimedia y compartimos en Jellyfin |
-| `~/docker/jellyfin:/config` | Ruta donde almacenaremos la **configuración** |
+| `~/docker/jellyfin/config:/config` | Ruta donde almacenaremos la **configuración** |
+| `~/docker/jellyfin/datos:/data` | Ruta donde tenemos almacenado el contenido multimedia y compartimos en Jellyfin |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio Jellyfin |
 {: .notice--warning}
 
