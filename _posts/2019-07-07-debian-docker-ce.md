@@ -307,8 +307,6 @@ http://192.168.1.90:9000
 
 Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar los datos, hacemos click en `Create User`. En la siguiene pestaña que nos aparece, hacemos click en `Manage the local Docker environment` y posteriormente en `Connect`. 
 
-![Portainer]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Portainer.gif){: .align-center}
-
 <figure>
     <a href="/assets/images/posts/Portainer.gif"><img src="/assets/images/posts/Portainer.gif"></a>
 </figure>
