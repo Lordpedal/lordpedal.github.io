@@ -826,14 +826,14 @@ Tras haber lanzado el script, ya tendriamos el servicio disponible, y accederiam
 
 Para habilitar aceleración por hardware, hacemos **login** con un usuario con privilegios de administrador, entramos en:
 
-<figure>
-    <a href="/assets/images/posts/Jellyfin7.jpg"><img src="/assets/images/posts/Jellyfin7.jpg"></a>
-</figure>
-
 Panel de Control -> Reproducción -> Video Acceleration API (VAAPI)
 {: .notice--info}
 
 Seleccionamos el dispositivo `VAAPI`, en mi caso **/dev/dri/renderD128**
+
+<figure>
+    <a href="/assets/images/posts/Jellyfin7.jpg"><img src="/assets/images/posts/Jellyfin7.jpg"></a>
+</figure>
 
 **Lista M3U**
 {: .notice--success}
