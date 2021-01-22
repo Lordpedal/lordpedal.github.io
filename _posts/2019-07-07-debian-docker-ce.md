@@ -2355,6 +2355,10 @@ Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del se
 
 ![PrivateBin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}
 
+<figure>
+    <a href="/assets/images/posts/Privatebin.jpg"><img src="/assets/images/posts/Privatebin.jpg"></a>
+</figure>
+
 ![PrivateBin]({{ site.url }}{{ site.baseurl }}/assets/images/posts/Privatebin.jpg){: .align-center}{:class="img-responsive"}
 
 ## Docker: [RSS Bridge](https://hub.docker.com/r/rssbridge/rss-bridge/){:target="_blank"}
