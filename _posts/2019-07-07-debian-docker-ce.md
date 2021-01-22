@@ -2574,6 +2574,10 @@ services:
     container_name: jdownloader2
     ports:
       - 5800:5800
+    environment:
+      - USER_ID=1000
+      - GROUP_ID=1000
+      - TZ=Europe/Madrid
     volumes:
       - $HOME/docker/jd2/config:/config:rw
       - $HOME/docker/jd2/descargas:/output:rw
@@ -2592,6 +2596,9 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | Parámetro | Función |
 | ------ | ------ |
 | `5800:5800` | Puerto de configuración acceso `5800` |
+| `USER_ID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `GROUP_ID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
 | `$HOME/docker/jd2/config:/config:rw` | Ruta donde se almacena la configuración del programa |
 | `$HOME/docker/jd2/descargas:/output:rw` | Ruta donde se almacenan las **descargas** |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
