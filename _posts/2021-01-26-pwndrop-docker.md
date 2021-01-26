@@ -1,5 +1,5 @@
 ---
-title:  "PWNDrop: Docker"
+title:  "Pwndrop: Docker"
 date:   2021-01-26 23:30:00
 last_modified_at: 2021-01-26T23:45:00
 categories:
@@ -18,7 +18,7 @@ toc_icon: "cog"
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-Pwndrop es un servicio de alojamiento de archivos auto-implementable para enviar cargas útiles o compartir de forma segura sus archivos privados a través de HTTP y WebDAV.
+**Pwndrop** es un servicio de alojamiento de archivos autodesplegable para enviar cargas útiles o compartir de forma segura sus archivos privados a través de **`HTTP y WebDAV`**.
 
 Las principales características son las siguientes:
 
@@ -37,7 +37,7 @@ Las principales características son las siguientes:
 
 [Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
 
-### PWNDrop
+### Pwndrop
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
