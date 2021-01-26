@@ -2579,6 +2579,9 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://ip_del_host:3044` para gestión web.
 
+**Bonus TIP**
+{: .notice--info}
+
 Lista de ejemplo adicional:
 
 ```bash
