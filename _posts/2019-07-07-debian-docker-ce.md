@@ -2579,6 +2579,13 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://ip_del_host:3044` para gestión web.
 
+Lista de ejemplo adicional:
+
+```bash
+cd $HOME/docker/xupnpdv2/listas && \
+wget https://raw.githubusercontent.com/Lordpedal/xupnpdv2/main/IPTV.m3u
+```
+
 ## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
 
 JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
