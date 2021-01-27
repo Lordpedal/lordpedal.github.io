@@ -112,7 +112,9 @@ En mi caso, el servicio estaría disponible en la dirección web [https://despen
     <a href="https://apps.apple.com/app/pantry-party/id1510485755" target="_blank"><img src="/assets/images/posts/appstore.png"></a>
 </figure>
 
-Necesitamos configurar una API para poder interactuar, para ello en la ruta de navegación añadimos la variable `/manageapikeys`. En mi caso queda de la siguiente forma: [https://despensa.lordpedal.duckdns.org/manageapikeys](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
+Necesitamos configurar una API para poder interactuar, para ello en la ruta de navegación añadimos la variable `/manageapikeys`
+
+En mi caso queda de la siguiente forma: [https://despensa.lordpedal.duckdns.org/manageapikeys](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
 
 <figure>
     <a href="/assets/images/posts/grocyapi.jpg"><img src="/assets/images/posts/grocyapi.jpg"></a>
