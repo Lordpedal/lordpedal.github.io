@@ -104,6 +104,8 @@ En mi caso, el servicio estaría disponible en la dirección web [https://despen
 `Usuario / Contraseña`: **admin**
 {: .notice--info}
 
+#### Dispositivo móvil
+
 ![Grocy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/grocydock.jpg){: .align-center}
 
 <figure class="third">
