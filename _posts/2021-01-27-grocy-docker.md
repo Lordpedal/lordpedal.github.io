@@ -99,10 +99,10 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-`Usuario / Contraseña` inicial: **admin**
-{: .notice--info}
-
 En mi caso, el servicio estaría disponible en la dirección web [https://despensa.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
+
+`Usuario / Contraseña`: **admin**
+{: .notice--info}
 
 ![Grocy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/grocydock.jpg){: .align-center}
 
