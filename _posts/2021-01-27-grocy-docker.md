@@ -104,7 +104,7 @@ docker-compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [https://despensa.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
 
-![Grocy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/grocydock.png){: .align-center}
+![Grocy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/grocydock.jpg){: .align-center}
 
 <figure class="third">
     <a href="https://play.google.com/store/apps/details?id=xyz.zedler.patrick.grocy" target="_blank"><img src="/assets/images/posts/googlestore.png"></a>
