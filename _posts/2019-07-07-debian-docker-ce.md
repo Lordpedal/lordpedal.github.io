@@ -2589,6 +2589,10 @@ cd $HOME/docker/xupnpdv2/listas && \
 wget https://raw.githubusercontent.com/Lordpedal/xupnpdv2/main/IPTV.m3u
 ```
 
+<figure>
+    <a href="/assets/images/posts/xupnpdv2.jpg"><img src="/assets/images/posts/xupnpdv2.jpg"></a>
+</figure>
+
 ## Docker: [JDownloader2](https://hub.docker.com/r/jlesage/jdownloader-2/){:target="_blank"}
 
 JDownloader2 es un **gestor de descargas de código abierto**, escrito en Java, que permite la descarga automática de archivos de sitios de alojamiento inmediato como MediaFire, MEGA, entre otros.
