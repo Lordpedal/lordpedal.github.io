@@ -1,2 +1,3 @@
 User-agent: *
+Disallow:
 Sitemap: https://lordpedal.github.io/sitemap.xml
