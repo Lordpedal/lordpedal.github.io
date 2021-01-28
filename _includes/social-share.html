@@ -3,7 +3,7 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="tg://msg_url?url={{ page.url | absolute_url | url_encode }}&text={{ page.title }}" class="btn btn--telegram" title="{{ site.data.ui-text[site.locale].share_on_label }} Telegram"><i class="fa fa-fw fa-paper-plane" aria-hidden="true"></i><span> Telegram</span></a>
+  <a href="tg://msg_url?url={{ page.url | absolute_url | url_encode }}&text={{ page.title }}" class="btn btn--telegram" title="{{ site.data.ui-text[site.locale].share_on_label }} Telegram"><i class="fab fa-fw fa-telegram" aria-hidden="true"></i><span> Telegram</span></a>
 
   <a href="whatsapp://send?text={{ page.url | absolute_url | url_encode }}" class="btn btn--whatsapp" title="{{ site.data.ui-text[site.locale].share_on_label }} Whatsapp"><i class="fab fa-fw fa-whatsapp" aria-hidden="true"></i><span> Whatsapp</span></a>
 
