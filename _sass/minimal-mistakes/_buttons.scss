@@ -42,7 +42,8 @@
   (linkedin, $linkedin-color),
   (reddit, #ff4500),
   (email, #4A154B),
-  (telegram, #36C5F0);
+  (telegram, #36C5F0),
+  (whatsapp, #2EB67D);
 
   @each $buttoncolor, $color in $buttoncolors {
     &--#{$buttoncolor} {
