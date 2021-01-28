@@ -44,7 +44,7 @@
   (email, #F4B400),
   (telegram, #00aff0),
   (whatsapp, #4ac959),
-  (hnews, #F0652F);
+  (hn, #F0652F);
 
   @each $buttoncolor, $color in $buttoncolors {
     &--#{$buttoncolor} {
