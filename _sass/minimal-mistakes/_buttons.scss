@@ -41,7 +41,7 @@
   (twitter, $twitter-color),
   (linkedin, $linkedin-color),
   (reddit, #ff4500),
-  (email, #e3f988);
+  (email, #4A154B);
 
   @each $buttoncolor, $color in $buttoncolors {
     &--#{$buttoncolor} {
