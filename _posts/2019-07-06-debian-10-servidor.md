@@ -844,14 +844,18 @@ iface lo inet loopback
 # Bridge
 auto br0
 iface br0 inet static
-        address 192.168.1.90
-        netmask 255.255.255.0
-        network 192.168.1.0
-        gateway 192.168.1.1
-        bridge_ports ens33
-        bridge_stp off
-        bridge_fd 0
-        bridge_maxwait 0
+	address 192.168.1.90
+	netmask 255.255.255.0
+	network 192.168.1.0
+	gateway 192.168.1.1
+	bridge_ports ens33
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
+
+# Bridge IPV6
+iface br0 inet6 auto
+	accept_ra 1
 ```        
 Guardamos los cambios, salimos del editor de texto y nos queda corregir un posible fallo aunque no es común, en el fichero de resolución de DNS:
 
