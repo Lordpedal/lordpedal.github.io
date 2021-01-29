@@ -603,7 +603,7 @@ pi@overclock:~$ pihole uninstall
   [] Unable to remove 'pihole' group
 
 pi@overclock:~$ sudo groupdel pihole
-pi@overclock:~$ sudo systemctl stop dncrypt-proxy && sudo systemctl disable dnscrypt-proxy
+pi@overclock:~$ sudo systemctl stop dnscrypt-proxy && sudo systemctl disable dnscrypt-proxy
 pi@overclock:~$ cd /opt/dnscrypt-proxy && sudo ./dnscrypt-proxy -service uninstall
 pi@overclock:/opt/dnscrypt-proxy$ cd /opt && sudo rm -rf dnscrypt-proxy
 ```
