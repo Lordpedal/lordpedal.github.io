@@ -66,7 +66,7 @@ chmod +x zram.sh
 Vamos a copiar el script a la ruta de ejecutables:
 
 ```bash
-sudo cp $HOME/scripts/zram.sh \
+sudo ln -s $HOME/scripts/zram.sh \
 /usr/bin/zram.sh
 ```
 
@@ -76,7 +76,7 @@ Vamos a configurar rc.local para que lo cargue al inicio del sistema:
 sudo nano /etc/rc.local
 ```
 
-Y añadimos la siguiente orden `/usr/local/bin/zramswap` antes de la orden `exit 0`, quedando de la siguiente forma. Importante :
+Y añadimos la siguiente orden `/usr/bin/zram.sh` antes de la orden `exit 0`, quedando de la siguiente forma.
 
 ```bash
 # ZRAM
@@ -85,7 +85,7 @@ Y añadimos la siguiente orden `/usr/local/bin/zramswap` antes de la orden `exit
 exit 0
 ```
 
-Guardamos el fichero (Control+o), salimos del editor (Control+x) y reiniciamos el sistema:
+Guardamos el fichero (**Control + O**), salimos del editor (**Control + X**) y reiniciamos el sistema:
 
 ```bash
 sudo reboot
