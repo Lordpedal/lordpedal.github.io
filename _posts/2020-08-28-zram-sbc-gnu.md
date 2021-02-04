@@ -57,7 +57,7 @@ while [ $core -lt $cores ]; do
 done
 ```
 
-Guardamos el fichero (*Control+o*), salimos del editor (*Control+x*) y le damos permisos de ejecución:
+Guardamos el fichero (**Control + O**), salimos del editor (**Control + X**) y le damos permisos de ejecución:
 
 ```bash
 chmod +x zram.sh
