@@ -519,6 +519,11 @@ iface br0 inet dhcp
   #bridge_stp off
   #bridge_fd 0
   #bridge_maxwait 0
+#
+# Red Bridge IPv6
+#
+iface br0 inet6 auto
+  accept_ra 1
 EOF
 ```
 
