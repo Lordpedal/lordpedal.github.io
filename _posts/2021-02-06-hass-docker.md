@@ -33,7 +33,7 @@ Home Assistant es compatible con cientos de dispositivos, los más importantes s
  * Philips Hue
  * PLEX
  * Dispositivos Z-Wave
- * ...
+ * `...`
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
@@ -96,10 +96,10 @@ Por defecto viene configurado para *autodescubrir* configuraciones y automatizac
 
 A parte, y desde el menú de la izquierda, dispondremos por defecto de las siguientes características:
 
- * Mapa: Un mapa a pantalla completa donde tendremos disponibles todos los dispositivos o personas que hayamos marcado para rastrear, así como distintas zonas que configuremos. Por ejemplo, una zona podría ser nuestra casa, y otra la oficina de trabajo. De esta manera, en Home Assistant nuestra pareja podría saber si estamos llegando a casa o estamos en un atasco.
- * Registro: Página para ver todos los cambios que han ocurrido en nuestras entidades a lo largo del tiempo a modo de log. Se puede filtrar para tener una visión más clara.
- * Historial: Página parecida a la pestaña Registro pero muestra los cambios de manera más gráfica en el tiempo.
- * Herramientas para desarrolladores: Es la parte más avanzada de este menú. Contiene registros y opciones para cambiar los distintos servicios, entidades, estados de las entidades, así como para crear plantillas y la propia información de Home Assistant como versión actual, log, e información del sistema.
- * Configuración: Desde aquí realizaremos toda la configuración de Home Assistant de una manera más gráfica. Tanto usuarios, como integraciones, áreas, personalización de entidades
+ * **Mapa**: Un mapa a pantalla completa donde tendremos disponibles todos los dispositivos o personas que hayamos marcado para rastrear, así como distintas zonas que configuremos. Por ejemplo, una zona podría ser nuestra casa, y otra la oficina de trabajo. De esta manera, en Home Assistant nuestra pareja podría saber si estamos llegando a casa o estamos en un atasco.
+ * **Registro**: Página para ver todos los cambios que han ocurrido en nuestras entidades a lo largo del tiempo a modo de log. Se puede filtrar para tener una visión más clara.
+ * **Historial**: Página parecida a la pestaña Registro pero muestra los cambios de manera más gráfica en el tiempo.
+ * **Herramientas para desarrolladores**: Es la parte más avanzada de este menú. Contiene registros y opciones para cambiar los distintos servicios, entidades, estados de las entidades, así como para crear plantillas y la propia información de Home Assistant como versión actual, log, e información del sistema.
+ * **Configuración**: Desde aquí realizaremos toda la configuración de Home Assistant de una manera más gráfica. Tanto usuarios, como integraciones, áreas, personalización de entidades
 
 > Y listo!
