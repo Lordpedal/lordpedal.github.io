@@ -5,7 +5,6 @@ last_modified_at: 2021-01-27T23:45:00
 categories:
   - GNU/Linux
   - Docker
-author: Freedom Club
 tags:
   - GNU/Linux
   - Servidor
