@@ -530,18 +530,3 @@ LOS PROBLEMAS SOCIALES MáS SIMPLES SE HAN MOSTRADO INTRATABLES
 231. A lo largo de este artículo, hemos hecho declaraciones imprecisas, otras que debían tener toda clase de calificaciones y salvedades adjuntas a ellas y algunas otras, pueden ser terminantemente falsas. A falta de suficiente información y por la necesidad de la brevedad se nos hace imposible formular nuestras afirmaciones más precisamente o añadir todas las calificaciones necesarias. Y, por supuesto, en una discusión de esta naturaleza uno tiene que confiar excesivamente en un juicio intuitivo y eso algunas veces puede estar mal. Por lo que no pretendemos que este artículo exprese más que una ruda aproximación a la verdad.
 
 232. Con todo, estamos razonablemente seguros de que el boceto general del cuadro que hemos pintado es más o menos correcto. Hemos retratado al izquierdismo en su forma moderna como un fenómeno peculiar de nuestro tiempo y como síntoma del colapso del proceso de poder. Pero posiblemente podemos estar equivocados sobre esto. Los tipos sobresocializados que intentan satisfacer su impulso por el poder imponiendo su moralidad a todo el mundo ciertamente han estado dando vueltas desde hace tiempo. Pero PENSAMOS que el papel decisivo jugado por los sentimientos de inferioridad, la baja autoestima, la impotencia, la identificación con las víctimas de gente que no son víctimas, es una peculiaridad del izquierdismo moderno. La identificación con las víctimas de gente que no son víctimas se puede ver en cierta extensión en el izquierdismo del siglo XIX y en el cristianismo primitivo pero, hasta donde lo podemos explicar, los síntomas de baja autoestima, etc., no eran casi tan evidentes en estos movimientos, o en ningún otro, como lo son en el izquierdismo moderno. Pero no estamos en una posición como para alegar con seguridad que ninguno de dichos movimientos haya existido antes junto al izquierdismo moderno. Esta es una pregunta significativa a la que los historiadores deberían prestar su atención.
-
-### NOTAS
-
-1. Chick en el original.
-2. Broad en el original.
-3. Amish: movimiento que nació en Suiza en 1525 con los menonitas, otro grupo religioso, bajo la influencia de Martín Lutero. El nombre amish procede de Jacob Amman, un líder religioso del siglo XVII, que señalaría determinados preceptos concretos que marcarían las diferencias entre amish y los demás cristianos. Llegaron a América en 1720.
-4. Existencialismo: doctrina filosófica contemporánea que trata de fundar el conocimiento de toda realidad sobre la experiencia inmediata de la existencia propia. Sus problemas arrancan del ser humano mismo, no de cuanto le envuelve. Algunos existencialistas son Kierkegaard, Heidegger, Jaspers, Sartre, Marcel, etc.
-5. Sistema de franquicia: exención total o parcial que se concede a una persona para no pagar derechos por las mercancías que introduce o extrae, o por el aprovechamiento de algún servicio público.
-6. Bridge: juego de cartas.
-7. Kuomintang: en el dialecto chino de Pekín, partido popular nacionalista.
-8. Tautología: repetición de un mismo pensamiento expresado de distintas maneras.
-9. Eugenesia: aplicación de las leyes biológicas de la herencia al perfeccionamiento de la especie humana.
-10. Modus vivendi: modo de vivir, base o regla de conducta, arreglo, ajuste o transacción entre dos partes.
-11. Terapia de gen: tratamiento mediante la manipulación genética.
-13. G.A.T.T.: siglas de General Agreement on Tariffs and Trade (Acuerdo General sobre Aranceles y Comercio).
