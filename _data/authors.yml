@@ -1,7 +1,7 @@
 Freedom Club:
   name   : "FC"
   avatar : "/assets/images/FC.png"
-  bio    : "FC"
+  bio    : "Freedom Club"
   location : "$HOME"
   links:
 #    - label: "Lordpedal RSS"
