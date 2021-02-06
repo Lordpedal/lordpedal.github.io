@@ -15,7 +15,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-La sociedad industrial y su futuro es un manifiesto escrito bajo el seudónimo de Freedom Club por Theodore Kaczynski, alias Unabomber. Bajo aquel nombre, El club de la libertad en castellano, fue reivindicada una serie de envíos de cartas bomba y el asesinato de Thomas Mosser. En abril de 1995, Freedom Club envió una carta a The New York Times en la que ofrecía abandonar de forma permanente sus actividades terroristas a cambio de que se publicara un artículo largo de unas 30.000 palabras.
+La sociedad industrial y su futuro es un manifiesto escrito bajo el seudónimo de Freedom Club por Theodore Kaczynski. 
 
 ## INTRODUCCIÓN
 
