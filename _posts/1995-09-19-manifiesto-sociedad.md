@@ -15,6 +15,8 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
+La sociedad industrial y su futuro es un manifiesto escrito bajo el seudónimo de Freedom Club por Theodore Kaczynski, alias Unabomber. Bajo aquel nombre, El club de la libertad en castellano, fue reivindicada una serie de envíos de cartas bomba y el asesinato de Thomas Mosser. En abril de 1995, Freedom Club envió una carta a The New York Times en la que ofrecía abandonar de forma permanente sus actividades terroristas a cambio de que se publicara un artículo largo de unas 30.000 palabras.
+
 ## INTRODUCCIÓN
 
 1. La Revolución Industrial y sus consecuencias han sido un desastre para la raza humana. Ha aumentado enormemente la expectativa de vida de aquellos de nosotros que vivimos en paises avanzados, pero ha desestabilizado la sociedad, ha hecho la vida imposible, ha sometido a los seres humanos a indignidades, ha conducido a extender el sufrimiento psicológico (en el tercer mundo también el sufrimiento físico) y ha infligido un daño severo en el mundo natural. El continuo desarrollo de la tecnología empeorará la situación. Ciertamente someterá a los seres humanos a grandes indignidades e infligirá gran daño en el mundo natural, probablemente conducirá a un gran colapso social y al sufrimiento psicológico, y puede que conduzca al incremento del sufrimiento físico incluso en paises avanzados.
