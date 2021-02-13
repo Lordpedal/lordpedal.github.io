@@ -2586,7 +2586,7 @@ Lista de ejemplo adicional:
 
 ```bash
 cd $HOME/docker/xupnpdv2/listas && \
-wget https://raw.githubusercontent.com/Lordpedal/xupnpdv2/main/IPTV.m3u
+wget https://www.tdtchannels.com/lists/tvradio.m3u
 ```
 
 <figure>
