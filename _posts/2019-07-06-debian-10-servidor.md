@@ -1647,7 +1647,7 @@ Al final del fichero añadimos el recurso a compartir, una carpeta sera pública
   browseable = yes
   only guest = no
   create mask = 0777
-  directory mask = 0777</pre>
+  directory mask = 0777
 ```  
 
 En este mismo archivo, casi al principio, vas a encontrar la variable workgroup, quede de la siguiente forma:
