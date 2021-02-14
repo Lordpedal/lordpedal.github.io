@@ -20,7 +20,7 @@ Te puede surgir la duda de cuando usar un metodo u otro, la lógica que se debe 
 
 Si **únicamente vas a compartir una ruta**, el metodo Docker es más limpio en cuanto a gestión del servidor, pero si quieres **compartir más de una ruta** mediante Samba en ese caso la opción de paquetería es la más acertada.
 
-**NOTA**: No es compatible usar el protcolo de Samba desde Docker y Paquetería al mismo tiempo por compartir puertos de gestión.
+**NOTA**: No es compatible usar el protocolo de Samba desde Docker y Paquetería al mismo tiempo por compartir puertos de gestión.
 {: .notice--warning}
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
