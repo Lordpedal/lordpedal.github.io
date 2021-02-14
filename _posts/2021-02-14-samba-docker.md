@@ -14,14 +14,14 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-Anteriormente ya vimos como *instalar/configurar* desde el gestor de paquetería de nuestra distribución **GNU/Linux**: [**Samba: APT**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#samba){: .btn .btn--info}{:target="_blank"}
+Anteriormente ya vimos como *instalar/configurar* desde el gestor de paquetería de nuestra distribución **GNU/Linux**: [**Samba: APT**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#samba){: .btn .btn--warning}{:target="_blank"}
 
 Te puede surgir la duda de cuando usar un metodo u otro, la lógica que se debe de aplicar es sencilla. 
 
 Si **únicamente vas a compartir una ruta**, el metodo Docker es más limpio en cuanto a gestión del servidor, pero si quieres **compartir más de una ruta** mediante Samba en ese caso la opción de paquetería es la más acertada.
 
 **NOTA**: No es compatible usar el protocolo de Samba desde Docker y Paquetería al mismo tiempo por compartir puertos de gestión.
-{: .notice--warning}
+{: .notice--info}
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
