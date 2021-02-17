@@ -2063,21 +2063,8 @@ Es un programa gracias al cual podemos convertir eBooks a diversos formatos.
 Vamos a crear las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/calibre && \
+mkdir -p $HOME/docker/calibre/{config,libros} && \
 cd $HOME/docker/calibre
-```
-
-A continuación, vamos a crear una contraseña codificada en formato md5 para poder acceder a la gestión remota, recuerda sustituir la palabra contraseña por la contraseña que quieras usar:
-
-```bash
-echo -n contraseña | openssl md5
-```
-
-Adjunto ejemplo de mi sistema y apuntamos el valor para anotarlo en la variable -e GUAC_PASS:
-
-```bash
-pi@overclock:~$ echo -n calibre | openssl md5
-(stdin)= fccc8f9fde7b6108c5f1932d7e9da5b1
 ```
 
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
@@ -2087,19 +2074,17 @@ cat << EOF > $HOME/docker/calibre/docker-compose.yml
 version: "2.1"
 services:
   calibre:
-    image: ghcr.io/linuxserver/calibre
+    image: ghcr.io/linuxserver/cops
     container_name: Calibre
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-      - GUAC_USER=calibre
-      - GUAC_PASS=fccc8f9fde7b6108c5f1932d7e9da5b1 #Clave MD5
     volumes:
       - '~/docker/calibre/config:/config'
+      - '~/docker/calibre/libros:/books'
     ports:
-      - 8085:8080
-      - 8086:8081
+      - 8085:80
     restart: always
 EOF
 ```
@@ -2111,11 +2096,9 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `GUAC_USER=calibre` | Usuario `calibre` para entorno de gestión |
-| `GUAC_PASS=fccc...` | Contraseña `calibre` en formato md5 para entorno de gestión |
-| `$HOME/docker/calibre/config:/config` | Ruta donde almacenaremos la **base de datos** y la **librería** |
-| `8085:8080` | Puerto de acceso Escritorio `8085` |
-| `8086:8081` | Puerto configuración Servidor `8086` |
+| `$HOME/docker/calibre/config:/config` | Ruta donde almacenaremos la **base de datos** |
+| `$HOME/docker/calibre/libros:/books` | Ruta donde almacenaremos la **librería** |
+| `8085:80` | Puerto de acceso gestión `8085` |
 |  `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio `Calibre` |
 {: .notice--warning}
 
@@ -2125,7 +2108,7 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8005` para completar el asistente de instalación.
+Tras haber lanzado el servicio, accederiamos con un navegador web a la `http://ip_servidor:8085` para completar el asistente de instalación.
 
 ## Docker: [Shaarli](https://hub.docker.com/r/shaarli/shaarli/){:target="_blank"}
 
@@ -2329,7 +2312,7 @@ Los datos son **cifrados/descifrados en el navegador usando un encriptado 256 bi
 Vamos a realizar unos pasos previos para preparar el entorno, en primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/privatebin{config,datos} && \
+mkdir -p $HOME/docker/privatebin/{config,datos} && \
 cd $HOME/docker/privatebin
 ```
 
