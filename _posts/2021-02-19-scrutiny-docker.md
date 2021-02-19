@@ -18,7 +18,9 @@ tags:
 
 Hasta ahora para el monitoreado del servidor usaba el demonio `smartd`, pero no disponía de metricas online.
 
-Scrutiny es una aplicación simple pero de uso enfocado especialmente en los servidores. Entre otras, cuenta con las siguientes características principales:
+Scrutiny es una aplicación simple pero de uso enfocado especialmente en los servidores, desarrollada en **Go**. 
+
+Entre otras, cuenta con las siguientes características principales:
 
 - Panel de interfaz de usuario web: centrado en métricas críticas
 - Integración smartd (sin reinventar la rueda)
