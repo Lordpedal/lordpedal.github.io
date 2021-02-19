@@ -16,15 +16,15 @@ tags:
 {: .full}
 [Scrutiny](https://github.com/AnalogJ/scrutiny){: .btn .btn--warning .btn--small}{:target="_blank"} es un `WebUI` para monitorear estado S.M.A.R.T. de nuestros medios de almacenamiento.
 
-Hasta ahora para el monitoreado del servidor usaba el demonio `smartd`, para conocer el estado del sistema, pero no disponía de metricas online.
+Hasta ahora para el monitoreado del servidor usaba el demonio `smartd`, pero no disponía de metricas online.
 
-Scrutiny es una aplicación simple pero enfocada, con las siguientes características principales:
+Scrutiny es una aplicación simple pero de uso enfocado especialmente en los servidores. Entre otras, cuenta con las siguientes características principales:
 
 - Panel de interfaz de usuario web: centrado en métricas críticas
 - Integración smartd (sin reinventar la rueda)
 - Detección automática de todos los discos duros conectados
 - Seguimiento de métricas S.M.A.R.T para tendencias históricas
-- Umbrales personalizados utilizando tasas de falla del mundo real
+- Umbrales personalizados utilizando tasas de falla reales
 - Seguimiento de temperatura
 - Alertas / notificaciones configurables en el futuro a través de webhooks
 - Prueba y seguimiento del rendimiento del disco duro *(en desarrollo)*
