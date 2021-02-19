@@ -71,7 +71,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `SCRUTINY_API_ENDPOINT=http://localhost:8080` | Ruta donde consulta la API del contenedor, **no modificar**` |
+| `SCRUTINY_API_ENDPOINT=http://localhost:8080` | Ruta donde consulta la API del contenedor, **no modificar** |
 | `SCRUTINY_WEB=true` | Habilitamos la consulta vía web |
 | `SCRUTINY_COLLECTOR=true` | Habilitamos la recolección de datos locales |
 | `~/docker/scrutiny/config:/config` | Ruta donde almacenaremos la configuración |
