@@ -14,7 +14,7 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[Scrutiny](https://github.com/AnalogJ/scrutiny){: .btn .btn--inverse .btn--small}{:target="_blank"} es un `WebUI` para monitorear estado S.M.A.R.T. de nuestros medios de almacenamiento.
+[Scrutiny](https://github.com/AnalogJ/scrutiny){: .btn .btn--warning .btn--small}{:target="_blank"} es un `WebUI` para monitorear estado S.M.A.R.T. de nuestros medios de almacenamiento.
 
 Hasta ahora para el monitoreado del servidor usaba el demonio `smartd`, para conocer el estado del sistema, pero no disponía de metricas online.
 
