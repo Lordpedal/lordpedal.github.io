@@ -14,7 +14,7 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[Scrutiny](https://github.com/AnalogJ/scrutiny){:target="_blank"} es un `WebUI` para monitorear estado S.M.A.R.T. de nuestros medios de almacenamiento.
+[Scrutiny](https://github.com/AnalogJ/scrutiny){: .btn .btn--inverse .btn--small}{:target="_blank"} es un `WebUI` para monitorear estado S.M.A.R.T. de nuestros medios de almacenamiento.
 
 Hasta ahora para el monitoreado del servidor usaba el demonio `smartd`, para conocer el estado del sistema, pero no disponía de metricas online.
 
@@ -139,7 +139,7 @@ exit
 pi@overclock:~/docker/scrutiny$
 ```
 
-Tras ello, podremos consultar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:8088](http://localhost:8088){: .btn .btn--inverse .btn--small}
+Tras ello, podremos consultar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:8088](http://localhost:8088){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 <figure>
     <a href="/assets/images/posts/scrutiny.jpg"><img src="/assets/images/posts/scrutiny.jpg"></a>
