@@ -114,7 +114,7 @@ Primeramente generamos el fichero de credenciales definiendo un usuario y una co
 
 ```bash
 htpasswd -bnBC 12 "empalador" "nocturno" | && \
-tee $HOME/docker/torrents/web/credentials
+tee $HOME/docker/magnetico/web/credentials
 ```
 
 Editamos o regeneramos el fichero `docker-compose.yml` comentando las líneas de credenciales:
