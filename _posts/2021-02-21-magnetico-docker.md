@@ -16,13 +16,13 @@ tags:
 {: .full}
 [Magnetico](https://github.com/boramalper/magnetico){: .btn .btn--warning .btn--small}{:target="_blank"} es el primer conjunto de motores de búsqueda `DHT` *(BitTorrent)* autónomo, diseñado en lenguaje **Go**.
 
-Entrando en materia, BitTorrent, es un protocolo de intercambio de archivos P2P distribuido, el cual ha sufrido durante mucho tiempo ha generado cierta controversia, debido el ataque a servidores de las que las personas dependían para buscar torrents (*sitios web*) y para descubrir otros pares (*rastreadores*). 
+Entrando en materia, BitTorrent, es un protocolo de intercambio de archivos **P2P** distribuido, el cual ha sufrido durante mucho tiempo ha generado cierta controversia, debido el ataque a servidores de las que las personas dependían para buscar torrents (*sitios web*) y para descubrir otros pares (*rastreadores*). 
 
 Con la introducción de `DHT` (*tabla hash distribuida*) eliminó la necesidad de rastreadores, permitiendo que los pares se descubrieran entre sí a través de otros pares y obtuvieran metadatos de los *leechers* y *seeders*.
 
 Aprovechando la idea, se emplea el uso de `DHT` para generar un índice local, lo que a su vez elimina cualquier posibilidad de bloqueo.
 
-Ahora, eso si `Magnetico` tiene algo negativo, ya que tener un índice local suena muy tentador, pero el **software no cuenta con filtros**, por lo tanto, el índice podría terminar lleno de contenido controvertido.
+Ahora, eso si `Magnetico` tiene algo negativo, ya que tener un índice local suena muy tentador, pero el **software no cuenta con filtros**, por lo tanto, el índice podría terminar indexando contenido controvertido.
 
 La suite consta de dos aplicaciones:
 
@@ -113,7 +113,8 @@ Podemos analizar las estadisticas de indexación desde la propia intefaz web, im
 Primeramente generamos el fichero de credenciales definiendo un usuario y una contraseña, para el ejemplo **empalador/nocturno**
 
 ```bash
-htpasswd -bnBC 12 "empalador" "nocturno" | tee $HOME/docker/torrents/web/credentials
+htpasswd -bnBC 12 "empalador" "nocturno" | && \
+tee $HOME/docker/torrents/web/credentials
 ```
 
 Editamos o regeneramos el fichero `docker-compose.yml` comentando las líneas de credenciales:
