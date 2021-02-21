@@ -14,7 +14,7 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[Magnetico](https://github.com/boramalper/magnetico){: .btn .btn--warning .btn--small}{:target="_blank"} es el primer conjunto de motores de búsqueda `DHT` (**protocolo BitTorrent**) autónomo, diseñado en lenguaje **Go**.
+[Magnetico](https://github.com/boramalper/magnetico){: .btn .btn--warning .btn--small}{:target="_blank"} es el primer conjunto de motores de búsqueda `DHT` *(BitTorrent)* autónomo, diseñado en lenguaje **Go**.
 
 Entrando en materia, BitTorrent, es un protocolo de intercambio de archivos P2P distribuido, el cual ha sufrido durante mucho tiempo ha generado cierta controversia, debido el ataque a servidores de las que las personas dependían para buscar torrents (*sitios web*) y para descubrir otros pares (*rastreadores*). 
 
