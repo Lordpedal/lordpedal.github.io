@@ -119,7 +119,7 @@ tee $HOME/docker/torrents/web/credentials
 
 Editamos o regeneramos el fichero `docker-compose.yml` comentando las líneas de credenciales:
 
-```
+```bash
 cat << EOF > $HOME/docker/magnetico/docker-compose.yml
 version: "2"
 services:
