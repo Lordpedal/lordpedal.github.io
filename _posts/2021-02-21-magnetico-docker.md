@@ -101,7 +101,7 @@ Tras ello, podremos consultar el servicio, que en mi caso estaría disponible en
     <a href="/assets/images/posts/magnetico1.jpg"><img src="/assets/images/posts/magnetico1.jpg"></a>
 </figure>
 
-Podemos analizar las estadisticas de indexación desde la propia intefaz web, importante recordar que es un proceso que lleva bastante tiempo y que puede interesar usar el contenedor `magneticod` únicamente en horarios de menor uso de red, mientras que el `magneticow` este siempre disponible:
+Podremos analizar las estadisticas de indexación desde la propia intefaz web, importante recordar que es un proceso que lleva bastante tiempo y que puede interesar usar el contenedor `magneticod` únicamente en horarios de menor uso de red, mientras que el `magneticow` este siempre disponible:
 
 <figure>
     <a href="/assets/images/posts/magnetico2.jpg"><img src="/assets/images/posts/magnetico2.jpg"></a>
