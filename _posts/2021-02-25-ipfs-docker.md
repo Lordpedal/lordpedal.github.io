@@ -32,14 +32,14 @@ IPFS proporciona distribución de datos de alto rendimiento y baja latencia. Tam
 
 Algunos proyectos interesantes que se están construyendo bajo esta iniciativa son:
 
-- [Akasha](https://akasha.world){: .btn .btn--reverse .btn--small}{:target="_blank"}, una red social de próxima generación
-- [Equilibrio3](https://www.balanc3.net){: .btn .btn--reverse .btn--small}{:target="_blank"}, una plataforma de contabilidad de triple entrada
-- [BlockFreight](https://blockfreight.com){: .btn .btn--reverse .btn--small}{:target="_blank"}, una red abierta para el transporte mundial de mercancías
-- [Digix](https://digix.global){: .btn .btn--reverse .btn--small}{:target="_blank"}, una plataforma para tokenizar oro físico
-- [Infura](https://infura.io){: .btn .btn--reverse .btn--small}{:target="_blank"}, un proveedor de infraestructura para DApps
-- [Livepeer](https://livepeer.org){: .btn .btn--reverse .btn--small}{:target="_blank"}, una plataforma descentralizada de transmisión de video en vivo
-- [Origen](https://www.originprotocol.com){: .btn .btn--reverse .btn--small}{:target="_blank"}, un mercado peer-to-peer para la economía colaborativa
-- [uPort](https://www.uport.me){: .btn .btn--reverse .btn--small}{:target="_blank"}, un sistema de identidad auto-soberano
+- [Akasha](https://akasha.world){: .btn .btn--primary .btn--small}{:target="_blank"}, una red social de próxima generación
+- [Equilibrio3](https://www.balanc3.net){: .btn .btn--primary .btn--small}{:target="_blank"}, una plataforma de contabilidad de triple entrada
+- [BlockFreight](https://blockfreight.com){: .btn .btn--primary .btn--small}{:target="_blank"}, una red abierta para el transporte mundial de mercancías
+- [Digix](https://digix.global){: .btn .btn--primary .btn--small}{:target="_blank"}, una plataforma para tokenizar oro físico
+- [Infura](https://infura.io){: .btn .btn--primary .btn--small}{:target="_blank"}, un proveedor de infraestructura para DApps
+- [Livepeer](https://livepeer.org){: .btn .btn--primary .btn--small}{:target="_blank"}, una plataforma descentralizada de transmisión de video en vivo
+- [Origen](https://www.originprotocol.com){: .btn .btn--primary .btn--small}{:target="_blank"}, un mercado peer-to-peer para la economía colaborativa
+- [uPort](https://www.uport.me){: .btn .btn--primary .btn--small}{:target="_blank"}, un sistema de identidad auto-soberano
 
 A pesar del impresionante rendimiento de IPFS, algunos problemas aún no se han resuelto por completo. En primer lugar, el direccionamiento de contenido en IPNS actualmente no es muy fácil de recordar. Un enlace IPNS típico se ve así:
 
