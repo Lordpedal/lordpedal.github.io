@@ -20,7 +20,7 @@ Las siglas `IPFS` proviene de **InterPlanetary File System**, el cual es un nuev
 
 Este nuevo protocolo aún se encuentra en su etapa prematura de desarrollo (*Alpha*), y no brinda demasiadas posibilidades a nivel técnico, a pesar de ello, el protocolo funciona y facilita un seriado de guias y casos prácticos para así tener una toma de contacto con él.
 
-El protocolo surge en el año *2014*, basando su desarrollo en el Blockchain de **Bitcoin**, aunque posteriormente fue agregando otros lenguajes como **Go**.
+El protocolo surge en el año *2014*, basando su desarrollo en el **Blockchain de Bitcoin**.
 
 Las diferencias fundamentales entre el protocolo actualmente más extendido (HTTP) y el IPFS se puede ver en la siguiente comparativa, especialmente cuando lanzamos una consulta: 
 
