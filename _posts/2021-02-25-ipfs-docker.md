@@ -24,9 +24,8 @@ El protocolo surge en el año *2014*, inicialemtne basando su desarrollo en el *
 
 Las diferencias fundamentales entre el protocolo actualmente más extendido (HTTP) y el IPFS se puede ver en la siguiente comparativa, especialmente cuando lanzamos una consulta: 
 
-<figure>
-    <a href="/assets/images/posts/ipfshttp.png"><img src="/assets/images/posts/ipfshttp.png"></a>
-</figure>
+![IPFS]({{ site.url }}{{ site.baseurl }}/assets/images/posts/ipfshttp.png){: .align-center}
+{: .full}
 
 IPFS proporciona distribución de datos de alto rendimiento y baja latencia. También es descentralizado y seguro. Se puede utilizar para enviar contenido a sitios web, almacenar archivos a nivel mundial con versiones y copias de seguridad automáticas, facilitar el intercambio seguro de archivos y la comunicación cifrada.
 
