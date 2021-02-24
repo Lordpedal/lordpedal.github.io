@@ -106,7 +106,7 @@ Durante el primer acceso veremos un error de comunicación en la interfaz:
     <a href="/assets/images/posts/ipfs1.jpg"><img src="/assets/images/posts/ipfs1.jpg"></a>
 </figure>
 
-Definimos la **IP** (*192.168.1.90*) y el **puerto API** (*5001*) en nuestro servidor y hacemos clic sobre enviar:
+Definimos la **IP del Servidor** (*Ejemplo: 192.168.1.90*) y el **puerto API** (*5001*) en nuestro servidor y hacemos clic sobre enviar:
 
 <figure>
     <a href="/assets/images/posts/ipfs2.jpg"><img src="/assets/images/posts/ipfs2.jpg"></a>
