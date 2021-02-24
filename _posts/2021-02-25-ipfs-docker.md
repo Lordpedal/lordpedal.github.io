@@ -16,11 +16,11 @@ tags:
 {: .full}
 [IPFS](https://ipfs.io){: .btn .btn--warning .btn--small}{:target="_blank"} es un protocolo `P2P` diseñado para hacer que la Web sea más rápida, segura y abierta.
 
-Las siglas `IPFS` proviene de **InterPlanetary File System**, el cual es un nuevo protocolo de internet que renueva los demás protocolos ofreciendo una respuesta a todo.
+Las siglas `IPFS` proviene de **InterPlanetary File System**, el cual es un nuevo protocolo de internet que renueva los demás protocolos ofreciendo una respuesta a todo, como alternativa sobre **HTTP**.
 
 Este nuevo protocolo aún se encuentra en su etapa prematura de desarrollo (*Alpha*), y no brinda demasiadas posibilidades a nivel técnico, a pesar de ello, el protocolo funciona y facilita un seriado de guias y casos prácticos para así tener una toma de contacto con él.
 
-El protocolo surge en el año *2014*, basando su desarrollo en el **Blockchain de Bitcoin**.
+El protocolo surge en el año *2014*, inicialemtne basando su desarrollo en el **Blockchain de Bitcoin**.
 
 Las diferencias fundamentales entre el protocolo actualmente más extendido (HTTP) y el IPFS se puede ver en la siguiente comparativa, especialmente cuando lanzamos una consulta: 
 
@@ -33,7 +33,6 @@ IPFS proporciona distribución de datos de alto rendimiento y baja latencia. Tam
 Algunos proyectos interesantes que se están construyendo bajo esta iniciativa son:
 
 - [Akasha](https://akasha.world){: .btn .btn--primary .btn--small}{:target="_blank"} - Una red social de próxima generación
-- [Equilibrio3](https://www.balanc3.net){: .btn .btn--primary .btn--small}{:target="_blank"} - Una plataforma de contabilidad de triple entrada
 - [BlockFreight](https://blockfreight.com){: .btn .btn--primary .btn--small}{:target="_blank"} - Una red abierta para el transporte mundial de mercancías
 - [Digix](https://digix.global){: .btn .btn--primary .btn--small}{:target="_blank"} - Una plataforma para tokenizar oro físico
 - [Infura](https://infura.io){: .btn .btn--primary .btn--small}{:target="_blank"} - Un proveedor de infraestructura para DApps
