@@ -109,7 +109,7 @@ Durante el primer acceso veremos un error de comunicación en la interfaz:
     <a href="/assets/images/posts/ipfs1.jpg"><img src="/assets/images/posts/ipfs1.jpg"></a>
 </figure>
 
-Definimos la **IP** (*192.168.1.90*) y el puerto API** (*5001*) en nuestro servidor y hacemos clic sobre enviar:
+Definimos la **IP** (*192.168.1.90*) y el **puerto API** (*5001*) en nuestro servidor y hacemos clic sobre enviar:
 
 <figure>
     <a href="/assets/images/posts/ipfs2.jpg"><img src="/assets/images/posts/ipfs2.jpg"></a>
@@ -157,7 +157,7 @@ Como comentamos cuando analizamos el `docker-compose` vimos que para poder usar 
     <a href="/assets/images/posts/ipfs9.jpg"><img src="/assets/images/posts/ipfs9.jpg"></a>
 </figure>
 
-**NOTA**: Recomiendo encarecidamente revisar la documentación del proyecto se encuentra muy bien detallada en esta [guía](https://docs.ipfs.io/how-to/){: .btn .btn--reverse .btn--small}{:target="_blank"}, para poder completar la experiencia de esta red.
+**NOTA**: Recomiendo encarecidamente revisar la documentación del proyecto se encuentra muy bien detallada en esta [guía](https://docs.ipfs.io/how-to/){: .btn .btn--danger .btn--small}{:target="_blank"}, para poder completar la experiencia de esta red.
 {: .notice--info}
 
 > Y listo!
