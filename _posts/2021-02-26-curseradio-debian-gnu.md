@@ -21,8 +21,8 @@ Para poder usar el programa debemos de cubrir algunas dependencias del sistema:
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install mpv git python3-pip python3-setuptools python3-lxml \
-python3-requests python3-xdg
+sudo apt-get -y install mpv git python3-pip python3-setuptools \
+python3-lxml python3-requests python3-xdg
 ```
 
 Creamos una ruta donde alojar el repositorio:
@@ -55,7 +55,7 @@ La interfaz es muy simple como previamente comentamos, nos vamos a manejar por e
 
 Tecla(s) | Función 
 -------|--------
-<kbd></kbd>, <kbd></kbd> | Navegar en listado
+<kbd>↑</kbd>, <kbd>↓</kbd> | Navegar en listado
 <kbd>PgUp</kbd>, <kbd>PgDn</kbd> | Navegar rápidamente en listado
 <kbd>Home</kbd>, <kbd>End</kbd> | Ir hacia arriba/abajo
 <kbd>Enter</kbd> | Abrir/cerrar carpetas, reproducir emisora
