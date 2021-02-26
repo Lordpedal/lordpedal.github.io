@@ -15,7 +15,7 @@ tags:
 
 Aunque no dispone de interfaz gráfica, es extremadamente fácil de utilizar y no requiere ninguna configuración ni tampoco necesita tutoriales especializados.
 
-Desarrollado sobre `Python` está diseñado para utilizar por defecto el diretorio **Tunein** que se encuentra en [http://opml.radiotime.com](http://opml.radiotime.com){: .btn .btn--info .btn--small}{:target="_blank"} pero puede ser personalizado para reproducir otras listas.
+Desarrollado sobre `Python` está diseñado para utilizar por defecto el directorio **Tunein** que se encuentra en [http://opml.radiotime.com](http://opml.radiotime.com){: .btn .btn--info .btn--small}{:target="_blank"} pero puede ser personalizado para reproducir otras listas.
 
 Para poder usar el programa debemos de cubrir algunas dependencias del sistema:
 
