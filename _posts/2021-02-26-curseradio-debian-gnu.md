@@ -52,15 +52,15 @@ curseradio
 
 La interfaz es muy simple como previamente comentamos, nos vamos a manejar por ella con el teclado con la siguientes teclas:
 
-| Tecla(s) | Función |
-| ------ | ------ |
-| <kbd></kbd>, <kbd></kbd> | Navegar en listado |
-| <kbd>PgUp</kbd>, <kbd>PgDn</kbd> | Navegar rápidamente en listado |
-| <kbd>Home</kbd>, <kbd>End</kbd> | Ir hacia arriba/abajo | 
-| <kbd>Enter</kbd> | Abrir/cerrar carpetas, reproducir emisora |
-| <kbd>k</kbd> | Detener la reproducción de la emisora |
-| <kbd>q</kbd> | Salir |
-| <kbd>f</kbd> | Des/activar como favorito |
+Tecla(s) | Función 
+-------|--------
+<kbd></kbd>, <kbd></kbd> | Navegar en listado
+<kbd>PgUp</kbd>, <kbd>PgDn</kbd> | Navegar rápidamente en listado
+<kbd>Home</kbd>, <kbd>End</kbd> | Ir hacia arriba/abajo
+<kbd>Enter</kbd> | Abrir/cerrar carpetas, reproducir emisora
+<kbd>k</kbd> | Detener la reproducción de la emisora
+<kbd>q</kbd> | Salir
+<kbd>f</kbd> | Des/activar como favorito
 {: .notice--info}
 
 <figure>
