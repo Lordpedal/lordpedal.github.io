@@ -22,15 +22,15 @@ Vamos a realizar una pequeña comparativa entre los dos grandes servicios de seg
 | Bloqueo publicidad                                                  |  ✅     | ✅ |
 | Personalizar listas bloqueo                                         |  ✅     | ✅ |
 | Soporte servidor DHCP                                               |  ✅     | ✅ |
-| Servidores DNS Encriptados (DNS-over-HTTPS, DNS-over-TLS, DNSCrypt) |  ✅     | ✅ (**P3DNS**) |
-| Multi-plataforma                                                    |  ✅     | ✅ (**Docker**) |
-| Bloqueo phishing y malware                                          |  ✅     | ✅ (**Listas**) |
-| Bloqueo contenido dominios adultos                                  |  ✅     | ✅ (**Listas**) |
-| Forzar realizar busqueda servidores seguros                         |  ✅     | ❌ (**No soporta perfiles individuales**) |
+| Servidores DNS Encriptados (DNS-over-HTTPS, DNS-over-TLS, DNSCrypt) |  ✅     | ✅ **P3DNS** |
+| Multi-plataforma                                                    |  ✅     | ✅ **Docker** |
+| Bloqueo phishing y malware                                          |  ✅     | ✅ **Listas** |
+| Bloqueo contenido dominios adultos                                  |  ✅     | ✅ **Listas** |
+| Forzar realizar busqueda servidores seguros                         |  ✅     | ❌ **No soporta perfiles individuales** |
 | Configuración dispositivos                                          |  ✅     | ✅ |
-| Acceso individualizado configuración                                |  ✅     | ❌ (**No soporta perfiles individuales**) |
-| Frecuencia actualizaciones                                          |  ❌     | ✅ (**Listas en constante actualización por la comunidad**) |
-| Desarrolladores globales                                            |  ❌     | ✅ (**Software Libre no Privativo**) |
+| Acceso individualizado configuración                                |  ✅     | ❌ **No soporta perfiles individuales** |
+| Frecuencia actualizaciones                                          |  ❌     | ✅ **Listas en constante actualización por la comunidad** |
+| Desarrolladores globales                                            |  ❌     | ✅ **Software Libre no Privativo** |
 
 La comparativa esta bastante equilibrada, solamente voy a recomendar usar AdGuard en dispositivos de bajos recursos como he probado en una `Raspberry 1B+` y en entornos donde sea imperativo el uso de perfiles individuales en vez de uno general. 
 
