@@ -61,9 +61,9 @@ chmod +x Slic3r-1.3.0-x86_64.AppImage
 
 Iniciamos la aplicación desde nuestro gestor de escritorio y seguimos el sencillo asistente de primera ejecución.
 
-## Corte 3D
+### Corte 3D
 
-Imagína que has diseñado una pieza o bien descargado alguna cuya superficie de impresión es superior a la de tu mesa de impresión, pues no queda otra que seccionar el fichero 3D en partes más pequeñas. 
+Imagina que has diseñado una pieza o bien descargado alguna cuya superficie de impresión es superior a la de tu mesa de impresión, pues no queda otra que seccionar el fichero 3D en partes más pequeñas. 
 
 Primeramente seleccionamos la pieza/objeto:
 
@@ -92,7 +92,7 @@ Entre las opciones de corte se nos presentan dos opciones:
 **NOTA**: Una vez tenemos una pieza cortada en trozos, es importante que exportemos cada una de las piezas a un fichero STL nuevo, de esta forma no perderemos las secciones que posteriormente iremos imprimiendo. Este paso es importante ya que realizar el corte exactamente igual para que luego las piezas encajen puede ser bastante complicado.
 {: .notice--info}
 
-### Corte por eje 
+#### Corte por eje 
 
 Seleccionamos el eje de corte: 
 
@@ -121,7 +121,7 @@ Adjunto ejemplo:
    </video>
 </div>
 
-### Corte por cuadrícula
+#### Corte por cuadrícula
 
 Seleccionamos el corte por cuadrícula (**Cut by grid...**):
 
