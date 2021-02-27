@@ -19,20 +19,22 @@ Vamos a realizar una pequeña comparativa entre los dos grandes servicios de seg
 
 | Novedad                                                             | AdGuard | Pi-Hole |
 |---------------------------------------------------------------------|---------|---------------------------------------------|
-| Bloqueo publicidad                                                  |       |  |
-| Personalizar listas bloqueo                                         |       |  |
-| Soporte servidor DHCP                                               |       |  |
-| Servidores DNS Encriptados (DNS-over-HTTPS, DNS-over-TLS, DNSCrypt) |       |  (**P3DNS**) |
-| Multi-plataforma                                                    |       |  (**Docker**) |
-| Bloqueo phishing y malware                                          |       |  (**Listas**) |
-| Bloqueo contenido dominios adultos                                  |       |  (**Listas**) |
-| Forzar realizar busqueda servidores seguros                         |       |  (**No soporta perfiles individuales**) |
-| Configuración dispositivos                                          |       |  |
-| Acceso individualizado configuración                                |       |  (**No soporta perfiles individuales**) |
-| Frecuencia actualizaciones                                          |       |  (**Listas en constante actualización por la comunidad**) |
-| Desarrolladores globales                                            |       |  (**Software Libre no Privativo**) |
+| Bloqueo publicidad                                                  |  ✅     | ✅ |
+| Personalizar listas bloqueo                                         |  ✅     | ✅ |
+| Soporte servidor DHCP                                               |  ✅     | ✅ |
+| Servidores DNS Encriptados (DNS-over-HTTPS, DNS-over-TLS, DNSCrypt) |  ✅     | ✅ (**P3DNS**) |
+| Multi-plataforma                                                    |  ✅     | ✅ (**Docker**) |
+| Bloqueo phishing y malware                                          |  ✅     | ✅ (**Listas**) |
+| Bloqueo contenido dominios adultos                                  |  ✅     | ✅ (**Listas**) |
+| Forzar realizar busqueda servidores seguros                         |  ✅     | ❌ (**No soporta perfiles individuales**) |
+| Configuración dispositivos                                          |  ✅     | ✅ |
+| Acceso individualizado configuración                                |  ✅     | ❌ (**No soporta perfiles individuales**) |
+| Frecuencia actualizaciones                                          |  ❌     | ✅ (**Listas en constante actualización por la comunidad**) |
+| Desarrolladores globales                                            |  ❌     | ✅ (**Software Libre no Privativo**) |
 
-La comparativa esta bastante equilibrada, solamente voy a recomendar usar AdGuard en dispositivos de bajos recursos como he probado en una `Raspberry 1B+` y en entornos donde sea imperativo el uso de perfiles individuales en vez de uno general. El motivo es que esta desarrollado en **Go** y requiere de menor uso de recursos del sistema.
+La comparativa esta bastante equilibrada, solamente voy a recomendar usar AdGuard en dispositivos de bajos recursos como he probado en una `Raspberry 1B+` y en entornos donde sea imperativo el uso de perfiles individuales en vez de uno general. 
+
+El motivo es que esta desarrollado en **Go** y requiere de menor uso de recursos del sistema.
 
 **NOTA**: Para uso en el servidor recomiendo usar [**P3DNS**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){: .btn .btn--inverse .btn--small}{:target="_blank"} como solución más completa.
 {: .notice--info}
@@ -132,7 +134,7 @@ Obtenemos un nuevo aviso de que el servicio ha sio debidamente configurado:
     <a href="/assets/images/posts/adguard5.jpg"><img src="/assets/images/posts/adguard5.jpg"></a>
 </figure>
 
-A partir de este momento ya podremos entrar a la interfaz Web que se encuentra en el puerto **:80** [http://rpi1b.local:80](http://localhost:80){: .btn .btn--inverse .btn--small}{:target="_blank"}:
+A partir de este momento ya podremos entrar a la interfaz Web que se encuentra en el puerto **:80** [http://rpi1b.local](http://localhost:80){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 <figure>
     <a href="/assets/images/posts/adguard6.jpg"><img src="/assets/images/posts/adguard6.jpg"></a>
