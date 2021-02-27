@@ -102,7 +102,7 @@ echo "nameserver 127.0.0.1" | sudo tee -a /etc/resolv.conf && \
 sudo chattr +i /etc/resolv.conf
 ```
 
-Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://rpi1b.local:3000](http://localhost:3000){: .btn .btn--inverse .btn--small}{:target="_blank"}.
+Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://rpi1b.local:3000](http://localhost:3000){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 Durante el primer acceso veremos un asistente de configuración dandonos la bienvenida:
 
