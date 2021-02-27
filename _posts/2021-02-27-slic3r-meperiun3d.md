@@ -13,7 +13,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/Meperiun3D.png){: .align-center}
+![Meperiun3D]({{ site.url }}{{ site.baseurl }}/assets/images/miniE3MP.png){: .align-center}
 {: .full}
 [Slic3r](https://slic3r.org){: .btn .btn--warning .btn--small}{:target="_blank"} es un software de corte actúa como intermediario entre el modelo diseñado en 3D y la impresora 3D. 
 
