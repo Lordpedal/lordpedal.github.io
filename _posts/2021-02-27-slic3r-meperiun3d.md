@@ -1,5 +1,5 @@
 ---
-title:  "Cortar piezas 3D: Slic3r GNU/Linux"
+title:  "Slic3r Cut 3D: Meperiun3D"
 date:   2021-02-27 23:50:00
 last_modified_at: 2021-02-27T23:55:00
 categories:
