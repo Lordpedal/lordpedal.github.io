@@ -6,7 +6,7 @@ categories:
   - 3D
 tags:
   - GNU/Linux
-  - Marlin
+  - Debian
   - 3D
 toc: true
 toc_sticky: true
