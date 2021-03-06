@@ -478,10 +478,15 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 | Parámetro | Función |
 | ------ | ------ |
-| `--device /dev/ttyACM0:/dev/ttyACM0` | Puerto comunicación, para poder identificarlo, en la terminal de nuestro sistema ejecutamos: `ls /dev | grep tty` y nos devolverá seguramente  **/dev/ttyACM0** o **/dev/ttyUSB0** |
-| `-p 80:80` | Puerto de acceso Web `80` |
-| `-p 81:8443` | Puerto de acceso editor configuración docker web `81` |
-| `-v $HOME/docker/octoprint/config:/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
+| `/dev/ttyACM0:/dev/ttyACM0` | Puerto comunicación, para poder identificarlo, en la terminal de nuestro sistema ejecutamos: `ls /dev | grep tty` y nos devolverá seguramente  **/dev/ttyACM0** o **/dev/ttyUSB0** |
+| `/dev/video0:/dev/video0` | Puerto para uso camara, **Opcional** |
+| `~/docker/octoprint/config:/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
+| `ENABLE_MJPG_STREAMER=true` | Configuración necesaria para uso de camara, **Opcional** |
+| `80:80` | Puerto de acceso Web `80` |
+| `81:8443` | Puerto de acceso editor configuración docker web `81` |
+| `PUID=0` | Habilitamos la edición con usuario `root` |
+| `GUID=0` | Habilitamos la edición con usuario `root` |
+| `TZ=Europe/Madrid` | Franja de zona horaria |
 {: .notice--warning}
 
 Una vez configurado, lo levantamos para ser creado y ejecutado:
@@ -498,6 +503,10 @@ Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del se
        <source src="{{ site.baseurl }}/assets/videos/octoprint.webm" type="video/webm"  />
    </video>
 </div>
+
+**TIP:** Cuando realizamos el asistente de configuración en el apartado **Restart OctoPrint** añadimos el siguiente código: 
+`s6-svc -r /var/run/s6/services/octoprint`
+{: .notice--info}
 
 ## Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
 
