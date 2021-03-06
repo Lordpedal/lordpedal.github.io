@@ -495,7 +495,7 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_sistema:80` y completamos el asistente de configuración.
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado, en mi caso [http://rpi3b.local:80](http://localhost:80){: .btn .btn--inverse .btn--small}{:target="_blank"} y completamos el asistente de configuración.
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
