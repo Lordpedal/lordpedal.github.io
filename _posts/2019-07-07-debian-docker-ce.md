@@ -512,6 +512,10 @@ En mi caso [http://rpi3b.local:80](http://localhost:80){: .btn .btn--inverse .bt
 `s6-svc -r /var/run/s6/services/octoprint`
 {: .notice--info}
 
+<figure>
+    <a href="/assets/images/posts/octodockfix.png"><img src="/assets/images/posts/octodockfix.png"></a>
+</figure>
+
 ## Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
 
 Gossa es un microservicio que nos permite crear un servidor web «**colaborativo**» en línea minimalista de código abierto, desarrollado en lenguaje Go.
