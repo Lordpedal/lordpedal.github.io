@@ -416,13 +416,15 @@ Tan solo nos faltaría abrir el puerto en nuestro **Router** de y tendríamos de
 
 ## Docker: [OctoPrint](https://hub.docker.com/r/octoprint/octoprint/){:target="_blank"}
 
-OctoPrint es una aplicación de controlador de impresión 3D de código abierto creada por Gina Häußge, desarrollada en Python.
+OctoPrint es una aplicación de controlador de impresión 3D de código abierto creada por **Gina Häußge**, desarrollada en Python.
 
-OctoPrint fue bifurcado del laminador de impresión Cura y está disponible bajo la misma licencia AGPL.
+OctoPrint fue bifurcado del laminador de impresión Cura y está disponible bajo la misma licencia *AGPL*.
 
-Aunque en principio fue diseñado para ser ejecutado sobre una Raspberry Pi (**ARM**) es posible disfrutar de esta genial aplicación con otros medios.
+Aunque en principio fue diseñado para ser ejecutado sobre una `Raspberry Pi` es posible disfrutar de esta genial aplicación con otros medios.
 
-Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+Vamos a realizar unos pasos previos para preparar el entorno. 
+
+En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash 
 mkdir -p $HOME/octoprint/config && \
@@ -495,7 +497,9 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado, en mi caso [http://rpi3b.local:80](http://localhost:80){: .btn .btn--inverse .btn--small}{:target="_blank"} y completamos el asistente de configuración.
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado.
+
+En mi caso [http://rpi3b.local:80](http://localhost:80){: .btn .btn--inverse .btn--small}{:target="_blank"} y completamos el asistente de configuración.
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -504,7 +508,7 @@ Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del se
    </video>
 </div>
 
-**TIP:** Cuando realizamos el asistente de configuración en el apartado **Restart OctoPrint** añadimos el siguiente código: 
+*TIP:* Cuando realizamos el asistente de configuración en el apartado **Restart OctoPrint** añadimos el siguiente código: 
 `s6-svc -r /var/run/s6/services/octoprint`
 {: .notice--info}
 
