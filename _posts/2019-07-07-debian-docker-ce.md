@@ -424,32 +424,80 @@ Aunque en principio fue diseñado para ser ejecutado sobre una Raspberry Pi (**A
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
-```bash
-mkdir -p $HOME/docker/octoprint
+```bash 
+mkdir -p $HOME/octoprint/config && \
+cd $HOME/octoprint
 ```
 
-Y ya podriamos lanzar la creación y activación del servicio:
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-docker run -d \
---name=Octoprint \
---device /dev/ttyACM0:/dev/ttyACM0
--p 5000:5000 \
--v $HOME/docker/octoprint:/home/octoprint \ 
---restart=always \
-octoprint/octoprint
- ```
+cat << EOF > $HOME/docker/octoprint/docker-compose.yml
+version: '2.4'
+
+services:
+  octoprint:
+    image: octoprint/octoprint
+    restart: always
+    ports:
+      - 80:80
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+      - /dev/video0:/dev/video0
+    volumes:
+      - '~/docker/octoprint/config:/octoprint'
+    environment:
+      - ENABLE_MJPG_STREAMER=true
+  
+  config-editor:
+    image: linuxserver/code-server
+    ports:
+      - 81:8443
+    depends_on:
+      - octoprint
+    restart: always
+    environment:
+      - PUID=0
+      - GUID=0
+      - TZ=Europe/Madrid
+    volumes:
+      - '~/docker/octoprint/config:/octoprint'
+
+volumes:
+  octoprint:
+EOF
+```
+
+**NOTA:** La configuración habilita soporte a la camara, sino vas a usarla se debe dejar comentadas la siguiente configuración:
+`#      - /dev/video0:/dev/video0`
+`#    environment:`
+`#      - ENABLE_MJPG_STREAMER=true`
+{: .notice--info}
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
 | ------ | ------ |
 | `--device /dev/ttyACM0:/dev/ttyACM0` | Puerto comunicación, para poder identificarlo, en la terminal de nuestro sistema ejecutamos: `ls /dev | grep tty` y nos devolverá seguramente  **/dev/ttyACM0** o **/dev/ttyUSB0** |
-| `-p 5000:5000` | Puerto de acceso Web |
-| `-v $HOME/docker/octoprint:/home/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
+| `-p 80:80` | Puerto de acceso Web `80` |
+| `-p 81:8443` | Puerto de acceso editor configuración docker web `81` |
+| `-v $HOME/docker/octoprint/config:/octoprint` | Carpeta donde alojaremos nuestros ficheros de la `VirtualSD` |
 {: .notice--warning}
 
-Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_servidor:5000` y completamos el asistente de configuración.
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+Tras haber lanzado el servicio, en nuestra intranet navegamos hacia la IP del servidor donde hemos instalado el servicio y el puerto que le hemos asignado `http://ip_sistema:80` y completamos el asistente de configuración.
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/octoprint.mp4" type="video/mp4" />
+       <source src="{{ site.baseurl }}/assets/videos/octoprint.webm" type="video/webm"  />
+   </video>
+</div>
 
 ## Docker: [Gossa](https://hub.docker.com/r/pldubouilh/gossa/){:target="_blank"}
 
