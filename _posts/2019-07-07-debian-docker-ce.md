@@ -469,9 +469,9 @@ EOF
 ```
 
 **NOTA:** La configuración habilita soporte a la camara, sino vas a usarla se debe dejar comentadas la siguiente configuración:
-`#      - /dev/video0:/dev/video0
+#      - /dev/video0:/dev/video0
 #    environment:
-#      - ENABLE_MJPG_STREAMER=true`
+#      - ENABLE_MJPG_STREAMER=true
 {: .notice--info}
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
