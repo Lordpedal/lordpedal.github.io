@@ -148,7 +148,6 @@ defaults:
       #toc_label: "Secciones"
       #toc_icon: "cog"
       show_date: true
-      show_tags: true
   # _pages
   - scope:
       path: "_pages"
