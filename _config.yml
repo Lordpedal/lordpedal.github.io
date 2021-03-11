@@ -33,8 +33,11 @@ seatch_full_content: true
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
 remote_theme: mmistakes/minimal-mistakes
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
