@@ -143,7 +143,7 @@ defaults:
       path: "_pages"
       type: pages
     values:
-      layout: wide
+      layout: single
       author_profile: true
 
 category_archive:
