@@ -1,5 +1,6 @@
 ---
 title: "Entradas por tag"
+classes: wide
 permalink: /tags/
 layout: tags
 author_profile: true

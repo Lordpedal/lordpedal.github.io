@@ -1,5 +1,6 @@
 ---
 title: "Entradas por categoría"
+classes: wide
 layout: categories
 permalink: /categories/
 author_profile: true

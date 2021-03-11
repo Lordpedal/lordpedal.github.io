@@ -1,5 +1,6 @@
 ---
 title: "Entradas por año"
+classes: wide
 permalink: /posts/
 layout: posts
 author_profile: true
