@@ -32,7 +32,8 @@ search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+#remote_theme: mmistakes/minimal-mistakes
+remote_theme: mmistakes/minimal-mistakes@4.22.0
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -150,6 +151,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      related: true
       #classes: wide
 
 category_archive:
