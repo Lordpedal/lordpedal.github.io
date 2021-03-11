@@ -7,8 +7,8 @@ header:
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
   caption: "Imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
   actions:
-    - label: "Más info"
-      url: "https://youtu.be/Lcrvgby_8E8"
+    - label: "Canal Telegram"
+      url: "https://telegram.me/Lordpedal_RSS"
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
@@ -17,6 +17,12 @@ toc_icon: "cog"
 
 Este espacio web está comprometido a proteger la seguridad y privacidad de sus lectores.
 La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/privacidad.mp4" type="video/mp4" />
+   </video>
+</div>
 
 ### 🇪🇺 POLÍTICA DE COOKIES
 
