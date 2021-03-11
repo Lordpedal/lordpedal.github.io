@@ -16,11 +16,11 @@ tags:
 {: .full}
 [Dozzle](https://dozzle.dev/){: .btn .btn--warning .btn--small}{:target="_blank"} es un visor de registros en tiempo real para contenedores `Docker`.
 
-Dozzle es una aplicación simple y liviana que le brinda una interfaz basada en web para monitorear los registros de su contenedor Docker en vivo. No almacena información de registro, es solo para el monitoreo en vivo de los registros de su contenedor.
+**Dozzle** es una aplicación simple y liviana que le brinda una interfaz basada en web para monitorear los registros de los contenedores *Docker en tiempo real*. 
+
+No almacena información de registro, es solo para el monitoreo en vivo de los registros de su contenedor.
 
 Desarrollado en `Go` es un contenedor liviano y funcional, pensado con el objetivo de mantenerse simple, pequeño y gratuito.
-
-Si te apetece investigar sobre esta red, una forma sencilla es mediante Docker, para ello vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
