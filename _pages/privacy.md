@@ -15,7 +15,8 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-Este espacio web está comprometido a proteger la seguridad y privacidad de sus lectores.
+Este espacio web **está comprometido a proteger la seguridad y privacidad de sus lectores**.
+
 La utilización de esta web implica la plena aceptación de todas las condiciones especificadas en esta política de privacidad.
 
 <div class="lordvideo">
@@ -24,7 +25,7 @@ La utilización de esta web implica la plena aceptación de todas las condicione
    </video>
 </div>
 
-### 🇪🇺 POLÍTICA DE COOKIES
+### POLÍTICA DE COOKIES
 
 Este web utiliza cookies propias y puede utilizar cookies de terceros. Los motivos por los cuales utiliza cookies son básicamente dos:
 
