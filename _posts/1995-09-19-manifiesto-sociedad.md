@@ -15,7 +15,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-La sociedad industrial y su futuro es un manifiesto escrito bajo el seudónimo de Freedom Club por Theodore Kaczynski. 
+*La sociedad industrial y su futuro*, es un manifiesto escrito bajo el seudónimo de `Freedom Club` por **Theodore Kaczynski**. 
 
 ## INTRODUCCIÓN
 
