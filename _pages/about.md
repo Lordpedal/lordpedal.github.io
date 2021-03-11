@@ -1,7 +1,6 @@
 ---
 permalink: /about/
 title: "Acerca de"
-classes: wide
 excerpt: "Estos son mis principios. Si no le gustan, tengo otros."
 header:
   overlay_image: /assets/images/about.png
