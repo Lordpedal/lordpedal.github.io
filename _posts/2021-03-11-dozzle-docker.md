@@ -61,7 +61,7 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:8880](http://localhost:8880){: .btn .btn--inverse .btn--small}{:target="_blank"}. 
+Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:8880](http://localhost:8880){: .btn .btn--inverse .btn--small}{:target="_blank"}.
 
 <figure>
     <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/dozzle1.jpg"></a>
