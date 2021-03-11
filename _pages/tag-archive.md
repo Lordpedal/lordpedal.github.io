@@ -3,7 +3,7 @@ title: "Entradas por tag"
 classes: wide
 permalink: /tags/
 layout: tags
-author_profile: true
+author_profile: false
 excerpt: "Wubba Lubba Dub Dub"
 header:
   overlay_image: /assets/images/tags.png
