@@ -6,9 +6,6 @@ header:
   overlay_image: /assets/images/privacy.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
   caption: "Imagen: [**Gustavo Viselner**](https://www.behance.net/gustavo_v)"
-  actions:
-    - label: "Canal Telegram"
-      url: "https://telegram.me/Lordpedal_RSS"
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
