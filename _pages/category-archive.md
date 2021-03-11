@@ -1,9 +1,8 @@
 ---
 title: "Entradas por categoría"
-classes: wide
 layout: categories
 permalink: /categories/
-author_profile: false
+author_profile: true
 excerpt: "¡¡¡Dayos zegadores!!!"
 header:
   overlay_image: /assets/images/categories.png

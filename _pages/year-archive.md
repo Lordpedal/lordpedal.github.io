@@ -1,9 +1,8 @@
 ---
 title: "Entradas por año"
-classes: wide
 permalink: /posts/
 layout: posts
-author_profile: false
+author_profile: true
 excerpt: "¿Qué pasa con todo lo que se habla sobre arruinar eventos futuros? ¿El continuo espacio-tiempo?"
 header:
   overlay_image: /assets/images/posts.png

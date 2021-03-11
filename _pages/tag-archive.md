@@ -1,9 +1,8 @@
 ---
 title: "Entradas por tag"
-classes: wide
 permalink: /tags/
 layout: tags
-author_profile: false
+author_profile: true
 excerpt: "Wubba Lubba Dub Dub"
 header:
   overlay_image: /assets/images/tags.png

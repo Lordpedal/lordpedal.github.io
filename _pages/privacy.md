@@ -1,9 +1,8 @@
 ---
 permalink: /privacy/
 title: "Privacidad"
-classes: wide
 excerpt: "Nunca aceptes la forma en que las cosas se han hecho siempre, como la única forma en que pueden hacerse."
-author_profile: false
+author_profile: true
 header:
   overlay_image: /assets/images/privacy.png
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
