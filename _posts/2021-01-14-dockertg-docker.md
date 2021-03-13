@@ -20,6 +20,9 @@ Este pequeño servicio nos va a notificar de los cambios de estado (**inicio, de
 
 Para configurarlo sobre nuestra base Debian seguimos este **mini-tutorial**.
 
+**NOTA**: El token de referencia del post no tiene validez, haz de usar tu propio bot u otro token conocido.
+{: .notice--info}
+
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash

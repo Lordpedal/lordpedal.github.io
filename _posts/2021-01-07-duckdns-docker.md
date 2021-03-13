@@ -21,6 +21,9 @@ Este servicio nos permite crear hasta 5 dominios DDNS totalmente gratuitos con u
 Anteriormente [ya vimos de configurar **DuckDNS en el Servidor**](https://lordpedal.github.io/gnu/linux/debian-10-servidor/#configurando-dns-p%C3%BAblica){:target="_blank"}, aunque ahora lo dejo como servicio Docker para realizar la actualización de IP.
 {: .notice--info}
 
+**NOTA**: El token de referencia del post no tiene validez, haz de usar tu propio bot u otro token conocido.
+{: .notice--info}
+
 Vamos a realizar unos pasos previos para preparar el entorno. 
 
 En primer lugar creamos las carpetas donde alojar el proyecto:

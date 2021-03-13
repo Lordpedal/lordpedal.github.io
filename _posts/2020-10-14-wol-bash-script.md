@@ -24,6 +24,9 @@ Para poder configurar el script tan solo has de editar las siguientes variables:
 - `lordmac`: Dirección MAC tarjeta Red.
 - `IPServidor`: Dirección IP del Servidor.
 
+**NOTA**: El token de referencia del post no tiene validez, haz de usar tu propio bot u otro token conocido.
+{: .notice--info}
+
 ## Wake On LAN
 
 Este mini-tutorial se encuentra divido en dos secciones:

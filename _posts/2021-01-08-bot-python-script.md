@@ -20,6 +20,9 @@ Esta entrada voy a compartir un sencillo Script de Python creado por [Ljubiša M
 
 Dicho script nos va a publicar las noticias de un feed RSS de forma automática en nuestro Telegram.
 
+**NOTA**: El token de referencia del post no tiene validez, haz de usar tu propio bot u otro token conocido.
+{: .notice--info}
+
 Para configurarlo sobre nuestra base Debian seguimos este **mini-tutorial**.
 
 ### Crear Bot Telegram

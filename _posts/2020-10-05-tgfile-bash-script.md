@@ -18,6 +18,9 @@ Para poder configurar el script tan solo has de editar estas dos variables del s
 - `telegram`: Es el ID que te identifica en la red Telegram, si estableces una conversación con el bot [@lordpedalbot](https://t.me/Lordpedalbot){:target="_blank"} te dira cual es.
 - `token`: Solamente si dispones de un bot propio y quieres usarlo cambia ese valor, en caso contrario no es necesario modificar la variable.
 
+**NOTA**: El token de referencia del post no tiene validez, haz de usar tu propio bot u otro token conocido.
+{: .notice--info}
+
 Para configurarlo sobre nuestra base Debian seguimos este **mini-tutorial**. 
 
 Creamos la carpeta de trabajo donde alojaremos el script, entramos en ella y satisfacemos dependencias del script:
