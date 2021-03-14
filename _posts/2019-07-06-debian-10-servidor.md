@@ -906,6 +906,9 @@ Adicional al [Canal de Telegram](https://telegram.me/Lordpedal_RSS){:target="_bl
 
 En Telegram podeís encontrarlo con el alías [@Lordpedalbot](https://telegram.me/Lordpedalbot){:target="_blank"}. **Cuando lo arranques te dará la bienvenida y te notificará el ID** que tienes en la red Telegram, este `ID` debes de anotarlo, porque será una variable que uses en los scripts que modificaremos a continuación.
 
+**NOTA**: El token de referencia que se va usar en los scripts no tiene validez, haz de usar tu propio bot u otro token conocido. Para ello debes de reemplazar el valor `289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA`
+{: .notice--info}
+
 ####  Protección TSHH
 
 La función de este bash script es la de informarte vía Telegram de una anomalía en la temperatura del sistema y proceder a un apagado del mismo de forma controlada. Vamos a crear el script:
