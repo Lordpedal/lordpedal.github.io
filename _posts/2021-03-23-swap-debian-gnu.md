@@ -8,8 +8,8 @@ tags:
   - GNU/Linux
   - Debian
   - Servidor
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
