@@ -20,7 +20,7 @@ A raíz de una conversación con un compañero sobre la necesidad o no de una pa
 
 Detallar que una posible pega a esta metodología es que a priori **perderiamos la opción de hibernar en disco**, pero desde un enfoque como Servidor realmente no pierdo funcionalidad ya que la idea es que este disponible en todo momento.
 
-Sigo recomendando usar [ZRAM](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--warning .btn--small}{:target="_blank"} y más hoy en día con la cantidad de RAM que tenemos instalada en el equipo.
+Sigo recomendando usar [ZRAM](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--warning .btn--small}{:target="_blank"} y más hoy en día con la cantidad de RAM que podemos tener instalada en nuestros sistemas (**+4Gb**).
 
 Dicho esto vamos a ir entrando en materia, por eso en esta entrada voy a compartir como realizar de forma sencilla la **transición de una partición Swap a un fichero Swap**.
 
