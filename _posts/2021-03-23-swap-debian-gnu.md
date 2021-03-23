@@ -16,7 +16,7 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-A raíz de una conversación con un compañero sobre la necesidad o no de una partición `SWAP` en un sistema de producción actual le comente la posibilidad de usar **un fichero como sistema de intercambio en vez de una partición especíica en el disco duro**.
+A raíz de una conversación con un compañero sobre la necesidad o no de una partición `SWAP` en un sistema de producción actual le comente la posibilidad de usar **un fichero como sistema de intercambio en vez de una partición específica en el disco duro**.
 
 Detallar que una posible pega a esta metodología es que a priori **perderiamos la opción de hibernar en disco**, pero desde un enfoque como Servidor realmente no pierdo funcionalidad ya que la idea es que este disponible en todo momento.
 
