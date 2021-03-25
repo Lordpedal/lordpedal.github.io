@@ -94,5 +94,4 @@ sudo apt-get -y install filezillla
     <a href="/assets/images/posts/filezilla.png"><img src="/assets/images/posts/filezilla.png"></a>
 </figure>
 
-
 > Y listo!
