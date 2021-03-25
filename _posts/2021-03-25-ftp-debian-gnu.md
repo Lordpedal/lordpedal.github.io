@@ -83,7 +83,7 @@ ftp://empalador:nocturno@192.168.1.90
 **NOTA**: Si necesitas monitorizar las conexiones al Servidor FTP, puedes consultar el siguiente log: `sudo cat /var/log/vsftpd.log`
 {: .notice--info}
 
-Si además queremos tener un cliente para conectarnos a otros Servidores de FTP un cliente que recomiendo es FileZilla, que se encuentra libre en los repositorios de GNU/Linux Debian:
+Si además queremos tener un cliente para conectarnos a otros Servidores de FTP, un cliente que recomiendo es `FileZilla`, que se encuentra libre en los repositorios de **GNU/Linux Debian**:
 
 ```bash
 sudo apt-get update && \
