@@ -16,7 +16,7 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-Aunque el protocolo `FTP` es una tecnología más antigua y por la que quizas hayan pasado sus días de gloria, todavía se utiliza en muchos sistemas y dispositivos de hardware. 
+Aunque el protocolo `FTP` es una tecnología más antigua y por la que quizas hayan pasado ya sus días de gloria, todavía se utiliza en muchos sistemas y dispositivos de hardware. 
 
 Por ejemplo algunas cámaras IP te permiten guardar fotos en un servidor FTP y por eso he pensado crearlo en el **Servidor**, además de petición de un compañero. 
 
