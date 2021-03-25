@@ -18,7 +18,7 @@ toc_icon: "cog"
 {: .full}
 Aunque el protocolo `FTP` es una tecnología más antigua y por la que quizas hayan pasado sus días de gloria, todavía se utiliza en muchos sistemas y dispositivos de hardware. 
 
-Por ejemplo algunas cámaras IP te permiten guardar fotos en un servidor FTP y por eso he pensado crearlo en el **Servidor**. 
+Por ejemplo algunas cámaras IP te permiten guardar fotos en un servidor FTP y por eso he pensado crearlo en el **Servidor**, además de petición de un compañero. 
 
 Dicho esto vamos a ir entrando en materia, por eso en esta entrada vamos a compartir como realizar de forma sencilla un Servidor FTP.
 
