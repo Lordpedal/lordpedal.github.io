@@ -16,7 +16,7 @@ tags:
 {: .full}
 [TubeSync](https://github.com/meeb/tubesync){: .btn .btn--warning .btn--small}{:target="_blank"} es un `PVR` (*Personal Video Recorder*) diseñado inicialmente para `Youtube`, aunque según he leido en su código pensado para hacerlo más extensible a otras plataformas en un futuro.
 
-`TubeSync` esta diseñado para sincronizar canales y listas de reproducción de Youtube a directorios locales y con posibilidad de actualizar el Servidor de medios (**miniDLNA, Jellyfin, ...**) una vez la descarga ha finalizado.
+`TubeSync` esta desarrollado en **Python** y diseñado para sincronizar canales y listas de reproducción de Youtube a directorios locales y con posibilidad de actualizar el Servidor de medios (**miniDLNA, Jellyfin, ...**) una vez la descarga ha finalizado.
 
 La aplicación en si, es un contenedor con una `interfaz web` que integra `youtube-dl` y `ffmpeg` con un `programador de tareas`.
 
