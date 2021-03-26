@@ -81,7 +81,7 @@ docker-compose up -d
 Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:4848](http://localhost:4848){: .btn .btn--inverse .btn--small}{:target="_blank"}.
 
 <figure>
-    <a href="/assets/images/posts/tubesync1.jpg.jpg"><img src="/assets/images/posts/tubesync1.jpg"></a>
+    <a href="/assets/images/posts/tubesync1.jpg"><img src="/assets/images/posts/tubesync1.jpg"></a>
 </figure>
 
 Haciendo clic en `Sources`, añadimos las fuentes de descargas: Canal o lista:
