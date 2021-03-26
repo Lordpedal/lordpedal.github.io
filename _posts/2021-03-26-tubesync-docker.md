@@ -22,7 +22,7 @@ La aplicación en si, es un contenedor con una `interfaz web` que integra `youtu
 
 La **ventaja** de usar este contenedor es que por ejemplo tiene reintentos graduales de fallos con temporizadores de retroceso para que los medios que no se descarguen se reintentan durante un periodo prolongado.
 
-El **inconveniente** es que en el momento de escribir esta entrada solo esta soportado por arquitecturas AMD64 y no soporta ARM (*en desarrollo*).
+El **inconveniente** es que en el momento de escribir esta entrada solo esta soportado por arquitecturas AMD64 y no soporta ARM en el momento de publicar la entrada (*en desarrollo*).
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
