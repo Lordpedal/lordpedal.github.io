@@ -81,31 +81,31 @@ docker-compose up -d
 Tras ello, podremos configurar el servicio, que en mi caso estaría disponible en la dirección web [http://192.168.1.90:4848](http://localhost:4848){: .btn .btn--inverse .btn--small}{:target="_blank"}.
 
 <figure>
-    <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/tubesync1.jpg"></a>
+    <a href="/assets/images/posts/tubesync1.jpg.jpg"><img src="/assets/images/posts/tubesync1.jpg"></a>
 </figure>
 
 Haciendo clic en `Sources`, añadimos las fuentes de descargas: Canal o lista:
 
 <figure>
-    <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/tubesync2.jpg"></a>
+    <a href="/assets/images/posts/tubesync2.jpg"><img src="/assets/images/posts/tubesync2.jpg"></a>
 </figure>
 
 Haciendo clic en `Media` podremos ver las desargas finalizadas:
 
 <figure>
-    <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/tubesync3.jpg"></a>
+    <a href="/assets/images/posts/tubesync3.jpg"><img src="/assets/images/posts/tubesync3.jpg"></a>
 </figure>
 
 Haciendo clic en `Tasks` podremos ver la cola de espera y en caso de producirse error el estado en que se encuentra:
 
 <figure>
-    <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/tubesync4.jpg"></a>
+    <a href="/assets/images/posts/tubesync4.jpg"><img src="/assets/images/posts/tubesync4.jpg"></a>
 </figure>
 
 Haciendo clic en `Media Servers` podremos integrar las descargas con nuestro Servidor Multimedia (*en desarrollo*):
 
 <figure>
-    <a href="/assets/images/posts/dozzle1.jpg"><img src="/assets/images/posts/tubesync5.jpg"></a>
+    <a href="/assets/images/posts/tubesync5.jpg"><img src="/assets/images/posts/tubesync5.jpg"></a>
 </figure>
 
 > Y listo!
