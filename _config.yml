@@ -110,7 +110,7 @@ footer:
     - label: "Lordpedal RSS"
 #      icon: "fas fa-fw fa-cubes"
       icon: "fas fa-fw fa-share-alt-square"
-      url: "https://lordpedal.github.io/lordpedal/rss.html"
+      url: "https://lordpedal.github.io/lordpedal"
 #    - label: "Canal Telegram"
 #      icon: "fas fa-fw fa-paper-plane"
 #      url: "https://t.me/lordpedal_rss" 
