@@ -18,7 +18,9 @@ toc_icon: "cog"
 {: .full}
 [RetroPie](https://retropie.org.uk/){: .btn .btn--warning .btn--small}{:target="_blank"} es un proyecto de código abierto diseñado en un principio para emular consolas retro en las Raspberry Pi's que se ha hecho extensible a otros sistemas.
 
-RetroPie puede emular más de 50 plataformas de videojuegos para que puedas usar las ROMs de sus juegos para revivirlos en la actualidad. Las más conocidas son:
+`RetroPie` puede **emular más de 50 plataformas de videojuegos** para que puedas usar las ROMs de sus juegos para revivirlos en la actualidad. 
+
+Las más conocidas son:
  * Nintendo NES
  * SuperNintendo
  * Master Syestem
@@ -44,9 +46,9 @@ RetroPie puede emular más de 50 plataformas de videojuegos para que puedas usar
  * PSP
  * Commodore 64
  * ScummVM
- * **Y alguno más que se me escapa**…
+ * **…**
 
-Antes de continuar, te informo que debes de tener algún mando para poder disfrutar de los juegos, una opción económica que funciona muy bien es este [Pack mandos USB x2](https://www.amazon.es/dp/B00PL271Y0){: .btn .btn--danger .btn--small}{:target="_blank"}.
+Antes de continuar, te informo que debes de tener algún mando para poder disfrutar de los juegos, una opción económica que funciona muy bien es este [Pack Mandos USB](https://www.amazon.es/dp/B00PL271Y0){: .btn .btn--danger .btn--small}{:target="_blank"}
 
 El proceso es compatible tanto para procesadores **ARM** como **64bits**.
 
