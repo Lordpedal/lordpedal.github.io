@@ -55,7 +55,7 @@ services:
 EOF
 ```
 
-**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"} - *Thanks Sensineger por el aviso*
+**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"} - *Gracias Sensineger por el aviso*
 {: .notice--danger}
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
