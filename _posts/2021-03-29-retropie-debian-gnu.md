@@ -48,6 +48,8 @@ RetroPie puede emular más de 50 plataformas de videojuegos para que puedas usar
 
 Antes de continuar, te informo que debes de tener algún mando para poder disfrutar de los juegos, una opción económica que funciona muy bien es este [Pack mandos USB x2](https://www.amazon.es/dp/B00PL271Y0){: .btn .btn--danger .btn--small}{:target="_blank"}.
 
+El proceso es compatible tanto para procesadores **ARM** como **64bits**.
+
 Comenzamos actualizando repositorios del sistema e instalando dependencias:
 
 ```bash
