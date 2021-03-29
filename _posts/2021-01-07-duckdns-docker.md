@@ -55,6 +55,9 @@ services:
 EOF
 ```
 
+**FIX ARM**: [libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--warning .btn--small}{:target="_blank"}
+{: .notice--danger}
+
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
