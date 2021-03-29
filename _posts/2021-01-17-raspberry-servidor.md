@@ -571,7 +571,7 @@ br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64
 
 ## Dockerizar Servidor
 
-**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"}
+**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"} - *Gracias a Sensineger por el aviso*
 {: .notice--danger}
 
 Antes de continuar debemos de realizar estos pasos:
