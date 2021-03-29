@@ -1,7 +1,7 @@
 ---
 title:  "Raspberry Pi 4B+: Servidor ARM"
 date:   2021-01-17 23:30:00
-last_modified_at: 2021-01-17T23:45:00
+last_modified_at: 2021-03-29T23:45:00
 categories:
   - GNU/Linux
 tags:
@@ -570,6 +570,9 @@ br0              UP             192.168.1.227/24 fe80::dea6:32ff:fe99:8e0c/64
 {: .notice--info}
 
 ## Dockerizar Servidor
+
+**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"}
+{: .notice--danger}
 
 Antes de continuar debemos de realizar estos pasos:
 
