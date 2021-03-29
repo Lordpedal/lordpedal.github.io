@@ -1,7 +1,7 @@
 ---
 title:  "DuckDNS: Docker"
 date:   2021-01-07 15:30:00
-last_modified_at: 2021-03-29T15:45:00
+last_modified_at: 2021-01-07T15:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -54,9 +54,6 @@ services:
     restart: always
 EOF
 ```
-
-**FIX ARM 32bits**: [Bug: libsecccomp](https://docs.linuxserver.io/faq#libseccomp){: .btn .btn--info .btn--small}{:target="_blank"} - *Gracias Sensineger por el aviso*
-{: .notice--danger}
 
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
