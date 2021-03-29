@@ -98,7 +98,7 @@ Seleccionamos la opción `Basic Install`:
 Confirmamos que queremos continuar `Sí`:
 
 <figure>
-    <a href="/assets/images/posts/retropie3.png"><img src="/assets/images/posts/retropie4.png"></a>
+    <a href="/assets/images/posts/retropie3.png"><img src="/assets/images/posts/retropie3.png"></a>
 </figure>
 
 **NOTA**: El proceso tardará un buen rato, ten paciencia.
