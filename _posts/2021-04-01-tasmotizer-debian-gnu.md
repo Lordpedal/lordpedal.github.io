@@ -27,8 +27,8 @@ Los creadores de dicho firmware han decidido simplificar la tarea de programar l
 
 Las principales novedades son:
 
- * Realiza una copia de seguridad del firmware actual antes del flasheo para poder volver atrás (Soporta backups de hasta 16MB)
- * Puede flashear un fichero local `.bin` o bien los descarga de internet de forma autómatica.
+ * Realiza una copia de seguridad del firmware actual antes del flasheo para poder volver atrás **(Backups de hasta 16MB almacenamiento)**
+ * Puede flashear un fichero local `.bin` o bien los descarga de sus `repositorios de Internet bajo demanda`.
  * Permite la configuración inicial para evitar tener que conectarnos al dispositivo, pudiendo dejar listo la **WiFi, MQTT, Módulo o bien el Template a usar**.
 
 Comenzamos actualizando repositorios e instalando dependencias:
@@ -53,7 +53,7 @@ sudo pip3 install PyQt5 pyserial tasmotizer
 **NOTA**: Comentar que el proceso ha sido probado sobre *Debian 10* y *Python 3.7*
 {: .notice--info}
 
-Debido a un **#bug** en el momento de escribir la entrada debemos de crear un enlace símbolico a la librería `XCB`:
+Debido a un `bug` en el momento de escribir la entrada debemos de crear un enlace símbolico a la librería `XCB`:
 
 ```bash
 sudo ln -s /usr/lib/x86_64-linux-gnu/libxcb-util.so.0 /usr/lib/x86_64-linux-gnu/libxcb-util.so.1
@@ -65,13 +65,13 @@ A continuación nos aseguramos de estar ejecuando el Entorno gráfico del Sistem
 tasmotizer.py
 ```
 
-Vista interfaz de la aplicación:
+Vista de interfaz de la aplicación tras su ejecución:
 
 <figure>
     <a href="/assets/images/posts/tasmotizer2.png"><img src="/assets/images/posts/tasmotizer2.png"></a>
 </figure>
 
-Vista del apartado de configuración:
+Y vista del apartado de configuración:
 
 <figure>
     <a href="/assets/images/posts/tasmotizer3.png"><img src="/assets/images/posts/tasmotizer3.png"></a>
