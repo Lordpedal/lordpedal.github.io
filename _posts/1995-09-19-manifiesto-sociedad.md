@@ -6,7 +6,8 @@ date:   1995-09-19 07:30:00
 last_modified_at: 1995-09-19T07:45:00
 categories:
   - Personal
-author: Freedom Club
+#author: Freedom Club
+author: Sensineger
 tags:
   - Personal
 toc: true
