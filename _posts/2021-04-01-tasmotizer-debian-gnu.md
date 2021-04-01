@@ -19,7 +19,7 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-[Tasmota](https://tasmota.github.io/docs/){: .btn .btn--warning .btn--small}{:target="_blank"} es un firmware de `código abierto` alternativo de para placas con el **chip ESP8266 y de forma experimental ESP32** con funciones para poder domotizar sistemas.
+[Tasmota](https://tasmota.github.io/docs/){: .btn .btn--warning .btn--small}{:target="_blank"} es un firmware de `código abierto` alternativo para placas con el **chip ESP8266 y de forma experimental ESP32** con funciones para poder domotizar sistemas.
 
 Los creadores de dicho firmware han decidido simplificar la tarea de programar los chips ESP con una aplicación llamada `Tasmotizer`.
 
