@@ -19,7 +19,7 @@ Freedom Club:
 Sensineger:
   name   : "Sensineger"
   avatar : "/assets/images/sensineger.gif"
-  bio    : "Freedom Club"
+  bio    : "Give me five!"
   location : "$HOME"
   links:
 #    - label: "Lordpedal RSS"
