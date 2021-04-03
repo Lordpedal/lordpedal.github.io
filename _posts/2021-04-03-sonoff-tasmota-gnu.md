@@ -6,11 +6,13 @@ date:   2021-04-03 22:30:00
 last_modified_at: 2021-04-03T22:45:00
 categories:
   - GNU/Linux
+  - Domótica
 author: Sensineger
 tags:
   - GNU/Linux
   - Debian
   - Personal
+  - Domótica
 toc: false
 toc_sticky: false
 toc_label: "Secciones"
