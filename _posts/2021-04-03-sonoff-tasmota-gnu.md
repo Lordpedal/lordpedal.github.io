@@ -1,5 +1,5 @@
 ---
-title:  "Sonoff: Tasmota"
+title:  "Sonoff Basic: Tasmota"
 header:
   image: /assets/images/posts/tasmota0.png
 date:   2021-04-03 22:30:00
