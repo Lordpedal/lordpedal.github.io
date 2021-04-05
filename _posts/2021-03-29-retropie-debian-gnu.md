@@ -2,6 +2,8 @@
 title:  "RetroPie: Debian GNU/Linux"
 date:   2021-03-29 23:30:00
 last_modified_at: 2021-03-29T23:45:00
+header:
+  image: /assets/images/posts/retropie.jpg
 categories:
   - GNU/Linux
 tags:
