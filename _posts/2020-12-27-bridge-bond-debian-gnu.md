@@ -1,6 +1,8 @@
 ---
 title:  "Bridge Bond: Debian GNU/Linux"
 date:   2020-12-27 08:15:00 -0300
+header:
+  image: /assets/images/posts/debiantt.gif
 last_modified_at: 2020-12-27T08:30:00-05:00
 categories:
   - GNU/Linux

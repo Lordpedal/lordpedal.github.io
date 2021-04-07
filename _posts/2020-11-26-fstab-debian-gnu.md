@@ -1,6 +1,8 @@
 ---
 title:  "FSTAB: Debian GNU/Linux"
 date:   2020-11-26 07:30:00 -0300
+header:
+  image: /assets/images/posts/debiantt.gif
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - GNU/Linux

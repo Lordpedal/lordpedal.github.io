@@ -1,6 +1,8 @@
 ---
 title:  "HASS: Docker"
 date:   2021-02-06 23:30:00
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2021-02-06T23:45:00
 categories:
   - GNU/Linux

@@ -1,6 +1,8 @@
 ---
 title:  "Pwndrop: Docker"
 date:   2021-01-26 23:30:00
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2021-01-26T23:45:00
 categories:
   - GNU/Linux

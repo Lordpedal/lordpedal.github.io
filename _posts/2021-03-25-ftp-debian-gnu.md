@@ -1,6 +1,8 @@
 ---
 title:  "Servidor FTP: Debian GNU/Linux"
 date:   2021-03-25 23:30:00
+header:
+  image: /assets/images/posts/debiantt.gif
 last_modified_at: 2021-03-25T23:45:00
 categories:
   - GNU/Linux

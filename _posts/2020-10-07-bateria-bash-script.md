@@ -1,6 +1,8 @@
 ---
 title:  "Batería: Bash Script"
 date:   2020-10-07 12:25:00 -0300
+header:
+  image: /assets/images/posts/debiantt.gif
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - GNU/Linux

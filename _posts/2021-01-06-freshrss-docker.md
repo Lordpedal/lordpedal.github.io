@@ -1,6 +1,8 @@
 ---
 title:  "FreshRSS: Docker"
 date:   2021-01-06 15:30:00
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2021-01-06T15:45:00
 categories:
   - GNU/Linux

@@ -1,6 +1,8 @@
 ---
 title:  "Nginx: Docker"
 date:   2020-08-26 12:30:00 -0300
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - Docker

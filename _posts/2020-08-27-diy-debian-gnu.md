@@ -1,6 +1,8 @@
 ---
 title:  "DIY Live: Debian GNU/LINUX"
 date:   2020-08-27 05:00:00 -0300
+header:
+  image: /assets/images/posts/debiantt.gif
 last_modified_at: 2020-12-16T10:10:00-05:00
 categories:
   - GNU/Linux

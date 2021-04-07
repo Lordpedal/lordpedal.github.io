@@ -1,6 +1,8 @@
 ---
 title:  "AdGuard: Docker"
 date:   2021-02-27 23:30:00
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2021-02-27T23:45:00
 categories:
   - GNU/Linux

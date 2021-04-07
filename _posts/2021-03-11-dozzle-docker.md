@@ -1,6 +1,8 @@
 ---
 title:  "Dozzle: Docker"
 date:   2021-03-11 23:30:00
+header:
+  image: /assets/images/posts/dockertt.gif
 last_modified_at: 2021-03-11T23:45:00
 categories:
   - GNU/Linux
