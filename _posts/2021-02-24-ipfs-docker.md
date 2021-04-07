@@ -1,8 +1,8 @@
 ---
 title:  "IPFS: Docker"
-date:   2021-02-24 23:30:00
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2021-02-24 23:30:00
 last_modified_at: 2021-02-24T23:45:00
 categories:
   - GNU/Linux

@@ -1,8 +1,8 @@
 ---
 title:  "Shairport-sync: Docker"
-date:   2020-11-16 07:30:00 -0300
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2020-11-16 07:30:00 -0300
 last_modified_at: 2020-12-12T14:45:00-05:00
 categories:
   - Docker

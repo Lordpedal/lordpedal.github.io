@@ -1,8 +1,8 @@
 ---
 title:  "JDownloader2: Docker"
-date:   2020-11-25 12:00:00 -0300
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2020-11-25 12:00:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - Docker

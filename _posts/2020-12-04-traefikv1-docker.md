@@ -1,8 +1,8 @@
 ---
 title:  "Traefik Maroilles: Docker"
-date:   2020-12-04 10:45:00 -0300
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2020-12-04 10:45:00 -0300
 last_modified_at: 2020-12-12T16:45:00-05:00
 categories:
   - Docker

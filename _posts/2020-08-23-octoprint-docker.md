@@ -1,8 +1,8 @@
 ---
 title:  "OctoPrint: Docker"
-date:   2020-08-23 23:30:00
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2020-08-23 23:30:00
 last_modified_at: 2021-03-06T23:55:00
 categories:
   - Docker

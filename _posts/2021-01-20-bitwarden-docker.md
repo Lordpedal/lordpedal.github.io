@@ -1,8 +1,8 @@
 ---
 title:  "Bitwarden: Docker"
-date:   2021-01-20 23:30:00
 header:
   image: /assets/images/posts/dockertt.gif
+date:   2021-01-20 23:30:00
 last_modified_at: 2021-01-20T23:45:00
 categories:
   - GNU/Linux
