@@ -1,9 +1,9 @@
 ---
 title:  "Raspberry Pi 4B+: Servidor ARM"
-header:
-  image: /assets/images/posts/debiantt.gif
 date:   2021-01-17 23:30:00
 last_modified_at: 2021-03-29T23:45:00
+header:
+  image: /assets/images/posts/debiantt.gif
 categories:
   - GNU/Linux
 tags:
