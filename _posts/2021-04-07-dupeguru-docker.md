@@ -36,7 +36,7 @@ cd $HOME/docker/dupeguru
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-cat << EOF > $HOME/docker/tubesync/docker-compose.yml
+cat << EOF > $HOME/docker/dupeguru/docker-compose.yml
 version: '2'
 services:
   dupeguru:
