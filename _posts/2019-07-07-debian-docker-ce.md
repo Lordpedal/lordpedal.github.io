@@ -1656,6 +1656,77 @@ Al finalizar ya tendremos nuestra propia nube de almacenamiento local de una for
 
 ![Nextcloud]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cmoncloud.jpg){: .align-center}
 
+### Actualizar Nextcloud
+
+En el caso de ejemplo pasaremos de la versión **20.0.3** a la **20.0.9**, al finalizar el upgrade nos preguntara si queremos mantener el **modo mantenimiento activo** *(usariamos la terminal para salir de él)* o **no** *(usariamos la interfaz web, recomiendo esta opción)* 
+
+<figure>
+    <a href="/assets/images/posts/nextcloud1.jpg"><img src="/assets/images/posts/nextcloud1.jpg"></a>
+</figure>
+
+Tras el upgrade, recomiendo relanzar la creación del contenedor para solucionar posibles problemas:
+
+```bash
+cd $HOME/docker/nextcloud && \
+docker-compose up -d
+```
+
+Lo más probable es que recibamos alguna notificación de fallo por **error de configuración en tablas/cache o indexación**.
+
+Para ello una forma sencilla de solucionarlas es con el docker [Portainer CE](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-portainer-ce){: .btn .btn--warning .btn--small} desde su entorno web a la `terminal de consola del contenedor` como se detalla en la imagen [http://192.168.1.90:9000](http://localhost:9000){: .btn .btn--info .btn--small}{:target="_blank"}
+
+<figure>
+    <a href="/assets/images/posts/nextcloud2.jpg"><img src="/assets/images/posts/nextcloud2.jpg"></a>
+</figure>
+
+Hacemos clic en `conectar`
+
+<figure>
+    <a href="/assets/images/posts/nextcloud3.jpg"><img src="/assets/images/posts/nextcloud3.jpg"></a>
+</figure>
+
+Y sobre la ventana de terminal ejecutamos estas ordenes
+
+```bash
+occ db:add-missing-indices && occ db:convert-filecache-bigint
+```
+
+<figure>
+    <a href="/assets/images/posts/nextcloud4.jpg"><img src="/assets/images/posts/nextcloud4.jpg"></a>
+</figure>
+
+Dejo ejemplo de la ejecución de los comandos:
+
+```bash
+root@1e2d082ca944:/# occ db:add-missing-indices
+Check indices of the share table.
+Check indices of the filecache table.
+Check indices of the twofactor_providers table.
+Check indices of the login_flow_v2 table.
+Check indices of the whats_new table.
+Check indices of the cards table.
+Adding cards_abiduri index to the cards table, this can take some time...
+cards table updated successfully.
+Check indices of the cards_properties table.
+Check indices of the calendarobjects_props table.
+Check indices of the schedulingobjects table.
+Check indices of the oc_properties table.
+
+root@1e2d082ca944:/# occ db:convert-filecache-bigint
+Following columns will be updated:
+
+* federated_reshares.share_id
+* files_trash.auto_id
+* share_external.id
+* share_external.parent
+
+This can take up to hours, depending on the number of files in your instance!
+Continue with the conversion (y/n)? [n] y
+
+root@1e2d082ca944:/# occ db:convert-filecache-bigint
+All tables already up to date!
+```
+
 ### ⛑️Bonus TIP: Fix Traefik
 
 Para poder acceder a nuestro servicio desde fuera de la intranet, por ejemplo con un proxy inverso, tenemos que configurar el redireccionado:
