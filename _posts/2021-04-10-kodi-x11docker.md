@@ -1,5 +1,5 @@
 ---
-title:  "Kodi: x11 Docker"
+title:  "Kodi: Docker" 
 header:
   image: /assets/images/posts/dockerkodi.gif
 date:   2021-04-10 22:30:00
