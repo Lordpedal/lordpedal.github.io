@@ -1,7 +1,7 @@
 ---
 title:  "Kodi: Docker" 
 header:
-  image: /assets/images/posts/dockerkodi.gif
+  image: /assets/images/posts/dockerkodi.jpg
 date:   2021-04-10 22:30:00
 last_modified_at: 2021-04-10T22:45:00
 categories:
