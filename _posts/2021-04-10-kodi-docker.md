@@ -113,7 +113,7 @@ dockerkodi
 **NOTA**: Comentar que el docker se inicia al ejecutar el script y se detiene al salir de la aplicación, no se queda en ejecución de segundo plano ahorrando recursos.
 {: .notice--info}
 
-Si es la primera ejecución al no encontrar el docker creado nos preguntara si deseamos construirlo, respondemos con la tecla `**Y**` para continuar, dejo un ejemplo de ejecución:
+Si es la primera ejecución al no encontrar el docker creado nos preguntara si deseamos construirlo, respondemos con la tecla **`Y`** para continuar, dejo un ejemplo de ejecución:
 
 ```bash
 Image erichough/kodi not found locally.
