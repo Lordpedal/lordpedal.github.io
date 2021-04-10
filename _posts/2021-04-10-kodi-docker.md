@@ -26,14 +26,14 @@ Estos **add-ons** te permiten por ejemplo poder ver en Kodi diferentes *canales 
 
 En el momento de escribir esta entrada la **versión estable** es la **19.0** denominada **Matrix**, y en el repositorio oficial de **Debian 10** la **versión estable** que se dispone es **Kodi 17.6**, si quieres actualizar dicha versión surgen diversas alternativas, en esta entrada lo que pretendo es explicar la más sencilla y funcional:
 
- * [Compilar desde repositorio oficial Kodi](https://github.com/xbmc/xbmc/blob/master/docs/README.Linux.md){: .btn .btn--danger .btn--small}{:target="_blank"}: No recomendada para gente sin experiencia en compilar código fuente.
- * [Repositorios adicionales Ubuntu](https://kodi.wiki/view/HOW-TO:Install_Kodi_for_Linux#Installing_Kodi_on_Ubuntu-based_distributions){: .btn .btn--warning .btn--small}{:target="_blank"}: No la recomiendo por posibles conflictos en el sistema y librerías.
+ * [Compilar desde repositorio oficial Kodi](https://github.com/xbmc/xbmc/blob/master/docs/README.Linux.md){: .btn .btn--danger .btn--small}{:target="_blank"} No recomendada para gente sin experiencia en compilar código fuente.
+ * [Repositorios adicionales Ubuntu](https://kodi.wiki/view/HOW-TO:Install_Kodi_for_Linux#Installing_Kodi_on_Ubuntu-based_distributions){: .btn .btn--warning .btn--small}{:target="_blank"} No la recomiendo por posibles conflictos en el sistema y librerías.
  * `Dockerizar Kodi`: La forma más sencilla y limpia de disfrutar de las novedades **(Opción recomendada)**. 
 
 **NOTA**: Comentar que el docker seleccionado no soporta arquitecturas ARM (*working progress*) y se limita el uso a procesadores PC 64bits.
 {: .notice--info}
 
-Comenzamos instalado un bash script que se encargara de preparar un entorno gráfico, para lanzar el docker en el sistema llamado [x11docker](https://github.com/mviereck/x11docker/){: .btn .btn--warning .btn--small}{:target="_blank"}:
+Comenzamos instalado un bash script que se encargara de preparar un entorno gráfico, para lanzar el docker en el sistema llamado [x11docker](https://github.com/mviereck/x11docker/){: .btn .btn--warning .btn--small}{:target="_blank"}
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update
@@ -113,7 +113,7 @@ dockerkodi
 **NOTA**: Comentar que el docker se inicia al ejecutar el script y se detiene al salir de la aplicación, no se queda en ejecución de segundo plano ahorrando recursos.
 {: .notice--info}
 
-Si es la primera ejecución al no encontrar el docker creado nos preguntara si deseamos construirlo, respondemos con la tecla `Y` para continuar, dejo un ejemplo de ejecución:
+Si es la primera ejecución al no encontrar el docker creado nos preguntara si deseamos construirlo, respondemos con la tecla **`Y`** para continuar, dejo un ejemplo de ejecución:
 
 ```bash
 Image erichough/kodi not found locally.
