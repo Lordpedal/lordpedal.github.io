@@ -88,7 +88,7 @@ Añadimos directorio `/storages` a la ruta definida para buscar duplicidades:
     <a href="/assets/images/posts/dupeguru2.jpg"><img src="/assets/images/posts/dupeguru2.jpg"></a>
 </figure>
 
-Haccemos clic en `Scan` nos detallara de duplicidades encontradas:
+Hacemos clic en `Scan` nos detallara de duplicidades encontradas:
 
 <figure>
     <a href="/assets/images/posts/dupeguru3.jpg"><img src="/assets/images/posts/dupeguru3.jpg"></a>
