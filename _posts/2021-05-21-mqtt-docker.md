@@ -22,7 +22,7 @@ Los mensajes a enviar o a los que suscribirse se clasifican según su asunto (**
 
 Los elementos que se conecten al servicio tienen la libertad de emitir mensajes con el topic en cuestión. El resto de terminales se pueden suscribir al topic para recibir los mensajes correspondientes.
 
-Si quieres conocer en profundidad el protocolo, te invito a consultar esta entrada de un blog muy recomendado [Luis Llamas: MQTT](https://www.luisllamas.es/que-es-mqtt-su-importancia-como-protocolo-iot/){: .btn .btn--info .btn--small}{:target="_blank"}.
+Si quieres conocer en profundidad el protocolo, te invito a consultar esta entrada de un blog muy recomendado [Luis Llamas: MQTT](https://www.luisllamas.es/que-es-mqtt-su-importancia-como-protocolo-iot/){: .btn .btn--info .btn--small}{:target="_blank"}
 
 En caso de seguir interesado, vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
