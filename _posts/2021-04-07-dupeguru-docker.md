@@ -103,6 +103,6 @@ Entre las opciones de configuración del programa encontramos el soporte multi-i
 Una vez configurado nuevo idioma, tendremos que reiniciar el contenedor:
 
 ```bash
-docker-compose up restart
+docker-compose restart
 ```
 > Y listo!
