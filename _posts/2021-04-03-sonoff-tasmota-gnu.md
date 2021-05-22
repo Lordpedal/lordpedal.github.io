@@ -118,7 +118,7 @@ Para realizar el flasheo seguir estos pasos:
     <a href="/assets/images/posts/tasmota10.png"><img src="/assets/images/posts/tasmota10.png"></a>
 </figure>
 
-Volvemos a encender el **SonOff** bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V y descubrimos una nueva conexión *Wi-Fi* disponible con algún identificador que inicia con `**tasmota_**`
+Volvemos a encender el **SonOff** bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V y descubrimos una nueva conexión *Wi-Fi* disponible con algún identificador que inicia con **`tasmota_`**
 
 <figure class="half">
     <a href="/assets/images/posts/tasmota11.png"><img src="/assets/images/posts/tasmota11.png"></a>
