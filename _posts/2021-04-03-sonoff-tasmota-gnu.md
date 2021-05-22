@@ -112,11 +112,12 @@ Para realizar el flasheo seguir estos pasos:
 </figure>
 
  * Al finalizar el proceso podremos **soltar el boton de Sonoff**
- * **Desconectar los cables Dupont** y programador TTL del PC
 
 <figure>
     <a href="/assets/images/posts/tasmota10.png"><img src="/assets/images/posts/tasmota10.png"></a>
 </figure>
+
+ * **Desconectar los cables Dupont** y programador TTL del PC
 
 Volvemos a encender el **SonOff** bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V, **en ningún caso ambas al mismo tiempo**. 
 
