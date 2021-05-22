@@ -105,16 +105,20 @@ Para realizar el flasheo seguir estos pasos:
  * **Conectamos el programador TTL** a un puerto USB del PC libre
  * Hacemos clic en `Refresh` para reconocer el puerto, en nuestro caso `ttyUSB0`
  * Hacemos clic en `Tasmotize!` este proceso borrara el fimware Stock e introduce el firmware Tasmota
+
+<figure class="half">
+    <a href="/assets/images/posts/tasmota8.png"><img src="/assets/images/posts/tasmota8.png"></a>
+    <a href="/assets/images/posts/tasmota9.png"><img src="/assets/images/posts/tasmota9.png"></a>
+</figure>
+
  * Al finalizar el proceso podremos **soltar el boton de Sonoff**
  * **Desconectar los cables Dupont** y programador TTL del PC
 
-<figure class="third">
-    <a href="/assets/images/posts/tasmota8.png"><img src="/assets/images/posts/tasmota8.png"></a>
-    <a href="/assets/images/posts/tasmota9.png"><img src="/assets/images/posts/tasmota9.png"></a>
+<figure>
     <a href="/assets/images/posts/tasmota10.png"><img src="/assets/images/posts/tasmota10.png"></a>
 </figure>
 
-Volvemos a encender el SonOff bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V y descubrimos una nueva conexión *Wi-Fi* disponible con algún identificador que inicia con **tasmota_**
+Volvemos a encender el **SonOff** bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V y descubrimos una nueva conexión *Wi-Fi* disponible con algún identificador que inicia con `**tasmota_**`
 
 <figure class="half">
     <a href="/assets/images/posts/tasmota11.png"><img src="/assets/images/posts/tasmota11.png"></a>
