@@ -51,13 +51,11 @@ Elegimos la versión a descargar, en nuestro caso usaremos la versión en Españ
     <a href="/assets/images/posts/tasmota1.png"><img src="/assets/images/posts/tasmota1.png"></a>
 </figure>
 
-
 Como disponemos de lo necesario a nivel de Software, debemos pasarnos a preparar el hardware para poder Tasmotizarlo. Comenzamos abriendo la carcasa del Sonoff:
 
 <figure>
     <a href="/assets/images/posts/tasmota2.png"><img src="/assets/images/posts/tasmota2.png"></a>
 </figure>
-
 
 Con el modulo abierto tendremos acceso a la placa y nos fijamos que dispone de cuatro pines para **comunicación serie** `3.3V TX RX GND`
 
@@ -110,8 +108,31 @@ Para realizar el flasheo seguir estos pasos:
  * Al finalizar el proceso podremos **soltar el boton de Sonoff**
  * **Desconectar los cables Dupont** y programador TTL del PC
 
-<figure>
+<figure class="third">
     <a href="/assets/images/posts/tasmota8.png"><img src="/assets/images/posts/tasmota8.png"></a>
+    <a href="/assets/images/posts/tasmota9.png"><img src="/assets/images/posts/tasmota9.png"></a>
+    <a href="/assets/images/posts/tasmota10.png"><img src="/assets/images/posts/tasmota10.png"></a>
+</figure>
+
+Volvemos a encender el SonOff bien por la alimentación de 3.3V + GND del TTL o bien por la linea de entrada 220V y descubrimos una nueva conexión *Wi-Fi* disponible con algún identificador que inicia con **tasmota_**
+
+<figure class="half">
+    <a href="/assets/images/posts/tasmota11.png"><img src="/assets/images/posts/tasmota11.png"></a>
+    <a href="/assets/images/posts/tasmota12.png"><img src="/assets/images/posts/tasmota12.png"></a>
+</figure>
+
+Al conectarnos sobre ella, iniciamos un asistente de configuración para conectar el dispositivo SonOff a nuestra red Wi-Fi introduciendo los parámetros:
+
+<figure class="third">
+    <a href="/assets/images/posts/tasmota13.png"><img src="/assets/images/posts/tasmota13.png"></a>
+    <a href="/assets/images/posts/tasmota14.png"><img src="/assets/images/posts/tasmota14.png"></a>
+    <a href="/assets/images/posts/tasmota15.png"><img src="/assets/images/posts/tasmota15.png"></a>
+</figure>
+
+Tras el reset que hace al dispositivo a la red Wi-Fi doméstica, podremos entrar en su menú de configuración tras haber obtenido una ip local
+
+<figure>
+    <a href="/assets/images/posts/tasmota16.png"><img src="/assets/images/posts/tasmota16.png"></a>
 </figure>
 
 > Y listo!
