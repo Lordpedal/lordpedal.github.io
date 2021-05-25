@@ -1,5 +1,5 @@
 ---
-title:  "Arduino UNO Programador TTL: Debian GNU/Linux"
+title:  "Arduino UNO TTL: Debian GNU/Linux"
 header:
   image: /assets/images/posts/arduino0.jpg
 date:   2021-05-25 22:30:00
