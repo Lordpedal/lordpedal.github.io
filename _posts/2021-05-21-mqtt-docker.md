@@ -16,7 +16,7 @@ tags:
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[MQTT](https://mosquitto.org/){: .btn .btn--warning .btn--small}{:target="_blank"} (**M**essage **Q**ueue **T**elemetry **T**ransport) es un protocolo diseñado por IBM destinado a mejorar la conectividad **M2M** (*Machine to machine*)..
+[MQTT](https://mosquitto.org/){: .btn .btn--warning .btn--small}{:target="_blank"} (**M**essage **Q**ueue **T**elemetry **T**ransport) es un protocolo diseñado por IBM destinado a mejorar la conectividad **M2M** (*Machine to machine*).
 
 Los mensajes a enviar o a los que suscribirse se clasifican según su asunto (**topic**) gracias a un **Broker** (un *servidor mqtt específico*).
 
