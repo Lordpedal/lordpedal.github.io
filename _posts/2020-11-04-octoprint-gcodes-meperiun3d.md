@@ -86,6 +86,39 @@ Otra forma de comprobar si el firmware lo soporta, es enviarle el GCode:
 
 Si la respuesta recibida es **unknown command / comando desconocido** no se encontraría activa la opción.
 
+```bash
+Send: M115
+Recv: FIRMWARE_NAME:Marlin 2.0.6 by Lordpedal MACHINE_TYPE:miniOverclock
+Recv: Cap:SERIAL_XON_XOFF:0
+Recv: Cap:BINARY_FILE_TRANSFER:0
+Recv: Cap:EEPROM:1
+Recv: Cap:VOLUMETRIC:1
+Recv: Cap:AUTOREPORT_TEMP:1
+Recv: Cap:PROGRESS:0
+Recv: Cap:PRINT_JOB:1
+Recv: Cap:AUTOLEVEL:1
+Recv: Cap:RUNOUT:0
+Recv: Cap:Z_PROBE:1
+Recv: Cap:LEVELING_DATA:1
+Recv: Cap:BUILD_PERCENT:1
+Recv: Cap:SOFTWARE_POWER:0
+Recv: Cap:TOGGLE_LIGHTS:0
+Recv: Cap:CASE_LIGHT_BRIGHTNESS:0
+Recv: Cap:EMERGENCY_PARSER:0
+Recv: Cap:PROMPT_SUPPORT:0
+Recv: Cap:SDCARD:1
+Recv: Cap:AUTOREPORT_SD_STATUS:0
+Recv: Cap:LONG_FILENAME:1
+Recv: Cap:THERMAL_PROTECTION:1
+Recv: Cap:MOTION_MODES:0
+Recv: Cap:ARCS:1
+Recv: Cap:BABYSTEPPING:1
+Recv: Cap:CHAMBER_TEMPERATURE:0
+Recv: ok
+Send: M155 S2
+Recv: ok
+```
+
 ### Prerequisitos OctoPrint
 
 Antes de continuar con la instalación del complemento, tenemos que satisfacer las dependencias de desarrollo de [Python 3](https://www.python.org/download/releases/3.0/){:target="_blank"} para el plugin, que no se incluyen activas por defecto en **OctoPrint**.
