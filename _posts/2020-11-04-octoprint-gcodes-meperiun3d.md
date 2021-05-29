@@ -25,7 +25,9 @@ El resultado es que algunas impresoras simplemente ralentizan la impresión, lo 
 
 El resultado es que el número de comandos de **GCode** necesarios para representar el modelo disminuye sustancialmente a medida que los grupos conectados de comandos de segmento se convierten en comandos de arco único.
 
-![Arc Welder]({{ site.url }}{{ site.baseurl }}/assets/images/posts/arcwelder1.png){: .align-center}
+<figure>
+    <a href="/assets/images/posts/arcwelder1.png"><img src="/assets/images/posts/arcwelder1.png"></a>
+</figure>
 
 Todo este programa funciona bajo el supuesto de que el controlador de movimiento integrado de su impresora 3D acepta comandos de arco, específicamente **M115, G2** y **G3**.
 
