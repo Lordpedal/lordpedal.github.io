@@ -20,6 +20,8 @@ toc_icon: "cog"
 {: .full}
 En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian Buster a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
 
+{% include video id="573595834" provider="vimeo" %}
+
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
 En la [web de descargas](https://www.debian.org/releases/stable/){:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. En mi caso voy a recomendar la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **procesador 64bits**, [descarga directa](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/){:target="_blank"}.
@@ -32,8 +34,6 @@ Resumiendo el procedimiento a grandes rasgos:
 3.  Ejecutamos el asistente de instalación.
 4.  **Importante** tildar para instalar en sistema durante asistente instalación: `Entorno de escritorio Debian + MATE + SSH server + Utilidades estándar del sistema Debian`, el resto de opciones recomiendo descartarlas.
 5.  Disfrutar de las bondades de un gran sistema operativo y una gran comunidad asociada al mismo.
-
-{% include video id="573595834" provider="vimeo" %}
 
 ## Sistema Base
 
