@@ -33,6 +33,8 @@ Resumiendo el procedimiento a grandes rasgos:
 4.  **Importante** tildar para instalar en sistema durante asistente instalación: `Entorno de escritorio Debian + MATE + SSH server + Utilidades estándar del sistema Debian`, el resto de opciones recomiendo descartarlas.
 5.  Disfrutar de las bondades de un gran sistema operativo y una gran comunidad asociada al mismo.
 
+{% include video id="573595834" provider="vimeo" %}
+
 ## Sistema Base
 
 El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, recordad sustituir dicho usuario por el que habéis creado durante la instalación.
