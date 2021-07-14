@@ -372,7 +372,7 @@ services:
       - SERVERURL=lordpedal.duckdns.org
       - SERVERPORT=51820
       - PEERS=1
-      - PEERDNS=1.1.1.1
+      - PEERDNS=auto
       - INTERNAL_SUBNET=10.13.13.0
       - ALLOWEDIPS=0.0.0.0/0
     volumes:
@@ -397,7 +397,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `SERVERURL=lordpedal.duckdns.org` | IP externa (nuestra DNS pública), si no tienes ninguna puedes usar la variable auto, entonces el contenedor tratata de determinar tu IP externa de forma automatica |
 | `SERVERPORT=51820` | Puerto externo para el host de Docker. Usado en el servidor |
 | `PEERS=1` | Numero de clientes VPN a crear.  Puedes usar el valor que necesites |
-| `PEERDNS=1.1.1.1` | Servidor de DNS a usar, en el caso he configurado el de Cloudflare `1.1.1.1`, si el valor especificado es auto, entonces se usaran las DNS de CoreDNS |
+| `PEERDNS=auto` | Servidor de DNS a usar, en el caso he configurado la opción `auto`, para usar el DNS interno del servidor |
 | `INTERNAL_SUBNET=10.13.13.0` | Rango de subred interna para la comunicación entre el servidor y los clientes |
 | `$HOME/docker/wireguard:/config` | Carpeta donde alojaremos los clientes (peers) creados |
 | `/lib/modules:/lib/modules` | Mapea los modulos de nuestro sistema al contenedor |
