@@ -62,7 +62,7 @@ A continuación ejecutamos el navegador, durante la primera ejecución se bajara
 
 ### Debian 11 Bullseye
 
-En esta versión el navegador esta incluido en los repositorios oficiales, no siendo necesario agregar el repositorio Backports.
+En esta versión del sistema, el navegador Tor esta incluido en los repositorios oficiales, no siendo necesario agregar el repositorio Backports.
 
 Tan solo debemos de actualizar nuestros repositorios de sistema e instalamos el navegador Tor:
 
