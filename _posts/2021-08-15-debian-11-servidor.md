@@ -1,9 +1,9 @@
 ---
 title:  "Debian 11 Bullseye: Servidor PC"
-date:   2021-08-15 10:00:00 -0300
+date:   2021-08-15 10:00:00
+last_modified_at: 2021-08-15T11:00:00
 header:
   image: /assets/images/posts/debiantt.gif
-last_modified_at: 2021-08-15T11:00:00-05:00
 categories:
   - GNU/Linux
 tags:
