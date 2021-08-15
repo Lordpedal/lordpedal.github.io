@@ -18,7 +18,7 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian bullseye a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
+En esta sección pretendo hablar de como optimizar y adaptar la distribución *Debian Bullseye* a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
 
 {% include video id="573595834" provider="vimeo" %}
 

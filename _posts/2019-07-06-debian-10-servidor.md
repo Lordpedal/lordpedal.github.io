@@ -20,8 +20,6 @@ toc_icon: "cog"
 {: .full}
 En esta sección pretendo hablar de como optimizar y adaptar la distribución Debian Buster a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
 
-{% include video id="573595834" provider="vimeo" %}
-
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
 En la [web de descargas](https://cdimage.debian.org/cdimage/archive/10.10.0){:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. En mi caso voy a recomendar la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **procesador 64bits**, [descarga directa](https://cdimage.debian.org/cdimage/archive/10.10.0/amd64/iso-cd/debian-10.10.0-amd64-netinst.iso){:target="_blank"}.
