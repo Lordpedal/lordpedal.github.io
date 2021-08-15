@@ -30,7 +30,7 @@ Adicionalmente en la propia web podemos encontrar unas excelentes [guías de ins
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/db11vm.mp4" type="video/mp4" />
-       <source src="{{ site.baseurl }}/assets/videos/rpios.webm"  type="video/webm"  />
+       <source src="{{ site.baseurl }}/assets/videos/db11vm.webm"  type="video/webm"  />
    </video>
 </div>
 
