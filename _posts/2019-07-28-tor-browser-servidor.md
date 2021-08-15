@@ -1,7 +1,7 @@
 ---
 title:  "Tor Browser: Servidor Debian"
-date:   2019-07-28 10:00:00 -0300
-last_modified_at: 2020-12-12T16:30:00-05:00
+date:   2019-07-28 10:00:00
+last_modified_at: 2021-08-15T16:00:00
 header:
   image: /assets/images/posts/debiantt.gif
 categories:
@@ -57,6 +57,18 @@ Una vez agregado el repositorio, actualizamos nuestros repositorios de sistema e
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install torbrowser-launcher -t buster-backports
+```
+A continuación ejecutamos el navegador, durante la primera ejecución se bajara e instalara la última versión. 
+
+### Debian 11 Bullseye
+
+En esta versión el navegador esta incluido en los repositorios oficiales, no siendo necesario agregar el repositorio Backports.
+
+Tan solo debemos de actualizar nuestros repositorios de sistema e instalamos el navegador Tor:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install torbrowser-launcher
 ```
 A continuación ejecutamos el navegador, durante la primera ejecución se bajara e instalara la última versión. 
 
