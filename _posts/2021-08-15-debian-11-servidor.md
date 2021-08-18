@@ -2133,30 +2133,11 @@ Primeramente debemos de actualizar los repositorios e instalar el paquete:
 sudo apt-get update && sudo apt-get -y install youtube-dl
 ```
 
-El problema que nos vamos a encontrar es que la versión que acabamos de instalar es antigua y con limitaciones de uso importantes. Si tratamos de actualizar el programa nos dira:
+La versión incluida en la emisión de este tutorial es:
 
 ```bash
-pi@overclock:~$ sudo youtube-dl -U
-It looks like you installed youtube-dl with a package manager, pip, setup.py or a tarball. Please use that to update.
+pi@overclock:/usr/local/bin$ sudo youtube-dl --version
+2021.06.06
 ```
-
-Resumiendo nos viene a decir que no es posible actualizar sino es vía `APT`. 
-Para solucinar el problema vamos a forzar la actualización:
-
-```bash
-sudo wget -O /usr/bin/youtube-dl http://yt-dl.org/downloads/latest/youtube-dl && \
-sudo chmod a+rx /usr/bin/youtube-dl && \
-sudo wget http://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl && \
-sudo chmod a+rx /usr/local/bin/youtube-dl
-```
-
-Y si probamos nuevamente a actualizar:
-
-```bash
-pi@overclock:~$ sudo youtube-dl -U
-youtube-dl is up-to-date (2021.08.10)
-```
-
-Ya podremos actualizar el programa desde la terminal cuando queramos con la orden `sudo youtube-dl -U`
 
 > Y listo!
