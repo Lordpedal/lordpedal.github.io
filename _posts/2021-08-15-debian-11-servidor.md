@@ -1997,50 +1997,7 @@ Información ampliada Docker: [Xupnpd V2](https://lordpedal.github.io/gnu/linux/
 
 ### Kodi
 
-[Kodi](https://kodi.tv/){:target="_blank"} hace años que dejamos de conocerlo como XBMC (Xbox Media Center), pero incluso cuando llevaba aquel nombre ya se había convertido en uno de los **centros multimedia más populares y completos** que podíamos descargar en diferentes plataformas, y lo sigue siendo, solo que incluso mejor.
-
-**Kodi es una aplicación gratuita y open source mantenida por voluntarios y donaciones**. La versión oficial no incluye ningún tipo de contenido multimedia, solo las opciones para que gestiones el tuyo propio. Ese contenido puede provenir de tu disco, de una ubicación remota, un DVD, un Blu-ray, un servicio en la nube, etc.
-
-Y podrías pensar, **¿Porque instalar Kodi en el Servidor?** La respuesta para mi es sencilla, **un servidor en mi caso no deja de ser un PC**, con el que puedo disfrutar de contenido multimedia.
-
-Aprovechando los **alías** haremos uso de ellos para instalar `Kodi` con la siguiente sentencia:
-
-```bash
-instalar kodi
-```
-
-Y listo, ya lo tendriamos instalado y funcional si estamos dentro del entorno gráfico en nuestro caso MATE, pero como nos gusta ir un paso más te habras dado cuenta que desde TTY no inicia debidamente.
-
-La solución pasa por añadir un nuevo alías a nuestro base de datos, para ello lanzamos en la terminal:
-
-```bash
-enlaces
-```
-
-Se nos abrira el fichero `/etc/bash.bashrc` con el editor `nano`. Añadimos el alías de Kodi al final del fichero:
-
-```bash
-alias kodi="/usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/kodi-standalone -- :0 -nolisten tcp vt7"
-```
-
-Guardamos los cambios, salimos del editor de texto y editamos las opciones de apagado en Kodi:
-
-```bash
-sudo nano /etc/polkit-1/localauthority/50-local.d/custom-actions.pkla
-```
-
-Y agregamos el siguiente contenido:
-
-```bash
-[Actions for kodi user]
-Identity=unix-user:pi
-Action=org.freedesktop.upower.*;org.freedesktop.consolekit.system.*;org.freedesktop.udisks.*;org.freedesktop.login1.*
-ResultAny=yes
-ResultInactive=yes
-ResultActive=yes
-```
-
-Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponible para lanzar desde la **TTY** sin fallos.
+Información ampliada Docker: [Kodi](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){:target="_blank"}
 
 ### Youtube-dl
 
