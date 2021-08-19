@@ -120,14 +120,14 @@ iface br0 inet static
 # Interfaz Red Bridge (br0 IP Dinamica)
 #auto br0
 #iface br0 inet dhcp
-#        bridge_ports bond0
-#        bridge_stp off
-#        bridge_fd 0
-#        bridge_maxwait 0
+#       bridge_ports bond0
+#       bridge_stp off
+#       bridge_fd 0
+#       bridge_maxwait 0
 
 # Interfaz Red Bridge (IPv6)
 iface br0 inet6 auto
-	accept_ra 1
+        accept_ra 1
 ```
 
 Guardamos, salimos del editor y reiniciamos el sistema:
