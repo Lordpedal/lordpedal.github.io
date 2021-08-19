@@ -1148,7 +1148,7 @@ Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *
 
 Adjunto enlace a [tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}, aunque recomiendo usar la versión **Docker**.
 
-[DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--inverse}{:target="_blank"}
+[Docker: DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--inverse}{:target="_blank"}
 
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
 
