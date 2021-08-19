@@ -151,7 +151,8 @@ Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar 
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install firmware-linux-nonfree amd64-microcode intel-microcode
+sudo apt-get -y install firmware-linux-nonfree \
+amd64-microcode intel-microcode
 ```
 
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
@@ -491,7 +492,7 @@ Un Programador de E/S es la forma de manejar la lectura de los datos de los disp
  * Anticipatory-elevator=as
 {: .notice--info}
 
-[Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
+[Ampliar información](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){: .btn .btn--inverse}{:target="_blank"}
 
 Lanzamos el alías de edición de Grub:
 
