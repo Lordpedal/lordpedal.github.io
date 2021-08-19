@@ -486,10 +486,10 @@ Calculando la actualización... Hecho
 
 Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
 
- * Completely Fair Queuing-elevator=cfq
- * Deadline-elevator=deadline
- * NOOP-elevator=noop
- * Anticipatory-elevator=as
+ * Completely Fair Queuing: **elevator=cfq**
+ * Deadline: **elevator=deadline**
+ * NOOP: **elevator=noop**
+ * Anticipatory: **elevator=as**
 {: .notice--info}
 
 [Ampliar información](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){: .btn .btn--inverse}{:target="_blank"}
