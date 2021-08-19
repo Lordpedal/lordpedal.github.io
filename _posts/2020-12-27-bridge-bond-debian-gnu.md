@@ -55,6 +55,7 @@ Y le añadimos el siguiente contenido:
 
 ```bash
 alias bond0 bonding
+    options bonding mode=4 miimon=100 lacp_rate=1
 ```
 
 Guardamos, salimos del editor e instalamos dependencias:
@@ -78,24 +79,30 @@ Y lo dejamos configurado con la siguiente estructura (**las interfaces de red pu
 ```bash
 # Interfaz Loopback
 auto lo
-iface lo inet loopback
+        iface lo inet loopback
 
 # Interfaz LAN (Placa Base)
 #auto enp0s31f6
-#iface enp0s31f6 inet manual
+#       iface enp0s31f6 inet manual
 
 # Interfaz LAN (HP PCIe)
 auto enp5s0f0
-iface enp5s0f0 inet manual
+        iface enp5s0f0 inet manual
+        bond-master bond0
 
 auto enp5s0f1
-iface enp5s0f1 inet manual
+        iface enp5s0f1 inet manual
+        bond-master bond0
 
 # Interfaz Red Bond (bond0)
 auto bond0
         iface bond0 inet manual
+        bond-mode 4
+        bond-miimon 100
+        bond-lacp-rate 1
+        bond-xmit-hash-policy layer3+4
+        bond-slaves enp5s0f0 enp5s0f1
         slaves enp5s0f0 enp5s0f1
-        bond-mode 802.3ad
 
 # Interfaz Red Bridge (br0 IP Estatica)
 auto br0
