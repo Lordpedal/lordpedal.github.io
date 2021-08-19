@@ -55,7 +55,7 @@ Y le añadimos el siguiente contenido:
 
 ```bash
 alias bond0 bonding
-    options bonding mode=4 miimon=100 lacp_rate=1
+options bonding mode=4 miimon=100 lacp_rate=1
 ```
 
 Guardamos, salimos del editor e instalamos dependencias:
