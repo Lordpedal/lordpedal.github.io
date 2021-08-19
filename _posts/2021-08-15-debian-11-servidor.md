@@ -144,18 +144,14 @@ Tras finalizar la actualización tendremos el sistema actualizado y con las últ
 
 ###  Utilidades Sistema
 
-Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar el `driver necesario` para poder interactuar con el y no esta compilado en el kernel. Una solución sencilla es instalar un paquete con algunos de los principales drivers (3Com, Atheros, Radeon, …):
+Posiblemente tendrás algún `controlador` pendiente de actualizar y/o instalar el `driver necesario` para poder interactuar con el y no esta compilado en el kernel. Una solución sencilla es instalar un paquete con algunos de los principales drivers (3Com, Atheros, Radeon, …), y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche:
+
+> AMD 64bits & INTEL 64bits
+{: .notice--info}
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install firmware-linux-nonfree
-```
-Y si además queremos maximizar la eficiencia de nuestro procesador instalaremos este parche:
-
-> AMD 64bits & INTEL 64bits  
-{: .notice--info}
-```bash
-sudo apt-get -y install amd64-microcode intel-microcode
+sudo apt-get -y install firmware-linux-nonfree amd64-microcode intel-microcode
 ```
 
 Si necesitamos `des/comprimir` algún fichero de nuestro sistema y no se encuentra dentro de los formatos más habituales de GNU/Linux, deberemos de darle soporte para poder interactuar:
@@ -171,7 +167,7 @@ Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futu
 sudo apt-get update && \
 sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
 hfsplus build-essential automake libtool uuid-dev psmisc linux-source yasm \
-minissdpd autoconf g++ subversion linux-source tofrodos git-core subversion dos2unix \
+autoconf g++ subversion linux-source tofrodos git-core subversion dos2unix \
 make gcc automake cmake git-core dpkg-dev fakeroot pbuilder dh-make debhelper devscripts \
 patchutils quilt git-buildpackage pristine-tar git yasm cvs mercurial libexif* libid3tag* \
 libavutil* libavcodec-dev libavformat-dev libjpeg-dev libsqlite3-dev libexif-dev libid3tag0-dev \
@@ -189,13 +185,37 @@ sudo dpkg-reconfigure locales
 Para poner nuestro sistema en español, tenemos que marcar las siguientes opciones en el asistente configuración de locales y deseleccionar cualquier otra que pudiese estar activa:
 
 - [ ] en_GB.UTF-8 UTF-8 
-- [x] es_ES ISO-8859-1 
 - [x] es_ES.UTF-8 UTF-8 
-- [x] es_ES@euro ISO-8859-15
+{: .notice}
 
 Para la configuración regional predeterminada seleccionamos:
 
 - [x] es-ES.UTF-8
+{: .notice}
+
+Ejemplo salida comando:
+
+```bash
+pi@overclock:~ $ sudo dpkg-reconfigure locales
+Generating locales (this might take a while)...
+  es_ES.UTF-8... done
+Generation complete.
+```
+Y a continuación configuro franja horaria sistema con el asistente:
+
+```bash
+sudo dpkg-reconfigure tzdata
+```
+
+Ejemplo salida comando:
+
+```bash
+pi@roverclock:~ $ sudo dpkg-reconfigure tzdata
+
+Current default time zone: 'Europe/Madrid'
+Local time is now:      Sun Jul 15 11:11:42 CET 2021.
+Universal Time is now:  Sun Jul 15 11:11:42 UTC 2021.
+```
 
 ###  Configurando [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
@@ -465,12 +485,10 @@ Calculando la actualización... Hecho
 
 Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
 
-```bash
- - Completely Fair Queuing-elevator=cfq
- - Deadline-elevator=deadline
- - NOOP-elevator=noop
- - Anticipatory-elevator=as
-```
+ * Completely Fair Queuing-elevator=cfq
+ * Deadline-elevator=deadline
+ * NOOP-elevator=noop
+ * Anticipatory-elevator=as
 {: .notice--info}
 
 [Infomación ampliada](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){:target="_blank"}.
@@ -1113,18 +1131,23 @@ pi@overclock:~$ crontab -l
 @reboot /home/pi/scripts/overspeed.sh >/dev/null 2>&1
 ```
 
+### P3DNS
+
+Antes de continuar debemos de realizar estos pasos:
+
+ 1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){: .btn .btn--inverse}{:target="_blank"}
+ 2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){: .btn .btn--inverse}{:target="_blank"}
+
 ### Configurando DNS Pública
 
 Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
 La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [Duck DNS](https://www.duckdns.org/){:target="_blank"}.
 
-Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**. Y el procedimiento de instalación en nuestra red es vía **cron**.
-Adjunto [tutorial de configuración en GNU/Linux](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}.
+Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**.
 
-Antes de continuar debemos de realizar estos pasos:
+Adjunto enlace a [tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}, aunque recomiendo usar la versión **Docker**.
 
-1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){:target="_blank"}
-2. Configuramos e instalamos: [DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){:target="_blank"}
+[DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--inverse}{:target="_blank"}
 
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
 
@@ -1145,13 +1168,6 @@ Y la modificamos con nuestra cuenta en DuckDNS:
 
 Guardamos los cambios y salimos del editor de texto.
 
-### P3DNS
-
-Antes de continuar debemos de realizar estos pasos:
-
-1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){:target="_blank"}
-2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){:target="_blank"}
-
 ### VPN´s
 
 Una red privada virtual es una tecnología de red de ordenadores que permite una extensión segura de la red de área local sobre una red pública o no controlada como Internet.
@@ -1160,7 +1176,7 @@ Esto se realiza estableciendo una conexión virtual punto a punto mediante el us
 
 #### Wireguard (Recomendada)
 
-Información ampliada Docker: [Wireguard](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-wireguard){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-wireguard){: .btn .btn--inverse}{:target="_blank"}
 
 #### OpenVPN (Opcional)
 
@@ -1603,11 +1619,11 @@ Continuamos añadiendole extras a nuestro Servidor esta vez desde el punto `mult
 
 ### Transmission
 
-Información ampliada Docker: [Transmission](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){: .btn .btn--inverse}{:target="_blank"}
 
 ### Samba
 
-Información ampliada Docker: [Samba](https://lordpedal.github.io/gnu/linux/docker/samba-docker/){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/samba-docker/){: .btn .btn--inverse}{:target="_blank"}
 
 ### VNC
 
@@ -1770,15 +1786,15 @@ A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera
 
 ### MiniDLNA
 
-Información ampliada Docker: [MiniDLNA](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){: .btn .btn--inverse}{:target="_blank"}
 
 ### UDPXY
 
-Información ampliada Docker: [UDPXY](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-udpxy){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-udpxy){: .btn .btn--inverse}{:target="_blank"}
 
 ### Xupnpd
 
-[Xupnpd](http://xupnpd.org/){:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`.
+[Xupnpd](http://xupnpd.org/){: .btn .btn--inverse}{:target="_blank"} es un **software permite anunciar canales y contenido multimedia** a través de **DLNA** en cooperación con `MiniDLNA`.
 
 #### Xupnpd V1
 
@@ -1787,6 +1803,7 @@ Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemp
 Vamos nuevamente a preparar el entorno de trabajo para compilar el software:
 
 ```bash
+sudo apt-get -y install minissdpd && \
 cd ~/source && \
 git clone https://github.com/clark15b/xupnpd.git && \
 cd xupnpd/src && make && cd .. && \
@@ -1993,11 +2010,11 @@ Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendr
 
 #### Xupnpd V2
 
-Información ampliada Docker: [Xupnpd V2](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){: .btn .btn--inverse}{:target="_blank"}
 
 ### Kodi
 
-Información ampliada Docker: [Kodi](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){: .btn .btn--inverse}{:target="_blank"}
 
 ### Youtube-dl
 
