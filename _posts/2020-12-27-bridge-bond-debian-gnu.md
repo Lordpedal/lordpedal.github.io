@@ -90,6 +90,7 @@ auto enp5s0f0
         iface enp5s0f0 inet manual
         bond-master bond0
 
+# Interfaz LAN (HP PCIe)
 auto enp5s0f1
         iface enp5s0f1 inet manual
         bond-master bond0
@@ -102,7 +103,6 @@ auto bond0
         bond-lacp-rate 1
         bond-xmit-hash-policy layer3+4
         bond-slaves enp5s0f0 enp5s0f1
-        slaves enp5s0f0 enp5s0f1
 
 # Interfaz Red Bridge (br0 IP Estatica)
 auto br0
