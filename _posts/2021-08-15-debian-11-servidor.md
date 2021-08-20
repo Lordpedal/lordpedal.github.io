@@ -58,7 +58,7 @@ Lo primero con lo que comenzamos es añadiendo nuestro usuario al grupo `sudo` d
 ```bash
 su
 ```
-Se nos solicitara la *contraseña* de **root** que previamente le dimos en la instalación. Procedemos a instalar la aplicación *(necesaria conexión internet)*:
+Se nos solicitara la *contraseña* de **root** que previamente le dimos en la instalación. Procedemos a instalar la aplicación:
 
 ```bash
 apt-get update && apt-get -y install sudo nano
@@ -76,7 +76,7 @@ cd /sbin && \
 ```
 Si no es así haz caso omiso, el fallo reside en el **PATH del Sistema** que durante el resto de configuraciones del server se corrige.
 
-Vamos a repasar los principales atajos de teclado que encontramos en el editor [nano](https://es.wikipedia.org/wiki/GNU_Nano){:target="_blank"}:
+Vamos a repasar los principales atajos de teclado que encontramos en el editor [nano](https://es.wikipedia.org/wiki/GNU_Nano){: .btn .btn--inverse .btn--small}{:target="_blank"}:
 
 | Acción | Resultado |
 | ------ | ------ |
@@ -90,7 +90,7 @@ Vamos a repasar los principales atajos de teclado que encontramos en el editor [
 | Control + W + R | Buscar y reemplazar en el fichero |
 {: .notice--info}
 
-Añadimos privilegios sudo editando la configuración con nuestro editor *nano*:
+Añadimos privilegios *sudo* a nuestro usuario editando la configuración:
 
 ```bash
 nano /etc/sudoers
@@ -109,7 +109,7 @@ Y ya tendremos configurado debidamente el perfil sudo en nuestro usuario de sist
 
 ###  Ajustando: Repositorios Sistema
 
-El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes){:target="_blank"} `Apt`/`Aptitude`/`Synaptic` de nuestra distribución se basa en un listado de fuentes de instalación. 
+El [gestor de paquetes](https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes){: .btn .btn--inverse .btn--small}{:target="_blank"} `Apt`/`Aptitude`/`Synaptic` de nuestra distribución se basa en un listado de fuentes de instalación. 
 Primero haremos un backup de las actuales y crearemos una personalizada:
 
 ```bash
@@ -223,8 +223,11 @@ Universal Time is now:  Sun Jul 15 11:11:42 UTC 2021.
 
 ###  Configurando [TTY](https://es.wikipedia.org/wiki/Emulador_de_terminal){:target="_blank"}
 
-Este paso aunque no es obligatorio en un entorno de Servidor, si lo considero que es altamente recomendado para optimizar recursos de sistema. Lo que vamos a hacer es deshabilitar el autoinicio del entorno gráfico instalado (recordemos [MATE](https://es.wikipedia.org/wiki/MATE){:target="_blank"}).
-Lo que debemos de hacer a continuacón es adaptar el sistema a un arranque sin gestor de inicio sesiones ([LightDM](https://es.wikipedia.org/wiki/LightDM){:target="_blank"}), para ello instalamos y configuramos la siguiente dependencia:
+Este paso aunque no es obligatorio en un entorno de Servidor, si lo considero que es altamente recomendado para optimizar recursos de sistema. Lo que vamos a hacer es deshabilitar el autoinicio del entorno gráfico instalado [MATE](https://es.wikipedia.org/wiki/MATE){: .btn .btn--info .btn--small}{:target="_blank"}
+
+Lo que debemos de hacer a continuacón es adaptar el sistema a un arranque sin gestor de inicio sesiones [LightDM](https://es.wikipedia.org/wiki/LightDM){: .btn .btn--danger .btn--small}{:target="_blank"}
+
+Para ello instalamos y configuramos la siguiente dependencia:
 
 ```bash
 sudo apt-get -y install xserver-xorg-legacy
@@ -260,7 +263,8 @@ Guardamos los cambios y salimos del editor de texto. Ahora vamos a reconfigurar 
 ```bash
 sudo systemctl set-default multi-user.target
 ```
-Llegado a este punto el sistema tras un reinicio o encendido del PC nos solicitaria el usuario: **pi** y su contraseña: ************** para hacer login en terminal.
+Llegado a este punto el sistema tras un reinicio o encendido del PC nos solicitaria el usuario: **pi** y su contraseña: ************ para hacer login en terminal.
+
 Podemos configurar un **autologin** que **no lo recomiendo** pero lo dejo a modo informativo.
 
 ```bash
@@ -280,12 +284,15 @@ Guardamos los cambios y salimos del editor de texto.
 ###  Configurando RC.LOCAL
 
 Si no queremos crear un script único para la ejecución de un comando o un script cada vez que iniciamos un sistema tipo Unix (BSD, Gnu/Linux, etc) tenemos la posibilidad de llamarlo desde el fichero **/etc/rc.local**.
+
 Cualquier comando que coloquemos o script al que llamemos en dicho fichero será ejecutado al final del arranque, es decir, cuando todos los scripts que tenemos en el runlevel correspondiente hayan sido ejecutados. 
-Esta opción no viene habilitada por defecto en Debian 11 y para ello tendremos que habilitarla, creamos el servicio para [SystemD](https://es.wikipedia.org/wiki/Systemd){:target="_blank"}:
+
+Esta opción no viene habilitada por defecto en Debian 11 y para ello tendremos que habilitarla, creamos el servicio para [Systemd](https://es.wikipedia.org/wiki/Systemd){: .btn .btn--inverse .btn--small}{:target="_blank"}:
 
 ```bash
 sudo nano /etc/systemd/system/rc-local.service
 ```
+
 Agregamos el siguiente contenido al fichero que estamos editando:
 
 ```bash
@@ -485,9 +492,13 @@ Calculando la actualización... Hecho
 
 ### GRUB
 
-[Grub](https://es.wikipedia.org/wiki/GNU_GRUB){:target="_blank"} es el **gestor de arranque** que tengo instalado con la distro GNU/Linux Debian. La distro esta instalada sobre un disco SSD, y aquí voy añadir un pequeño MOD casi obligado para prolongar la vida del mismo.
+[Grub](https://es.wikipedia.org/wiki/GNU_GRUB){: .btn .btn--inverse .btn--small}{:target="_blank"} es el **gestor de arranque** que tengo instalado con la distro GNU/Linux Debian. La distro esta instalada sobre un disco SSD, y aquí voy añadir un pequeño MOD casi obligado para prolongar la vida del mismo.
 
-Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio¡ El kernel de Linux, el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. Ahora puede optimizar el núcleo de E/S durante el arranque, seleccionando uno de los cuatro que diferentes programadores E/S para dar cabida a diferentes patrones de uso:
+Un Programador de E/S es la forma de manejar la lectura de los datos de los dispositivos de bloque, incluyendo la memoria principal, y tambien el área de intercambio. 
+
+El kernel de Linux, que es el núcleo del sistema operativo, es responsable de controlar el acceso al disco usando planeacion de E/S programada. 
+
+Ahora puede optimizar el núcleo de E/S durante el arranque, debemos de elegir entre uno de los cuatro diferentes existentes:
 
  * Completely Fair Queuing: **elevator=cfq**
  * Deadline: **elevator=deadline**
@@ -495,7 +506,7 @@ Un Programador de E/S es la forma de manejar la lectura de los datos de los disp
  * Anticipatory: **elevator=as**
 {: .notice--info}
 
-[Ampliar información](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información](http://www.alcancelibre.org/staticpages/index.php/planificadores-entrada-salida-linux){: .btn .btn--danger .btn--small}{:target="_blank"}
 
 Lanzamos el alías de edición de Grub:
 
@@ -503,7 +514,7 @@ Lanzamos el alías de edición de Grub:
 grubfix
 ```
 
-Y aquí dejo mi fichero de configuración para un SSD (Opción habilitada `elevator=noop`), aunque si tu HD no es SSD también se ha demostrado una mejora de rendimiento.
+Y aquí dejo mi fichero de configuración para un SSD el cual recomiendo configurar con `elevator=noop`, aunque si tu HD no es SSD también se ha demostrado una mejora de rendimiento.
 
 ```bash
 # If you change this file, run 'update-grub' afterwards to update
@@ -662,7 +673,13 @@ A continuación debemos de ejecutar un script instalado que nos detecta la confi
 sudo sensors-detect
 ```
 
-...**le damos continuamente a la tecla** `INTRO` (para que tome la respuesta por defecto que es siempre que sí y de esta forma buscará todos los chips que podría analizar) hasta que nos salga la siguiente pregunta: `Do you want to add these lines to /etc/modules automatically? (yes/NO)`. En este momento copiad y guardad en un documento de texto temporal lo que tenéis por encima entre los dos **cut here** (por ejemplo a mí me ha salido lo siguiente):
+...**le damos continuamente a la tecla** `INTRO` para que tome la respuesta por defecto que es siempre que sí y de esta forma buscará todos los chips que podría analizar.
+
+Contiuamos hasta que nos salga la siguiente pregunta: 
+
+`Do you want to add these lines to /etc/modules automatically? (yes/NO)`
+
+En este momento copiad y guardad en un documento de texto temporal lo que tenéis por encima entre los dos **cut here** (por ejemplo a mí me ha salido lo siguiente):
 
 ```bash
 #----cut here----
@@ -671,7 +688,7 @@ coretemp
 #----cut here----
 ```
 
-Le damos nuevamente a **INTRO** para que no añada esas líneas automáticamente al fichero de [modulos](https://es.wikipedia.org/wiki/M%C3%B3dulo_de_n%C3%BAcleo){:target="_blank"} ya que las agregaremos manualmente para evitar posibles fallos de incompatibilidad, para ello editamos el fichero:
+Le damos nuevamente a **INTRO** para que no añada esas líneas automáticamente al fichero de [modulos](https://es.wikipedia.org/wiki/M%C3%B3dulo_de_n%C3%BAcleo){: .btn .btn--inverse .btn--small}{:target="_blank"} ya que las agregaremos manualmente para evitar posibles fallos de incompatibilidad, para ello editamos el fichero:
 
 ```bash
 sudo nano /etc/modules
@@ -735,7 +752,7 @@ El fichero `.bashrc` es un archivo script que se ejecuta cada vez que una nueva 
 cd /home/$USER && nano .bashrc
 ```
 
-Buscamos la variable `#force_color_prompt=yes` y la descomentamos quedando en el fichero sin la # de la siguiente forma:
+Buscamos la variable `#force_color_prompt=yes` y la descomentamos quedando en el fichero sin la `#` de la siguiente forma:
 
 ```bash
 force_color_prompt=yes
@@ -838,11 +855,11 @@ Y entre los valores que muestra el comando me quedo con la siguiente informació
         valid_lft forever preferred_lft forever
 ```
 
-Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){:target="_blank"}.
+Ahora se que mi dispositivo de red cableada esta identificado como `ens33` y que la IP en mi red es `192.168.1.250` rango [DHCP](https://es.wikipedia.org/wiki/Protocolo_de_configuraci%C3%B3n_din%C3%A1mica_de_host){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 ### Configurando RED
 
-Vamos a habilitar la [redicción de puertos sobre IPv4](https://es.wikipedia.org/wiki/Redirecci%C3%B3n_de_puertos){:target="_blank"} que posteriormente usaremos para entre otros configurar debidamente la VPN.
+Vamos a habilitar la [redicción de puertos sobre IPv4](https://es.wikipedia.org/wiki/Redirecci%C3%B3n_de_puertos){: .btn .btn--inverse .btn--small}{:target="_blank"} que posteriormente usaremos para entre otros configurar debidamente la VPN.
 
 ```bash
 sudo nano /etc/sysctl.conf
@@ -858,7 +875,7 @@ Y lo dejamos de la siguiente forma, como veras solamente has de eliminar la **#*
 ```bash
 net.ipv4.ip_forward=1
 ```
-Guardamos los cambios, salimos del editor de texto y pasamos a configurar una [red Bridge](https://es.wikipedia.org/wiki/Puente_de_red){:target="_blank"} con [IP estática](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP){:target="_blank"}:
+Guardamos los cambios, salimos del editor de texto y pasamos a configurar una [red Bridge](https://es.wikipedia.org/wiki/Puente_de_red){: .btn .btn--inverse .btn--small}{:target="_blank"} con [IP estática](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP){: .btn .btn--inverse .btn--small}{:target="_blank"}:
 
 ```bash
 sudo apt-get update && \
@@ -866,7 +883,7 @@ sudo apt-get -y install bridge-utils net-tools ifupdown && \
 sudo mv /etc/network/interfaces /etc/network/interfaces.bak && \
 sudo nano /etc/network/interfaces
 ```
-En el documento en blanco que se nos abre, lo configuro con mi nombre de red (*ens33*) y la ip estática que le voy a configurar (*192.168.1.90*):
+En el documento en blanco que se nos abre, lo configuro con mi nombre de red `ens33` y la ip estática que le voy a configurar `192.168.1.90`:
 
 ```bash
 # LO
@@ -889,17 +906,20 @@ iface br0 inet static
 iface br0 inet6 auto
 	accept_ra 1
 ```        
+
 Guardamos los cambios, salimos del editor de texto y nos queda corregir un posible fallo aunque no es común, en el fichero de resolución de DNS:
 
 ```bash
 sudo mv /etc/resolv.conf /etc/resolv.conf.bak && \
 echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
 ```
+
 Para evitar que NetworkManager entre en juego editaremos su configuración, para deshabilitar que juegue con redes configuradas:
 
 ```bash
 sudo nano /etc/NetworkManager/NetworkManager.conf
 ```
+
 Y dejamos el fichero con el siguiente contenido:
 
 ```bash
@@ -910,16 +930,19 @@ dns=none
 [ifupdown]
 managed=false
 ```
+
 Guardamos los cambios, salimos del editor de texto y a continuación debemos de reiniciar el servidor para aplicar los nuevos cambios producidos en el dispositivo de red:
 
 ```bash
 sudo reboot
 ```
+
 Tras reiniciar nuevamente comprobamos la nueva configuración de red:
 
 ```bash
 ip a
 ```
+
 Y vemos los cambios realizados:
 
 ```bash
@@ -934,9 +957,11 @@ A partir de este momento nuestra red cableada la identificaremos con el nombre d
 
 ### @Lordpedal BOT
 
-Adicional al [Canal de Telegram](https://telegram.me/Lordpedal_RSS){:target="_blank"} donde público enlaces de interés, también dispongo en la red de un `BOT` que podeis usar para notificar eventos en vuestro sistema con ayuda de unos scripts. 
+Adicional al [Canal de Telegram](https://telegram.me/Lordpedal_RSS){: .btn .btn--info .btn--small}{:target="_blank"} donde público enlaces de interés, también dispongo en la red de un `BOT` que podeis usar para notificar eventos en vuestro sistema con ayuda de unos scripts. 
 
-En Telegram podeís encontrarlo con el alías [@Lordpedalbot](https://telegram.me/Lordpedalbot){:target="_blank"}. **Cuando lo arranques te dará la bienvenida y te notificará el ID** que tienes en la red Telegram, este `ID` debes de anotarlo, porque será una variable que uses en los scripts que modificaremos a continuación.
+En Telegram podeís encontrarlo con el alías [@Lordpedalbot](https://telegram.me/Lordpedalbot){: .btn .btn--success .btn--small}{:target="_blank"}
+
+**Cuando lo arranques te dará la bienvenida y te notificará el ID** que tienes en la red Telegram, este `ID` debes de anotarlo, porque será una variable que uses en los scripts que modificaremos a continuación.
 
 **NOTA**: El token de referencia que se va usar en los scripts no tiene validez, haz de usar tu propio bot u otro token conocido. Para ello debes de reemplazar el valor `289352425:AAHBCcKicDtSFaY2_Gq1brnXJ5CaGba6tMA` por otro.
 {: .notice--info}
@@ -1139,19 +1164,21 @@ pi@overclock:~$ crontab -l
 
 Antes de continuar debemos de realizar estos pasos:
 
- 1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){: .btn .btn--inverse}{:target="_blank"}
- 2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){: .btn .btn--inverse}{:target="_blank"}
+ 1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){: .btn .btn--success .btn--small}{:target="_blank"}
+ 2. Configuramos e instalamos: [P3DNS](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-p3dns){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### Configurando DNS Pública
 
 Como sabras tu **IP doméstica no es tu IP pública** y al igual que en un comienzo tu IP doméstica era DHCP lo mismo ocurre con la IP pública. Por tanto para poder redireccionar servicios, necesitamos disponer de IP pública estática. 
-La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [Duck DNS](https://www.duckdns.org/){:target="_blank"}.
+La forma más sencilla es usar un proveedor de DNS públicas de calidad como por ejemplo [DuckDNS](https://www.duckdns.org/){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-Entramos en la [web](https://www.duckdns.org/){:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**.
+Entramos en la [web](https://www.duckdns.org/){: .btn .btn--inverse .btn--small}{:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**.
 
-Adjunto enlace a [tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){:target="_blank"}, aunque recomiendo usar la versión **Docker**.
+Adjunto enlace a [tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-[Docker: DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--inverse}{:target="_blank"}
+Aunque recomiendo usar la versión **Docker** publicada en este blog:
+
+[DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
 
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
 
@@ -1180,11 +1207,12 @@ Esto se realiza estableciendo una conexión virtual punto a punto mediante el us
 
 #### Wireguard (Recomendada)
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-wireguard){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-wireguard){: .btn .btn--success .btn--small}{:target="_blank"}
 
 #### OpenVPN (Opcional)
 
-Teniendo ya fijada una DNS Pública, una IP estática interna y la redirección de puertos, ya podemos proceder a configurar de forma sencilla el acceso mediante [VPN](https://es.wikipedia.org/wiki/Red_privada_virtual){:target="_blank"}.
+Teniendo ya fijada una DNS Pública, una IP estática interna y la redirección de puertos, ya podemos proceder a configurar de forma sencilla el acceso mediante [VPN](https://es.wikipedia.org/wiki/Red_privada_virtual){: .btn .btn--inverse .btn--small}{:target="_blank"}
+
 Vamos a bajar un cliente asistente donde configuramemos nuestra red VPN:
 
 ```bash
@@ -1193,6 +1221,7 @@ wget https://git.io/vpn -O openvpn-install.sh && \
 chmod 755 openvpn-install.sh && \
 sudo ./openvpn-install.sh
 ```
+
 Durante la instalación nos solicitara unos parametros de nuestros pasos previos:
 
 *  IPv4 (automatically detected, if not enter the local IPv4 address): `192.168.1.90`
@@ -1207,38 +1236,44 @@ Vamos a afinar la configuración de la VPN con capas extras de personalización,
 ```bash
 sudo ifconfig tun0 | grep 'inet'
 ```
-En mi caso el valor de referencia es: `10.8.0.1`. Vamos a editar la configuración del servidor de [OpenVPN](https://es.wikipedia.org/wiki/OpenVPN){:target="_blank"}:
+
+En mi caso el valor de referencia es: `10.8.0.1`. Vamos a editar la configuración del servidor de [OpenVPN](https://es.wikipedia.org/wiki/OpenVPN){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 ```bash
 sudo nano /etc/openvpn/server/server.conf
 ```
+
 Buscamos la linea donde el codigo empieza por (suele ser una única línea en según que casos alguna duplicada):
 
 ```bash
 push "dhcp-option DNS
 ```
+
 Y sustituimos la linea o si existen varias dejamos una sola que haga referencia al codigo push dhcp-option con lo siguiente:
 
 ```bash
 push "dhcp-option DNS 10.8.0.1"
 ```
+
 Guardamos los cambios, salimos del editor de texto y reiniciamos el servicio OpenVPN:
 
 ```bash
 sudo systemctl restart openvpn
 ```
+
 Recordad que el fichero OVPN generado en nuestro caso se llamaba Lordpedal lo tendremos que pasar a nuestra carpeta de usuario.
 
 ```bash
 sudo cp /root/Lordpedal.ovpn /home/pi && \
 sudo chown pi:pi /home/pi/Lordpedal.ovpn
 ```
+
 Ahora ya podremos pasar el fichero OVPN a nuestro Smartphone/Tablet/Pendrive/... para poder conectarnos en remoto previa configuración router.
 Recuerda abrir el **Puerto** `2194` a la **IP** `192.168.1.90` con **Protocolo** `UDP` si has seguido la configuración que detallo paso a paso.
 
 ### SSH
 
-[SSH](https://es.wikipedia.org/wiki/SSH){:target="_blank"} es un protocolo de comunicación que encripta los datos que se intercambian, y es virtualmente imposible romper la privacidad de la comunicación. El acrónimo ssh viene del inglés: Secure SHell.
+[SSH](https://es.wikipedia.org/wiki/SSH){: .btn .btn--inverse .btn--small}{:target="_blank"} es un protocolo de comunicación que encripta los datos que se intercambian, y es virtualmente imposible romper la privacidad de la comunicación. El acrónimo ssh viene del inglés: Secure SHell.
 
 El protocolo ssh es muy versátil, tiene un software cliente que posibilita el acceso a la línea de comandos, permite la transferencia de archivos y la creación de túneles seguros con soporte de comunicación para otros protocolos.
 
@@ -1247,19 +1282,21 @@ Los clientes ssh se dividen en dos grupos:
 - Terminal SSH Es un emulador de terminal que permite acceder de forma remota desde un equipo a la línea de comandos del equipo remoto, utilizando el protocolo SSH.
 - Cliente SFTP Se trata de un cliente para transferencia de archivos que utiliza el Protocolo de Transferencia Segura de Archivos. Sus siglas significan en inglés (Secure File Transfer Protocol (SFTP)
 
-Entrando en materia, si durante la instalación de Debian no [instalamos SSH](http://www.openssh.com/){:target="_blank"} podemos activarlo de la siguiente forma: 
+Entrando en materia, si durante la instalación de Debian no [instalamos SSH](http://www.openssh.com/){: .btn .btn--inverse .btn--small}{:target="_blank"} podemos activarlo de la siguiente forma: 
 
 ```bash
 instalar openssh-server openssh-client
 ```
 
-Realizado este punto o ya instalado anteriormente, sabemos que remotamente podremos acceder a nuestro Server desde nuestra red local con (**recuerda sustituir usuario `pi` e `ip` por tus datos**):
+Realizado este punto o ya instalado anteriormente, sabemos que remotamente podremos acceder a nuestro Server desde nuestra red local con el siguiente comando, *recuerda sustituir usuario* `pi` *e* `ip` *por tus datos*:
 
 ```bash
 ssh pi@192.168.1.90
 ```
 
-Pero recomiendo dar un paso más en la seguridad de nuestro sistema. Por ello ahora nos toca securizarlo en la medida de la posible (**cambiando puerto por defecto 22, usuario root, ...**), para ello editaremos el fichero de configuración SSH:
+Pero recomiendo dar un paso más en la seguridad de nuestro sistema, por ello ahora nos toca securizarlo en la medida de la posible **cambiando puerto por defecto 22, usuario root, ...**
+
+Para ello editaremos el fichero de configuración SSH:
 
 ```bash
 sudo nano /etc/ssh/sshd_config
@@ -1407,7 +1444,7 @@ ssh pi@192.168.1.90 -p 69
 
 `Fail2ban` es una **herramienta de seguridad escrita en Python** fundamental para cualquier servidor.
 
-La principal función de [Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page){:target="_blank"} es securizar un servidor del siguiente modo:
+La principal función de [Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page){: .btn .btn--inverse .btn--small}{:target="_blank"} es securizar un servidor del siguiente modo:
 
 1.  Evitando accesos indeseados a nuestro equipo o servidor.
 2.  Evitando ataques de fuerza bruta para que un tercero averigüe nuestra contraseña o tumbe el servidor.
@@ -1433,7 +1470,7 @@ bantime  = 600
 maxretry = 5
 ```
 
-Y segundo como las dejaremos (**en mi caso la IP es de rango 192.168.1.0**):
+Y segundo como las dejaremos, **en mi caso la IP es de rango** `192.168.1.0`:
 
 ```bash
 ignoreip = 127.0.0.1/8 192.168.1.0/24
@@ -1623,15 +1660,18 @@ Continuamos añadiendole extras a nuestro Servidor esta vez desde el punto `mult
 
 ### Transmission
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-transmission){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### Samba
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/samba-docker/){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/samba-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### VNC
 
-Como tenemos instalado un **entorno gráfico** en el Servidor puede ser interesante controlarlo de forma remota mediante `VNC`. **VNC** (inglés: Virtual Network Computing). Es también llamado software de escritorio remoto, no impone restricciones en el sistema operativo del ordenador servidor con respecto al del cliente: es posible compartir la pantalla de una máquina con cualquier sistema operativo que soporte VNC conectándose desde otro ordenador o dispositivo que disponga de un cliente VNC portado.
+Como tenemos instalado un **entorno gráfico** en el Servidor puede ser interesante controlarlo de forma remota mediante `VNC`. 
+
+**VNC** (inglés: Virtual Network Computing), es también llamado software de escritorio remoto, no impone restricciones en el sistema operativo del ordenador servidor con respecto al del cliente: es posible compartir la pantalla de una máquina con cualquier sistema operativo que soporte VNC conectándose desde otro ordenador o dispositivo que disponga de un cliente VNC portado.
+
 Vamos a actualizar repositorios e instalar el servidor de VNC:
 
 ```bash
@@ -1702,7 +1742,7 @@ export XKL_XMODMAP_DISABLE=1
 /usr/bin/mate-session &
 ```
 
-Guardamos los cambios, salimos del editor de texto y ahora vamos a crear un servicio de autoarranque en [Systemd](https://es.wikipedia.org/wiki/Systemd){:target="_blank"} con nuestro editor nano:
+Guardamos los cambios, salimos del editor de texto y ahora vamos a crear un servicio de autoarranque en [Systemd](https://es.wikipedia.org/wiki/Systemd){: .btn .btn--inverse .btn--small}{:target="_blank"} con nuestro editor nano:
 
 ```bash
 sudo nano /etc/systemd/system/vncserver@.service
@@ -1790,11 +1830,11 @@ A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera
 
 ### MiniDLNA
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### UDPXY
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-udpxy){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-udpxy){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### Xupnpd
 
@@ -1802,7 +1842,9 @@ A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera
 
 #### Xupnpd V1
 
-Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemplo de **Movistar+, Youtube,...** a los dispositivos de la LAN. Existen múltiples cliente que pueden consumir este servicio, por ejemplo VLC y así no tener que crear un fichero .m3u en cada ordenador.
+Vía DLNA (UPnP) se entregará una lista personalizada con los canales por ejemplo de **Movistar+, Youtube,...** a los dispositivos de la LAN. 
+
+Existen múltiples cliente que pueden consumir este servicio, por ejemplo VLC y así no tener que crear un fichero .m3u en cada ordenador.
 
 Vamos nuevamente a preparar el entorno de trabajo para compilar el software:
 
@@ -2014,11 +2056,11 @@ Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendr
 
 #### Xupnpd V2
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-xupnpd-v2){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### Kodi
 
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){: .btn .btn--inverse}{:target="_blank"}
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
 
 ### Youtube-dl
 
