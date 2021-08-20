@@ -610,7 +610,9 @@ UUID=2f42917d-7c1f-4b7f-bff0-963f19b9dcf5   /media/rednas   ext4    defaults,rel
 tmpfs   /tmp    tmpfs   noatime,nodiratime,nodev,nosuid,mode=1777,defaults  0   0
 ```
 
-La partición swap, como ya sabéis es una partición cuyo fin principal es su uso cuando la RAM está llena, pero la cual no está vacía aunque tengas la RAM a la mitad. Por ello es recomendable decirle al sistema que la use lo menos posible, sólo si es estrictamente necesario, editando:
+La partición swap, como ya sabéis es una partición cuyo fin principal es su uso cuando la RAM está llena, pero la cual no está vacía aunque tengas la RAM a la mitad. 
+
+Por ello es recomendable decirle al sistema que la use lo menos posible, sólo si es estrictamente necesario, editando:
 
 ```bash
 sudo nano /etc/sysctl.conf
@@ -630,7 +632,9 @@ vm.dirty_writeback_centisecs=1500
 Guardamos los cambios y salimos del editor de texto. 
 
 Has de saber que cuando borramos un fichero, el sistema operativo lo marca como espacio utilizable. 
+
 Los discos SSD pueden encargarse de controlar dichos bloques de espacio y reagruparlos, con lo que a través de la controladora del disco, la gestión del espacio será más rápida. 
+
 Para que la controladora se encargue, le solicitamos que analice el disco desde el sistema operativo con el comando **fstrim**. 
 
 Vamos a programar esta tarea, para que la realice a diario:
