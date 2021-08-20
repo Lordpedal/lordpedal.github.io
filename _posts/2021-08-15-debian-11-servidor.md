@@ -24,11 +24,11 @@ En esta sección pretendo hablar de como optimizar y adaptar la distribución **
 
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
-En la [web de descargas](https://www.debian.org/releases/stable/){: .btn .btn--inverse .btn--small}{:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. 
+En la [web de descargas](https://www.debian.org/releases/stable/){: .btn .btn--warning .btn--small}{:target="_blank"} podremos elegir la distribución que más se adapte a nuestras necesidades. 
 
 Para el caso de esta guía vamos a emplear la plataforma `AMD64`, que es la *más recomendable* para uso en un PC con **Procesador 64bits** [Descarga directa](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/){: .btn .btn--success .btn--small}{:target="_blank"}
 
-Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){: .btn .btn--inverse .btn--small}{:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles, aunque he creado este video detallando parte del proceso:
+Adicionalmente en la propia web podemos encontrar unas excelentes [guías de instalación](https://www.debian.org/releases/stable/installmanual){: .btn .btn--warning .btn--small}{:target="_blank"} donde el proceso de instalación es guiado con todo tipo de detalles, aunque he creado este video detallando parte del proceso:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
