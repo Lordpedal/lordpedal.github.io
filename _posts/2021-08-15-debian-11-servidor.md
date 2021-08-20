@@ -2064,8 +2064,9 @@ Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendr
 
 ### Youtube-dl
 
-Youtube-dl es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming. 
-Primeramente debemos de actualizar los repositorios e instalar el paquete:
+**Youtube-dl** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
+
+Para poder usarlo en nuestro sistema, primeramente debemos de actualizar los repositorios e instalar el paquete:
 
 ```bash
 sudo apt-get update && sudo apt-get -y install youtube-dl
