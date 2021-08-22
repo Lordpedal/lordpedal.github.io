@@ -1858,6 +1858,7 @@ Vamos nuevamente a preparar el entorno de trabajo para compilar el software:
 
 ```bash
 sudo apt-get -y install minissdpd && \
+mkdir -p $HOME/source && \
 cd ~/source && \
 git clone https://github.com/clark15b/xupnpd.git && \
 cd xupnpd/src && make && cd .. && \
