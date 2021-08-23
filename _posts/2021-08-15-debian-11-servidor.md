@@ -1178,6 +1178,14 @@ pi@overclock:~$ crontab -l
 
 ### P3DNS
 
+Es un docker-compose que integra las siguientes herramientas:
+
+ * `Pi-hole`: Aplicación centrada en **bloqueo de publicidad y entornos maliciosos de la red**.
+
+ * `DNScrypt-Proxy`: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
+
+ * `Cloudflared`: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
+
 Antes de continuar debemos de realizar estos pasos:
 
  1. Instalamos y configuramos: [Docker](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#instalaci%C3%B3n-amd64){: .btn .btn--success .btn--small}{:target="_blank"}
