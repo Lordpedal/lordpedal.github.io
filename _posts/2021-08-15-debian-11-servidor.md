@@ -131,6 +131,10 @@ deb-src http://security.debian.org/debian-security bullseye-security main contri
 # Actualizaciones Sistema
 deb http://deb.debian.org/debian/ bullseye-updates main contrib non-free
 deb-src http://deb.debian.org/debian/ bullseye-updates main contrib non-free
+
+# Backports
+deb https://deb.debian.org/debian bullseye-backports main contrib non-free
+deb-src https://deb.debian.org/debian bullseye-backports main contrib non-free
 ```
 
 Guardamos los cambios, salimos del editor de texto y actualizamos el listado de paquetes de software y posibles actualizaciones del mismo:
