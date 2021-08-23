@@ -1198,11 +1198,11 @@ La forma más sencilla es usar un proveedor de DNS públicas de calidad como por
 
 Entramos en la [web](https://www.duckdns.org/){: .btn .btn--inverse .btn--small}{:target="_blank"} y creamos una *cuenta gratuita* en la cual registraremos nuestro *dominio*, ejemplo: **lordpedal.duckdns.org**.
 
-Adjunto enlace a [tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){: .btn .btn--inverse .btn--small}{:target="_blank"}
+Adjunto enlace tutorial oficial:
 
-Aunque recomiendo usar la versión **Docker** publicada en este blog:
+[Tutorial de configuración en GNU/Linux vía programador de tareas cron](https://www.duckdns.org/install.jsp#linux-cron){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-[DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
+Aunque recomiendo usar la versión [Docker: DuckDNS](https://lordpedal.github.io/gnu/linux/docker/duckdns-docker/){: .btn .btn--success .btn--small}{:target="_blank"} publicada en este blog.
 
 Luego tenemos que configurar nuestro hosts para agregar nuestra DNS Pública:
 
