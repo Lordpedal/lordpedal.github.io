@@ -1182,7 +1182,7 @@ Es un docker-compose que integra las siguientes herramientas:
 
  * `Pi-hole`: Aplicación centrada en **bloqueo de publicidad y entornos maliciosos de la red**.
 
- * `DNScrypt-Proxy`: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
+ * `DNScrypt-Proxy`: Aplicación **proxy de cifrado mediante diferentes protocolos de criptografía** de las peticiones DNS.
 
  * `Cloudflared`: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 

@@ -589,7 +589,7 @@ Es un proyecto en el que he estado trabajando, para segurizar nuestras conexione
 Es un docker que integra las siguientes herramientas:
 
 - [Pi-hole](https://pi-hole.net/){:target="_blank"}: Conjunto de aplicaciones de entornos GNU/Linux, que van a darnos lugar a proveer una capa extra de seguridad en la web: **bloqueo de publicidad y entornos maliciosos de la red**.
-- [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptogafía** de las peticiones DNS.
+- [DNScrypt-Proxy](https://github.com/DNSCrypt/dnscrypt-proxy){:target="_blank"}: Aplicación **proxy de cifrado mediante diferentes protocolos de criptografía** de las peticiones DNS.
 - [Cloudflared](https://github.com/cloudflare/cloudflared){:target="_blank"}: Aplicación de **cifrado DoH (DNS over HTTPS)** de las peticiones DNS.
 
 <div class="notice--danger" markdown="1">
