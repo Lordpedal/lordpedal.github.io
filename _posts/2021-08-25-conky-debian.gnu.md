@@ -468,7 +468,7 @@ A priori esta sección es universal independientemente de configuración sistema
 
 ### Conky: Red
 
-Aquí obtenemos información de la carga y velocidad de cada uno de los cores del Sistema.
+Aquí obtenemos información de la carga y velocidad de Red.
 
 <figure>
     <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
