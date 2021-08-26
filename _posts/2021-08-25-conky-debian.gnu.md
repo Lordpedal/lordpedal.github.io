@@ -18,7 +18,6 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-
 [**Conky**](https://github.com/brndnmtthws/conky){: .btn .btn--warning .btn--small}{:target="_blank"} es un **monitor de sistema** liviano y gratuito diseñado inicialmente para entornos gráficos `X`. 
 
 Se distribuye bajo licencia **GPL 3.0**, su configuración se basa en un fichero de texto plano, donde le indicaremos los parámetros que queremos monitorear y controlar para que sean mostrados en el escritorio.
@@ -37,7 +36,7 @@ En esta entrada voy a compartir la configuración que he estado usando en **Mate
 
 Previo paso de instalación `Conky`, comentar que **debemos de tener instalado y configurado** [LM-SENSORS](https://lordpedal.github.io/gnu/linux/debian-11-servidor/#modding){: .btn .btn--info .btn--small}{:target="_blank"}
 
-Dicho esto, entramos en materia según *Sistema*.
+Dicho esto, entramos en materia según *sistema*.
 
 ### Dependencias: Debian 10 Buster
 
