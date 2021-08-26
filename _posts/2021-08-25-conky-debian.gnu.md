@@ -35,9 +35,9 @@ Para ampliar información recomiendo:
 En esta entrada voy a compartir la configuración que he estado usando en **Mate** y posteriormente adaptando en el servidor, dejo unas capturas de pantalla:
 
 <figure class="third">
-    <a href="/assets/images/posts/conky0.jpg"><img src="/assets/images/posts/conky0.jpg"></a>DualCore
-    <a href="/assets/images/posts/conky00.jpg"><img src="/assets/images/posts/conky00.jpg"></a>HexaCore
-    <a href="/assets/images/posts/conky000.jpg"><img src="/assets/images/posts/conky000.jpg"></a>QuadCore
+    <a href="/assets/images/posts/conky0.jpg">DualCore<img src="/assets/images/posts/conky0.jpg"></a>
+    <a href="/assets/images/posts/conky00.jpg">HexaCore<img src="/assets/images/posts/conky00.jpg"></a>
+    <a href="/assets/images/posts/conky000.jpg">QuadCore<img src="/assets/images/posts/conky000.jpg"></a>
 </figure>
 
 ## Instalación GNU/Linux 64bits
@@ -183,9 +183,9 @@ Una forma sencilla de adaptarlo según resolución del sistema es ajustar la sig
 Que no es otra opción que la fuente usada del sistema y su tamaño
 
 <figure class="third">
-    <a href="/assets/images/posts/conky0.png">Roboto Mono:size=6<img src="/assets/images/posts/conky0.png"></a>
-    <a href="/assets/images/posts/conky00.png">Roboto Mono:size=9<img src="/assets/images/posts/conky00.png"></a>
-    <a href="/assets/images/posts/conky000.png">Roboto Mono:size=8<img src="/assets/images/posts/conky000.png"></a>
+    <a href="/assets/images/posts/conky0.png"><img src="/assets/images/posts/conky0.png">Roboto Mono:size=6</a>
+    <a href="/assets/images/posts/conky00.png"><img src="/assets/images/posts/conky00.png">Roboto Mono:size=9</a>
+    <a href="/assets/images/posts/conky000.png"><img src="/assets/images/posts/conky000.png">Roboto Mono:size=8</a>
 </figure>
 
 ### Conky: GNU/Linux
@@ -320,7 +320,7 @@ ${goto 35}${downspeedgraph br0 30,250 01df01 10fd10}
     <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
 </figure>
 
-### Notas
+## Notas
 
 Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`
 
