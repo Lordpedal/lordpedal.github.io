@@ -35,9 +35,9 @@ Para ampliar información recomiendo:
 En esta entrada voy a compartir la configuración que he estado usando en **Mate** y posteriormente adaptando en el servidor, dejo unas capturas de pantalla:
 
 <figure class="third">
-    <a href="/assets/images/posts/conky0.jpg">Servidor Dual-Core<img src="/assets/images/posts/conky0.jpg"></a>
-    <a href="/assets/images/posts/conky00.jpg">Servidor Hexa-Core<img src="/assets/images/posts/conky00.jpg"></a>
-    <a href="/assets/images/posts/conky000.jpg">Servidor Quad-Core<img src="/assets/images/posts/conky000.jpg"></a>
+    <a href="/assets/images/posts/conky0.jpg">Sistema DualCore<img src="/assets/images/posts/conky0.jpg"></a>
+    <a href="/assets/images/posts/conky00.jpg">Sistema HexaCore<img src="/assets/images/posts/conky00.jpg"></a>
+    <a href="/assets/images/posts/conky000.jpg">Sistema QuadCore<img src="/assets/images/posts/conky000.jpg"></a>
 </figure>
 
 ## Instalación GNU/Linux 64bits
