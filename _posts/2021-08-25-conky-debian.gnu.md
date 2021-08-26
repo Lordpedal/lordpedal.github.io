@@ -35,7 +35,7 @@ Para ampliar información recomiendo:
 En esta entrada voy a compartir la configuración que he estado usando en **Mate** y posteriormente adaptando en el servidor, dejo unas capturas de pantalla:
 
 <figure class="third">
-    <a href="/assets/images/posts/conky0.jpg">DualCore<img src="/assets/images/posts/conky0.jpg"></a>
+    <a href="/assets/images/posts/conky0.jpg">DualCore Celeron<img src="/assets/images/posts/conky0.jpg"></a>
     <a href="/assets/images/posts/conky00.jpg">HexaCore<img src="/assets/images/posts/conky00.jpg"></a>
     <a href="/assets/images/posts/conky000.jpg">QuadCore<img src="/assets/images/posts/conky000.jpg"></a>
 </figure>
@@ -146,6 +146,14 @@ Que no es otra opción que la fuente usada del sistema y su tamaño
 
 ### Conky: GNU/Linux
 
+De un simple vistazo aporta gran información de administración del servidor como pueda ser:
+
+ * **Actividad**: Tiempo que lleva Online
+ * **Promedios**: Carga del sistema en 1min, 5min y 15min
+ * **Total Procesos**: Procesos activos 
+
+A priori esta sección es universal independientemente de configuración sistema.
+
 <figure>
     <a href="/assets/images/posts/conky01.png"><img src="/assets/images/posts/conky01.png"></a>
 </figure>
@@ -166,6 +174,8 @@ ${color1}${goto 35}Total Procesos: ${color}$processes
 
 ### Conky: Sistema
 
+Aquí obtenemos información de la carga y velocidad de cada uno de los cores del Sistema.
+
 <figure>
     <a href="/assets/images/posts/conky02.png"><img src="/assets/images/posts/conky02.png"></a>
 </figure>
@@ -184,7 +194,85 @@ ${color1}${goto 35}Core 6 : ${color}${freq_g 6}GHz ${alignr}${cpu cpu6}% ${cpuba
 ${color1}${goto 35}Core 7 : ${color}${freq_g 7}GHz ${alignr}${cpu cpu7}% ${cpubar cpu7 4,100}
 ```
 
+Este apartado si debemos de configurarlo según nuestro sistema.
+
+#### Conky: Sistema DualCore Celeron
+
+Lo primero es conocer como se identifica cada `core`:
+
+```bash
+sensors | grep Core | cut -c1-7
+```
+
+En el miniPC obtengo el siguiente valor:
+
+```
+lordpedal@miniPC:~$ sensors | grep Core | cut -c1-7
+Core 0:
+Core 2:
+```
+
+Por lo tanto para evitar errores dejaría el apartado de la siguiente forma:
+
+```bash
+${color2}${font ConkySymbols:size=16}f${font} ${voffset -10} Sistema${color}
+${color1}${goto 35}Core 0 : ${color}${freq_g 0}GHz ${alignr}${cpu cpu0}% ${cpubar cpu0 4,100}
+#${color1}${goto 35}Core 1 : ${color}${freq_g 1}GHz ${alignr}${cpu cpu1}% ${cpubar cpu1 4,100}
+${color1}${goto 35}Core 2 : ${color}${freq_g 2}GHz ${alignr}${cpu cpu2}% ${cpubar cpu2 4,100}
+#${color1}${goto 35}Core 3 : ${color}${freq_g 3}GHz ${alignr}${cpu cpu3}% ${cpubar cpu3 4,100}
+#${color1}${goto 35}Core 4 : ${color}${freq_g 4}GHz ${alignr}${cpu cpu4}% ${cpubar cpu4 4,100}
+#${color1}${goto 35}Core 5 : ${color}${freq_g 5}GHz ${alignr}${cpu cpu5}% ${cpubar cpu5 4,100}
+#${color1}${goto 35}Core 6 : ${color}${freq_g 6}GHz ${alignr}${cpu cpu6}% ${cpubar cpu6 4,100}
+#${color1}${goto 35}Core 7 : ${color}${freq_g 7}GHz ${alignr}${cpu cpu7}% ${cpubar cpu7 4,100}
+```
+
+Quedando comentados los cores que se emplean.
+
+#### Conky: Sistema QuadCore
+
+No necesaria modificación, ya configurado para leer la configuración de los `4 cores físicos y los 4 virtuales`.
+
+#### Conky: Sistema HexaCore
+
+Lo primero es conocer como se identifica cada `core`:
+
+```bash
+sensors | grep Core | cut -c1-7
+```
+
+En el PC obtengo el siguiente valor:
+
+```
+lordpedal@miniOverclock:~$ sensors | grep Core | cut -c1-7
+Core 0:
+Core 1:
+Core 2:
+Core 3:
+Core 4:
+Core 5:
+```
+
+En este caso debo de agregar los cores que faltan, 6 cores físicos y 6 virtuales, dejando el apartado de la siguiente forma:
+
+```bash
+${color2}${font ConkySymbols:size=16}f${font} ${voffset -10} Sistema${color}
+${color1}${goto 35}Core 0 : ${color}${freq_g 0}GHz ${alignr}${cpu cpu0}% ${cpubar cpu0 4,100}
+${color1}${goto 35}Core 1 : ${color}${freq_g 1}GHz ${alignr}${cpu cpu1}% ${cpubar cpu1 4,100}
+${color1}${goto 35}Core 2 : ${color}${freq_g 2}GHz ${alignr}${cpu cpu2}% ${cpubar cpu2 4,100}
+${color1}${goto 35}Core 3 : ${color}${freq_g 3}GHz ${alignr}${cpu cpu3}% ${cpubar cpu3 4,100}
+${color1}${goto 35}Core 4 : ${color}${freq_g 4}GHz ${alignr}${cpu cpu4}% ${cpubar cpu4 4,100}
+${color1}${goto 35}Core 5 : ${color}${freq_g 5}GHz ${alignr}${cpu cpu5}% ${cpubar cpu5 4,100}
+${color1}${goto 35}Core 6 : ${color}${freq_g 6}GHz ${alignr}${cpu cpu6}% ${cpubar cpu6 4,100}
+${color1}${goto 35}Core 7 : ${color}${freq_g 7}GHz ${alignr}${cpu cpu7}% ${cpubar cpu7 4,100}
+${color1}${goto 35}Core 8 : ${color}${freq_g 8}GHz ${alignr}${cpu cpu8}% ${cpubar cpu8 4,100}
+${color1}${goto 35}Core 9 : ${color}${freq_g 9}GHz ${alignr}${cpu cpu9}% ${cpubar cpu9 4,100}
+${color1}${goto 35}Core 10 : ${color}${freq_g 10}GHz ${alignr}${cpu cpu10}% ${cpubar cpu10 4,100}
+${color1}${goto 35}Core 11 : ${color}${freq_g 11}GHz ${alignr}${cpu cpu11}% ${cpubar cpu11 4,100}
+```
+
 ### Conky: Temperaturas
+
+Aquí obtenemos información de la carga y velocidad de cada uno de los cores del Sistema.
 
 <figure>
     <a href="/assets/images/posts/conky03.png"><img src="/assets/images/posts/conky03.png"></a>
@@ -202,6 +290,76 @@ ${color1}${goto 35}Core 4 : ${color}Virtual
 ${color1}${goto 35}Core 5 : ${color}Virtual
 ${color1}${goto 35}Core 6 : ${color}Virtual
 ${color1}${goto 35}Core 7 : ${color}Virtual
+```
+
+Este apartado si debemos de configurarlo según nuestro sistema.
+
+#### Conky: Temperaturas DualCore Celeron
+
+Lo primero es conocer como se identifica cada `core`:
+
+```bash
+sensors | grep Core
+```
+
+En el miniPC obtengo el siguiente valor:
+
+```bash
+lordpedal@miniOverclock:~$ sensors | grep Core
+Core 0:        +40.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 2:        +38.0°C  (high = +105.0°C, crit = +105.0°C)
+```
+
+En esta caso debería de dejar el apartado de la siguiente forma:
+
+```bash
+${color2}${font ConkySymbols:size=16}h${font} ${voffset -10} Temperaturas${color}
+${color1}${goto 35}Core 0:${color}${execi 3 sensors | grep 'Core 0' | cut -c16-25} ${color1}TSH:${color}${execi 3 sensors | grep 'Core 0' | cut -c34-42} ${color1}TSHH:${color}${execi 3 sensors | grep 'Core 0' | cut -c51-60}
+${color1}${goto 35}Core 1: ${color}Virtual
+${color1}${goto 35}Core 2:${color}${execi 3 sensors | grep 'Core 2' | cut -c16-25} ${color1}TSH:${color}${execi 3 sensors | grep 'Core 2' | cut -c34-42} ${color1}TSHH:${color}${execi 3 sensors | grep 'Core 2' | cut -c51-60}
+${color1}${goto 35}Core 3: ${color}Virtual
+```
+
+#### Conky: Temperaturas QuadCore
+
+No necesaria modificación, ya configurado para leer la configuración de los `4 cores físicos`.
+
+#### Conky: Temperaturas HexaCore
+
+Lo primero es conocer como se identifica cada `core`:
+
+```bash
+sensors | grep Core
+```
+
+En el PC obtengo el siguiente valor:
+
+```bash
+lordpedal@miniOverclock:~$ sensors | grep Core
+Core 0:        +28.0°C  (high = +69.0°C, crit = +79.0°C)
+Core 1:        +28.0°C  (high = +69.0°C, crit = +79.0°C)
+Core 2:        +29.0°C  (high = +69.0°C, crit = +79.0°C)
+Core 3:        +21.0°C  (high = +69.0°C, crit = +79.0°C)
+Core 4:        +26.0°C  (high = +69.0°C, crit = +79.0°C)
+Core 5:        +22.0°C  (high = +69.0°C, crit = +79.0°C)
+```
+
+En este caso debo de agregar los cores que faltan, 6 cores físicos y 6 virtuales, dejando el apartado de la siguiente forma:
+
+````bash
+${color2}${font ConkySymbols:size=16}h${font} ${voffset -10} Temperaturas${color}
+${color1}${goto 35}Core 0 : ${color}${execi 3 sensors | grep 'Core 0' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 1 : ${color}${execi 3 sensors | grep 'Core 1' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 1' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 2 : ${color}${execi 3 sensors | grep 'Core 2' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 2' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 3 : ${color}${execi 3 sensors | grep 'Core 3' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 3' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 4 : ${color}${execi 3 sensors | grep 'Core 3' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 3' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 5 : ${color}${execi 3 sensors | grep 'Core 3' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 3' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
+${color1}${goto 35}Core 6 : ${color}Virtual
+${color1}${goto 35}Core 7 : ${color}Virtual
+${color1}${goto 35}Core 8 : ${color}Virtual
+${color1}${goto 35}Core 9 : ${color}Virtual
+${color1}${goto 35}Core 10 : ${color}Virtual
+${color1}${goto 35}Core 11 : ${color}Virtual
 ```
 
 ### Conky: Almacenamiento
