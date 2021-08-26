@@ -27,6 +27,7 @@ Se distribuye bajo licencia **GPL 3.0**, su configuración se basa en un fichero
 Para ampliar información recomiendo:
 
  * Revisar [Wiki del proyecto](https://github.com/brndnmtthws/conky/wiki){: .btn .btn--inverse .btn--small}{:target="_blank"} 
+
  * Revisar [documentación de variables](http://conky.sourceforge.net/variables.html){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 En esta entrada voy a compartir la configuración que he estado usando en **Mate** y posteriormente adaptando en el servidor, dejo unas capturas de pantalla:
@@ -67,7 +68,6 @@ Realizado este paso podemos pasar al apartado común de **configuración**.
 
 ### Configuración: Debian GNU/Linux
 
-
 Creamos en caso de no disponer de ello de la carpeta donde alojaremos la fuente gráfica que usa el perfil y la carpeta de autoarranque del script:
 
 ```bash
@@ -105,6 +105,53 @@ curl -o $HOME/.conkyrc \
 https://lordpedal.github.io/lordpedal/conkyrc
 ```
 
-A continuación veremos como adaptarlo paso a paso, según sistema para evitar errores de configuración.
+A continuación veremos como adaptarlo paso a paso.
+
+
+## Configuración: Conky
+
+Para evitar errores de configuración partimos del fichero `$HOME/.conkyrc` que hemos obtenido.
+
+La configuración se basa en un procesador `Quad-Core + Sistema RAID + Red Bridge` aunque vamos a revisar de adaptarla por ejemplo a sistemas `Dual-Core` o `Hexa-Core`.
+
+Abrimos el editor de texto y vamos configurando según secciones.
+
+```bash
+nano $HOME/.conkyrc
+```
+
+En la estructura del fichero veremos dos secciones diferenciadas:
+
+ * `conky.config = { ... }`: Apartado donde ajustamos el tipo, tamaño, ubicación, resolución, ... de los datos a mostrar
+
+ * `conky.text = { ... }`: Apartado donde ajustamos las variables a mostrar
+
+### Conky: Resolución (conky.config)
+
+Una forma sencilla de adaptarlo según resolución del sistema es ajustar la siguiente variable:
+
+```bash
+    font = 'Roboto Mono:size=8',
+```
+
+<figure class="third">
+    <a href="/assets/images/posts/conky0.png">Roboto Mono:size=6<img src="/assets/images/posts/conky0.png"></a>
+    <a href="/assets/images/posts/conky00.png">Roboto Mono:size=9<img src="/assets/images/posts/conky00.png"></a>
+    <a href="/assets/images/posts/conky000.png">Roboto Mono:size=7<img src="/assets/images/posts/conky000.png"></a>
+</figure>
+
+### Conky: GNU/Linux (conky.text)
+
+### Conky: Sistema (conky.text)
+
+### Conky: Temperaturas (conky.text)
+
+### Conky: Almacenamiento (conky.text)
+
+### Conky: Memoria (conky.text)
+
+### Conky: Procesos (conky.text)
+
+Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`
 
 > Y listo!
