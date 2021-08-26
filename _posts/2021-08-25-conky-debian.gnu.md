@@ -24,7 +24,7 @@ Se distribuye bajo licencia **GPL 3.0**, su configuración se basa en un fichero
 
 `Conky` no solo tiene muchos complementos incorporados, sino que también puede mostrar casi cualquier información mediante el uso de scripts y otros programas externos.
 
-Dicho de otra forma, de un simple vistazo concer el estado del **Servidor**.
+Dicho de otra forma, de un simple vistazo poder conocer el estado del **Servidor** y actuar en consecuencia.
 
 Para ampliar información recomiendo:
 
