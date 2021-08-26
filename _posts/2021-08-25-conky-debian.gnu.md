@@ -24,6 +24,11 @@ Se distribuye bajo licencia **GPL 3.0**, su configuración se basa en un fichero
 
 `Conky` no solo tiene muchos complementos incorporados, sino que también puede mostrar casi cualquier información mediante el uso de scripts y otros programas externos.
 
+Para ampliar información recomiendo:
+
+ * Revisar [Wiki del proyecto](https://github.com/brndnmtthws/conky/wiki){: .btn .btn--inverse .btn--small}{:target="_blank"} 
+ * Revisar [varibles personalización](http://conky.sourceforge.net/variables.html){: .btn .btn--inverse .btn--small}{:target="_blank"}
+
 En esta entrada voy a compartir la configuración que he estado usando en **Mate** y posteriormente adaptando en el servidor, dejo unas capturas de pantalla:
 
 <figure class="third">
