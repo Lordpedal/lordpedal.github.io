@@ -146,15 +146,47 @@ Que no es otra opción que la fuente usada del sistema y su tamaño
 
 ### Conky: GNU/Linux
 
+<figure>
+    <a href="/assets/images/posts/conky01.png"><img src="/assets/images/posts/conky01.png"></a>
+</figure>
+
 ### Conky: Sistema
+
+<figure>
+    <a href="/assets/images/posts/conky02.png"><img src="/assets/images/posts/conky02.png"></a>
+</figure>
 
 ### Conky: Temperaturas
 
+<figure>
+    <a href="/assets/images/posts/conky03.png"><img src="/assets/images/posts/conky03.png"></a>
+</figure>
+
 ### Conky: Almacenamiento
+
+<figure>
+    <a href="/assets/images/posts/conky04.png"><img src="/assets/images/posts/conky04.png"></a>
+</figure>
 
 ### Conky: Memoria
 
+<figure>
+    <a href="/assets/images/posts/conky05.png"><img src="/assets/images/posts/conky05.png"></a>
+</figure>
+
 ### Conky: Procesos
+
+<figure>
+    <a href="/assets/images/posts/conky06.png"><img src="/assets/images/posts/conky06.png"></a>
+</figure>
+
+### Conky: Red
+
+<figure>
+    <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
+</figure>
+
+### Notas
 
 Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`
 
