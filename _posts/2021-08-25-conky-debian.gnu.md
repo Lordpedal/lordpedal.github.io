@@ -140,7 +140,7 @@ Que no es otra opción que la fuente usada del sistema y su tamaño
 
 <figure class="third">
     <a href="/assets/images/posts/conky0.png">Roboto Mono:size=6<img src="/assets/images/posts/conky0.png"></a>
-    <a href="/assets/images/posts/conky00.png">Roboto Mono:size=10<img src="/assets/images/posts/conky00.png"></a>
+    <a href="/assets/images/posts/conky00.png">Roboto Mono:size=9<img src="/assets/images/posts/conky00.png"></a>
     <a href="/assets/images/posts/conky000.png">Roboto Mono:size=8<img src="/assets/images/posts/conky000.png"></a>
 </figure>
 
