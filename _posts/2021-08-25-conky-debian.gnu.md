@@ -242,7 +242,7 @@ sensors | grep Core | cut -c1-7
 
 En el PC obtengo el siguiente valor:
 
-```
+```bash
 lordpedal@miniOverclock:~$ sensors | grep Core | cut -c1-7
 Core 0:
 Core 1:
@@ -346,7 +346,7 @@ Core 5:        +22.0°C  (high = +69.0°C, crit = +79.0°C)
 
 En este caso debo de agregar los cores que faltan, 6 cores físicos y 6 virtuales, dejando el apartado de la siguiente forma:
 
-````bash
+```bash
 ${color2}${font ConkySymbols:size=16}h${font} ${voffset -10} Temperaturas${color}
 ${color1}${goto 35}Core 0 : ${color}${execi 3 sensors | grep 'Core 0' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
 ${color1}${goto 35}Core 1 : ${color}${execi 3 sensors | grep 'Core 1' | cut -c16-25} ${color1}TSH : ${color}${execi 3 sensors | grep 'Core 1' | cut -c34-41} ${color1}TSHH : ${color}${execi 3 sensors | grep 'Core 0' | cut -c51-58}
