@@ -364,6 +364,8 @@ ${color1}${goto 35}Core 11 : ${color}Virtual
 
 ### Conky: Almacenamiento
 
+Aquí obtenemos información del espacio consumido/libre de las unidades de almacenamiento montadas en el Sistema.
+
 <figure>
     <a href="/assets/images/posts/conky04.png"><img src="/assets/images/posts/conky04.png"></a>
 </figure>
@@ -378,7 +380,47 @@ ${color1}${goto 35}RAID${color} $alignr ${fs_used /media/raidnas} / ${fs_size /m
 ${goto 35}${fs_bar /media/raidnas}
 ```
 
+Este apartado si debemos de configurarlo según nuestro sistema, dependiendo de unidades montadas o particionado sistema.
+
+#### SSD + HD USB Externo
+
+Voy a plantear una situación alternativa en la que por ejemplo en vez de tener montado una sistema **RAID** en `/media` tenemos un **HD USB denominado Toshiba**.
+
+Primeramente identificamos las unidades de almacenamiento:
+
+```bash
+df -h
+```
+
+Obtendriamos algo similar a esto:
+
+```bash
+lordpedal@miniPC:~$ df -h
+S.ficheros     Tamaño Usados  Disp Uso% Montado en
+udev             1,9G      0  1,9G   0% /dev
+tmpfs            380M    46M  334M  13% /run
+/dev/sda2         55G    11G   41G  22% /
+tmpfs            1,9G      0  1,9G   0% /dev/shm
+tmpfs            5,0M   4,0K  5,0M   1% /run/lock
+tmpfs            1,9G      0  1,9G   0% /sys/fs/cgroup
+tmpfs            1,9G   4,0K  1,9G   1% /tmp
+/dev/sda1        511M   3,3M  508M   1% /boot/efi
+/dev/sdb1        2,0T   1,0T  1,0T  50% /media/Toshiba
+```
+
+En ese caso deberiamos dejar la sección de Almacenamiento de la siguiente forma:
+
+```bash
+${color2}${font ConkySymbols:size=16}k${font} ${voffset -10} Almacenamiento${color}
+${color1}${goto 35}SSD${color} $alignr ${fs_used /} / ${fs_size /}
+${goto 35}${fs_bar /}
+${color1}${goto 35}HD USB${color} $alignr ${fs_used /media/Toshiba} / ${fs_size /media/Toshiba} 
+${goto 35}${fs_bar /media/Toshiba}
+```
+
 ### Conky: Memoria
+
+Aquí obtenemos información del consumo de la memoria RAM y SWAP en el Sistema.
 
 <figure>
     <a href="/assets/images/posts/conky05.png"><img src="/assets/images/posts/conky05.png"></a>
@@ -394,7 +436,11 @@ ${color1}${goto 35}SWAP${color} $alignr $swap / $swapmax
 ${goto 35}$swapbar
 ```
 
+A priori esta sección es universal independientemente de configuración sistema.
+
 ### Conky: Procesos
+
+Aquí obtenemos un Top 5 de consumos de recursos tanto a nivel de CPU como de RAM en el Sistema.
 
 <figure>
     <a href="/assets/images/posts/conky06.png"><img src="/assets/images/posts/conky06.png"></a>
@@ -418,7 +464,11 @@ ${goto 35}${top_mem name 4}$alignr${top_mem mem 4}%
 ${goto 35}${top_mem name 5}$alignr${top_mem mem 5}%
 ```
 
+A priori esta sección es universal independientemente de configuración sistema.
+
 ### Conky: Red
+
+Aquí obtenemos información de la carga y velocidad de cada uno de los cores del Sistema.
 
 <figure>
     <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
@@ -435,8 +485,46 @@ ${color1}${goto 35}Bajada: ${color}${totaldown br0}  ${color1}Velocidad: ${color
 ${goto 35}${downspeedgraph br0 30,250 01df01 10fd10}
 ```
 
+Este apartado si debemos de configurarlo según nuestro sistema, si no estamos usando una `red Bridge`.
+
+#### bond0
+
+Voy a plantear una situación alternativa en la que por ejemplo en vez de usar una red Bridge usamos una red Bond.
+
+Primeramente identificamos las conexiones de red:
+
+```bash
+ip -br addr show | grep UP
+```
+
+Obtendriamos algo similar a esto:
+
+```bash
+lordpedal@miniOverclock:~$ ip -br addr show | grep UP
+enp5s0f0         UP
+enp5s0f1         UP             
+bond0            UP             
+```
+
+En ese caso deberiamos dejar la sección de Red de la siguiente forma:
+
+```bash
+${color2}${font ConkySymbols:size=16}i${font} ${voffset -10} Red${color}
+${color1}${goto 35}IP Red: ${color}${addr bond0}
+${color1}${goto 35}Subida: ${color}${totalup bond0}  ${color1}Velocidad: ${color}${upspeed bond0}/s
+${goto 35}${upspeedgraph br0 30,250 0000ff ff0000}
+${color1}${goto 35}Bajada: ${color}${totaldown bond0}  ${color1}Velocidad: ${color}${downspeed bond0}/s
+${goto 35}${downspeedgraph br0 30,250 01df01 10fd10}
+```
+
 ## Notas
 
-Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`
+Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`.
+
+```bash
+sudo reboot
+```
+
+Ser libres de modificar el contenido a vuestro concepto.
 
 > Y listo!
