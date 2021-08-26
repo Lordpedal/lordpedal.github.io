@@ -130,50 +130,6 @@ En la estructura del fichero veremos dos secciones diferenciadas:
 
 ### Conky: Resolución
 
-Contenido representado en la siguiente sección:
-
-```bash
-    alignment = 'top_right',
-    background = true,
-    border_width = 1,
-    cpu_avg_samples = 2,
-    default_color = 'gray',
-    default_outline_color = 'white',
-    default_shade_color = 'white',
-    color1 = '#1793d1',
-    color2 = '#f7347a',
-    double_buffer = true,
-    draw_borders = false,
-    draw_graph_borders = true,
-    draw_outline = false,
-    draw_shades = false,
-    extra_newline = false,
-    font = 'Roboto Mono:size=10',
-    gap_x = 30,
-    gap_y = 30,
-    minimum_height = 250,
-    minimum_width = 220,
-    net_avg_samples = 2,
-    no_buffers = true,
-    out_to_console = false,
-    out_to_ncurses = false,
-    out_to_stderr = false,
-    out_to_x = true,
-    own_window = true,
-    own_window_transparent = true,
-    own_window_argb_visual = true,
-    own_window_class = 'Conky',
-    own_window_type = 'normal',
-    own_window_hints ='undecorated,sticky,skip_taskbar,skip_pager,below',
-    show_graph_range = false,
-    show_graph_scale = false,
-    stippled_borders = 0,
-    update_interval = 3.0,
-    uppercase = false,
-    use_spacer = 'none',
-    use_xft = true,
-```
-
 Una forma sencilla de adaptarlo según resolución del sistema es ajustar la siguiente variable:
 
 ```bash
