@@ -525,6 +525,6 @@ Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el ento
 sudo reboot
 ```
 
-Ser libres de modificar el contenido a vuestro concepto.
+Ser libres de modificar el script a vuestro sistema.
 
 > Y listo!
