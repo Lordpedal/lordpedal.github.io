@@ -128,7 +128,7 @@ En la estructura del fichero veremos dos secciones diferenciadas:
 
  * `conky.text = { ... }`: Apartado donde ajustamos las variables a mostrar
 
-### Conky: Resolución (conky.config)
+### Conky: Resolución
 
 Una forma sencilla de adaptarlo según resolución del sistema es ajustar la siguiente variable:
 
@@ -144,17 +144,17 @@ Que no es otra opción que la fuente usada del sistema y su tamaño
     <a href="/assets/images/posts/conky000.png">Roboto Mono:size=8<img src="/assets/images/posts/conky000.png"></a>
 </figure>
 
-### Conky: GNU/Linux (conky.text)
+### Conky: GNU/Linux
 
-### Conky: Sistema (conky.text)
+### Conky: Sistema
 
-### Conky: Temperaturas (conky.text)
+### Conky: Temperaturas
 
-### Conky: Almacenamiento (conky.text)
+### Conky: Almacenamiento
 
-### Conky: Memoria (conky.text)
+### Conky: Memoria
 
-### Conky: Procesos (conky.text)
+### Conky: Procesos
 
 Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el entorno `X`
 
