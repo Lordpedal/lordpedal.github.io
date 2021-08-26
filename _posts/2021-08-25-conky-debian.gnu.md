@@ -114,7 +114,7 @@ A continuación veremos como adaptarlo paso a paso.
 
 Para evitar errores de configuración partimos del fichero `$HOME/.conkyrc` que hemos obtenido.
 
-La configuración se basa en un procesador `Quad-Core + Sistema RAID + Red Bridge` aunque vamos a revisar de adaptarla por ejemplo a sistemas `Dual-Core` o `Hexa-Core`.
+La configuración se basa en un procesador `QuadCore + Sistema RAID + Red Bridge` aunque vamos a revisar de adaptarla por ejemplo a sistemas `DualCore` o `HexaCore`.
 
 Abrimos el editor de texto y vamos configurando según secciones.
 
