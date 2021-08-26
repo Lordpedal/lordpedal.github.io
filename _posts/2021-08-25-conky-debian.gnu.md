@@ -124,7 +124,7 @@ nano $HOME/.conkyrc
 
 En la estructura del fichero veremos dos secciones diferenciadas:
 
- * `conky.config = { ... }`: Apartado donde ajustamos el tipo, tamaño, ubicación, resolución, ... de los datos a mostrar
+ * `conky.config = { ... }`: Apartado donde ajustamos tamaño, ubicación, resolución, colores ... de los datos a mostrar
 
  * `conky.text = { ... }`: Apartado donde ajustamos las variables a mostrar
 
