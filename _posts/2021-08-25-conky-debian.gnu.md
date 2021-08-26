@@ -196,7 +196,7 @@ ${color1}${goto 35}Core 7 : ${color}${freq_g 7}GHz ${alignr}${cpu cpu7}% ${cpuba
 
 Este apartado si debemos de configurarlo según nuestro sistema.
 
-#### Conky: Sistema DualCore Celeron
+#### DualCore Celeron
 
 Lo primero es conocer como se identifica cada `core`:
 
@@ -228,11 +228,11 @@ ${color1}${goto 35}Core 2 : ${color}${freq_g 2}GHz ${alignr}${cpu cpu2}% ${cpuba
 
 Quedando comentados los cores que se emplean.
 
-#### Conky: Sistema QuadCore
+#### QuadCore
 
 No necesaria modificación, ya configurado para leer la configuración de los `4 cores físicos y los 4 virtuales`.
 
-#### Conky: Sistema HexaCore
+#### HexaCore
 
 Lo primero es conocer como se identifica cada `core`:
 
@@ -294,7 +294,7 @@ ${color1}${goto 35}Core 7 : ${color}Virtual
 
 Este apartado si debemos de configurarlo según nuestro sistema.
 
-#### Conky: Temperaturas DualCore Celeron
+#### DualCore Celeron
 
 Lo primero es conocer como se identifica cada `core`:
 
@@ -320,11 +320,11 @@ ${color1}${goto 35}Core 2:${color}${execi 3 sensors | grep 'Core 2' | cut -c16-2
 ${color1}${goto 35}Core 3: ${color}Virtual
 ```
 
-#### Conky: Temperaturas QuadCore
+#### QuadCore
 
 No necesaria modificación, ya configurado para leer la configuración de los `4 cores físicos`.
 
-#### Conky: Temperaturas HexaCore
+#### HexaCore
 
 Lo primero es conocer como se identifica cada `core`:
 
