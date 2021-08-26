@@ -146,6 +146,10 @@ Que no es otra opción que la fuente usada del sistema y su tamaño
 
 ### Conky: GNU/Linux
 
+<figure>
+    <a href="/assets/images/posts/conky01.png"><img src="/assets/images/posts/conky01.png"></a>
+</figure>
+
 Contenido representado en la siguiente sección:
 
 ```bash
@@ -159,11 +163,12 @@ ${color1}${goto 35}Actividad: ${color}$uptime
 ${color1}${goto 35}Promedios: ${color}$loadavg
 ${color1}${goto 35}Total Procesos: ${color}$processes
 ```
-<figure>
-    <a href="/assets/images/posts/conky01.png"><img src="/assets/images/posts/conky01.png"></a>
-</figure>
 
 ### Conky: Sistema
+
+<figure>
+    <a href="/assets/images/posts/conky02.png"><img src="/assets/images/posts/conky02.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -179,11 +184,11 @@ ${color1}${goto 35}Core 6 : ${color}${freq_g 6}GHz ${alignr}${cpu cpu6}% ${cpuba
 ${color1}${goto 35}Core 7 : ${color}${freq_g 7}GHz ${alignr}${cpu cpu7}% ${cpubar cpu7 4,100}
 ```
 
-<figure>
-    <a href="/assets/images/posts/conky02.png"><img src="/assets/images/posts/conky02.png"></a>
-</figure>
-
 ### Conky: Temperaturas
+
+<figure>
+    <a href="/assets/images/posts/conky03.png"><img src="/assets/images/posts/conky03.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -199,11 +204,11 @@ ${color1}${goto 35}Core 6 : ${color}Virtual
 ${color1}${goto 35}Core 7 : ${color}Virtual
 ```
 
-<figure>
-    <a href="/assets/images/posts/conky03.png"><img src="/assets/images/posts/conky03.png"></a>
-</figure>
-
 ### Conky: Almacenamiento
+
+<figure>
+    <a href="/assets/images/posts/conky04.png"><img src="/assets/images/posts/conky04.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -215,11 +220,11 @@ ${color1}${goto 35}RAID${color} $alignr ${fs_used /media/raidnas} / ${fs_size /m
 ${goto 35}${fs_bar /media/raidnas}
 ```
 
-<figure>
-    <a href="/assets/images/posts/conky04.png"><img src="/assets/images/posts/conky04.png"></a>
-</figure>
-
 ### Conky: Memoria
+
+<figure>
+    <a href="/assets/images/posts/conky05.png"><img src="/assets/images/posts/conky05.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -231,11 +236,11 @@ ${color1}${goto 35}SWAP${color} $alignr $swap / $swapmax
 ${goto 35}$swapbar
 ```
 
-<figure>
-    <a href="/assets/images/posts/conky05.png"><img src="/assets/images/posts/conky05.png"></a>
-</figure>
-
 ### Conky: Procesos
+
+<figure>
+    <a href="/assets/images/posts/conky06.png"><img src="/assets/images/posts/conky06.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -255,11 +260,11 @@ ${goto 35}${top_mem name 4}$alignr${top_mem mem 4}%
 ${goto 35}${top_mem name 5}$alignr${top_mem mem 5}%
 ```
 
-<figure>
-    <a href="/assets/images/posts/conky06.png"><img src="/assets/images/posts/conky06.png"></a>
-</figure>
-
 ### Conky: Red
+
+<figure>
+    <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
+</figure>
 
 Contenido representado en la siguiente sección:
 
@@ -271,10 +276,6 @@ ${goto 35}${upspeedgraph br0 30,250 0000ff ff0000}
 ${color1}${goto 35}Bajada: ${color}${totaldown br0}  ${color1}Velocidad: ${color}${downspeed br0}/s
 ${goto 35}${downspeedgraph br0 30,250 01df01 10fd10}
 ```
-
-<figure>
-    <a href="/assets/images/posts/conky07.png"><img src="/assets/images/posts/conky07.png"></a>
-</figure>
 
 ## Notas
 
