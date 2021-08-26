@@ -2,8 +2,8 @@
 title:  "Conky: Debian GNU/Linux"
 header:
   image: /assets/images/posts/debiantt.gif
-date:   2021-08-24 23:30:00
-last_modified_at: 2021-08-24T23:45:00
+date:   2021-08-25 23:30:00
+last_modified_at: 2021-08-25T23:45:00
 categories:
   - GNU/Linux
 tags:
