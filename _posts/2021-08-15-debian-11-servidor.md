@@ -674,6 +674,12 @@ Solamente nos queda reiniciar el Servidor para activar las nuevas mejoras:
 sudo reboot
 ```
 
+Adicionalmente me gusta agregar que tras 10 reinicios el sistema compruebe errores:
+
+```bash
+sudo tune2fs -c 10 /dev/sda1
+```
+
 ### Modding
 
 Antes de empezar con la parte de **Modding**, necesitamos instalar una dependencia, que nos dara información sobre la temperatura de nuestro sistema.
