@@ -512,9 +512,9 @@ En ese caso deberiamos dejar la sección de Red de la siguiente forma:
 ${color2}${font ConkySymbols:size=16}i${font} ${voffset -10} Red${color}
 ${color1}${goto 35}IP Red: ${color}${addr bond0}
 ${color1}${goto 35}Subida: ${color}${totalup bond0}  ${color1}Velocidad: ${color}${upspeed bond0}/s
-${goto 35}${upspeedgraph br0 30,250 0000ff ff0000}
+${goto 35}${upspeedgraph bond0 30,250 0000ff ff0000}
 ${color1}${goto 35}Bajada: ${color}${totaldown bond0}  ${color1}Velocidad: ${color}${downspeed bond0}/s
-${goto 35}${downspeedgraph br0 30,250 01df01 10fd10}
+${goto 35}${downspeedgraph bond0 30,250 01df01 10fd10}
 ```
 
 ## Notas
