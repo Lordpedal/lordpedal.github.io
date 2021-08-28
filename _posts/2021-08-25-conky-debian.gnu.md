@@ -527,4 +527,11 @@ sudo reboot
 
 Ser libres de modificar el script a vuestro sistema.
 
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/conky.mp4" type="video/mp4" />
+       <source src="{{ site.baseurl }}/assets/videos/conky.webm"  type="video/webm"  />
+   </video>
+</div>
+
 > Y listo!
