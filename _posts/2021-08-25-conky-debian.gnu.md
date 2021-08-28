@@ -525,7 +525,7 @@ Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el ento
 sudo reboot
 ```
 
-Para finalizar dejo un video para ver Conky de forma dinámica en un obseloto `Macbook Pro 2010` para **Apple** 
+Para finalizar dejo un video para ver **Conky** de forma dinámica en un obsoleto `Macbook Pro 2010` para **Apple** 
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
