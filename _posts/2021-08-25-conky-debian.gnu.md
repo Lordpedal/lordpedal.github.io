@@ -525,7 +525,7 @@ Al finalizar guardaremos los cambios, saldremos del editor y reiniciamos el ento
 sudo reboot
 ```
 
-Ser libres de modificar el script a vuestro sistema.
+Para finalizar dejo un video para ver Conky de forma dinámica en un obseloto `Macbook Pro 2010` para **Apple** 
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -533,5 +533,7 @@ Ser libres de modificar el script a vuestro sistema.
        <source src="{{ site.baseurl }}/assets/videos/conky.webm"  type="video/webm"  />
    </video>
 </div>
+
+Ser libres de modificar el script a vuestro sistema.
 
 > Y listo!
