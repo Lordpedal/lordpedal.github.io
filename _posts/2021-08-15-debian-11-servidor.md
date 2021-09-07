@@ -2078,7 +2078,7 @@ Y lo dejamos con los cambios que hemos ido agregando para que quede de la `sigui
 # By default this script does nothing.
 #
 # IPTV
-/etc/xupnpd/xupnpd & >/dev/null 2>&1
+sleep 30 && /etc/xupnpd/xupnpd & >/dev/null 2>&1
 # SALIR
 exit 0
 ```
