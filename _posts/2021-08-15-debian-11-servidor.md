@@ -173,7 +173,7 @@ Otro conjunto de `utilidades adicionales` a instalar que necesitaremos para futu
 
 ```bash
 sudo apt-get update && \
-sudo apt-get -y install mc htop curl bc git wget curl dnsutils ntfs-3g hfsprogs \
+sudo apt-get -y install mc htop curl bc git wget curl dnsutils exfat-fuse ntfs-3g hfsprogs \
 hfsplus build-essential automake libtool uuid-dev psmisc linux-source yasm \
 autoconf g++ subversion linux-source tofrodos git-core subversion dos2unix \
 make gcc automake cmake git-core dpkg-dev fakeroot pbuilder dh-make debhelper devscripts \
