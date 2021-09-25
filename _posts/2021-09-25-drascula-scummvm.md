@@ -19,9 +19,9 @@ toc_icon: "cog"
 
 ![Scummvm]({{ site.url }}{{ site.baseurl }}/assets/images/posts/drascula.png){: .align-center}
 {: .full}
-[**Dráscula**](http://www.alcachofasoft.com/){: .btn .btn--inverse .btn--small}{:target="_blank"} se puede considerar como la opera prima de **Alcachofa Soft**, se trata de aventura gráfica española 2D clásica de estilo point & click y una interfaz sencilla. 
+[**Dráscula**](http://www.alcachofasoft.com/){: .btn .btn--inverse .btn--small}{:target="_blank"} se puede considerar como la opera prima de **Alcachofa Soft**, se trata de aventura gráfica española 2D clásica de estilo `point & click` y una interfaz sencilla. 
 
-Fue desarrollada a las órdenes del toledano *Emilio de Paz* y contiene grandes dosis de cachondeo, unos fondos bastante elaborados y animaciones `“pixel a pixel”` más que decentes pese a que en su momento se tachase de fracaso comercial.
+Fue desarrollada a las órdenes del toledano *Emilio de Paz* y contiene grandes dosis de cachondeo, unos fondos bastante elaborados y animaciones **“pixel a pixel”** más que decentes pese a que en su momento se tachase de fracaso comercial.
 
 Claramente inspirado en la filosofía de los expertos desarrolladores de juegos `LucasArts`, empleo un esquema muy similar: **dibujos animados, algunos puzzles por resolver y humor a tutiplén.**
 
