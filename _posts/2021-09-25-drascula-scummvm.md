@@ -44,6 +44,6 @@ sudo apt-get update && \
 sudo apt-get -y install drascula drascula-music drascula-spanish
 ```
 
-{% include video id="613794157" provider="vimeo" %}
-
 > Y listo!
+
+{% include video id="613794157" provider="vimeo" %}
