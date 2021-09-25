@@ -1,5 +1,5 @@
 ---
-title:  "Dráscula: The Vampire Strikes Back"
+title:  "Dráscula: The Vampire Strikes Back GNU/Linux"
 header:
   image: /assets/images/posts/debiantt.gif
 date:   2021-09-25 22:00:00
@@ -19,7 +19,6 @@ toc_icon: "cog"
 
 ![Scummvm]({{ site.url }}{{ site.baseurl }}/assets/images/posts/drascula.png){: .align-center}
 {: .full}
-
 [**Dráscula**](http://www.alcachofasoft.com/){: .btn .btn--reverse .btn--small}{:target="_blank"} se puede considerar como la opera prima de **Alcachofa Soft**, se trata de aventura gráfica española 2D clásica de estilo point & click y una interfaz sencilla. 
 
 Fue desarrollada a las órdenes del toledano *Emilio de Paz* y contiene grandes dosis de cachondeo, unos fondos bastante elaborados y animaciones `“pixel a pixel”` más que decentes pese a que en su momento se tachase de fracaso comercial.
