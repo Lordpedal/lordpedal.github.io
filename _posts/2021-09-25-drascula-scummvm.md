@@ -11,7 +11,7 @@ tags:
   - GNU/Linux
   - Debian
   - Personal
-toc: true
+toc: false
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
@@ -20,13 +20,30 @@ toc_icon: "cog"
 ![Scummvm]({{ site.url }}{{ site.baseurl }}/assets/images/posts/drascula.png){: .align-center}
 {: .full}
 
-Dráscula, la opera prima de Alcachofa Soft a las órdenes del toledano Emilio de Paz es una aventura gráfica que no fue muy conocida. Aun así contiene grandes dosis de cachondeo, unos fondos bastante elaborados y animaciones “pixel a pixel” más que decentes. Como las buenas de algunos años antes, claramente inspirada en la filosofía de los expertos LucasArts: dibujos animados, algunos puzzles por resolver y humor a tutiplén.
+[**Dráscula**](http://www.alcachofasoft.com/){: .btn .btn--reverse .btn--small}{:target="_blank"} se puede considerar como la opera prima de **Alcachofa Soft**, se trata de aventura gráfica española 2D clásica de estilo point & click y una interfaz sencilla. 
 
-Es de suponer que parte del fracaso comercial de esta peculiar (y a veces muy chorra) aventura se debiera en su momento a disputas legales en lo referente a los derechos de distribución, el juego no corría mucho por las tiendas especializadas aunque podía encontrarse en quioscos a un precio más asequible que otras producciones extranjeras. También parece ser que a la limitada reciente empresa Alcachofa Soft se le echó el tiempo encima para su lanzamiento y ésto queda patente en el propio juego que a medida que transcurre la historia pierde dificultad y “dedicación” por parte de los creadores atareados con los plazos de entrega; hasta se hace broma de ello hacia el precipitado final de la aventura. Todo ésto sin duda propició el absoluto desconocimiento del juego al gran público.
+Fue desarrollada a las órdenes del toledano *Emilio de Paz* y contiene grandes dosis de cachondeo, unos fondos bastante elaborados y animaciones `“pixel a pixel”` más que decentes pese a que en su momento se tachase de fracaso comercial.
 
-## Descripción
+Claramente inspirado en la filosofía de los expertos desarrolladores de juegos `LucasArts`, empleo un esquema muy similar: **dibujos animados, algunos puzzles por resolver y humor a tutiplén.**
 
-Viaja hasta Transilvania y enfréntate a los vampiros más temibles, donde deberás demostrar que sólo significan una leyenda para ti. Cambia el rumbo de la Historia, y vuelve a tu lugar de origen tras vivir las aventuras más emocionantes y las pesadillas más escalofriantes que jamás hayas pensado que te pudieran suceder a ti. 
+En Agosto de 2008, el creador y titular de los derechos de autor de Dráscula libero el juego bajo licencia Freeware para ser jugado con el programa **ScummVM**.
+
+## Historia
+
+El malvado y vampírico Conde Drascula tiene un plan para conquistar el mundo construyendo un ejército de monstruos creados con partes de cadáveres reanimados mediante un aparato de su invención llamado "indifibulador". 
+
+De acuerdo, no es un buen plan. Pero él está decidido a llevarlo a cabo. Para ello sólo le queda conseguir un cerebro "nuevecito y sin estrenar" y el de la bella e inocente Billie Jean es el mejor candidato.
+
+Así pues el Conde Dráscula secuestra a la joven y se la lleva a su castillo. Pero con lo que el temible vampiro no contaba es con que el valiente Johnny Hacker, un agente inmobiliario de viaje de negocios por Transilvania y que se ha enamorado de Billie Jean, hará todo lo posible para rescatarla.
+
+## Instalación
+
+El proceso es muy simple, comenzamos actualizando repositorios del sistema e instalando dependencias:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install drascula drascula-music drascula-spanish
+```
 
 {% include video id="613794157" provider="vimeo" %}
 
