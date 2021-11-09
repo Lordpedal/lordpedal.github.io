@@ -32,6 +32,8 @@ Las principales características son las siguientes:
  * Hacer que los archivos estén disponibles o no para su descarga con un solo clic.
  * API disponible para interactuar con Gokapi.
  * Protege tu panel de administración detrás de una ruta URL secreta e inicia sesión de forma segura con tu propio nombre de usuario y contraseña.
+ * Limitar el número de descargas de cada fichero o bien el número de días que el enlace estara disponible
+ * Proteger con contraseña las descargas
 
 ## Instalación
 
