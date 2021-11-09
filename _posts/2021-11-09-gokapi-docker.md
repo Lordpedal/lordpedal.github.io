@@ -58,7 +58,7 @@ version: '3'
 services:
   gokapi:
     image: f0rc3/gokapi:latest
-    container_name: GOkapi
+    container_name: Gokapi
     ports:
       - 53842:53842
     volumes:
