@@ -1,4 +1,3 @@
-https://gokapi.readthedocs.io/en/latest/index.html---
 title:  "Gokapi: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
