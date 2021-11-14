@@ -162,10 +162,3 @@ Con el sistema ya debidamente configurado, ahora toca el turno de jugar, para el
 </figure>
 
 > Y listo!
-
-
-La navegación en ambos casos es compatible con las teclas de dirección **Arriba/Abajo/Izquierda/Derecha** 
-
-NOTA: Importante añadir servidores [servidores ed2k](https://www.emule-security.org/serverlist/){:target="_blank"}.
-{: .notice--info}
-
