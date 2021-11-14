@@ -20,7 +20,7 @@ toc_icon: "cog"
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[EmulatorJS](https://github.com/linuxserver/emulatorjs){: .btn .btn--warning .btn--small}{:target="_blank"} es un fork de **NeptunJS**, una plataforma de emulación creada en **JavaScript**, que permite jugar con emuladores a través del navador web.
+[EmulatorJS](https://github.com/linuxserver/emulatorjs){: .btn .btn--warning .btn--small}{:target="_blank"} es un fork de **NeptunJS**, una plataforma de emulación creada en **JavaScript**, que permite jugar con emuladores a través del navegador web.
 
 **EmulatorJS** añade sobre **NeptunJS** una capa de gestión para añadir roms y poder realizar un servicio auto alojado.
 
