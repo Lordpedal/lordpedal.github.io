@@ -24,7 +24,7 @@ toc_icon: "cog"
 
 **EmulatorJS** añade sobre **NeptunJS** una capa de gestión para añadir roms y poder realizar un servicio auto alojado.
 
-Hasta el momento es capaz de emular unas 30 diferente plataformas de juego entre las que podemos destacar:
+Hasta el momento es capaz de emular unas **30 diferentes plataformas de juego** entre las que podemos destacar:
 
  * **Nintendo:** `Gameboy, NES, SNES, ...`
  * **Sega:** `Master System, Megadrive, ...`
