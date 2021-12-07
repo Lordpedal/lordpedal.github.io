@@ -146,7 +146,7 @@ df -h -x devtmpfs -x tmpfs
 En mi caso obtengo el siguiente resultado:
 
 ```bash
-pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+pi@overclock:~$ df -h -x devtmpfs -x tmpfs
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       443G   29G  391G   7% /
 /dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
@@ -221,7 +221,7 @@ df -h -x devtmpfs -x tmpfs
 En mi caso obtengo el siguiente resultado:
 
 ```bash
-pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+pi@overclock:~$ df -h -x devtmpfs -x tmpfs
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       443G   29G  391G   7% /
 /dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
@@ -302,7 +302,7 @@ df -h -x devtmpfs -x tmpfs
 En mi caso obtengo el siguiente resultado:
 
 ```bash
-pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+pi@overclock:~$ df -h -x devtmpfs -x tmpfs
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       443G   29G  391G   7% /
 /dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
@@ -365,7 +365,7 @@ df -h -x devtmpfs -x tmpfs
 En mi caso obtengo el siguiente resultado:
 
 ```bash
-pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+pi@overclock:~$ df -h -x devtmpfs -x tmpfs
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       443G   29G  391G   7% /
 /dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
@@ -428,7 +428,7 @@ df -h -x devtmpfs -x tmpfs
 En mi caso obtengo el siguiente resultado:
 
 ```bash
-pi@overclock:~$ df -h .x devtmpfs -x tmpfs
+pi@overclock:~$ df -h -x devtmpfs -x tmpfs
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       443G   29G  391G   7% /
 /dev/sdb1       3,6T  2.8T  702G  80% /media/rednas
