@@ -1727,7 +1727,7 @@ root@1e2d082ca944:/# occ db:convert-filecache-bigint
 All tables already up to date!
 ```
 
-### ⛑️Bonus TIP: Fix Traefikk/Nginx Proxy Manager
+### ⛑️Bonus TIP: Fix TraefikkNgPM
 
 Para poder acceder a nuestro servicio desde fuera de la intranet, por ejemplo con un proxy inverso, tenemos que configurar el redireccionado:
 
