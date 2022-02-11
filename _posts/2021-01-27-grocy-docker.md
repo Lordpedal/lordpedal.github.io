@@ -149,7 +149,7 @@ docker-compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [https://despensa.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
 
-#### Configuración + dispositivo móvil
+## Configuración + dispositivo móvil
 
 `Usuario / Contraseña`: **admin**
 {: .notice--info}

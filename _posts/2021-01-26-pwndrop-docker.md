@@ -35,11 +35,59 @@ Las principales características son las siguientes:
 
 ## Instalación
 
-### Traefik
+### Pwndrop
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/pwndrop/config && \
+cd $HOME/docker/pwndrop
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+```bash
+cat << EOF > $HOME/docker/pwndrop/docker-compose.yml
+version: "2.1"
+services:
+  pwndrop:
+    image: ghcr.io/linuxserver/pwndrop
+    container_name: PWNDrop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - SECRET_PATH=/lordpedal
+    volumes:
+      - ~/docker/pwndrop/config:/config
+    ports:
+      - 8003:8080
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `SECRET_PATH=/lordpedal` | Ruta secreta para el acceso administrador `/lordpedal` |
+| `~/docker/pwndrop/config:/config` | Ruta donde almacenamos los datos |
+| `8003:8080` | Puerto gestión web `8003` |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+### Pwndrop + Traefik
 
 [Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
-
-### Pwndrop
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
@@ -102,6 +150,8 @@ docker-compose up -d
 ```
 
 En mi caso, el servicio estaría disponible en la dirección web [https://pwndrop.lordpedal.duckdns.org/lordpedal](https://lordpedal.github.io/gnu/linux/docker/pwndrop-docker/#pwndrop){: .btn .btn--inverse .btn--small}
+
+## Configuración
 
 <figure class="half">
     <a href="/assets/images/posts/pwndrop1.jpg"><img src="/assets/images/posts/pwndrop1.jpg"></a>
