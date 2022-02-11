@@ -310,7 +310,7 @@ Ahora debemos de configurarlo vía web, para ello entramos en un navegador web d
 http://192.168.1.90:9000
 ```
 
-Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar los datos, hacemos click en `Create User`. En la siguiene pestaña que nos aparece, hacemos click en `Manage the local Docker environment` y posteriormente en `Connect`. 
+Se nos solicitara la creación de un **usuario y su contraseña**, tras rellenar los datos, hacemos clic en `Create User`. En la siguiene pestaña que nos aparece, hacemos clic en `Manage the local Docker environment` y posteriormente en `Connect`. 
 
 <figure>
     <a href="/assets/images/posts/Portainer.gif"><img src="/assets/images/posts/Portainer.gif"></a>
@@ -573,10 +573,10 @@ Tras haber lanzado el servicio, tendriamos el servicio disponible en la direcci�
 | **Ctrl/Meta + X** | Corta la ruta seleccionada |
 | **Ctrl/Meta + V** | Pegar la ruta prevamente cortada |
 | **Ctrl/Meta + Enter** | Descargar fichero seleccionado |
-| **Click icono nueva carperta** | Crear una nueva carpeta |
-| **Click icono editor textos** | Editor fichero texto |
-| **Click icono fichero** | Renombrar elemento |
-| **Doble click icono fichero** | Borrar elemento |
+| **Clic icono nueva carperta** | Crear una nueva carpeta |
+| **Clic icono editor textos** | Editor fichero texto |
+| **Clic icono fichero** | Renombrar elemento |
+| **Doble clic icono fichero** | Borrar elemento |
 | **Arrastrar y soltar sobre UI** | Mover elemento |
 | **Arrastrar y soltar contenido externo** | Subir ficheros/carpetas |
 | **Cualquier otra letra** | Búsqueda |
@@ -918,7 +918,7 @@ https://www.tdtchannels.com/lists/tvradio.m3u8
     <a href="/assets/images/posts/Jellyfin8.jpg"><img src="/assets/images/posts/Jellyfin8.jpg"></a>
 </figure>
 
-Y hacemos click en **guardar**.
+Y hacemos clic en **guardar**.
 
 **Guía EPG**
 {: .notice--success}
@@ -933,7 +933,7 @@ https://www.tdtchannels.com/epg/TV.xml
     <a href="/assets/images/posts/Jellyfin9.jpg"><img src="/assets/images/posts/Jellyfin9.jpg"></a>
 </figure>
 
-Y hacemos click en **guardar**.
+Y hacemos clic en **guardar**.
 
 <figure class="half">
     <a href="/assets/images/posts/Jellyfin10.jpg"><img src="/assets/images/posts/Jellyfin10.jpg"></a>
@@ -1181,17 +1181,17 @@ docker-compose up -d
 
 Tras haber lanzado el comando, ya tendriamos el servicio disponible, y accederiamos con un navegador web a `http://ip_servidor:9981` para configurar el servidor como detallo a continuación.
 
-**Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos click en Guardar
+**Configuration > General > Base**: Elegimos idioma Español, vista Experto y hacemos clic en Guardar
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock1.png){: .align-center}
 
-**Configuración > Usuarios > Contraseñas**: Click en Añadir, elegimos un usuario/contraseña y hacemos click en Crear
+**Configuración > Usuarios > Contraseñas**: Clic en Añadir, elegimos un usuario/contraseña y hacemos clic en Crear
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock2.png){: .align-center}
 
-**Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos click en Guardar
+**Configuración > Usuarios > Entradas de Acceso**: Editamos la configuración, sustituimos Usuario * por el que habiamos creado (empalador) y hacemos clic en Guardar
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock3.png){: .align-center}
@@ -1235,12 +1235,12 @@ http://192.168.1.90:2112/rtp/239.0.0.185:8208
 | `http://192.168.1.90:2112/rtp/239.0.0.185:8208` | Enlace IP canal |
 {: .notice--warning}
 
-**Configuración > Entradas DVB > Redes**: Hacemos click en Añadir y seleccionamos Red automática IPTV
+**Configuración > Entradas DVB > Redes**: Hacemos clic en Añadir y seleccionamos Red automática IPTV
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock4.png){: .align-center}
 
-Configuramos la red IPTV para que pueda realizar un escaneo de la misma y de esa forma agregar los Muxes. Al finalizar de configurar hacemos click en Crear
+Configuramos la red IPTV para que pueda realizar un escaneo de la misma y de esa forma agregar los Muxes. Al finalizar de configurar hacemos clic en Crear
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock5.png){: .align-center}
 
@@ -1248,17 +1248,17 @@ El proceso llevara algún tiempo, dependiendo sobre todo del número de canales 
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock6.png){: .align-center}
 
-**Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos click en Guardar
+**Configuración > Entradas DVB > Redes**: Al finalizar el muxeado de canales, editamos la Red y hacemos clic en Guardar
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock7.png){: .align-center}
 
-**Configuración > Entradas DVB > Servicios**: Hacemos click en Mapear todos los servicios
+**Configuración > Entradas DVB > Servicios**: Hacemos clic en Mapear todos los servicios
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock8.png){: .align-center}
 
-En la ventana de dialogo emergente, click en Mapear Servicios
+En la ventana de dialogo emergente, clic en Mapear Servicios
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock9.png){: .align-center}
 
@@ -1266,12 +1266,12 @@ Mostrara el proceso de convertir los Muxes en Servicios
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock10.png){: .align-center}
 
-**Configuración > Canal / EPG > Canales**: Hacemos click en Mapear todos los servicios
+**Configuración > Canal / EPG > Canales**: Hacemos clic en Mapear todos los servicios
 {: .notice--info}
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock11.png){: .align-center}
 
-En la ventana de dialogo emergente, click en Mapear Servicios
+En la ventana de dialogo emergente, clic en Mapear Servicios
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock12.png){: .align-center}
 
@@ -1352,7 +1352,7 @@ Guardamos, salimos del editor y pasamos nuevamente al navegador para seguir conf
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock13.png){: .align-center}
 
-Hacemos click en Guardar
+Hacemos clic en Guardar
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock14.png){: .align-center}
 
@@ -1361,7 +1361,7 @@ Hacemos click en Guardar
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock15.png){: .align-center}
 
-Al finalizar de configurar la tarea cron, hacemos click en Volver a ejecutar los capturadores de EPG internos (el proceso se puede demorar unos minutos)
+Al finalizar de configurar la tarea cron, hacemos clic en Volver a ejecutar los capturadores de EPG internos (el proceso se puede demorar unos minutos)
 
 ![TVHeadend Docker]({{ site.url }}{{ site.baseurl }}/assets/images/posts/tvheaddock16.png){: .align-center}
 
