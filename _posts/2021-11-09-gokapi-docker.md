@@ -169,7 +169,7 @@ docker-compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [https://gokapi.lordpedal.duckdns.org/admin](https://lordpedal.github.io/gnu/linux/docker/gokapi-docker/#gokapi){: .btn .btn--inverse .btn--small}
 
-### Configuración
+## Configuración
 
 NOTA: Importante comentar que si no añadimos la variable **/admin** al enlace seremos redigiridos a la dirección que hubiesemos definido en la variable **GOKAPI_REDIRECT_URL**.
 {: .notice--info}
