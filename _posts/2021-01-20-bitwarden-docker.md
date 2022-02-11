@@ -37,11 +37,50 @@ Las principales características son las siguientes:
 
 ## Instalación
 
-### Traefik
+### Bitwarden
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/bitwarden/datos && \
+cd $HOME/docker/bitwarden
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+```bash
+cat << EOF > $HOME/docker/bitwarden/docker-compose.yml
+version: "2"
+services:
+  bitwarden:
+    image: bitwardenrs/server
+    container_name: Bitwarden
+    volumes:
+      - '~/docker/bitwarden/datos:/data/'
+    ports:
+      - 8002:80
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `~/docker/bitwarden/datos:/data/` | Ruta donde almacenamos los datos |
+| `8002:80` | Puerto gestión web `8002` |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+### Bitwarden + Traefik
 
 [Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
-
-### Bitwarden
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
@@ -95,6 +134,8 @@ docker-compose up -d
 ```
 
 En mi caso, el servicio estaría disponible en la dirección web [https://bitwarden.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/bitwarden-docker/#bitwarden){: .btn .btn--inverse .btn--small}
+
+## Configuración
 
 ![Bitwarden]({{ site.url }}{{ site.baseurl }}/assets/images/posts/bitwardendock.png){: .align-center}
 
