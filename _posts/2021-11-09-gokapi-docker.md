@@ -37,11 +37,67 @@ Las principales características son las siguientes:
 
 ## Instalación
 
-### Traefik
+### Gokapi
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/gokapi/{config,datos} && \
+cd $HOME/docker/gokapi
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+```bash
+cat << EOF > $HOME/docker/gokapi/docker-compose.yml
+version: '3'
+services:
+  gokapi:
+    image: f0rc3/gokapi:latest
+    container_name: Gokapi
+    ports:
+      - 53842:53842
+    volumes:
+      - '~/docker/gokapi/config:/app/config'
+      - '~/docker/gokapi/datos:/app/data'
+    environment:
+      - GOKAPI_USERNAME=Empalador
+      - GOKAPI_PASSWORD=nocturno
+      - GOKAPI_PORT=53842
+      - GOKAPI_EXTERNAL_URL=https://gokapi.lordpedal.duckdns.org
+      - GOKAPI_REDIRECT_URL=https://lordpedal.github.io
+      - GOKAPI_LOCALHOST=no
+      - GOKAPI_USE_SSL=no
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `53842:53842` | Puerto gestión web `53842` |
+| `~/docker/gokapi/config:/app/config` | Ruta donde almacenamos la configuración |
+| `~/docker/gokapi/datos:/app/data` | Ruta donde almacenamos los datos |
+| `GOKAPI_USERNAME=Empalador` | Usuario que definimos de acceso **Admin** |
+| `GOKAPI_PASSWORD=nocturno` | Contraseña de usuario que definimos de acceso **Admin** |
+| `GOKAPI_PORT=53842` | Puerto de escucha |
+| `GOKAPI_EXTERNAL_URL=https://gokapi.lordpedal.duckdns.org` | La URL que se utilizará para generar enlaces de descarga |
+| `GOKAPI_REDIRECT_URL=https://lordpedal.github.io` | De forma predeterminada, Gokapi redirige a otra URL en lugar de mostrar una página genérica si no se ha pasado ningún enlace de descarga |
+| `GOKAPI_LOCALHOST=no` | Podriamos limitar el uso a la red interna |
+| `GOKAPI_USE_SSL=no` | Generar certificados SSL |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+### Gokapi + Traefik
 
 [Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
-
-### Gokapi
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
@@ -112,6 +168,8 @@ docker-compose up -d
 ```
 
 En mi caso, el servicio estaría disponible en la dirección web [https://gokapi.lordpedal.duckdns.org/admin](https://lordpedal.github.io/gnu/linux/docker/gokapi-docker/#gokapi){: .btn .btn--inverse .btn--small}
+
+### Configuración
 
 NOTA: Importante comentar que si no añadimos la variable **/admin** al enlace seremos redigiridos a la dirección que hubiesemos definido en la variable **GOKAPI_REDIRECT_URL**.
 {: .notice--info}
