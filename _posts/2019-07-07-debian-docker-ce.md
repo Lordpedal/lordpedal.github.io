@@ -1,7 +1,7 @@
 ---
 title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00
-last_modified_at: 2021-08-15T17:00:00
+last_modified_at: 2022-02-06T17:00:00
 header:
   image: /assets/images/posts/dockertt.gif
 categories:
