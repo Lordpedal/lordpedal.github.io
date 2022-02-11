@@ -37,11 +37,57 @@ Las principales características son las siguientes:
 
 ## Instalación
 
-### Traefik
+### Grocy
+
+Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
+
+```bash
+mkdir -p $HOME/docker/grocy/config && \
+cd $HOME/docker/grocy
+```
+
+Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+```bash
+cat << EOF > $HOME/docker/grocy/docker-compose.yml
+version: "2.1"
+services:
+  grocy:
+    image: ghcr.io/linuxserver/grocy
+    container_name: Grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ~/docker/grocy/config:/config
+    ports:
+      - 9283:80
+    restart: always
+EOF
+```
+
+Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
+
+| Parámetro | Función |
+| ------ | ------ |
+| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
+| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
+| `~/docker/grocy/config:/config` | Ruta donde almacenamos los datos |
+| `9283:80` | Puerto gestión web `9283` |
+| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+{: .notice--warning}
+
+Una vez configurado, lo levantamos para ser creado y ejecutado:
+
+```bash
+docker-compose up -d
+```
+
+### Grocy + Traefik
 
 [Requisito obligatorio tener instalado **Docker: Traefik Maroilles**](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-traefik-maroilles){: .btn .btn--warning}{:target="_blank"}
-
-### Grocy
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
@@ -103,10 +149,10 @@ docker-compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [https://despensa.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/grocy-docker/#grocy){: .btn .btn--inverse .btn--small}
 
+#### Configuración + dispositivo móvil
+
 `Usuario / Contraseña`: **admin**
 {: .notice--info}
-
-#### Dispositivo móvil
 
 ![Grocy]({{ site.url }}{{ site.baseurl }}/assets/images/posts/grocydock.jpg){: .align-center}
 
