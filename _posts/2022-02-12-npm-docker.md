@@ -24,6 +24,8 @@ toc_icon: "cog"
 
 Integra una sencilla gestión sobre los certificados **SSL**, usando por ejemplo **Let's Encrypt** como autoridad certificadora para acceso *https* y con renovación de forma automatizada de los mismos.
 
+Es una alternativa a [Traefik](https://lordpedal.github.io/docker/traefikv1-docker/){: .btn .btn--info .btn--small}{:target="_blank"} y como ambos usan los mismos puertos de comunicación externos no son compatibles en el mismo sistema.
+
 ## Instalación
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
@@ -98,20 +100,55 @@ En mi caso, el servicio estaría disponible en la dirección web [http://192.168
 NOTA: El usuario por defecto para el primer acceso es **admin@example.com** y la contraseña **changeme** 
 {: .notice--info}
 
-<figure>
-    <a href="/assets/images/posts/npm01.jpg"><img src="/assets/images/posts/npm01.jpg"></a>
-</figure>
-
 ### General
 
 **En desarrollo**
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/npm01.mp4" type="video/mp4" />
+   </video>
+</div>
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/npm02.mp4" type="video/mp4" />
+   </video>
+</div>
 
 ### Certificados
 
 **En desarrollo**
 
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/npm03.mp4" type="video/mp4" />
+   </video>
+</div>
+
+<figure>
+    <a href="/assets/images/posts/npm03.png"><img src="/assets/images/posts/npm03.png"></a>
+</figure>
+
 ### Servicios
 
 **En desarrollo**
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/npm04.mp4" type="video/mp4" />
+   </video>
+</div>
+
+<figure class="half">
+    <a href="/assets/images/posts/npm04.png"><img src="/assets/images/posts/npm04.png"></a>
+    <a href="/assets/images/posts/npm05.png"><img src="/assets/images/posts/npm05.png"></a>
+</figure>
+
+<div class="lordvideo">
+   <video  style="display:block; width:100%; height:auto;" controls loop="loop">
+       <source src="{{ site.baseurl }}/assets/videos/npm05.mp4" type="video/mp4" />
+   </video>
+</div>
 
 > Y listo!
