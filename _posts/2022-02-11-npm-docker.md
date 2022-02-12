@@ -26,6 +26,8 @@ Integra una sencilla gestión sobre los certificados **SSL**, usando por ejemplo
 
 Es una alternativa a [Traefik](https://lordpedal.github.io/docker/traefikv1-docker/){: .btn .btn--info .btn--small}{:target="_blank"} y como ambos usan los mismos puertos de comunicación externos no son compatibles en el mismo sistema.
 
+Como proxy inverso **no tendremos que abrir los puertos específicos de nuestros contenedores Docker en la NAT de nuestro Router**, sino que seran accesibles a traves de los **puertos 80 (HTTP) y 443 (HTTPS)** que si deberemos de abrirlos antes de continuar (específicamente TCP, no UDP)
+
 ## Instalación
 
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
@@ -102,13 +104,15 @@ NOTA: El usuario por defecto para el primer acceso es **admin@example.com** y la
 
 ### General
 
-**En desarrollo**
+Durante el primer inicio de sesión se nos solicitara la configuración del usuario:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/npm01.mp4" type="video/mp4" />
    </video>
 </div>
+
+Otro aspecto interesante a configurar es la redirección a otro dominio en caso de introducir un dominio inexistente:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -118,7 +122,13 @@ NOTA: El usuario por defecto para el primer acceso es **admin@example.com** y la
 
 ### Certificados
 
-**En desarrollo**
+Vamos a generar un certicado comodín para todos nuestros microservicios y de esa forma no tener que generar certificados indivuales.
+
+Para ello introducimos nuestra DNS como muestro en el video adjunto. 
+
+Seleccionamos la casilla **DNS Challenge** y del listado clicamos en **DuckDNS** como proveedor.
+
+En las opciones de configuración debemos de proveer el **Token** del servicio *DuckDNS*:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -126,13 +136,15 @@ NOTA: El usuario por defecto para el primer acceso es **admin@example.com** y la
    </video>
 </div>
 
+Tras finalizar, tendremos configurado el certificado comodín de forma satisfactoria y con renovación automática.
+
 <figure>
     <a href="/assets/images/posts/npm03.png"><img src="/assets/images/posts/npm03.png"></a>
 </figure>
 
-### Servicios
+### Microservicios
 
-**En desarrollo**
+Llega el turno de agregar nuestro microservicios para externalizarlos:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
@@ -140,15 +152,39 @@ NOTA: El usuario por defecto para el primer acceso es **admin@example.com** y la
    </video>
 </div>
 
+Como ejemplo, planteo dos microservicios y las diferencias a la hora de configurarlos en la pestaña **detalles**:
+
 <figure class="half">
     <a href="/assets/images/posts/npm04.png"><img src="/assets/images/posts/npm04.png"></a>
     <a href="/assets/images/posts/npm05.png"><img src="/assets/images/posts/npm05.png"></a>
 </figure>
+
+| Parámetro | Función |
+| ------ | ------ |
+| `Domain Names` | Nombre que elegimos para el **microservicio + DNS** |
+| `Scheme` | Elegimos si la configuración la realiza de forma interna por **HTTP o HTTPS** |
+| `Forward Hostname / IP` | Definimos la **IP de nuestra red** donde se aloja el servicio |
+| `Forward Port` | Puerto de comunicación del **microservicio** |
+| `Cache Assets` | Habilitamos el uso de cache |
+| `Block Common Exploits` | Habilitamos bloqueos contra ataques genéricos |
+| `Websockets Support` | Habilitamos la interacción Web con el microservicio, **no siempre requerido** |
+{: .notice--warning}
+
+A continuación configuramos el certificado **SSL** antes de hacer clic en *Save* y aplicamos reglas de seguridad:
 
 <div class="lordvideo">
    <video  style="display:block; width:100%; height:auto;" controls loop="loop">
        <source src="{{ site.baseurl }}/assets/videos/npm05.mp4" type="video/mp4" />
    </video>
 </div>
+
+| Parámetro | Función |
+| ------ | ------ |
+| `SSL Certificate` | Seleccionamos el **certificado comodín** que anteriormente configuramos |
+| `Force SSL` | **Forzamos** que toda la comunicación externa sea a traves del **certificado SSL** |
+| `HTTP/2 Support` | Habilitamos compatibilidad con protocolo **HTTP 2.0** |
+| `HSTS Enable` | **Forzamos** la comunicación a traves de **HTTPS en dominio principal** |
+| `HSTS Subdomains` | **Forzamos** la comunicación a traves de **HTTPS en subdominios** |
+{: .notice--warning}
 
 > Y listo!
