@@ -2,8 +2,8 @@
 title:  "Nginx Proxy Manager: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
-date:   2022-02-11 21:30:00
-last_modified_at: 2022-02-11T21:45:00
+date:   2022-02-12 21:30:00
+last_modified_at: 2022-02-12T21:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -112,6 +112,7 @@ Durante el primer inicio de sesión se nos solicitara la configuración del usua
    </video>
 </div>
 
+
 Otro aspecto interesante a configurar es la redirección a otro dominio en caso de introducir un dominio inexistente:
 
 <div class="lordvideo">
@@ -136,6 +137,7 @@ En las opciones de configuración debemos de proveer el **Token** del servicio *
    </video>
 </div>
 
+
 Tras finalizar, tendremos configurado el certificado comodín de forma satisfactoria y con renovación automática.
 
 <figure>
@@ -151,6 +153,7 @@ Llega el turno de agregar nuestro microservicios para externalizarlos:
        <source src="{{ site.baseurl }}/assets/videos/npm04.mp4" type="video/mp4" />
    </video>
 </div>
+
 
 Como ejemplo, planteo dos microservicios y las diferencias a la hora de configurarlos en la pestaña **detalles**:
 
