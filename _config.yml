@@ -108,7 +108,6 @@ footer:
 #      icon: "fab fa-fw fa-twitter-square"
 #      url: "https://twitter.com/"
     - label: "Lordpedal RSS"
-#      icon: "fas fa-fw fa-cubes"
       icon: "fas fa-fw fa-share-alt-square"
       url: "https://lordpedal.github.io/lordpedal"
 #    - label: "Canal Telegram"
