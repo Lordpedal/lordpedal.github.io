@@ -264,6 +264,7 @@ cat << EOF > $HOME/docker/matrix/riot/config.json
     "preferredDomain": "jitsi.riot.im"
   }
 }
+EOF
 ```
 
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:
