@@ -192,7 +192,7 @@ redis:
 
 Guardamos el fichero con la combinación **CTRL + O** y salimos del editor **CTRL + X**
 
-### Configurando Cliente
+### Configuración Cliente
 
 Toca el turno de configurar el cliente web que añadiremos a nuestro servidor, lanzando el siguiente comando:
 
@@ -275,7 +275,7 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | `server_name: https://minipc.lordpedal.duckdns.org` | Servidor Matrix **IMPORTANTE CAMBIAR** |
 {: .notice--warning}
 
-### Configurando docker-compose
+### Configuración docker-compose
 
 Ahora llega el turno de crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
