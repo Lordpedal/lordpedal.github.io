@@ -46,6 +46,9 @@ Importante aclarar que antes de continuar, que debemos de elegir un nombre domin
 
 Comenzamos creando los ficheros de configuración del servicio, para ello usaremos la siguiente plantilla:
 
+NOTA: Si quieres montar el servicio en una arquitectura **ARM** sustituye la variable **matrixdotorg/synapse:latest** por **black0/synapse:latest**
+{: .notice--info}
+
 ```bash
 docker run -it --rm \
         -v $HOME/docker/matrix/config:/data \
@@ -278,6 +281,9 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 ### Configuración docker-compose
 
 Ahora llega el turno de crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
+
+NOTA: Si quieres montar el servicio en una arquitectura **ARM** sustituye la variable **matrixdotorg/synapse:latest** por **black0/synapse:latest**
+{: .notice--info}
 
 ```bash
 cat << EOF > $HOME/docker/matrix/docker-compose.yml
