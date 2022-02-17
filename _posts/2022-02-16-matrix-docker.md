@@ -391,7 +391,7 @@ Debemos de comprobar que el sistema esta debidamente configurado y con acceso a 
    </video>
 </div>
 
-### Desactivar registro cuentas
+#### Desactivar registro cuentas
 
 Una vez creadas las cuentas de usuario que necesitemos, recomiendo volver a desactivar la opción de registro de cuentas.
 
