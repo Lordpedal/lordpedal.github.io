@@ -161,6 +161,7 @@ Descomentamos la opción y cambiamos la orden:
 
 ```bash
 enable_registration: true
+enable_registration_without_verification: true
 ```
 
 Activamos la opción de cuentas de invitado para consultar canales públicos:
@@ -418,6 +419,7 @@ Y la desactivamos:
 
 ```bash
 enable_registration: false
+#enable_registration_without_verification: true
 ```
 
 Guardamos el fichero con la combinación **CTRL + O**, salimos del editor **CTRL + X** y reiniciamos el servicio con las nuevas variables:
