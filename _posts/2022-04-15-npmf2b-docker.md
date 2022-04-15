@@ -3,7 +3,7 @@ title:  "NPM Fail2Ban Addon: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-04-15 16:30:00
-last_modified_at: 2022-04-15T16:45:00
+last_modified_at: 2022-04-15T18:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -32,7 +32,7 @@ Lo que vamos a realizar es la integración de [**Fail2ban**](https://lordpedal.g
 
 ### NPM
 
-[Requisito obligatorio tener instalado **Docker: NPM**](https://lordpedal.github.io/docker/npm-docker/){: .btn .btn--warning}{:target="_blank"}
+[Requisito obligatorio tener instalado **Docker: NPM**](https://lordpedal.github.io/gnu/linux/docker/npm-docker/){: .btn .btn--warning}{:target="_blank"}
 
 ### Fail2ban Addon
 
