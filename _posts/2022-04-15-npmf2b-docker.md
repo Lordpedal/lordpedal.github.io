@@ -288,4 +288,8 @@ Una vez configurado, levantamos nuevamente el servicio para ser reconfigurado y 
 docker-compose up -d
 ```
 
+<figure>
+    <a href="/assets/images/posts/npmf2b.jpg"><img src="/assets/images/posts/npmf2b.jpg"></a>
+</figure>
+
 > Y listo!
