@@ -65,7 +65,7 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 
 | Parámetro | Función |
 | ------ | ------ |
-| `8992:8080` | Puerto de comunicación público **SERVIDOR** |
+| `8992:8080` | Puerto de acceso **interfaz Web** `:8992` |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
