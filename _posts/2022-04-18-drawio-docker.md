@@ -77,7 +77,12 @@ docker-compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [http://192.168.1.90:8992](http://localhost:8992){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-### Nginx Proxy Manager
+### Guías
+
+En la web oficial se incluyen unas [guías de aprendizaje](https://drawio-app.com/tutorials/){: .btn .btn--info .btn--small}{:target="_blank"} bastante sencillas que recomiendo revisar.
+
+
+## Nginx Proxy Manager
 
 Configuramos dominios y certificados:
 
@@ -90,9 +95,5 @@ Configuramos dominios y certificados:
        <source src="{{ site.baseurl }}/assets/videos/npm05.mp4" type="video/mp4" />
    </video>
 </div>
-
-#### Guías
-
-En la web oficial se incluyen unas [guías de aprendizaje](https://drawio-app.com/tutorials/){: .btn .btn--info .btn--small}{:target="_blank"} bastante sencillas que recomiendo revisar.
 
 > Y listo!
