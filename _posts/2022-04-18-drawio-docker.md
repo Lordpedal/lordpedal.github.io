@@ -24,10 +24,10 @@ toc_icon: "cog"
 
 Es una herramienta que en principio puede estar pensada para uso profesional, pero realmente se puede usar si se tiene un nivel de destrezas mínimas. Simple, sencilla e intuitiva. Sus principales ventajas son:
 
-	* **Integración**: se puede utilizar en versión online o de escritorio. En versiones online se puede vincular a diferentes cuentas y guardar los trabajos en sistemas de almacenamiento en la nube.
-	* **Plantillas y librerías**: tanto para profes como para alumnos los inicios a veces son duros, por lo que la herramienta dispone de una serie de plantillas organizadas por tipos que hacen el trabajo más sencillo y más rápido.
-	* **Sencillez de uso**: la interfaz de Draw.io es sencilla, cuenta con las herramientas básicas para poder desarrollar la experiencia, lo que facilita la utilización.
-	* **Compartir y cooperar**: Creando archivos que pueden ser editados por varias personas al mismo tiempo y que permite publicar o compartir cualquier archivo a través de un link.
+ - **Integración**: se puede utilizar en versión online o de escritorio. En versiones online se puede vincular a diferentes cuentas y guardar los trabajos en sistemas de almacenamiento en la nube.
+ - **Plantillas y librerías**: tanto para profes como para alumnos los inicios a veces son duros, por lo que la herramienta dispone de una serie de plantillas organizadas por tipos que hacen el trabajo más sencillo y más rápido.
+ - **Sencillez de uso**: la interfaz de Draw.io es sencilla, cuenta con las herramientas básicas para poder desarrollar la experiencia, lo que facilita la utilización.
+ - **Compartir y cooperar**: Creando archivos que pueden ser editados por varias personas al mismo tiempo y que permite publicar o compartir cualquier archivo a través de un link.
 
 En esta entrada vamos a centrarnos en crear un servidor propio de diseño como siempre de forma sencilla.
 
