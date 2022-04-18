@@ -20,7 +20,7 @@ toc_icon: "cog"
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-[draw.io](https://drawio-app.com/){: .btn .btn--warning .btn--small}{:target="_blank"} s una herramienta de creación y edición de diagramas libre que permite la integración con diversas plataformas.
+[draw.io](https://drawio-app.com/){: .btn .btn--warning .btn--small}{:target="_blank"} es una herramienta de creación y edición de diagramas libre que permite la integración con diversas plataformas.
 
 Es una herramienta que en principio puede estar pensada para uso profesional, pero realmente se puede usar si se tiene un nivel de destrezas mínimas. Simple, sencilla e intuitiva. Sus principales ventajas son:
 
