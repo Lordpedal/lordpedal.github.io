@@ -2,8 +2,8 @@
 title:  "VanDAM 3D: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
-date:   2022-04-18 11:00:00
-last_modified_at: 2022-04-18T11:05:00
+date:   2022-04-19 11:00:00
+last_modified_at: 2022-04-19T11:05:00
 categories:
   - GNU/Linux
   - Docker
