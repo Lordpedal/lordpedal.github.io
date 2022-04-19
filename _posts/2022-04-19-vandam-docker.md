@@ -34,7 +34,7 @@ Es proyecto aún en fase de desarrollo y tiene cierto margen de mejora en la ges
 Vamos a realizar unos pasos previos para preparar el entorno, para ello en primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/vandam && \
+mkdir -p $HOME/docker/npm/vandam/{stl,bdatos} && \
 cd $HOME/docker/vandam
 ```
 
