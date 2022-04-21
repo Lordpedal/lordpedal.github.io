@@ -2,7 +2,7 @@
 title:  "NPM GoAccess Addon: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
-date: 2022-04-21 09:00:00
+date: 2022-04-21 08:45:00
 last_modified_at: 2022-04-21T21:15:00
 categories:
   - GNU/Linux
