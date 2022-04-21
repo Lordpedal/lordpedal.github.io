@@ -2,7 +2,7 @@
 title:  "Matrix: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
-date:   2022-02-16 20:00:00
+date: 2022-02-16 20:00:00
 last_modified_at: 2022-02-16T20:30:00
 categories:
   - GNU/Linux
