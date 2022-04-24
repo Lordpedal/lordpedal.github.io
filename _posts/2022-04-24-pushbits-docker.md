@@ -28,6 +28,14 @@ Lo que vamos a realizar es la integración de [**Pushbits**](https://github.com/
 
 El proyecto aún continúa en desarrollo pero tiene un enorme potencial, desarrollado en lenguaje `Go`.
 
+Es ideal para incluir notificaciones en nuestros scripts y desarrollar posibles bots. Como idea dejo las integraciones que he integrado para no usar redes de terceros:
+
+ - Notificaciones del `sistema`
+ - Notificaciones `Fail2ban`
+ - Descargas `.torrent`
+ - Eventos `Home Assistant`
+ - `...` 
+
 ## Instalación
 
 ### Requisitos previos
@@ -260,6 +268,8 @@ NOTA: Anotamos el `token` para uso posterior en nuestros scripts.
 {: .notice--info}
 
 Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario que definimos en el `@lordpedal:minipc.lordpedal.duckdns.org` para ser notificados, recibira una invitación a la sala **Matrix** recien creada.
+
+## Prueba Pushbits
 
 Vamos a enviar un comando de prueba para comprobar que todo esta debidamente configurado:
 
