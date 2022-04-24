@@ -246,7 +246,7 @@ Vamos a repasar el comando para poder adaptarlo a nuestro sistema sin problemas:
 
 | Parámetro | Función |
 | ------ | ------ |
-| `.cli application create Matrix` | Creamos la **Sala** `Matrix` |
+| `./cli application create Matrix` | Creamos la **Sala** `Matrix` |
 | `--url https://pushbits.lordpedal.duckdns.org` | Dirección del servicio `Pushbits` creado en **NPM** |
 | `--username Empalador` | Usuario admin de Pushbits que definimos en `docker-compose.yml` |
 {: .notice--warning}
@@ -267,7 +267,7 @@ Current password of user Empalador: Nocturno
 NOTA: Anotamos el `token` para uso posterior en nuestros scripts.
 {: .notice--info}
 
-Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario que definimos en el `@lordpedal:minipc.lordpedal.duckdns.org` para ser notificados, recibira una invitación a la sala **Matrix** recien creada.
+Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario **`@lordpedal:minipc.lordpedal.duckdns.org`** que definimos en `docker-compose.yml` para ser notificados, recibira una invitación a la sala **Matrix** recien creada.
 
 ## Notificación
 
