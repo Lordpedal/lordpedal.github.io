@@ -41,7 +41,7 @@ Es ideal para incluir notificaciones en nuestros scripts y desarrollar posibles 
 ### Requisitos previos
 
  - [**Docker: Matrix**](https://lordpedal.github.io/gnu/linux/docker/matrix-docker/){: .btn .btn--info}{:target="_blank"}
- - [**Docker: NPM**](https://lordpedal.github.io/gnu/linux/docker/npm-docker/){: .btn .btn--warning}{:target="_blank"}
+ - [**Docker: NPM**](https://lordpedal.github.io/gnu/linux/docker/npm-docker/){: .btn .btn--info}{:target="_blank"}
 
 NOTA: Adicionalmente vamos a crear un usuario en nuestra red **Matrix** que usaremos de mediador informativo, en nuestro caso **Morfeo**.
 {: .notice--info}
