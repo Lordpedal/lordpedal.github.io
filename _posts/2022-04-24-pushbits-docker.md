@@ -207,7 +207,7 @@ Para poder usar el servicio de notificaciones necesitamos de dos requisitos en M
  - Una `SALA` de comunicación
  - Un `TOKEN` de dicha sala para poder interactuar con el servicio
 
-Para obtener ambos parámetros usaremos una aplicación de terminal adicional. En el momento de escribir esta entrada la release es [**v0.0.2**](https://github.com/pushbits/cli){:target="_blank"} que es la que usaremos.
+Para obtener ambos parámetros usaremos una aplicación de terminal adicional. En el momento de escribir esta entrada la release [**v0.0.2**](https://github.com/pushbits/cli){:target="_blank"} que es la que usaremos.
 
 Nos volvemos a dirigr a la ruta donde alojamos la configuración del proyecto:
 
