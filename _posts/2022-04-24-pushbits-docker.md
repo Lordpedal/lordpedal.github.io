@@ -215,7 +215,7 @@ Para poder usar el servicio de notificaciones necesitamos de dos requisitos en M
  - Una `SALA` de comunicación
  - Un `TOKEN` de dicha sala para poder interactuar con el servicio
 
-Para obtener ambos parámetros usaremos una aplicación de terminal adicional. En el momento de escribir esta entrada la release [**v0.0.2**](https://github.com/pushbits/cli){:target="_blank"} que es la que usaremos.
+Para obtener ambos parámetros usaremos una aplicación de terminal adicional. En el momento de escribir esta entrada la release [**v0.0.3**](https://github.com/pushbits/cli){:target="_blank"} que es la que usaremos.
 
 Nos volvemos a dirigr a la ruta donde alojamos la configuración del proyecto:
 
@@ -226,8 +226,8 @@ cd $HOME/docker/matrix/datos
 Descargamos y descomprimimos el paquete compilado elegido, en nuestro caso usaremos arquitectura PC 64bits:
 
 ```bash
-wget https://github.com/pushbits/cli/releases/download/v0.0.2/cli_0.0.2_linux_amd64.tar.gz && \
-tar -xf 'cli_0.0.2_linux_amd64.tar.gz'
+wget https://github.com/pushbits/cli/releases/download/v0.0.3/cli_0.0.3_linux_amd64.tar.gz && \
+tar -xf 'cli_0.0.3_linux_amd64.tar.gz'
 ```
 
 Damos permisos de ejecución al fichero de configuración:
