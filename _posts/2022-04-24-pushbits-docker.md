@@ -30,7 +30,7 @@ El proyecto aún continúa en desarrollo pero tiene un enorme potencial, desarro
 
 Es ideal para incluir notificaciones en nuestros scripts y desarrollar posibles bots. 
 
-Hace un tiempo estuve usando un [script bash](https://github.com/fabianonline/matrix.sh){:target="_blank"} a modo *`bot`* para integrar las notificaciones del sistema, pero no me convencía su integración para servicios de **`Docker`** como tiene **Pushbits**.
+Hace un tiempo estuve usando un [script bash](https://github.com/fabianonline/matrix.sh){:target="_blank"} a modo *`bot`* para integrar las notificaciones del sistema, pero no me convencía la flexibilidad de integración para servicios de **`Docker`** que tiene **Pushbits**.
 
 Como idea dejo las integraciones configuradas para la red **`Matrix`** en sustitución de *`Telegram`*:
 
