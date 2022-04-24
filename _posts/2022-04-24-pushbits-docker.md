@@ -269,7 +269,7 @@ NOTA: Anotamos el `token` para uso posterior en nuestros scripts.
 
 Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario que definimos en el `@lordpedal:minipc.lordpedal.duckdns.org` para ser notificados, recibira una invitación a la sala **Matrix** recien creada.
 
-## Prueba Pushbits
+## Notificación
 
 Vamos a enviar un comando de prueba para comprobar que todo esta debidamente configurado:
 
