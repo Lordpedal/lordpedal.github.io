@@ -28,7 +28,9 @@ Lo que vamos a realizar es la integración de [**Pushbits**](https://github.com/
 
 El proyecto aún continúa en desarrollo pero tiene un enorme potencial, desarrollado en lenguaje `Go`.
 
-Es ideal para incluir notificaciones en nuestros scripts y desarrollar posibles bots. Como idea dejo las integraciones que he integrado para no usar redes de terceros:
+Es ideal para incluir notificaciones en nuestros scripts y desarrollar posibles bots. 
+
+Como idea dejo las integraciones configuradas para la red **`Matrix`** en sustitución de *`Telegram`*:
 
  - Notificaciones del `sistema`
  - Notificaciones `Fail2ban`
