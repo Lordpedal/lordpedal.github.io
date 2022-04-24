@@ -22,7 +22,7 @@ toc_icon: "cog"
 {: .full}
 [Matrix](https://lordpedal.github.io/gnu/linux/docker/matrix-docker/){: .btn .btn--warning .btn--small}{:target="_blank"} vimos que es una red abierta para una comunicación segura y descentralizada.
 
-Lo que vamos a realizar es la integración de [**Pushbits**](https://github.com/pushbits){:target="_blank"} mediante un docker sobre Matri.
+Lo que vamos a realizar es la integración de [**Pushbits**](https://github.com/pushbits){:target="_blank"} mediante un docker sobre Matrix.
 
 **Pushbits** es un servidor de retransmisión para notificaciones push. Nos va a permitir enviar notificaciones a través de una **API web** simple y las entrega a través de la red **Matrix**.
 
