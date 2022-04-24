@@ -130,7 +130,7 @@ EOF
 Y creamos el fichero de base de datos con permisos de nuestro usuario de sistema:
 
 ```bash
-touch pushbits.db
+touch $HOME/docker/matrix/datos/pushbits.db
 ```
 
 Volvemos al directorio raíz de nuestro docker y hacemos un backup del fichero de configuración:
