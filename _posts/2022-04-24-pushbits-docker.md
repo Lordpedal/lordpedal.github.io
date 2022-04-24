@@ -190,10 +190,7 @@ Una vez configurado, levantamos nuevamente el servicio para ser reconfigurado y 
 docker-compose up -d
 ```
 
-En mi caso, el servicio estaría disponible en la siguiente dirección [http://192.168.1.90:8080](http://localhost:8080){: .btn .btn--inverse .btn--small}{:target="_blank"}
-
-NOTA: Al consultar el servicio lo único que obtienes es el código de error **404 page not found**, tranquilo en esta fase de desarrollo aún no dispone de interfaz de estado web.
-{: .notice--info}
+En mi caso, el servicio estaría disponible en la siguiente dirección [http://192.168.1.90:8080/health](http://localhost:8080/health){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
 ### Nginx Proxy Manager
 
