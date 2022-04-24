@@ -259,7 +259,7 @@ Current password of user Empalador: Nocturno
 NOTA: Anotamos el `token` para uso posterior en nuestros scripts.
 {: .notice--info}
 
-Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario que definimos en el `docker-compose.yml: @lordpedal:minipc.lordpedal.duckdns.org` para ser notificados nos llegara una invitación a la sala **Matrix** recien creada.
+Tras ejecutarlo en nuestra aplicación de mensajeria Matrix veremos como el usuario que definimos en el `@lordpedal:minipc.lordpedal.duckdns.org` para ser notificados, recibira una invitación a la sala **Matrix** recien creada.
 
 Vamos a enviar un comando de prueba para comprobar que todo esta debidamente configurado:
 
