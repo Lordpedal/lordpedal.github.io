@@ -64,7 +64,7 @@ A continuación nos dirigimos a la ruta donde alojamos la configuración adicion
 cd $HOME/docker/matrix/datos
 ```
 
-Creamos el fichero de configuración genérico del servicio:
+Creamos el fichero de configuración genérico del servicio *`(Actualizado 25/04/2022)`*:
 
 ```bash
 cat << EOF > $HOME/docker/matrix/datos/config.yml
@@ -124,6 +124,12 @@ crypto:
 formatting:
     # Whether to use colored titles based on the message priority (<0: grey, 0-3: default, 4-10: yellow, 10-20: orange, >20: red).
     coloredtitle: false
+
+alertmanager:
+    # The name of the entry in the alerts annotations or lables that should be used for the title
+    annotationtitle: title
+    # The name of the entry in the alerts annotations or labels that should be used for the message
+    annotationmessage: message
 EOF
 ```
 
