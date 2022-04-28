@@ -3,7 +3,7 @@ title:  "NPM Fail2Ban Addon: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-04-15 16:30:00
-last_modified_at: 2022-04-15T18:00:00
+last_modified_at: 2022-04-28T21:00:00
 categories:
   - GNU/Linux
   - Docker

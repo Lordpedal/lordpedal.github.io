@@ -3,7 +3,7 @@ title:  "Nginx Proxy Manager: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-02-12 21:00:00
-last_modified_at: 2022-02-12T21:30:00
+last_modified_at: 2022-04-28T21:00:00
 categories:
   - GNU/Linux
   - Docker
