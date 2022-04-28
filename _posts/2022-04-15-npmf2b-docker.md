@@ -59,7 +59,12 @@ mkdir -p $HOME/docker/npm/fail2ban/{action.d,db,filter.d,jail.d}
 Creamos el fichero acción de configuración:
 
 ```bash
-cat << EOF > $HOME/docker/npm/fail2ban/action.d/telegram.conf
+nano $HOME/docker/npm/fail2ban/action.d/telegram.conf
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 # Fail2Ban configuration file
 #
 # Author: Lordpedal
@@ -105,13 +110,17 @@ actionunban = /data/action.d/fail2ban-telegram.sh unban <ip>
 
 name = npm-docker
 init = 21121981
-EOF
 ```
 
 Creamos el script de notificación:
 
 ```bash
-cat << EOF > $HOME/docker/npm/fail2ban/action.d/fail2ban-telegram.sh
+nano  $HOME/docker/npm/fail2ban/action.d/fail2ban-telegram.sh
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 #!/bin/bash
 #
 # https://lordpedal.github.io
@@ -186,7 +195,6 @@ then
 else
   show_uso
 fi
-EOF
 ```
 
 Recuerda que debes de cambiar los parametros del ID Telegram + Token BOT
@@ -203,7 +211,12 @@ chmod +x $HOME/docker/npm/fail2ban/action.d/fail2ban-telegram.sh
 Definimos el filtro de consulta en los logs para que se ejecute la protección:
 
 ```bash
-cat << EOF > $HOME/docker/npm/fail2ban/filter.d/npm-docker.conf
+nano $HOME/docker/npm/fail2ban/filter.d/npm-docker.conf
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 [INCLUDES]
 
 [Definition]
@@ -212,7 +225,6 @@ failregex = ^<HOST>.+" (4\d\d|3\d\d) (\d\d\d|\d) .+$
             ^.+ 4\d\d \d\d\d - .+ \[Client <HOST>\] \[Length .+\] ".+" .+$
 
 ignoreregex =
-EOF
 ```
 
 #### Reglas Fail2ban
@@ -222,7 +234,12 @@ Para que Fail2ban nos proteja tenemos que definir unas variables de sistema, en 
 Para ello creamos la siguiente regla:
 
 ```bash
-cat << EOF > $HOME/docker/npm/fail2ban/jail.d/npm-docker.local
+nano $HOME/docker/npm/fail2ban/jail.d/npm-docker.local
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 [npm-docker]
 enabled = true
 ignoreip = 127.0.0.1/8 192.168.1.0/24
@@ -235,7 +252,6 @@ logpath = /log/npm/default-host_access.log
 maxretry = 3
 bantime  = 3600
 findtime = 86400
-EOF
 ```
 
 Recuerda que en caso de usar una red en otro rango diferente a 192.168.1.0/24 cambiarla. Como por ejemplo 192.168.0.0/24

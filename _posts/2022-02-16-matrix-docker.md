@@ -201,7 +201,12 @@ Guardamos el fichero con la combinación **CTRL + O** y salimos del editor **CTR
 Toca el turno de configurar el cliente web que añadiremos a nuestro servidor, lanzando el siguiente comando:
 
 ```bash
-cat << EOF > $HOME/docker/matrix/riot/config.json
+nano $HOME/docker/matrix/riot/config.json
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 {
   "default_server_config": {
     "m.homeserver": {
@@ -268,7 +273,6 @@ cat << EOF > $HOME/docker/matrix/riot/config.json
     "preferredDomain": "jitsi.riot.im"
   }
 }
-EOF
 ```
 
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:

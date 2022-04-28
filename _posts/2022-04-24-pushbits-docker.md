@@ -67,7 +67,12 @@ cd $HOME/docker/matrix/datos
 Creamos el fichero de configuración genérico del servicio *`(Actualizado 25/04/2022)`*:
 
 ```bash
-cat << EOF > $HOME/docker/matrix/datos/config.yml
+nano  $HOME/docker/matrix/datos/config.yml
+```
+
+Y le añadimos el siguiente contenido:
+
+```bash
 debug: false
 
 http:
@@ -130,7 +135,6 @@ alertmanager:
     annotationtitle: title
     # The name of the entry in the alerts annotations or labels that should be used for the message
     annotationmessage: message
-EOF
 ```
 
 Y creamos el fichero de base de datos con permisos de nuestro usuario de sistema:
