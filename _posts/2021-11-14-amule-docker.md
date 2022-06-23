@@ -3,7 +3,7 @@ title:  "aMule: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-11-14 21:30:00
-last_modified_at: 2022-06-22
+last_modified_at: 2022-06-23T14:30:00
 categories:
   - GNU/Linux
   - Docker
