@@ -3,7 +3,7 @@ title:  "Nginx Proxy Manager: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-02-12 21:00:00
-last_modified_at: 2022-04-28T21:00:00
+last_modified_at: 2022-06-23T15:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -75,7 +75,7 @@ services:
 EOF
 ```
 
-Si queremos instalar NPM en una Raspberry, tendremos que cambiar el docker de Base de Datos `jc21/mariadb-aria:latest` por `yobasystems/alpine-mariadb:latest`
+Si queremos instalar NPM en una RPi o equipo con procesador ARM, tendremos que cambiar el docker de Base de Datos `jc21/mariadb-aria:latest` por `yobasystems/alpine-mariadb:latest`
 {: .notice--info}
 
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:
