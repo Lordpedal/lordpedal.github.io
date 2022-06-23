@@ -75,6 +75,9 @@ services:
 EOF
 ```
 
+Si queremos instalar NPM en una Raspberry, tendremos que cambiar el docker de Base de Datos `jc21/mariadb-aria:latest` por `yobasystems/alpine-mariadb:latest`
+{: .notice--info}
+
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
