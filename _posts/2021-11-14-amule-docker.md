@@ -3,7 +3,7 @@ title:  "aMule: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-11-14 21:30:00
-last_modified_at: 2021-11-14T21:45:00
+last_modified_at: 2022-06-23T16:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -48,6 +48,9 @@ services:
       - PGID=1000
       - GUI_PWD=lordpedal
       - WEBUI_PWD=lordpedal
+      - MOD_AUTO_RESTART_ENABLED=true
+      - MOD_AUTO_RESTART_CRON=0 6 * * *
+      - MOD_FIX_KAD_GRAPH_ENABLED=true
     ports:
       - "4711:4711"
       - "4712:4712"
@@ -71,6 +74,9 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `GUI_PWD=lordpedal` | Contraseña de acceso a la interfaz Web `:4711` |
 | `WEBUI_PWD=lordpedal` | Contraseña de gestión terminal `:4712` |
+| `MOD_AUTO_RESTART_ENABLED=true` | Habilita el reinicio de la aplicación |
+| `MOD_AUTO_RESTART_CRON=0 6 * * *` | Activa el reinicio todos los días a las `6am` |
+| `MOD_FIX_KAD_GRAPH_ENABLED=true` | Corrige un `bug` en gráficos de red KAD |
 | `4711:4711` | Puerto de acceso interfaz Web `:4711` |
 | `4712:4712` | Puerto de acceso gestión terminal `:4712` |
 | `4662:4662` | Puerto de acceso red Edonkey **ed2k**, para mejorar ratios de descarga se tiene que abrir acceso en el router (TCP) |
