@@ -3,7 +3,7 @@ title:  "Matrix: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date: 2022-02-16 20:00:00
-last_modified_at: 2022-04-28T21:00:00
+last_modified_at: 2022-10-15T21:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -174,6 +174,18 @@ Descomentamos la opción y cambiamos la orden:
 
 ```bash
 allow_guest_access: true
+```
+
+Activamos la opción suprimir mensajes de advertencia en el servidor de autentificación de matrix.org
+
+```bash
+#suppress_key_server_warning: true
+```
+
+Descomentamos la opción y cambiamos la orden:
+
+```bash
+suppress_key_server_warning: true
 ```
 
 Activamos la opción de optimización de base datos **Redis**
@@ -413,17 +425,20 @@ cd $HOME/docker/matrix/config && \
 nano homeserver.yaml
 ```
 
-Buscamos la variable:
+Buscamos las variable que previamente habiamos activado para el registro:
 
 ```bash
 enable_registration: true
+enable_registration_without_verification: true
+suppress_key_server_warning: true
 ```
 
 Y la desactivamos:
 
 ```bash
 enable_registration: false
-#enable_registration_without_verification: true
+enable_registration_without_verification: false
+suppress_key_server_warning: false
 ```
 
 Guardamos el fichero con la combinación **CTRL + O**, salimos del editor **CTRL + X** y reiniciamos el servicio con las nuevas variables:
