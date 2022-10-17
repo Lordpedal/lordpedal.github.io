@@ -40,6 +40,12 @@ mkdir -p $HOME/docker/scrutiny/config && \
 cd $HOME/docker/scrutiny
 ```
 
+Ejecutamos en la terminal la siguiente orden para identificar los HD's que posteriormente anotaremos para editar el fichero docker-compose:
+
+```bash
+lsblk
+```
+
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
@@ -60,6 +66,7 @@ services:
       - /dev/sda:/dev/sda
       - /dev/sdb:/dev/sdb
       - /dev/sdc:/dev/sdc
+      - /dev/sdd:/dev/sdd
     restart: always
 EOF
 ```
@@ -74,6 +81,7 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `/dev/sda:/dev/sda` | Monitorizar el HD `sda`, ejecutamos `lsblk` para listar HD's |
 | `/dev/sdb:/dev/sdb` | Monitorizar el HD `sdb`, ejecutamos `lsblk` para listar HD's |
 | `/dev/sdc:/dev/sdc` | Monitorizar el HD `sdc`, ejecutamos `lsblk` para listar HD's |
+| `/dev/sdd:/dev/sdd` | Monitorizar el HD `sdd`, ejecutamos `lsblk` para listar HD's |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
