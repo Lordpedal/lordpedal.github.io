@@ -3,7 +3,7 @@ title:  "Scrutiny: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-02-19 23:30:00
-last_modified_at: 2021-02-19T23:45:00
+last_modified_at: 2022-10-16T23:45:00
 categories:
   - GNU/Linux
   - Docker
