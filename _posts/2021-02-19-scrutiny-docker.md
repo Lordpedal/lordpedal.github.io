@@ -47,22 +47,19 @@ cat << EOF > $HOME/docker/scrutiny/docker-compose.yml
 version: "2.1"
 services:
   scrutiny:
-    image: ghcr.io/linuxserver/scrutiny
+    image: ghcr.io/analogj/scrutiny:master-omnibus
     container_name: Scrutiny
-    privileged: true
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-      - SCRUTINY_API_ENDPOINT=http://localhost:8080
-      - SCRUTINY_WEB=true
-      - SCRUTINY_COLLECTOR=true
+    cap_add:
+      - SYS_RAWIO
     volumes:
      - '~/docker/scrutiny/config:/config'
-     - /dev/disk:/dev/disk
      - /run/udev:/run/udev:ro
     ports:
       - 8088:8080
+    devices:
+      - /dev/sda:/dev/sda
+      - /dev/sdb:/dev/sdb
+      - /dev/sdc:/dev/sdc
     restart: always
 EOF
 ```
@@ -71,17 +68,12 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 
 | Parámetro | Función |
 | ------ | ------ |
-| `privileged: true` | Permitimos que el contenedor se ejecute con privilegios `root` en las consultas |
-| `PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
-| `TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `SCRUTINY_API_ENDPOINT=http://localhost:8080` | Ruta donde consulta la API del contenedor, **no modificar** |
-| `SCRUTINY_WEB=true` | Habilitamos la consulta vía web |
-| `SCRUTINY_COLLECTOR=true` | Habilitamos la recolección de datos locales |
 | `~/docker/scrutiny/config:/config` | Ruta donde almacenaremos la configuración |
-| `/dev/disk:/dev/disk` | Ruta donde se descubriran los HD´s |
 | `/run/udev:/run/udev:ro` | Ruta donde consultaremos los metadatos del sistema |
 | `8088:8080` | Puerto gestión web `8088` |
+| `/dev/sda:/dev/sda` | Monitorizar el HD `sda`, ejecutamos `lsblk` para listar HD's |
+| `/dev/sdb:/dev/sdb` | Monitorizar el HD `sdb`, ejecutamos `lsblk` para listar HD's |
+| `/dev/sdc:/dev/sdc` | Monitorizar el HD `sdc`, ejecutamos `lsblk` para listar HD's |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
