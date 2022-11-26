@@ -588,6 +588,21 @@ docker run -d \
 pldubouilh/gossa
 ```
 
+O bien creando un fichero docker-compose.yml que posteriormente levantamos con `docker-compose up -d`:
+
+```bash
+version: "2"
+services:
+  gossa:
+    image: pldubouilh/gossa:latest
+    container_name: Gossa
+    volumes:
+      - './datos:/shared'
+    ports:
+      - "8001:8001"
+    restart: always
+```
+
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
