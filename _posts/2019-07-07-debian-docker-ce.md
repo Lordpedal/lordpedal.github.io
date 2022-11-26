@@ -2003,6 +2003,22 @@ docker run -d \
 kevineye/shairport-sync 
 ```
 
+O bien creando un fichero docker-compose.yml que posteriormente levantamos con `docker-compose up -d`:
+
+```bash
+version: '3.3'
+services:
+    shairport-sync:
+        image: kevineye/shairport-sync
+        container_name: Shairport-sync
+        network_mode: host
+        devices:
+            - /dev/snd
+        environment:
+            - AIRPLAY_NAME=Overclock
+        restart: always
+```
+
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
