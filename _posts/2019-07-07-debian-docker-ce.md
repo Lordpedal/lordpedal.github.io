@@ -1,7 +1,7 @@
 ---
 title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00
-last_modified_at: 2022-11-24T17:00:00
+last_modified_at: 2022-11-25T17:00:00
 header:
   image: /assets/images/posts/dockertt.gif
 categories:
@@ -292,6 +292,22 @@ docker run -d \
 portainer/portainer-ce
 ```
 
+O bien creando un fichero docker-compose.yml que posteriormente levantamos con `docker-compose up -d`:
+
+```bash
+version: "2"
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: Portainer-CE
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - '.config:/data'
+    ports:
+      - "9000:9000"
+    restart: always
+```
+
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
@@ -328,6 +344,27 @@ docker run -d \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --restart=always \
 containrrr/watchtower
+```
+
+O bien creando un fichero docker-compose.yml que posteriormente levantamos con `docker-compose up -d`:
+
+```bash
+version: "2"
+
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: Watchtower
+    environment:
+      - TZ=Europe/Madrid
+      #- WATCHTOWER_NOTIFICATIONS=shoutrrr # Enviar notificación
+      #- WATCHTOWER_NOTIFICATION_URL=telegram://TOKEN_BOT@telegram/?channels=CHAT_ID # Aviso Telegram
+      #- WATCHTOWER_SCHEDULE=0 0 4 * * * # Programar actualización 4am
+      #- WATCHTOWER_CLEANUP=true # Borra images que han sido actualizadas
+      #- WATCHTOWER_POLL_INTERVAL=3600 # Comprueba actualizacion 1h
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    restart: always
 ```
 
 Los parámetros son mínimos pero vamos a detallarlos:
@@ -2018,7 +2055,7 @@ services:
             - AIRPLAY_NAME=Overclock
         restart: always
 ```
-
+	
 Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestro sistema y configuración especifica:
 
 | Parámetro | Función |
