@@ -3,7 +3,7 @@ title:  "Nginx Proxy Manager: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-02-12 21:00:00
-last_modified_at: 2022-06-23T15:30:00
+last_modified_at: 2023-03-17T15:30:00
 categories:
   - GNU/Linux
   - Docker
@@ -44,7 +44,8 @@ cat << EOF > $HOME/docker/npm/docker-compose.yml
 version: '3'
 services:
   app:
-    image: 'jc21/nginx-proxy-manager:latest'
+    #image: 'jc21/nginx-proxy-manager:latest'
+    image: 'jc21/nginx-proxy-manager:2.9.20
     container_name: NginxProxy
     ports:
       - '80:80'
