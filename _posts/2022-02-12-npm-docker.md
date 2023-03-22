@@ -44,8 +44,7 @@ cat << EOF > $HOME/docker/npm/docker-compose.yml
 version: '3'
 services:
   app:
-    #image: 'jc21/nginx-proxy-manager:latest'
-    image: 'jc21/nginx-proxy-manager:2.9.20
+    image: 'jc21/nginx-proxy-manager:latest'
     container_name: NginxProxy
     ports:
       - '80:80'
