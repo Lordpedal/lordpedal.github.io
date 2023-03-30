@@ -1,7 +1,7 @@
 ---
 title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00
-last_modified_at: 2022-11-25T17:00:00
+last_modified_at: 2023-03-29T17:00:00
 header:
   image: /assets/images/posts/dockertt.gif
 categories:
@@ -1455,7 +1455,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
-      - TRANSMISSION_WEB_HOME=/kettu/
       - USER=empalador
       - PASS=nocturno
     volumes:
@@ -1477,7 +1476,6 @@ Vamos a repasar los principales parámetros a modificar para adaptarlos a nuestr
 | `- PUID=1000` | UID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `- PGID=1000` | GID de nuestro usuario. Para saber nuestro ID ejecutar en terminal: `id` |
 | `- TZ=Europe/Madrid` | Zona horaria `Europa/Madrid` |
-| `- TRANSMISSION_WEB_HOME=/kettu/` | Skin que usaremos para gestión web. Disponibles tres skins: `/kettu/` , `/combustion-release/` y `/transmission-web-control/` O bien si no queremos usar ningún Skin extra, borramos la línea para no incluir la opción. |
 | `- USER=empalador` | Usuario para hacer login en WebUI, te recomiendo modificarla | 
 | `- PASS=nocturno` | Contraseña del usuario para hacer login en WebUI, te recomiendo modificarla |
 | `- ~/docker/transmission/config:/config` | Ruta donde almacenaremos la **configuración** |
