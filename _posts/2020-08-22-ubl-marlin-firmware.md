@@ -120,7 +120,7 @@ Ahora vamos detallar de forma sencilla como activar **UBL con BLTouch**, para el
 #define ENABLE_LEVELING_FADE_HEIGHT
 ```
 
-**13º** Opcional podemos activar la siguiente opción para comprobar de forma impresa la niveación de la cama `(configuration.h)`:
+**13º** Opcional podemos activar la siguiente opción para comprobar de forma impresa la nivelación de la cama `(configuration.h)`:
 
 ```bash
 #define G26_MESH_VALIDATION
