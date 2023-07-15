@@ -18,7 +18,7 @@ toc_icon: "cog"
 
 ![Debian]({{ site.url }}{{ site.baseurl }}/assets/images/Debian.png){: .align-center}
 {: .full}
-En esta sección pretendo hablar de como optimizar y adaptar la distribución **Debian Bullseye** a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
+En esta sección pretendo hablar de como optimizar y adaptar la distribución **Debian Bookworm** a un uso diario como **Servidor doméstico**, desde mi propia experiencia de usuario.
 
 El recomendar `Debian` es poder usar la combinación de un **Sistema Operativo Libre y alternativo** con una gran comunidad de soporte detrás del proyecto.
 
@@ -480,9 +480,9 @@ Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias... Hecho
 Leyendo la información de estado... Hecho
 0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
-Obj:1 http://deb.debian.org/debian bullseye InRelease
-Des:2 http://deb.debian.org/debian bullseye-updates InRelease [36,8 kB]
-Obj:3 http://security.debian.org/debian-security bullseye-security InRelease
+Obj:1 http://deb.debian.org/debian bookworm InRelease
+Des:2 http://deb.debian.org/debian bookworm-updates InRelease [36,8 kB]
+Obj:3 http://security.debian.org/debian-security bookworm-security InRelease
 Descargados 36,8 kB en 3s (11,9 kB/s)
 Leyendo lista de paquetes... Hecho
 Leyendo lista de paquetes... Hecho
