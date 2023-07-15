@@ -34,12 +34,11 @@ Resumiendo el procedimiento a grandes rasgos:
 2.  Seleccionamos la opción de arranque desde el nuevo dispositivo en la configuración de nuestra UEFI/BIOS. Obligatorio deseleccionar opción de arranque rápido en Windows en caso de tenerlo activo y/o instalado.
 3.  Ejecutamos el asistente de instalación.
 4.  **Importante** tildar para instalar en sistema durante asistente instalación: `Entorno de escritorio Debian + MATE + SSH server + Utilidades estándar del sistema Debian`, el resto de opciones recomiendo descartarlas.
+5.  Disfrutar de las bondades de un gran sistema operativo y una gran comunidad asociada al mismo.
 
 <figure>
     <a href="/assets/images/posts/install12.jpg"><img src="/assets/images/posts/install12.jpg"></a>
 </figure>
-
-5.  Disfrutar de las bondades de un gran sistema operativo y una gran comunidad asociada al mismo.
 
 ## Sistema Base
 

@@ -77,6 +77,151 @@ docker login -u lordpedal \
 
 ### Instalación AMD64
 
+#### Instalación Debian 12 Bookworm
+
+Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
+
+```bash
+sudo apt-get update && sudo apt-get -y install apt-transport-https ca-certificates \
+curl gnupg2 software-properties-common htop multitail locate net-tools \
+open-vm-tools python3-pip
+```
+
+A continuación, vamos a agregar el repositorio de Docker y la clave GPC:
+
+```bash
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg && \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+Volvemos a actualizar repositorios del sistema e instalamos Docker:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Una vez instalado, tendremos que configurar nuestro Grub de arranque del sistema para habilitar la memoria compartida y swap del sistema:
+
+```bash
+sudo nano /etc/default/grub
+```
+
+Y debemos de buscar la linea `GRUB_CMDLINE_LINUX_DEFAULT`, muestro ejemplo en mi caso:
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+```
+
+Y **añadirle** en el texto entrecomillado `cgroup_enable=memory swapaccount=1`, quedando de la siguiente forma:
+
+```bash
+GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory swapaccount=1"
+```
+
+Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, activamos los cambios en Grub:
+
+```bash
+sudo update-grub
+```
+
+Y reiniciamos el Servidor:
+
+```bash
+sudo reboot
+```
+
+Tras el reinicio podemos comprobar que esta todo debidamente instalado y disponible ejecutando `docker info`:
+
+```bash
+pi@overclock:~$ groups $USER
+pi : pi adm tty dialout cdrom floppy sudo audio dip video plugdev netdev kvm libvirt libvirt-qemu docker
+
+pi@overclock:~$ docker info
+Client: Docker Engine - Community
+ Version:    24.0.4
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.11.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.19.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 3
+  Running: 3
+  Paused: 0
+  Stopped: 0
+ Images: 3
+ Server Version: 24.0.4
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc io.containerd.runc.v2
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 3dce8eb055cbb6872793272b4f20ed16117344f8
+ runc version: v1.1.7-0-g860f061
+ init version: de40ad0
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.1.0-10-amd64
+ Operating System: Debian GNU/Linux 12 (bookworm)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 31.05GiB
+ Name: overclock
+ ID: xxxx:xxx:xxx:xxx:xxxx:xxx
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Username: pi
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+pi@overclock:~$ docker compose version
+Docker Compose version v2.19.1
+```
+
+Vamos a repasar los principales comandos para interactuar con `docker compose`:
+
+| Comando | Acción |
+| ------ | ------ |
+| `docker compose version` | Comprobar versión instalada |
+| `docker compose up -d` | Crear y arrancar el contenedor |
+| `docker compose stop` | Detiene la ejecución del contenedor |
+| `docker compose start` | Arranca la ejecución del contenedor |
+| `docker compose restart` | Reiniciar la ejecución del contenedor |
+| `docker compose ps` | Lista contenedores |
+{: .notice--info}
+
+#### Instalación Debian 11 Bullseye + inferiores
+
 Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
 
 ```bash
