@@ -1,70 +1,59 @@
-// Clipboard
-// This makes the button blink 250 miliseconds
+$(document).ready(function() {
+  const copyText = function(text) {
+    const isRTL = document.documentElement.getAttribute('dir') == 'rtl';
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+    var textarea = document.createElement('textarea');
+    // Prevent zooming on iOS
+    textarea.style.fontSize = '12pt';
+    // Reset box model
+    textarea.style.border = '0';
+    textarea.style.padding = '0';
+    textarea.style.margin = '0';
+    // Move element out of screen horizontally
+    textarea.style.position = 'absolute';
+    textarea.style[isRTL ? 'right' : 'left'] = '-9999px';
+    // Move element to the same position vertically
+    let yPosition = window.pageYOffset || document.documentElement.scrollTop;
+    textarea.style.top = yPosition + "px";
 
-async function buttonBlink(btn, style) {
-  btn.classList.remove("btn-light");
-  btn.classList.add(style);
-  await sleep(250); //Blink ms
-  btn.classList.remove(style);
-  btn.classList.add("btn-light");
-}
-// End
+    textarea.setAttribute('readonly', '');
+    textarea.value = text;
+    document.body.appendChild(textarea);
 
+    let success = true;
+    try {
+      textarea.select();
+      success = document.execCommand("copy");
+    } catch {
+      success = false;
+    }
+    textarea.parentNode.removeChild(textarea);
+    return success;
+  };
 
-// Select highlghted codes
-var codeChunk = document.querySelectorAll("pre.highlight");
+  const copyButtonEventListener = function(event) {
+    const thisButton = event.target;
 
-// Loop to add buttons
-for (var i = 0; i < codeChunk.length; i++) {
+    // Locate the <code> element
+    let codeBlock = thisButton.nextElementSibling;
+    while (codeBlock && codeBlock.tagName.toLowerCase() !== 'code') {
+      codeBlock = codeBlock.nextElementSibling;
+    }
+    if (!codeBlock) {
+      // No <code> found - wtf?
+      throw new Error("No code block found beside this button. This is unexpected.");
+    }
+    return copyText(codeBlock.innerText);
+  };
 
-  var pre = codeChunk.item(i);
-  var btn = document.createElement("button");
-  // Prepare button
-  btn.innerHTML = "<i class='far fa-copy'></i>"; // Icon to be displayed on the button
-
-  // Inline styling - may be a new css class, to be added in the next section
-  btn.style.position = "absolute";
-  btn.style.right = "1em";
-
-  // Button: CSS - Add new classes
-  btn.classList.add("btn", "btn--primary");
-
-  // Identifier for ClipboardJS
-  btn.setAttribute("data-clipboard-copy", "Copiado!!");
-
-  // aria-label: btn.setAttribute("aria-label", "Copy to clipboard");
-  // etc.
-
-  // Insert button
-  pre.insertBefore(btn, pre.firstChild);
-
-}
-// End
-
-// Copy to clipboard
-var clipboard = new ClipboardJS("[data-clipboard-copy]", {
-  target: function (trigger) {
-    return trigger.nextElementSibling;
-  }
+  $(".page__content pre > code").each(function() {
+    // Locate the <pre> element
+    const container = $(this).parent();
+    var copyButton = document.createElement("button");
+    copyButton.title = "Copy to clipboard";
+    copyButton.className = "copy-button";
+    copyButton.innerHTML = '<i class="far fa-copy"></i>';
+    copyButton.addEventListener("click", copyButtonEventListener);
+    container.prepend(copyButton);
+  });
 });
-
-// Messages and make the button blink
-clipboard.on("success", function (e) {
-  e.clearSelection();
-  buttonBlink(e.trigger, "btn--success");
-  console.info("Action:", e.action);
-  console.info("Text:", e.text);
-  console.info("Trigger:", e.trigger);
-});
-
-clipboard.on("error", function (e) {
-  e.clearSelection();
-  buttonBlink(e.trigger, "btn--danger");
-  console.info("Action:", e.action);
-  console.info("Trigger:", e.trigger);
-});
-// Finish

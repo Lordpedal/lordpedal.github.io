@@ -126,10 +126,6 @@ footer:
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"
 
-after_footer_scripts:
-    - https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
-    - assets/js/clipboard.js
-
 defaults:
   # _posts
   - scope:
