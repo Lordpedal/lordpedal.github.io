@@ -2108,9 +2108,9 @@ Guardamos los cambios, salimos del editor de texto y cada vez que arranque tendr
 
 [Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
 
-### YT-dlp
+### yt-dlp
 
-**YT-dlp** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
+**yt-dlp** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
 
 Para poder usarlo en nuestro sistema, primeramente debemos de actualizar los repositorios e instalar el paquete:
 
@@ -2121,7 +2121,7 @@ sudo apt-get update && sudo apt-get -y install yt-dlp
 La versión incluida en la emisión de este tutorial es:
 
 ```bash
-pi@overclock:/usr/local/bin$ yt-dlp --version
+pi@overclock:$ yt-dlp --version
 2023.03.04
 ```
 
