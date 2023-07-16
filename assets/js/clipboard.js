@@ -1,5 +1,5 @@
 // Clipboard
-// This makes the button blink 650 miliseconds
+// This makes the button blink 1250 miliseconds
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -8,7 +8,7 @@ function sleep(ms) {
 async function buttonBlink(btn, style) {
   btn.classList.remove("btn-light");
   btn.classList.add(style);
-  await sleep(650); //Blink ms
+  await sleep(1250); //Blink ms
   btn.classList.remove(style);
   btn.classList.add("btn-light");
 }
