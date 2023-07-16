@@ -34,11 +34,10 @@ for (var i = 0; i < codeChunk.length; i++) {
   btn.classList.add("btn", "btn--primary");
 
   // Identifier for ClipboardJS
-  btn.setAttribute("data-clipboard-copy", "");
+  btn.setAttribute("data-clipboard-copy", "Copiado!!");
 
   // aria-label: btn.setAttribute("aria-label", "Copy to clipboard");
   // etc.
-  btn.setAttribute("aria-label", "Copiado!!");
 
   // Insert button
   pre.insertBefore(btn, pre.firstChild);
