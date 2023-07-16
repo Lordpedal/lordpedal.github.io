@@ -38,6 +38,7 @@ for (var i = 0; i < codeChunk.length; i++) {
 
   // aria-label: btn.setAttribute("aria-label", "Copy to clipboard");
   // etc.
+  btn.setAttribute("aria-label", "Copiado!!");
 
   // Insert button
   pre.insertBefore(btn, pre.firstChild);
