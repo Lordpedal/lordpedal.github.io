@@ -107,30 +107,6 @@ Activamos permisos de ejecución a nuestro usuario del sistema evitando tener qu
 sudo usermod -aG docker $USER
 ```
 
-Una vez instalado, tendremos que configurar nuestro Grub de arranque del sistema para habilitar la memoria compartida y swap del sistema:
-
-```bash
-sudo nano /etc/default/grub
-```
-
-Y debemos de buscar la linea `GRUB_CMDLINE_LINUX_DEFAULT`, muestro ejemplo en mi caso:
-
-```bash
-GRUB_CMDLINE_LINUX_DEFAULT="quiet"
-```
-
-Y **añadirle** en el texto entrecomillado `cgroup_enable=memory swapaccount=1`, quedando de la siguiente forma:
-
-```bash
-GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory swapaccount=1"
-```
-
-Guardamos los cambios **(Ctrl+O)**, salimos del editor de texto **(Ctrl+X)**, activamos los cambios en Grub:
-
-```bash
-sudo update-grub
-```
-
 Y reiniciamos el Servidor:
 
 ```bash
