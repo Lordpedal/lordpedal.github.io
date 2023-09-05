@@ -3,7 +3,7 @@ title:  "Bridge Bond: Debian GNU/Linux"
 header:
   image: /assets/images/posts/debiantt.gif
 date:   2020-12-27 08:15:00 -0300
-last_modified_at: 2020-12-27T08:30:00-05:00
+last_modified_at: 2023-09-04T08:30:00-05:00
 categories:
   - GNU/Linux
 tags:
@@ -48,14 +48,18 @@ enp5s0f1         DOWN
 Habilitamos la carga del modulo bonding, para ello lo añadimos a la carga de modulos de arranque del sistema:
 
 ```bash
-sudo nano /etc/modprobe.d/bonding.conf
+sudo nano /etc/modules
 ```
 
 Y le añadimos el siguiente contenido:
 
 ```bash
-alias bond0 bonding
-options bonding mode=4 miimon=100 lacp_rate=1
+#
+# RED
+#
+bonding
+8021q
+#
 ```
 
 Guardamos, salimos del editor e instalamos dependencias:
@@ -63,7 +67,7 @@ Guardamos, salimos del editor e instalamos dependencias:
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install ifenslave bridge-utils \
-net-tools ifupdown
+net-tools ifupdown vlan
 ```
 
 ## Configurar Red
@@ -82,52 +86,60 @@ auto lo
 iface lo inet loopback
 
 # Interfaz LAN (Placa Base)
-#auto enp0s31f6
-#iface enp0s31f6 inet manual
+allow-hotplug enp0s31f6
+iface enp0s31f6 inet manual
+	pre-up   ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
 
 # Interfaz LAN (HP PCIe)
-auto enp5s0f0
+allow-hotplug enp5s0f0
 iface enp5s0f0 inet manual
-        bond-master bond0
+	pre-up   ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	bond-master bond0
+	bond-mode balance-rr
 
 # Interfaz LAN (HP PCIe)
-auto enp5s0f1
+allow-hotplug enp5s0f1
 iface enp5s0f1 inet manual
-        bond-master bond0
+	pre-up   ifconfig $IFACE up
+	pre-down ifconfig $IFACE down
+	bond-master bond0
+	bond-mode balance-rr
 
 # Interfaz Red Bond (bond0)
 auto bond0
 iface bond0 inet manual
-        bond-mode 4
-        bond-miimon 100
-        bond-lacp-rate 1
-        bond-xmit-hash-policy layer2+3
-        bond-slaves enp5s0f0 enp5s0f1
+	bond-slaves enp5s0f0 enp5s0f1
+	bond-mode balance-rr
+	bond-miimon 100
+	bond-downdelay 200
+	bond-updelay 200
 
 # Interfaz Red Bridge (br0 IP Estatica)
 auto br0
 iface br0 inet static
-        address 192.168.1.90
-        netmask 255.255.255.0
-        network 192.168.1.0
-        broadcast 192.168.1.255
-        gateway 192.168.1.1
-        bridge_ports bond0
-        bridge_stp off
-        bridge_fd 0
-        bridge_maxwait 0
+	address 192.168.1.90
+	netmask 255.255.255.0
+	network 192.168.1.0
+	broadcast 192.168.1.255
+	gateway 192.168.1.1
+	bridge_ports bond0 enp0s31f6
+	bridge_stp off
+	bridge_fd 0
+	bridge_maxwait 0
 
 # Interfaz Red Bridge (br0 IP Dinamica)
 #auto br0
 #iface br0 inet dhcp
-#       bridge_ports bond0
-#       bridge_stp off
-#       bridge_fd 0
-#       bridge_maxwait 0
+#	bridge_ports bond0
+#	bridge_stp off
+#	bridge_fd 0
+#	bridge_maxwait 0
 
 # Interfaz Red Bridge (IPv6)
 iface br0 inet6 auto
-        accept_ra 1
+	accept_ra 1
 ```
 
 Guardamos, salimos del editor y reiniciamos el sistema:
