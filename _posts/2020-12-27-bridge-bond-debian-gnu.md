@@ -67,7 +67,7 @@ Guardamos, salimos del editor e instalamos dependencias:
 ```bash
 sudo apt-get update && \
 sudo apt-get -y install ifenslave bridge-utils \
-net-tools ifupdown vlan
+net-tools ifupdown vlan ethtool
 ```
 
 ## Configurar Red
@@ -154,7 +154,8 @@ Tras el reinicio podemos comprobar que el sistema esta debidamente configurado e
 lsmod |grep bonding && \
 cat /proc/net/bonding/bond0 && \
 dmesg | grep -i bond0 && \
-ip -br addr show
+ip -br addr show && \
+sudo ethtool br0
 ```
 
 > Y listo!
