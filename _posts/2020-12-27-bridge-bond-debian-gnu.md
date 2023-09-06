@@ -90,6 +90,8 @@ allow-hotplug enp0s31f6
 iface enp0s31f6 inet manual
 	pre-up   ifconfig $IFACE up
 	pre-down ifconfig $IFACE down
+	bond-master bond0
+	bond-mode balance-rr
 
 # Interfaz LAN (HP PCIe)
 allow-hotplug enp5s0f0
@@ -110,7 +112,7 @@ iface enp5s0f1 inet manual
 # Interfaz Red Bond (bond0)
 auto bond0
 iface bond0 inet manual
-	bond-slaves enp5s0f0 enp5s0f1
+	bond-slaves enp5s0f0 enp5s0f1 enp0s31f6
 	bond-mode balance-rr
 	bond-miimon 100
 	bond-downdelay 200
@@ -124,7 +126,7 @@ iface br0 inet static
 	network 192.168.1.0
 	broadcast 192.168.1.255
 	gateway 192.168.1.1
-	bridge_ports bond0 enp0s31f6
+	bridge_ports bond0
 	bridge_stp off
 	bridge_fd 0
 	bridge_maxwait 0
