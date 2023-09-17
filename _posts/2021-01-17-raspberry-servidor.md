@@ -399,7 +399,7 @@ EOF
 Y recargamos el fichero `.bashrc` para visualizar los cambios:
 
 ```bash
-source $HOME/.bashc
+source $HOME/.bashrc
 ```
 
 ### Log2RAM
