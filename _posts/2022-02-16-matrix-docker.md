@@ -3,7 +3,7 @@ title:  "Matrix: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date: 2022-02-16 20:00:00
-last_modified_at: 2022-10-15T21:00:00
+last_modified_at: 2023-09-17T21:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -328,7 +328,8 @@ services:
     restart: always
 
   postgresql:
-    image: "postgres:latest"
+    #image: "postgres:latest"
+    image: "postgres:15"
     container_name: Matrix_DB
     environment:
       POSTGRES_DB: "synapse"
@@ -349,6 +350,9 @@ services:
     restart: always
 EOF
 ```
+
+NOTA: Debido a incompatibilidad con Postgrest 16 se debe de cambiar la versión de **latest** a **15** (Septiembre 2023)
+{: .notice--warning}
 
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:
 
