@@ -302,7 +302,7 @@ Ahora llega el turno de crear el fichero de configuración `docker-compose.yml` 
 NOTA: Si quieres montar el servicio en una arquitectura **ARM** sustituye la variable **matrixdotorg/synapse:latest** por **black0/synapse:latest**
 {: .notice--info}
 
-NOTA: Debido a incompatibilidad con la BD Postgres 16 se debe de cambiar la versión de **latest** a **15** *(Septiembre 2023)*
+EXTRA: Debido a incompatibilidad con la BD Postgres 16 se debe de cambiar la versión de **latest** a **15** *(Septiembre 2023)*
 {: .notice--warning}
 
 ```bash
