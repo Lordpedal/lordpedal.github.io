@@ -302,6 +302,9 @@ Ahora llega el turno de crear el fichero de configuración `docker-compose.yml` 
 NOTA: Si quieres montar el servicio en una arquitectura **ARM** sustituye la variable **matrixdotorg/synapse:latest** por **black0/synapse:latest**
 {: .notice--info}
 
+NOTA: Debido a incompatibilidad con Postgrest 16 se debe de cambiar la versión de **latest** a **15** *(Septiembre 2023)*
+{: .notice--warning}
+
 ```bash
 cat << EOF > $HOME/docker/matrix/docker-compose.yml
 version: '2'
@@ -350,9 +353,6 @@ services:
     restart: always
 EOF
 ```
-
-NOTA: Debido a incompatibilidad con Postgrest 16 se debe de cambiar la versión de **latest** a **15** (Septiembre 2023)
-{: .notice--warning}
 
 Vamos a repasar los principales parámetros que hemos añadido sobre la anterior base, para poder adaptarlos a nuestro sistema y configuración especifica:
 
