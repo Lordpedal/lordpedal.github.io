@@ -843,6 +843,10 @@ En el documento en blanco que se nos abre, lo configuro con mi nombre de red `en
 auto lo
 iface lo inet loopback
 
+# Interfaz ens33
+allow-hotplug ens33
+iface ens33 inet manual
+
 # Bridge
 auto br0
 iface br0 inet static
