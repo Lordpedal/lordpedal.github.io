@@ -90,33 +90,28 @@ allow-hotplug enp0s31f6
 iface enp0s31f6 inet manual
 	pre-up   ifconfig $IFACE up
 	pre-down ifconfig $IFACE down
-	bond-master bond0
-	bond-mode balance-rr
 
 # Interfaz LAN (HP PCIe)
 allow-hotplug enp5s0f0
 iface enp5s0f0 inet manual
 	pre-up   ifconfig $IFACE up
 	pre-down ifconfig $IFACE down
-	bond-master bond0
-	bond-mode balance-rr
 
 # Interfaz LAN (HP PCIe)
 allow-hotplug enp5s0f1
 iface enp5s0f1 inet manual
 	pre-up   ifconfig $IFACE up
 	pre-down ifconfig $IFACE down
-	bond-master bond0
-	bond-mode balance-rr
 
 # Interfaz Red Bond (bond0)
 auto bond0
 iface bond0 inet manual
+	bond-mode 802.3ad
 	bond-slaves enp5s0f0 enp5s0f1 enp0s31f6
-	bond-mode balance-rr
 	bond-miimon 100
 	bond-downdelay 200
-	bond-updelay 200
+	bond-updelay 400
+	bond-lacp-rate 1
 
 # Interfaz Red Bridge (br0 IP Estatica)
 auto br0
