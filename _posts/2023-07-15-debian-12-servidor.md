@@ -560,6 +560,7 @@ Y agregamos al final del fichero las siguientes ordenes:
 #
 # MODS
 #
+vm.overcommit_memory=1
 vm.swappiness=1
 vm.vfs_cache_pressure=50
 vm.dirty_writeback_centisecs=1500
@@ -567,6 +568,7 @@ kernel.dmesg_restrict=0
 net.core.rmem_max=16777216
 net.core.wmem_max=4194304
 kernel.unprivileged_userns_clone=1
+fs.inotify.max_user_watches=100000
 ```
 
 Guardamos los cambios y salimos del editor de texto. 
