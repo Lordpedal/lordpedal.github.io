@@ -3,7 +3,7 @@ title:  "Bridge Bond: Debian GNU/Linux"
 header:
   image: /assets/images/posts/debiantt.gif
 date:   2020-12-27 08:15:00 -0300
-last_modified_at: 2023-09-04T08:30:00-05:00
+last_modified_at: 2023-10-11T08:30:00-05:00
 categories:
   - GNU/Linux
 tags:
@@ -153,6 +153,141 @@ cat /proc/net/bonding/bond0 && \
 dmesg | grep -i bond0 && \
 ip -br addr show && \
 sudo ethtool br0
+```
+
+Con el primer comando comprobamos que el modulo del kernel ha sido debidamente cargado en el sistema:
+
+```bash
+pi@overclock:~$ lsmod |grep bonding
+bonding               221184  0
+tls                   135168  5 bonding
+```
+
+Con el segundo comprobamos que el `bond` esta debidamente operando:
+
+```bash
+pi@overclock:~$ cat /proc/net/bonding/bond0
+Ethernet Channel Bonding Driver: v6.1.0-13-amd64
+
+Bonding Mode: IEEE 802.3ad Dynamic link aggregation
+Transmit Hash Policy: layer2 (0)
+MII Status: up
+MII Polling Interval (ms): 100
+Up Delay (ms): 400
+Down Delay (ms): 200
+Peer Notification Delay (ms): 0
+
+802.3ad info
+LACP active: on
+LACP rate: fast
+Min links: 0
+Aggregator selection policy (ad_select): stable
+
+Slave Interface: enp5s0f0
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+
+Slave Interface: enp5s0f1
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+
+Slave Interface: enp0s31f6
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+```
+
+Con el tercer comando comprobamos la secuencia de arranque de la red:
+
+```bash
+pi@overclock:~$ dmesg | grep -i bond0
+[    7.151152] bond0: (slave enp5s0f0): Enslaving as a backup interface with a down link
+[    7.567151] bond0: (slave enp5s0f1): Enslaving as a backup interface with a down link
+[    7.851052] bond0: (slave enp0s31f6): Enslaving as a backup interface with a down link
+[    7.883642] 8021q: adding VLAN 0 to HW filter on device bond0
+[    7.942308] br0: port 1(bond0) entered blocking state
+[    7.942312] br0: port 1(bond0) entered disabled state
+[    7.942539] device bond0 entered promiscuous mode
+[    9.034500] bond0: (slave enp5s0f0): link status up, enabling it in 400 ms
+[    9.034505] bond0: (slave enp5s0f0): invalid new link 3 on slave
+[    9.454489] bond0: (slave enp5s0f1): link status up, enabling it in 400 ms
+[    9.454558] bond0: (slave enp5s0f0): link status definitely up, 1000 Mbps full duplex
+[    9.454563] bond0: Warning: No 802.3ad response from the link partner for any adapters in the bond
+[    9.454569] bond0: (slave enp5s0f1): invalid new link 3 on slave
+[    9.455632] bond0: active interface up!
+[    9.455645] IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
+[    9.455739] br0: port 1(bond0) entered blocking state
+[    9.455743] br0: port 1(bond0) entered forwarding state
+[    9.870529] bond0: (slave enp5s0f1): link status definitely up, 1000 Mbps full duplex
+[   10.710481] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.718689] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.726477] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.734483] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.742486] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.750468] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.758468] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.766472] bond0: (slave enp0s31f6): link status up, enabling it in 400 ms
+[   10.766479] bond0: (slave enp0s31f6): invalid new link 3 on slave
+[   11.196810] bond0: (slave enp0s31f6): link status definitely up, 1000 Mbps full duplex
+```
+
+Con el cuarto comando comprobamos que los dispositivos de red esten levantados y su IP:
+
+```bash
+pi@overclock:~$ ip -br addr show
+lo               UNKNOWN        127.0.0.1/8
+enp0s31f6        UP             
+enp5s0f0         UP             
+enp5s0f1         UP             
+bond0            UP             
+br0              UP             192.168.1.90/24
+```
+
+Y con el quinto comando comprobamos la velocidad de la red en el bridge tras realizar el bond.
+Debemos de saber que si el Switch soporta el protocolo 802.3ad veremos un claro aumento de la velocidad:
+
+```bash
+pi@overclock:~$ sudo ethtool br0
+Settings for br0:
+	Supported ports: [  ]
+	Supported link modes:   Not reported
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: 3000Mb/s
+	Duplex: Unknown! (255)
+	Auto-negotiation: off
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Link detected: yes
 ```
 
 > Y listo!
