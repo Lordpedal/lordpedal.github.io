@@ -1800,10 +1800,6 @@ A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera
 
 [Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/debian-docker-ce/#docker-minidlna){: .btn .btn--success .btn--small}{:target="_blank"}
 
-### Kodi
-
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/docker/kodi-docker/){: .btn .btn--success .btn--small}{:target="_blank"}
-
 ### yt-dlp
 
 **yt-dlp** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
