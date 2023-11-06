@@ -119,7 +119,6 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | ------ | ------ |
 | `8993:3214` | Puerto de acceso **interfaz Web** `:8993` |
 | `./stl:/Diseños` | Ruta donde alojamos nuestros ficheros 3D `$HOME/docker/vandam/stl` y la ruta de la biblioteca que nos solicitara al iniciarse `/Diseños` |
-| `DATABASE_URL: postgresql://EMPALADOR:NOCTURNO@db/van_dam?pool=5` | Ruta de base datos y datos acceso, recuerda **cambiar usuario & contraseña** |
 | `SECRET_KEY_BASE: gED04yiDeyItG6e9GO/OPCd+IBFZOoAIFkM6/3ZllcI=` | Clave de cifrado base datos, **recomiendo cambiarla por la propia generada** |
 | `./bdatos:/var/lib/postgresql/data` | Ruta donde almacena localmente la base datos |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
