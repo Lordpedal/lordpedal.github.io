@@ -3,7 +3,7 @@ title:  "VanDAM 3D: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-04-19 14:00:00
-last_modified_at: 2022-04-28T21:00:00
+last_modified_at: 2023-11-05T21:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -73,31 +73,43 @@ services:
     volumes:
       - ./stl:/Diseños
     environment:
-      DATABASE_URL: postgresql://EMPALADOR:NOCTURNO@db/van_dam?pool=5
+      DATABASE_URL: postgresql://van_dam:overclockserver@db/van_dam?pool=5
       SECRET_KEY_BASE: gED04yiDeyItG6e9GO/OPCd+IBFZOoAIFkM6/3ZllcI=
-      GRID_SIZE: 250
+      REDIS_URL: redis://redis:6379/1
     restart: always
     depends_on:
       - db
       - redis
+    networks:
+      - vandam
+    links:
+      - db
+      - redis
 
   db:
-    image: postgres:13
+    image: postgres:15
     container_name: VanDAM_DB
     volumes:
       - ./bdatos:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: EMPALADOR
-      POSTGRES_PASSWORD: NOCTURNO
+      POSTGRES_USER: van_dam
+      POSTGRES_PASSWORD: overclockserver
     restart: always
+    networks:
+      - vandam
 
   redis:
-    image: redis:6
+    image: redis:7
     container_name: VanDAM_REDIS
     restart: always
+    networks:
+      - vandam
 
 volumes:
   db_data:
+
+networks:
+  vandam:
 EOF
 ```
 
@@ -109,10 +121,7 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | `./stl:/Diseños` | Ruta donde alojamos nuestros ficheros 3D `$HOME/docker/vandam/stl` y la ruta de la biblioteca que nos solicitara al iniciarse `/Diseños` |
 | `DATABASE_URL: postgresql://EMPALADOR:NOCTURNO@db/van_dam?pool=5` | Ruta de base datos y datos acceso, recuerda **cambiar usuario & contraseña** |
 | `SECRET_KEY_BASE: gED04yiDeyItG6e9GO/OPCd+IBFZOoAIFkM6/3ZllcI=` | Clave de cifrado base datos, **recomiendo cambiarla por la propia generada** |
-| `GRID_SIZE: 250` | Tamaño de rejila visualización |
 | `./bdatos:/var/lib/postgresql/data` | Ruta donde almacena localmente la base datos |
-| `POSTGRES_USER: EMPALADOR` | Usuario creado para gestión de base datos, **recomiendo cambiarlo** |
-| `POSTGRES_PASSWORD: NOCTURNO` | Contraseña creada para el usuario de gestión, **recomiendo cambiarla** |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
