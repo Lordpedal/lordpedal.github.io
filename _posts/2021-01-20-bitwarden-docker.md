@@ -53,7 +53,8 @@ cat << EOF > $HOME/docker/bitwarden/docker-compose.yml
 version: "2"
 services:
   bitwarden:
-    image: bitwardenrs/server
+    #image: bitwardenrs/server # Imagen obsoleta
+    image: vaultwarden/server:latest # Nueva imagen
     container_name: Bitwarden
     volumes:
       - '~/docker/bitwarden/datos:/data/'
