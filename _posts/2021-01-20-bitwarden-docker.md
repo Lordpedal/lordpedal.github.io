@@ -3,7 +3,7 @@ title:  "Bitwarden: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-01-20 23:30:00
-last_modified_at: 2021-01-20T23:45:00
+last_modified_at: 2024-07-16T23:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -45,6 +45,9 @@ Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar cr
 mkdir -p $HOME/docker/bitwarden/datos && \
 cd $HOME/docker/bitwarden
 ```
+
+Importante aclarar que se ha actualizado la imagen del contenedor a **vaultwarden/server:latest**, la anterior quedo obsoleta.
+{: .notice--info}
 
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
