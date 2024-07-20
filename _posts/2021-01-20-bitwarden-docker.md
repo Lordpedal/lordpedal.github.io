@@ -46,7 +46,7 @@ mkdir -p $HOME/docker/bitwarden/datos && \
 cd $HOME/docker/bitwarden
 ```
 
-Importante aclarar que se ha actualizado la imagen del contenedor a **vaultwarden/server:latest**, la anterior quedo obsoleta.
+Importante aclarar que se ha actualizado la imagen del contenedor a **vaultwarden/server**, la anterior quedo obsoleta.
 {: .notice--info}
 
 Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
