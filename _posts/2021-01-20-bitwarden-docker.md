@@ -138,7 +138,7 @@ Una vez configurado, lo levantamos para ser creado y ejecutado:
 docker-compose up -d
 ```
 
-En mi caso, el servicio estaría disponible en la dirección web [https://bitwarden.lordpedal.duckdns.org](https://lordpedal.github.io/gnu/linux/docker/bitwarden-docker/#bitwarden){: .btn .btn--inverse .btn--small}
+En mi caso, el servicio estaría disponible en la dirección web [https://bitwarden.lordpedal.duckdns.org](http://localhost:8002){: .btn .btn--inverse .btn--small}
 
 ## Configuración
 
