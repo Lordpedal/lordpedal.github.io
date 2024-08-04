@@ -58,9 +58,9 @@ services:
       - "4665:4665/udp"
       - "4672:4672/udp"
     volumes:
-      - '~/docker/amule/config:/home/amule/.aMule'
-      - '~/docker/amule/descargas:/incoming'
-      - '~/docker/amule/temporal:/temp'
+      - './config:/home/amule/.aMule'
+      - './descargas:/incoming'
+      - './temporal:/temp'
     restart: always
 EOF
 ```
