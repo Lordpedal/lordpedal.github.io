@@ -90,7 +90,7 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
-NOTA: Se van a realizar cambios sobre los puertos  *TCP 4662 a 41662*, *UDP 4665 a 41665* y *4672 a 41672* a nivel de configuración en el apartado FIX.
+NOTA: Se han a realizado cambios sobre los puertos **TCP/UDP** a nivel de configuración del *docker-compose.yml* que seran activados en el apartado FIX.
 {: .notice--warning}
 
 Una vez configurado, levantamos el servicio y lo detenemos para reconfigurarlo con unas mejoras:
@@ -99,7 +99,7 @@ Una vez configurado, levantamos el servicio y lo detenemos para reconfigurarlo c
 docker compose up -d && docker compose down
 ```
 
-## ⛑️Bonus TIP: Fix
+## ⛑️ Bonus TIP: Fix
 
 Entramos en la carpeta de configuración, borraremos los ficheros de filtrado IP que se hayan podido generar y editaremos la config:
 
@@ -135,7 +135,7 @@ docker compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [http://192.168.1.90:4711](http://localhost:4711){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-NOTA: Importante abrir en router los puertos *TCP 41662*, *UDP 41665* y *41672* para obtener **ID ALTA**.
+NOTA: Importante abrir en router los puertos **TCP 41662**, **UDP 41665** y **41672** para obtener **ID ALTA**.
 {: .notice--info}
 
 <figure class="half">
