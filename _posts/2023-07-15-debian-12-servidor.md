@@ -389,7 +389,24 @@ Para configurar los alías editaremos el fichero de configuración de nuestra di
 sudo nano /etc/bash.bashrc
 ```
 
-Y añadiremos al final del fichero los alías que definamos, adjunto mi fichero de configuración:
+Y añadiremos al final del fichero los alías que definamos:
+
+```bash
+#
+# Alias
+#
+alias reiniciar="sudo reboot"
+alias apagar="sudo poweroff"
+alias instalar="sudo apt-get -y install"
+alias desinstalar="sudo apt-get -y purge"
+alias actualizar="sudo apt-get autoclean && sudo apt-get clean && sudo apt-get -y autoremove && sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get moo"
+alias limpiarcache="sudo ldconfig && sudo sync && sudo sysctl -w vm.drop_caches=2 && sudo sync"
+alias win="startx"
+alias enlaces="sudo nano /etc/bash.bashrc"
+alias grubfix="sudo nano /etc/default/grub && sudo update-grub"
+```
+
+Quedando de la siguiente forma:
 
 ```bash
 # System-wide .bashrc file for interactive bash(1) shells.
