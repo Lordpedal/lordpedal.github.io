@@ -896,7 +896,7 @@ echo "nameserver 127.0.0.1" | sudo tee -a /etc/resolv.conf && \
 sudo chattr +i /etc/resolv.conf
 ```
 
-Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de `http://IP_Servidor:83` en mi caso.
+Tras haber lanzado el comando, ya tendríamos el servicio disponible a traves de [http://192.168.1.90:83/admin](https://localhost:83/admin){: .btn .btn--success .btn--small}{:target="_blank"} en mi caso.
 
 **Opcionalmente** dejo las listas de anti-publicidad que uso en Pi-Hole por si os interesan:
 {: .notice--info}
