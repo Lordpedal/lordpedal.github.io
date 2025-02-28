@@ -3,7 +3,7 @@ title:  "Tasmotizer: Debian GNU/Linux"
 header:
   image: /assets/images/posts/tasmotizer1.png
 date:   2021-04-01 23:30:00
-last_modified_at: 2021-04-01T23:45:00
+last_modified_at: 2025-02-28T11:45:00
 categories:
   - GNU/Linux
   - Domotica
@@ -13,8 +13,8 @@ tags:
   - Debian
   - Personal
   - Domotica
-toc: false
-toc_sticky: false
+toc: true
+toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
@@ -40,26 +40,43 @@ sudo apt-get update && \
 sudo apt-get -y install python3-pip
 ```
 
-Nos aseguramos de tener actualizada la herramienta de descarga de repositorios Python:
-
-```bash
-sudo pip3 install --upgrade pip wheel
-```
-
 Instalamos las dependencias y software Tasmotizer:
 
 ```bash
-sudo pip3 install PyQt5 pyserial tasmotizer
+sudo pip3 install PyQt5 pyserial tasmotizer --break-system-packages
 ```
+
+## FIXES
+
+En el momento de escribir la entrada se encontraron unos `fallos` que no permitian la correcta ejecución del programa.
+
+Vamos a ver como solucionarlas en las versiones de `Debian` probadas.
+
+### Debian 10 Fix
 
 **NOTA**: Comentar que el proceso ha sido probado sobre *Debian 10* y *Python 3.7*
 {: .notice--info}
 
-Debido a un `bug` en el momento de escribir la entrada debemos de crear un enlace símbolico a la librería `XCB`:
+El `bug` en el momento de escribir la entrada debemos de crear un enlace símbolico a la librería `XCB`:
 
 ```bash
 sudo ln -s /usr/lib/x86_64-linux-gnu/libxcb-util.so.0 /usr/lib/x86_64-linux-gnu/libxcb-util.so.1
 ```
+
+### Debian 12 Fix
+
+**NOTA**: Comentar que el proceso ha sido probado sobre *Debian 12* y *Python 3.11*
+{: .notice--info}
+
+El `bug` consiste en la falta de librerías `XCB`:
+
+```bash
+sudo apt-get update && \
+sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev 
+libxkbcommon-x11-dev
+```
+
+## Tasmotizer
 
 A continuación nos aseguramos de estar ejecuando el Entorno gráfico del Sistema y podremos lanzar desde la terminal la aplicación con este sencillo comando:
 
