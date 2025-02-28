@@ -33,6 +33,8 @@ Las principales novedades son:
  * Puede flashear un fichero local `.bin` o bien los descarga de sus `repositorios de Internet bajo demanda`.
  * Permite la configuración inicial para evitar tener que conectarnos al dispositivo, pudiendo dejar listo la **WiFi, MQTT, Módulo o bien el Template a usar**.
 
+## Instalación
+
 Comenzamos actualizando repositorios e instalando dependencias:
 
 ```bash
@@ -46,13 +48,13 @@ Instalamos las dependencias y software Tasmotizer:
 sudo pip3 install PyQt5 pyserial tasmotizer --break-system-packages
 ```
 
-## FIXES
+## Fix
 
 En el momento de escribir la entrada se encontraron unos `fallos` que no permitian la correcta ejecución del programa.
 
 Vamos a ver como solucionarlas en las versiones de `Debian` probadas.
 
-### Debian 10 Fix
+### Debian 10: Fix
 
 **NOTA**: Comentar que el proceso ha sido probado sobre *Debian 10* y *Python 3.7*
 {: .notice--info}
@@ -63,7 +65,7 @@ El `bug` en el momento de escribir la entrada debemos de crear un enlace símbol
 sudo ln -s /usr/lib/x86_64-linux-gnu/libxcb-util.so.0 /usr/lib/x86_64-linux-gnu/libxcb-util.so.1
 ```
 
-### Debian 12 Fix
+### Debian 12: Fix
 
 **NOTA**: Comentar que el proceso ha sido probado sobre *Debian 12* y *Python 3.11*
 {: .notice--info}
