@@ -42,6 +42,10 @@ services:
     container_name: Dozzle
     ports:
       - 8880:8080
+    environment:
+      DOZZLE_LEVEL: trace
+      DOZZLE_ENABLE_ACTIONS: true
+      DOZZLE_NO_ANALYTICS: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
