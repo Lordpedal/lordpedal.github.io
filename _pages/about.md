@@ -14,11 +14,6 @@ toc_icon: "cog"
 
 **Bienvenid@** a este pequeño espacio donde me parecio interesante el poder **publicar y conservar** a modo de archivo `pequeños trucos, consejos y/o tutoriales` sobre tematica inicialmente enfocada al mundo `GNU/Linux`.
 
-De acuerdo, seré honesto, no es fácil escribir sobre uno mismo, pero intentaré hacerlo lo mejor posible…
-
-![Groundhog]({{ site.url }}{{ site.baseurl }}/assets/images/Groundhog.gif)
-{: .full}
-
 ## 🌇 Proyectos
 
 <p>Mi principal proyecto actualmente en la red junto es este.</p>
