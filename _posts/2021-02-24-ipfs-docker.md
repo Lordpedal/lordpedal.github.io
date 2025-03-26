@@ -40,14 +40,6 @@ Algunos proyectos interesantes que se están construyendo bajo esta iniciativa s
 - [Origen](https://www.originprotocol.com){: .btn .btn--primary .btn--small}{:target="_blank"} - Un mercado peer-to-peer para la economía colaborativa
 - [uPort](https://www.uport.me){: .btn .btn--primary .btn--small}{:target="_blank"} - Un sistema de identidad auto-soberano
 
-A pesar del impresionante rendimiento de IPFS, algunos problemas aún no se han resuelto por completo. En primer lugar, el direccionamiento de contenido en IPFS actualmente no es muy fácil de recordar. Un enlace IPFS típico se ve así:
-
-[https://ipfs.fleek.co/ipfs/QmbKsfZSFNLdnxtPwHcZPWtWJLte413gHJWsx2vmbi8cq8](https://ipfs.fleek.co/ipfs/QmbKsfZSFNLdnxtPwHcZPWtWJLte413gHJWsx2vmbi8cq8){: .btn .btn--danger .btn--small}{:target="_blank"}
-
-Pero también surgen alternativas de redirección, por ejemplo del enlace previo, una ruta más sencilla de recordar sería:
-
-[https://lordpedal.on.fleek.co](https://lordpedal.on.fleek.co){: .btn .btn--success .btn--small}{:target="_blank"}
-
 Si te apetece investigar sobre esta red, una forma sencilla es mediante Docker, para ello vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
