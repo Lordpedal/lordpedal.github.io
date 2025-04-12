@@ -1,7 +1,7 @@
 ---
 title:  "Matrix: Docker"
 header:
-  image: /assets/images/posts/dockertt.gif
+  image: /assets/images/posts/dockerttold.gif
 date: 2022-02-16 20:00:00
 last_modified_at: 2023-09-17T21:00:00
 categories:
@@ -18,7 +18,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [Matrix](https://matrix.org/){: .btn .btn--warning .btn--small}{:target="_blank"} una red abierta para una comunicación segura y descentralizada.
 

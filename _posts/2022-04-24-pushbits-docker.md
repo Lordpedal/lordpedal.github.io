@@ -1,7 +1,7 @@
 ---
 title:  "Matrix Pushbits Addon: Docker"
 header:
-  image: /assets/images/posts/dockertt.gif
+  image: /assets/images/posts/dockerttold.gif
 date: 2022-04-24 18:00:00
 last_modified_at: 2022-04-28T21:00:00
 categories:
@@ -18,7 +18,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [Matrix](https://lordpedal.github.io/gnu/linux/docker/matrix-docker/){: .btn .btn--warning .btn--small}{:target="_blank"} vimos que es una red abierta para una comunicación segura y descentralizada.
 
