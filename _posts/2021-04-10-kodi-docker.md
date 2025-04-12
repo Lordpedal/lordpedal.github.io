@@ -14,7 +14,7 @@ tags:
   - Docker
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [Kodi](https://kodi.tv/){: .btn .btn--info .btn--small}{:target="_blank"} es una aplicación con la que puedes convertir tu ordenador en un centro multimedia en el que ver con una interfaz limpia y clara todo tipo de contenidos.
 

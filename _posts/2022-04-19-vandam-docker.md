@@ -1,7 +1,7 @@
 ---
 title:  "VanDAM 3D: Docker"
 header:
-  image: /assets/images/posts/dockertt.gif
+  image: /assets/images/posts/dockerttold.gif
 date:   2022-04-19 14:00:00
 last_modified_at: 2023-11-05T21:00:00
 categories:
@@ -19,7 +19,7 @@ toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [VanDAM](https://github.com/Floppy/van_dam){: .btn .btn--warning .btn--small}{:target="_blank"} es un gestor de contenido digital, diseñado específicamente para archivos de impresión 3D.
 
