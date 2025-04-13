@@ -1,20 +1,16 @@
 ---
 title:  "Magnetico: Docker"
 header:
-  image: /assets/images/posts/dockertt.gif
+  image: /assets/images/posts/dockerttold.gif
 date:   2021-02-21 23:30:00
 last_modified_at: 2021-02-21T23:45:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
+  - Obsoleto
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [Magnetico](https://github.com/boramalper/magnetico){: .btn .btn--warning .btn--small}{:target="_blank"} es el primer conjunto de motores de búsqueda `DHT` *(BitTorrent)* autónomo, diseñado en lenguaje **Go**.
 
