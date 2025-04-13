@@ -5,9 +5,9 @@ header:
 date: 2022-02-16 20:00:00
 last_modified_at: 2023-09-17T21:00:00
 categories:
-  - OFF
+  - Personal
 tags:
-  - OFF
+  - Personal
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
