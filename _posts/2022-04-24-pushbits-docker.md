@@ -6,14 +6,8 @@ date: 2022-04-24 18:00:00
 last_modified_at: 2022-04-28T21:00:00
 categories:
   - OFF 
-#  - GNU/Linux
-#  - Docker
 tags:
   - OFF
-#  - GNU/Linux
-#  - Servidor
-#  - Debian
-#  - Docker
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
