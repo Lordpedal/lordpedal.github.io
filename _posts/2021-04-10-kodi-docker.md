@@ -5,13 +5,9 @@ header:
 date:   2021-04-10 22:30:00
 last_modified_at: 2021-04-10T22:45:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
+  - Obsoleto
 ---
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}

@@ -1,20 +1,16 @@
 ---
 title:  "IPFS: Docker"
 header:
-  image: /assets/images/posts/dockertt.gif
+  image: /assets/images/posts/dockerttold.gif
 date:   2021-02-24 23:30:00
 last_modified_at: 2021-02-24T23:45:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
+  - Obsoleto
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [IPFS](https://ipfs.io){: .btn .btn--warning .btn--small}{:target="_blank"} es un protocolo `P2P` diseñado para hacer que la Web sea más rápida, segura y abierta.
 

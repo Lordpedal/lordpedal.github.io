@@ -5,14 +5,9 @@ header:
 date:   2022-04-19 14:00:00
 last_modified_at: 2023-11-05T21:00:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
-  - 3D
+  - Obsoleto
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
