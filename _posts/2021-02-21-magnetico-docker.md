@@ -1,7 +1,5 @@
 ---
 title:  "Magnetico: Docker"
-header:
-  image: /assets/images/posts/dockerttold.gif
 date:   2021-02-21 23:30:00
 last_modified_at: 2021-02-21T23:45:00
 categories:
