@@ -1868,10 +1868,11 @@ Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponib
 
 **yt-dlp** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
 
-Para poder usarlo en nuestro sistema, primeramente debemos de actualizar los repositorios e instalar el paquete:
+Para poder usarlo en nuestro sistema, descargamos el ejecutable de Github:
 
 ```bash
-sudo apt-get update && sudo apt-get -y install yt-dlp
+sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp && \
+sudo chmod a+rx /usr/local/bin/yt-dlp
 ```
 
 La versión incluida en la emisión de este tutorial es:
