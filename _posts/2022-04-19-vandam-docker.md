@@ -1,7 +1,5 @@
 ---
 title:  "VanDAM 3D: Docker"
-header:
-  image: /assets/images/posts/dockerttold.gif
 date:   2022-04-19 14:00:00
 last_modified_at: 2023-11-05T21:00:00
 categories:
