@@ -58,30 +58,30 @@ author:
     - label: "Lordpedal RSS"
       icon: "fas fa-fw fa-share-alt-square"
       url: "https://lordpedal.github.io/lordpedal"
-#    - label: "Canal Telegram"
-#      icon: "fas fa-fw fa-paper-plane"
-#      url: "https://t.me/lordpedal_rss" 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/lordpedal"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       url: "https://gitlab.com/lordpedal"
+    - label: "Comprar un Café"
+      icon: "fas fa-fw fa-coffee"
+      url: "https://ko-fi.com/lordpedal"
 
 footer:
   links:
     - label: "Lordpedal RSS"
       icon: "fas fa-fw fa-share-alt-square"
       url: "https://lordpedal.github.io/lordpedal"
-#    - label: "Canal Telegram"
-#      icon: "fas fa-fw fa-paper-plane"
-#      url: "https://t.me/lordpedal_rss" 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/lordpedal"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       url: "https://gitlab.com/lordpedal"
+    - label: "Comprar un Café"
+      icon: "fas fa-fw fa-coffee"
+      url: "https://ko-fi.com/lordpedal"
 
 after_footer_scripts:
     - https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
