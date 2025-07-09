@@ -58,6 +58,9 @@ services:
     cap_add:
       - SYS_RAWIO
       - SYS_ADMIN
+    environment:
+      - COLLECTOR_CRON_SCHEDULE=0 23 * * *
+      - TZ=Europe/Madrid
     volumes:
      - "./config:/opt/scrutiny/config"
      - /run/udev:/run/udev:ro
