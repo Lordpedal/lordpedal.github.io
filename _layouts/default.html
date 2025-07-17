@@ -18,6 +18,8 @@
     {% include_cached skip-links.html %}
     {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
+    <!-- Botón de cambio de tema -->
+    <button id="theme-toggle">🌙 Tema oscuro</button>
 
     <div class="initial-content">
       {{ content }}
@@ -38,6 +40,7 @@
 
     {% include scripts.html %}
     {% include cookie-consent.html %}
-
+    <!-- Script de cambio de tema -->
+    <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
   </body>
 </html>

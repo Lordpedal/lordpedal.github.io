@@ -6,3 +6,58 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+---
+# MOD
+---
+/* Estilos del botón */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#theme-toggle:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #e0e0e0;
+  color: #121212;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background-color: #cfcfcf;
+}
+
+/* Modo claro */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #1f1f1f;
+}
