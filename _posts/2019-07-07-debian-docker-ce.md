@@ -1746,7 +1746,8 @@ Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar cr
 
 ```bash
 mkdir -p $HOME/docker/nextcloud && \
-cd $HOME/docker/nextcloud
+cd $HOME/docker/nextcloud && \
+mkdir -p redis
 ```
 
 Ahora vamos a crear el fichero de configuración `docker-compose.yml`:
@@ -1762,12 +1763,27 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Madrid
+      - REDIS_HOST=redis #MOD
     volumes:
       - ~/docker/nextcloud/config:/config
       - ~/docker/nextcloud/data:/data
     ports:
       - 9443:443
+    depends_on: #MOD
+      - redis #MOD
     restart: always
+
+  redis:
+    image: redis:alpine
+    #image: redis:7
+    container_name: Redis
+    cap_add:
+      - SYS_RESOURCE
+    user: "1000:1000"
+    volumes:
+      - './redis:/data'
+    restart: always
+
   mariadb:
     image: ghcr.io/linuxserver/mariadb
     container_name: MariaDB
