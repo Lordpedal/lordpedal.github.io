@@ -296,7 +296,7 @@ Si no queremos crear un script único para la ejecución de un comando o un scri
 
 Cualquier comando que coloquemos o script al que llamemos en dicho fichero será ejecutado al final del arranque, es decir, cuando todos los scripts que tenemos en el runlevel correspondiente hayan sido ejecutados. 
 
-Esta opción no viene habilitada por defecto en Debian 11 y para ello tendremos que habilitarla, creamos el servicio para [Systemd](https://es.wikipedia.org/wiki/Systemd){: .btn .btn--inverse .btn--small}{:target="_blank"}:
+Esta opción no viene habilitada por defecto en Debian 12 y para ello tendremos que habilitarla, creamos el servicio para [Systemd](https://es.wikipedia.org/wiki/Systemd){: .btn .btn--inverse .btn--small}{:target="_blank"}:
 
 ```bash
 sudo nano /etc/systemd/system/rc-local.service
