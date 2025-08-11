@@ -15,11 +15,11 @@ tags:
 {: .full}
 Uno de las problemas más comunes de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio y sobre ella también la memoría swap.
 
-Como hemos visto en la anterior entrada, esta peculiaridad no esta exenta de incovenientes, pero gracias a [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} y **Zram** mejoramos sustancialmente este problema.
+Como hemos visto en la anterior entrada, esta peculiaridad no esta exenta de incovenientes, pero gracias a [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} y **ZRAM** mejoramos sustancialmente este problema.
 
-**Zram** incrementa el rendimiento evitando la paginación en disco y en su lugar utiliza un dispositivo de bloques comprimidos en la memoria RAM donde la paginación toma lugar hasta que sea necesaria la utilización del espacio compartido (swap) en el disco duro.
+**ZRAM** incrementa el rendimiento evitando la paginación en disco y en su lugar utiliza un dispositivo de bloques comprimidos en la memoria RAM donde la paginación toma lugar hasta que sea necesaria la utilización del espacio compartido (swap) en el disco duro.
 
-`Zram` lo que hace es montar en **RAM** la memoría `SWAP`, acelerando considerablemente su gestión y menor deterioro de las memorias de almacenamiento.
+`ZRAM` lo que hace es montar en **RAM** la memoría `SWAP`, acelerando considerablemente su gestión y menor deterioro de las memorias de almacenamiento.
 
 Vamos a proceder a su configuración, para ello creamos y accedemos al directorio de trabajo:
 
