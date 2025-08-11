@@ -1,7 +1,7 @@
 ---
 title:  "Servidores Virtuales: Debian GNU/Linux"
 date:   2019-07-07 10:00:00 -0300
-last_modified_at: 2020-12-12T17:00:00-05:00
+last_modified_at: 2025-06-12T17:00:00-05:00
 header:
   image: /assets/images/posts/debiantt.gif
 categories:
@@ -134,59 +134,6 @@ pi@overclock:~$ sudo virsh list --all
 ----------------------------------------------------
  1     D10KVM                         running
  -     win10pro                       shut off
-```
-
-## VirtualBox
-
-[VirtualBox](https://www.virtualbox.org/){:target="_blank"} es un software de virtualización para arquitecturas `x86/amd64`, desarrollado por [Oracle](https://www.oracle.com/es/corporate/){:target="_blank"} como parte de su familia de productos de virtualización.
-
-Por medio de esta aplicación es posible instalar sistemas operativos adicionales, conocidos como `«sistemas invitados»`, dentro de otro sistema operativo `«anfitrión»`, cada uno con su propio ambiente virtual.
-
-Aunque prefiero usar [KVM](https://lordpedal.github.io/gnu/linux/debian-servidores-virtuales/#kvm) para esta labor por su `integración en el Kernel de nuestro sistema`, también entiendo que quizás os interese descubir diversas alternativas funcionales.
-
-Para instalar sobre nuestra base Debian seguimos este mini-tutorial.
-
-- Actualizamos repositorios e instalamos las dependencias
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install dkms \
-module-assistant \
-linux-headers-$(uname -r)
-```
-
-- Descargamos la llave GPG del repositorio
-
-```bash
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | \
-sudo apt-key add -
-```
-
-- Instalamos el repositorio de Virtualbox
-
-```bash
-sudo sh -c "echo 'deb https://download.virtualbox.org/virtualbox/debian buster contrib' >> \
-/etc/apt/sources.list.d/virtualbox.list
-```
-
-
-- Actualizamos repositorios e instalamos el programa
-
-```bash
-sudo apt-get update && \
-sudo apt-get -y install virtualbox-6.1
-```
-
-- Agregamos nuestro usuario al grupo vboxusers
-
-```bash
-sudo usermod -aG vboxusers $USER
-```
-
-Reiniciamos sistema y listo
-
-```bash
-sudo reboot
 ```
 
 > Y listo!
