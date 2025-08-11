@@ -1802,7 +1802,7 @@ alias kodi="/usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/kod
 
 Guardamos los cambios, salimos del editor de texto y ya tendriamos Kodi disponible para lanzar desde la **TTY** sin fallos.
 
-### yt-dlp
+### YT-DLP: youtube-dl
 
 **yt-dlp** es un programa escrito en python que nos facilita cierta gestión de contenido en las redes de streaming.
 
