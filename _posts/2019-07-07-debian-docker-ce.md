@@ -87,7 +87,7 @@ curl gnupg2 htop multitail locate net-tools \
 open-vm-tools python3-pip
 ```
 
-Vamos a agregar clave GPC y habilitar permisos:
+Vamos a agregar la clave GPC necesaria y habilitarle permisos:
 
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings && \
