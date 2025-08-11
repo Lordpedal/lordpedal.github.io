@@ -59,7 +59,7 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 
 | Parámetro | Función |
 | ------ | ------ |
-| `1335:8080` | Puerto de acceso **interfaz Web** `:1335` |
+| `1335:80` | Puerto de acceso **interfaz Web** `:1335` |
 | `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
