@@ -103,6 +103,9 @@ nano /etc/sudoers
 Y agregamos la siguiente sentencia al final del archivo:
 
 ```bash
+#
+# MOD
+#
 pi ALL=(ALL) NOPASSWD: ALL
 ```
 Guardamos los cambios, salimos del editor de texto y salimos de la sesión root.
@@ -787,7 +790,7 @@ reiniciar
 Adjunto resultado de lo que veremos tras el reinicio:
 
 ```bash
-Linux overclock 6.1.0-10-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.37-1 (2023-07-03) x86_64
+Linux debian 6.12.38+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.38-1 (2025-07-16) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -796,9 +799,9 @@ individual files in /usr/share/doc/*/copyright.
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 You have mail.
-Last login: Sun Ago 10 12:00:00 2025 from 192.168.1.112
+Last login: Sun Ago 10 10:00:00 2025 from 192.168.1.112
 
-domingo, 10 agosto 2025, 06:39:55 
+domingo, 10 agosto 2025, 12:39:55 
 Linux 6.1.0-10-amd64 x86_64 GNU/Linux
 Tiempo de actividad..: 0 dias, 00h03m47s
 Memoria RAM..........: 27151572kB (Free) / 32831084kB (Total)
@@ -1006,6 +1009,20 @@ Guardamos los cambios, salimos del editor de texto y programamos el sistema para
 
 ```bash
 crontab -e
+```
+
+Al ser la primera ejecución del comando nos solicitara con que editor queremos trabajar, **recomiendo nano** :
+
+```bash
+pi@overclock:~$ crontab -e
+no crontab for pi - using an empty one
+Select an editor.  To change later, run select-editor again.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/mcedit
+  3. /usr/bin/vim.tiny
+  4. /bin/ed
+
+Choose 1-4 [1]: 1
 ```
 
 Y añadimos al final el fichero, recuerda sustituir `pi` por tu usuario:
@@ -1872,7 +1889,7 @@ La versión incluida en la emisión de este tutorial es:
 
 ```bash
 pi@overclock:$ yt-dlp --version
-2025.07.25
+2025.07.21
 ```
 
 > Y listo!
