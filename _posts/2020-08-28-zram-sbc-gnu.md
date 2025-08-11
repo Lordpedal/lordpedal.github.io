@@ -11,6 +11,9 @@ tags:
   - Debian
 ---
 
+**Recomiendo integrarlo** en [Debian 13 Trixie: Servidor PC](https://lordpedal.github.io/gnu/linux/debian-13-servidor/){: .btn .btn--inverse .btn--small}{:target="_blank"} y anteriores por los beneficios que aporta a la gestión de la memoria `swap`
+{: .notice--info}
+
 ![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
 Uno de las problemas más comunes de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio y sobre ella también la memoría swap.
