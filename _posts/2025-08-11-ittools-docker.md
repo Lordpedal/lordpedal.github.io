@@ -49,7 +49,7 @@ cd $HOME/docker/it-tools
 Ahora llega el turno de crear el fichero de configuración `docker-compose.yml` lanzando el siguiente comando:
 
 ```bash
-cat << EOF > $HOME/docker/drawio/docker-compose.yml
+cat << EOF > $HOME/docker/it-tools/docker-compose.yml
 #version: '3'
 services:
   it-tools:
