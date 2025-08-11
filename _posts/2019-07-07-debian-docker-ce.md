@@ -457,6 +457,9 @@ Vamos a repasar los principales comandos para interactuar con `docker-compose`:
 
 ### Instalación ARM
 
+Antes de nada, aclarar que **he dejado de actualizar el soporte de ARM**, la información por tanto no esta actualizada y puede no funcionar debidamente.
+{: .notice--warning}
+
 Proceso de instalación docker en un placa SBC con procesador *ARM*. El proceso es casí identico al de un procesador x64 pero con un leve cambio.
 
 ```bash

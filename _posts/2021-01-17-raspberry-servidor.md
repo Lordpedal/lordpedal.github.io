@@ -2,19 +2,18 @@
 title:  "Raspberry Pi 4B+: Servidor ARM"
 date:   2021-01-17 23:30:00
 last_modified_at: 2021-03-29T23:45:00
-header:
-  image: /assets/images/posts/debiantt.gif
 categories:
-  - GNU/Linux
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
+  - Obsoleto
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
+
+Antes de nada, aclarar que **he dejado de actualizar el soporte de ARM**, la información por tanto no esta actualizada y puede no funcionar debidamente.
+{: .notice--warning}
 
 ![RPi]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
