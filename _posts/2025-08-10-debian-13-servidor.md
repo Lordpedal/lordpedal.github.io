@@ -1820,4 +1820,18 @@ pi@overclock:$ yt-dlp --version
 2025.07.21
 ```
 
+En caso de querer actualizar el programa tan solo debemos de ejecutar el comando de la siguiente forma:
+
+```bash
+yt-dlp -U
+```
+
+Para mi sorpresa el programa ha sido actualizado de la versión **2025.07.21 -> 2025.08.11** al día siguiente de instalar el programa:
+
+```bash
+pi@overclock:~$ yt-dlp -U
+Latest version: stable@2025.08.11 from yt-dlp/yt-dlp
+yt-dlp is up to date (stable@2025.08.11 from yt-dlp/yt-dlp)
+```
+
 > Y listo!
