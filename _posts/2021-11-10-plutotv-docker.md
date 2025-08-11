@@ -1,7 +1,5 @@
 ---
 title:  "Pluto TV: Docker"
-header:
-  image: /assets/images/posts/dockertt.gif
 date:   2021-11-10 23:30:00
 last_modified_at: 2021-11-10T23:45:00
 categories:
