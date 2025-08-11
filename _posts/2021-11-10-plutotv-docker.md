@@ -5,20 +5,16 @@ header:
 date:   2021-11-10 23:30:00
 last_modified_at: 2021-11-10T23:45:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
-toc: false
-toc_sticky: false
+  - Obsoleto
+toc: true
+toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [Pluto TV](https://pluto.tv/){: .btn .btn--warning .btn--small}{:target="_blank"} es una plataforma para poder ver varios canales de **televisión online**.
 

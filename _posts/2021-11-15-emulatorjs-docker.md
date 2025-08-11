@@ -5,20 +5,16 @@ header:
 date:   2021-11-15 21:30:00
 last_modified_at: 2021-11-15T21:45:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
+  - Obsoleto
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [EmulatorJS](https://github.com/linuxserver/emulatorjs){: .btn .btn--warning .btn--small}{:target="_blank"} es un fork de **NeptunJS**, una plataforma de emulación creada en **JavaScript**, que permite jugar con emuladores a través del navegador web.
 
