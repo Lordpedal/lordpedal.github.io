@@ -77,4 +77,8 @@ docker compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [http://192.168.1.90:1334](http://localhost:1334){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
+<figure>
+    <a href="/assets/images/posts/ittools.jpg"><img src="/assets/images/posts/ittools.jpg"></a>
+</figure>
+
 > Y listo!
