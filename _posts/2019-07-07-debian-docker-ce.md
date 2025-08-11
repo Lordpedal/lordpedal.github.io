@@ -1,7 +1,7 @@
 ---
 title:  "Docker: Debian GNU/Linux"
 date:   2019-07-08 10:00:00
-last_modified_at: 2023-03-29T17:00:00
+last_modified_at: 2025-08-10T17:00:00
 header:
   image: /assets/images/posts/dockertt.gif
 categories:
@@ -76,6 +76,75 @@ docker login -u lordpedal \
 ## Docker CE + docker-compose
 
 ### Instalación AMD64
+
+#### Instalación Debian 13 Trixie
+
+Realizada esta pequeña introducción vamos a meternos en faena, para ello empezaremos con actualizar repositorios e instalar dependencias y utilidades necesarias:
+
+```bash
+sudo apt-get update && sudo apt-get -y install apt-transport-https ca-certificates \
+curl gnupg2 htop multitail locate net-tools \
+open-vm-tools python3-pip
+```
+
+Vamos a agregar clave GPC y habilitar permisos:
+
+```bash
+sudo install -m 0755 -d /etc/apt/keyrings && \
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
+
+A continuación, vamos a agregar el repositorio de Docker:
+
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+Volvemos a actualizar repositorios del sistema e instalamos Docker:
+
+```bash
+sudo apt-get update && \
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Activamos permisos de ejecución a nuestro usuario del sistema evitando tener que elevar privilegios root para su ejecución:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Y reiniciamos el Servidor:
+
+```bash
+sudo reboot
+```
+
+Tras el reinicio podemos comprobar que esta todo debidamente instalado y disponible ejecutando `docker info`:
+
+```bash
+pi@overclock:~$ groups $USER
+pi : pi adm tty dialout cdrom floppy sudo audio dip video plugdev netdev kvm libvirt libvirt-qemu docker
+
+pi@overclock:~$ docker info
+
+pi@overclock:~$ docker compose version
+```
+
+Vamos a repasar los principales comandos para interactuar con `docker compose`:
+
+| Comando | Acción |
+| ------ | ------ |
+| `docker compose version` | Comprobar versión instalada |
+| `docker compose up -d` | Crear y arrancar el contenedor |
+| `docker compose stop` | Detiene la ejecución del contenedor |
+| `docker compose start` | Arranca la ejecución del contenedor |
+| `docker compose restart` | Reiniciar la ejecución del contenedor |
+| `docker compose ps` | Lista contenedores |
+{: .notice--info}
 
 #### Instalación Debian 12 Bookworm
 
