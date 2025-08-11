@@ -3,7 +3,7 @@ title:  "ZRAM: SBC GNU/Linux"
 header:
   image: /assets/images/posts/debiantt.gif
 date:   2020-08-28 15:30:00 -0300
-last_modified_at: 2020-12-12T16:45:00-05:00
+last_modified_at: 2025-08-10T16:45:00-05:00
 categories:
   - GNU/Linux
 tags:
@@ -11,7 +11,7 @@ tags:
   - Debian
 ---
 
-**Recomiendo integrarlo** en [Debian 13 Trixie: Servidor PC](https://lordpedal.github.io/gnu/linux/debian-13-servidor/){: .btn .btn--inverse .btn--small}{:target="_blank"} y anteriores por los beneficios que aporta a la gestión de la memoria `swap`
+**Recomiendo integrarlo** en [Debian 13 Trixie: Servidor PC](https://lordpedal.github.io/gnu/linux/debian-13-servidor/){: .btn .btn--inverse .btn--small}{:target="_blank"} y anteriores versiones de `Debian` por los beneficios que aporta a la gestión de la memoria `swap`
 {: .notice--info}
 
 ![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
