@@ -16,7 +16,7 @@ toc_icon: "cog"
 
 ## 🌇 Proyectos
 
-<p>Mi principal proyecto actualmente en la red junto es este.</p>
+<p>Mi principal proyecto actualmente en la red es este.</p>
 
 ## 🏗️ Temas favoritos
 
