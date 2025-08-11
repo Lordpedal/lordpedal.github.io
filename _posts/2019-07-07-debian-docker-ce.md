@@ -182,9 +182,9 @@ Server:
  OSType: linux
  Architecture: x86_64
  CPUs: 8
- Total Memory: 31.83GiB
+ Total Memory: 31.05GiB
  Name: overclock
- ID: ****-****-****-****-****
+ ID: xxxx:xxx:xxx:xxx:xxxx:xxx
  Docker Root Dir: /var/lib/docker
  Debug Mode: false
  Experimental: false
