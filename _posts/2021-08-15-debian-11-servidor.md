@@ -357,15 +357,15 @@ sudo systemctl start rc-local.service && \
 sudo systemctl status rc-local.service
 ```
 
-#### ZRAM
-
-[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}
-
 Llegado a este punto de configuración del servidor recomiendo un reset al sistema:
 
 ```bash
 sudo reboot
 ```
+
+#### ZRAM
+
+[Ampliar información en esta entrada](https://lordpedal.github.io/gnu/linux/zram-sbc-gnu/){: .btn .btn--inverse}{:target="_blank"}
 
 Tras el reinicio el sistema arrancara en `TTY`. Adjunto cuadro resumen con los principales comandos terminal:
 
