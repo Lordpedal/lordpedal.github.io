@@ -1791,7 +1791,7 @@ do
     STATE_STOPPED=`transmission-remote $SERVER --torrent $TORRENTID --info | grep "State: Seeding\|Stopped\|Finished\|Idle"`
     # Condicionales
     if [ "$DL_COMPLETED" ] && [ "$STATE_STOPPED" ]; then
-        transmission-remote $SERVER --torrent $TORRENTID --remove
+        #transmission-remote $SERVER --torrent $TORRENTID --remove
     else
         echo "Torrent #$TORRENTID no esta completo."
     fi
