@@ -103,9 +103,7 @@ nano /etc/sudoers
 Y agregamos la siguiente sentencia al final del archivo:
 
 ```bash
-#
 # MOD
-#
 pi ALL=(ALL) NOPASSWD: ALL
 ```
 Guardamos los cambios, salimos del editor de texto y salimos de la sesión root.
