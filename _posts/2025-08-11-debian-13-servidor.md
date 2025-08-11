@@ -1,7 +1,7 @@
 ---
 title:  "Debian 13 Trixie: Servidor PC"
-date:   2025-08-10 10:00:00
-last_modified_at: 2025-08-10T11:00:00
+date:   2025-08-11 10:00:00
+last_modified_at: 2025-08-11T11:00:00
 header:
   image: /assets/images/posts/debiantt.gif
 categories:
