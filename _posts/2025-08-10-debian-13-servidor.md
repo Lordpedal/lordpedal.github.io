@@ -40,7 +40,7 @@ Resumiendo el procedimiento a grandes rasgos:
     <a href="/assets/images/posts/install13.jpg"><img src="/assets/images/posts/install13.jpg"></a>
 </figure>
 
-La opción Debian Blend agrega paquetes preconfigurados, [ampliar información](https://www.debian.org/blends/index.es.html){: .btn .btn--success .btn--small}{:target="_blank"}
+La opción Debian Blend agrega paquetes preconfigurados, [ampliar información](https://www.debian.org/blends/index.es.html){: .btn .btn--inverse .btn--small}{:target="_blank"}
 {: .notice--info}
 
 <figure>
