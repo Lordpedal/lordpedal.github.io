@@ -3,7 +3,7 @@ title:  "Dozzle: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-03-11 23:30:00
-last_modified_at: 2021-03-11T23:45:00
+last_modified_at: 2025-06-11T23:45:00
 categories:
   - GNU/Linux
   - Docker
@@ -46,6 +46,7 @@ services:
       DOZZLE_LEVEL: trace
       DOZZLE_ENABLE_ACTIONS: true
       DOZZLE_NO_ANALYTICS: true
+      DOZZLE_ENABLE_SHELL: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
