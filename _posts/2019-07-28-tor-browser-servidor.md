@@ -60,7 +60,7 @@ sudo apt-get -y install torbrowser-launcher -t buster-backports
 ```
 A continuación ejecutamos el navegador, durante la primera ejecución se bajara e instalara la última versión. 
 
-### Debian 11 Bullseye
+### Debian 11 Bullseye -> Debian 13 Trixie
 
 En esta versión del sistema, el navegador Tor esta incluido en los repositorios oficiales, no siendo necesario agregar el repositorio Backports.
 
