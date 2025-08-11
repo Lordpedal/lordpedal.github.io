@@ -283,6 +283,8 @@ sudo systemctl set-default multi-user.target
 
 Llegado a este punto el sistema tras un reinicio o encendido del PC nos solicitaria el usuario: **pi** y su contraseña: ************ para hacer login en terminal.
 
+####  Autologin TTY
+
 Podemos configurar un **autologin** que **no lo recomiendo** pero lo dejo a modo informativo.
 
 ```bash
