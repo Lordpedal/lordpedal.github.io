@@ -11,14 +11,17 @@ tags:
   - Debian
 ---
 
-**Recomiendo integrarlo** en [Debian 13 Trixie: Servidor PC](https://lordpedal.github.io/gnu/linux/debian-13-servidor/){: .btn .btn--inverse .btn--small}{:target="_blank"} y anteriores versiones de `Debian` por los beneficios que aporta a la gestión de la memoria `swap`
-{: .notice--info}
-
 ![Raspbian]({{ site.url }}{{ site.baseurl }}/assets/images/Raspbian.png){: .align-center}
 {: .full}
+
+**Recomiendo integrarlo** en nuestro [Servidor Debian](https://lordpedal.github.io/categories/#servidor){: .btn .btn--inverse .btn--small}{:target="_blank"} por los beneficios que aporta a la gestión de la memoria `swap`
+{: .notice--info}
+
 Uno de las problemas más comunes de la **RPi** y la mayoria de las placas [SBC](https://es.wikipedia.org/wiki/Placa_computadora){:target="_blank"} como sabras, es que usa a modo de almacenamiento de datos una tarjeta **microSD**, salvo modificación pertinente a otro medio y sobre ella también la memoría swap.
 
 Como hemos visto en la anterior entrada, esta peculiaridad no esta exenta de incovenientes, pero gracias a [Log2RAM](https://lordpedal.github.io/gnu/linux/log2ram-sbc-gnu/){:target="_blank"} y **ZRAM** mejoramos sustancialmente este problema.
+
+Adicionalmente en el mundo del PC otros que se benefician de esta mejora son los `SSD (Discos Duros Sólidos)` evitando sobrescrituras en las celdas de memoria.
 
 **ZRAM** incrementa el rendimiento evitando la paginación en disco y en su lugar utiliza un dispositivo de bloques comprimidos en la memoria RAM donde la paginación toma lugar hasta que sea necesaria la utilización del espacio compartido (swap) en el disco duro.
 

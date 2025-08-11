@@ -6,6 +6,7 @@ header:
 last_modified_at: 2020-12-31T11:00:00-05:00
 categories:
   - GNU/Linux
+  - Servidor
 tags:
   - GNU/Linux
   - Servidor

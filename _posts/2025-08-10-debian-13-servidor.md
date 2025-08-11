@@ -6,6 +6,7 @@ header:
   image: /assets/images/posts/debiantt.gif
 categories:
   - GNU/Linux
+  - Servidor
 tags:
   - GNU/Linux
   - Servidor
