@@ -20,7 +20,6 @@ toc_icon: "cog"
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-
 [IT-Tools](https://github.com/sharevb/it-tools/){: .btn .btn--warning .btn--small}{:target="_blank"} es una colección de herramientas web útiles para desarrolladores y profesionales de TI, empaquetadas como una aplicación web que puedes auto-hospedar fácilmente usando Docker.
 
  - **Herramientas útiles** como:

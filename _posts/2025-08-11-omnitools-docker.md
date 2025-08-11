@@ -2,8 +2,8 @@
 title:  "OmniTools: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
-date: 2025-08-11 08:45:00
-last_modified_at: 2025-08-11T09:00:00
+date: 2025-08-11 08:46:00
+last_modified_at: 2025-08-11T09:01:00
 categories:
   - GNU/Linux
   - Docker
@@ -20,7 +20,6 @@ toc_icon: "cog"
 
 ![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
 {: .full}
-
 [OmniTools](https://github.com/iib0011/omni-tools/){: .btn .btn--warning .btn--small}{:target="_blank"} es una aplicación web auto-hospedable que ofrece una enorme colección de herramientas útiles para tareas cotidianas, todo accesible desde tu navegador. Está diseñada para ser rápida, ligera y completamente privada: **no rastrea, no muestra anuncios y no envía datos a servidores externos**.
 
  - **Gran variedad de herramientas** tales como:
