@@ -3,22 +3,18 @@ title:  "draw.io: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2022-04-18 13:00:00
-last_modified_at: 2022-04-28T21:00:00
+last_modified_at: 2023-04-28T21:00:00
 categories:
-  - GNU/Linux
-  - Docker
+  - Obsoleto
 tags:
-  - GNU/Linux
-  - Servidor
-  - Debian
-  - Docker
+  - Obsoleto
 toc: true
 toc_sticky: true
 toc_label: "Secciones"
 toc_icon: "cog"
 ---
 
-![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Docker.png){: .align-center}
+![Docker]({{ site.url }}{{ site.baseurl }}/assets/images/Dockerold.png){: .align-center}
 {: .full}
 [draw.io](https://drawio-app.com/){: .btn .btn--warning .btn--small}{:target="_blank"} es una herramienta de creación y edición de diagramas libre que permite la integración con diversas plataformas.
 
