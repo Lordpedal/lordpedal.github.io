@@ -47,6 +47,9 @@ La opción Debian Blend agrega paquetes preconfigurados, [ampliar información](
     <a href="/assets/images/posts/install13plus.jpg"><img src="/assets/images/posts/install13plus.jpg"></a>
 </figure>
 
+**No recomiendo** instalar ninguno en el servidor, tan solo debemos de continuar
+{: .notice--info}
+
 ## Sistema Base
 
 El usuario de sistema sobre el que realizare la guía es `pi` para seguir en la linea del blog, recordad sustituir dicho usuario por el que habéis creado durante la instalación.
