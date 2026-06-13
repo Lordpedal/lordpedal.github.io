@@ -3,7 +3,7 @@ title:  "aMule: Docker"
 header:
   image: /assets/images/posts/dockertt.gif
 date:   2021-11-14 21:30:00
-last_modified_at: 2024-08-07T16:00:00
+last_modified_at: 2026-06-12T16:00:00
 categories:
   - GNU/Linux
   - Docker
@@ -31,7 +31,7 @@ Al igual que él, funciona tanto en la **red eDonkey ed2k** como en la **red Kad
 Vamos a realizar unos pasos previos para preparar el entorno. En primer lugar creamos las carpetas donde alojar el proyecto:
 
 ```bash
-mkdir -p $HOME/docker/amule/{config,descargas,temporal} && \
+mkdir -p $HOME/docker/amule/{config,descargas} && \
 cd $HOME/docker/amule
 ```
 
@@ -39,7 +39,7 @@ Ahora vamos a crear el fichero de configuración `docker-compose.yml` lanzando e
 
 ```bash
 cat << EOF > $HOME/docker/amule/docker-compose.yml
-version: "2.1"
+#version: "3.0"
 services:
   amule:
     image: ngosang/amule
@@ -52,7 +52,10 @@ services:
       - WEBUI_PWD=lordpedal
       - MOD_AUTO_RESTART_ENABLED=true
       - MOD_AUTO_RESTART_CRON=0 6 * * *
-      - MOD_FIX_KAD_GRAPH_ENABLED=true
+      - MOD_AUTO_SHARE_ENABLED=false
+      - MOD_AUTO_SHARE_DIRECTORIES=/downloads/completas
+      - TEMP_DIR=/downloads/temporal
+      - INCOMING_DIR=/downloads/completas
     ports:
       - "4711:4711"
       - "4712:4712"
@@ -61,9 +64,15 @@ services:
       - "41672:41672/udp"
     volumes:
       - './config:/home/amule/.aMule'
-      - './descargas:/incoming'
-      - './temporal:/temp'
-    restart: always
+      - './descargas:/downloads'
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+      nproc:
+        soft: 4096
+        hard: 4096
 EOF
 ```
 
@@ -78,16 +87,14 @@ Vamos a repasar los principales parámetros que hemos añadido sobre la anterior
 | `WEBUI_PWD=lordpedal` | Contraseña de gestión terminal `:4712` |
 | `MOD_AUTO_RESTART_ENABLED=true` | Habilita el reinicio de la aplicación |
 | `MOD_AUTO_RESTART_CRON=0 6 * * *` | Activa el reinicio todos los días a las `6am` |
-| `MOD_FIX_KAD_GRAPH_ENABLED=true` | Corrige un `bug` en gráficos de red KAD |
 | `4711:4711` | Puerto de acceso interfaz Web `:4711` |
 | `4712:4712` | Puerto de acceso gestión terminal `:4712` |
 | `41662:41662` | Puerto de acceso red Edonkey **ed2k**, para mejorar ratios de descarga se tiene que abrir acceso en el router (TCP), por defecto es *4662* |
 | `41665:41665/udp` | Puerto de busqueda contenido red Edonkey **ed2k**, para mejorar ratios de consulta se tiene que abrir acceso en el router (UDP), por defecto es *TCP 4662 + 3* |
 | `41672:41672/udp` | Puerto de acceso red Kademlia **KAD**, para mejorar ratios de descarga se tiene que abrir acceso en el router (UDP), por defecto es *4672* |
 | `~/docker/amule/config:/home/amule/.aMule` | Ruta donde almacena la **configuración** |
-| `~/docker/amule/descargas:/incoming` | Ruta donde almacena **descargas completadas** |
-| `~/docker/amule/temporal:/temp` | Ruta donde almacena **descargas parciales/incompletas** |
-| `restart: always` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
+| `~/docker/amule/descargas:/downloads` | Ruta donde almacena **descargas completadas y parciales/incompletas** |
+| `restart: unless-stopped` | Habilitamos que tras reiniciar la maquina anfitrion vuelva a cargar el servicio |
 {: .notice--warning}
 
 NOTA: Se han a realizado cambios sobre los puertos **TCP/UDP** a nivel de configuración del *docker-compose.yml* que seran activados en el apartado FIX.
