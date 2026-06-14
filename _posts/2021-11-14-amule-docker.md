@@ -139,10 +139,11 @@ Ed2kServersUrl=http://emuling.gitlab.io/server.met
 
 Guardamos el fichero y creamos el fichero de direcciones para proveer varias listas:
 
-```
+```bash
 cat << EOF > addresses.dat
 https://emuling.gitlab.io/server.met
 https://upd.emule-security.org/server.met
+EOF
 ```
 
 Una vez configurado, levantamos nuevamente el servicio para ser reconfigurado con las nuevos parametros:
