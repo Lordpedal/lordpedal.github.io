@@ -113,6 +113,7 @@ Entramos en la carpeta de configuración, borraremos los ficheros de filtrado IP
 ```bash
 cd $HOME/docker/amule/config && \
 rm ipfilter* && \
+rm server.met && \
 nano amule.conf
 ```
 
@@ -121,6 +122,7 @@ Ahora debemos de buscar las siguientes variables *(listadas las que recomiendo m
 ```bash
 Port=4662
 UDPPort=4672
+Serverlist=0
 IPFilterURL=http://upd.emule-security.org/ipfilter.zip
 Ed2kServersUrl=http://upd.emule-security.org/server.met
 ```
@@ -130,11 +132,20 @@ Y sustituirlas por las nuevas variables:
 ```bash
 Port=41662
 UDPPort=41672
+Serverlist=1
 IPFilterURL=http://emuling.gitlab.io/ipfilter.zip
 Ed2kServersUrl=http://emuling.gitlab.io/server.met
 ```
 
-Una vez configurado, guardamos el fichero de config, levantamos nuevamente el servicio para ser reconfigurado y sea ejecutado:
+Guardamos el fichero y creamos el fichero de direcciones para proveer varias listas:
+
+```
+cat << EOF > addresses.dat
+https://emuling.gitlab.io/server.met
+https://upd.emule-security.org/server.met
+```
+
+Una vez configurado, levantamos nuevamente el servicio para ser reconfigurado con las nuevos parametros:
 
 ```bash
 docker compose up -d
@@ -142,7 +153,7 @@ docker compose up -d
 
 En mi caso, el servicio estaría disponible en la dirección web [http://192.168.1.90:4711](http://localhost:4711){: .btn .btn--inverse .btn--small}{:target="_blank"}
 
-NOTA: Importante abrir en router los puertos **TCP 41662**, **UDP 41665** y **41672** para obtener **ID ALTA**.
+NOTA: Importante abrir en router los puertos **TCP 41662**, **UDP 41665** y **UDP 41672** para obtener **ID ALTA**.
 {: .notice--info}
 
 <figure class="half">
