@@ -1621,7 +1621,8 @@ Vamos a actualizar repositorios e instalar el servidor de VNC:
 
 ```bash
 sudo apt update && \
-sudo apt-get -y install tigervnc-standalone-server tigervnc-common mate-desktop-environment mate-session-manager dbus-x11
+sudo apt-get -y install tigervnc-standalone-server tigervnc-common \
+mate-desktop-environment mate-session-manager dbus-x11
 ```
 
 Cuando termine la instalación lanzamos el programa para generar la configuración en nuestro sistema:
@@ -1633,9 +1634,6 @@ vncpasswd
 Nos solicitara la creación de una contraseña y su posterior check:
 
 ```bash
-Output
-You will require a password to access your desktops.
-
 Password: *****
 Verify: *****
 ```
@@ -1649,28 +1647,13 @@ Would you like to enter a view-only password (y/n)? n
 Y nos informara que ha creado la configuración necesaria en nuestra carpeta de usuario:
 
 ```bash
-xauth:  file /home/pi/.Xauthority does not exist
-
-New 'X' desktop is your_hostname:1
-
-Creating default startup script /home/pi/.vnc/xstartup
-Starting applications specified in /home/pi/.vnc/xstartup
-Log file is /home/pi/.vnc/lordpedal:1.log
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+A view-only password is not used
 ```
 
-Para configurar el Servidor de VNC en nuestro Servidor tenemos que detener el programa en ejecución:
-
-```bash
-vncserver -kill :1
-```
-
-Hacemos un backup del fichero `xstartup` generado:
-
-```bash
-mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
-```
-
-Vamos a crear el nuestro, personalizarlo y darle permisos de ejecución:
+Vamos a crear nuestro script `xstartup` para ejecutar el cliente posteriormente, personalizarlo y darle permisos de ejecución:
 
 ```bash
 nano ~/.vnc/xstartup && \
@@ -1738,32 +1721,34 @@ En mi caso devuelve el siguiente código:
 pi@overclock:~/.vnc$ sudo systemctl status tigervnc@2.service
 ● tigervnc@2.service - TigerVNC Server for display 2
      Loaded: loaded (/etc/systemd/system/tigervnc@.service; enabled; preset: enabled)
-     Active: active (running) since Mon 2026-06-29 12:57:07 CEST; 12min ago
-   Main PID: 1063 (Xtigervnc)
-   CGroup: /system.slice/system-vncserver.slice/tigervnc@2.service
-           ├─ 1386 Xtightvnc :2 -desktop X -auth /home/pi/.Xauthority -geometry 1280x1024 -depth 24 -rfbwait 120000 -rfb           
-           ├─ 2005 /bin/sh /etc/X11/Xvnc-session
-           ├─ 2007 x-session-manager
-           ├─ 2031 dbus-launch --autolaunch 21d0957d47914be79fd212f1ac66978d --binary-syntax --close-stderr
-           ├─ 2035 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
-           ├─ 2053 /usr/bin/dbus-launch --exit-with-session --sh-syntax
-           ├─ 2058 /usr/bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
-           ├─ 2075 /usr/bin/ssh-agent x-session-manager
-           ├─ 2077 /usr/lib/at-spi2-core/at-spi-bus-launcher
-           ├─ 2082 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-ad           
-           ├─ 2084 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
-           ├─ 2089 /usr/lib/dconf/dconf-service
-           ├─ 2095 gnome-keyring-daemon --start
-           ├─ 2101 /usr/bin/mate-settings-daemon
-           ├─ 2105 marco
-           ├─ 2109 mate-panel
-           ├─ 2111 /usr/lib/gvfs/gvfsd
-           ├─ 2119 /usr/lib/gvfs/gvfsd-fuse /home/pi/.gvfs -f -o big_writes
-           ├─ 2136 /usr/bin/pulseaudio --start --log-target=syslog
-           ├─ 2166 mate-screensaver
-           ├─ 2168 nm-applet
-           ├─ 2171 mate-volume-control-applet
-           ├─ 2200 /usr/lib/mate-panel/wnck-applet
+     Active: active (running) since Mon 2026-06-29 14:56:28 CEST; 3s ago
+    Process: 62891 ExecStartPre=/usr/bin/vncserver -kill :2 > /dev/null 2>&1 (code=exited, status=1/FAILURE)
+    Process: 62894 ExecStart=/usr/bin/vncserver :2 -depth 24 -geometry 1920x1080 -localhost=0 (code=exited, status=0/SU>
+   Main PID: 62902 (Xtigervnc)
+      Tasks: 139 (limit: 4288)
+     Memory: 393.8M
+        CPU: 7.460s
+     CGroup: /system.slice/system-tigervnc.slice/tigervnc@2.service
+             ├─62901 /usr/bin/perl /usr/bin/vncserver :2 -depth 24 -geometry 1920x1080 -localhost=0
+             ├─62902 /usr/bin/Xtigervnc :2 -localhost=0 -desktop "Overclock:2 (pi)" -rfbport 5902 -PasswordFile /tm>
+             ├─62903 /usr/bin/mate-session
+             ├─62908 dbus-launch --exit-with-session /usr/bin/mate-session
+             ├─62909 /usr/bin/dbus-daemon --syslog --fork --print-pid 5 --print-address 7 --session
+             ├─62911 /usr/libexec/at-spi-bus-launcher
+             ├─62916 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print>
+             ├─62942 /usr/libexec/dconf-service
+             ├─62950 gnome-keyring-daemon --start
+             ├─62952 /usr/bin/mate-settings-daemon
+             ├─62957 /usr/libexec/at-spi2-registryd --use-gnome-session
+             ├─62970 marco
+             ├─62972 /usr/libexec/gvfsd
+             ├─62977 /usr/libexec/gvfsd-fuse /home/pi/.cache/gvfs -f
+             ├─62993 mate-panel
+             ├─63008 /usr/libexec/gvfs-udisks2-volume-monitor
+             ├─63015 /usr/libexec/gvfs-goa-volume-monitor
+             ├─63024 /usr/libexec/gvfs-mtp-volume-monitor
+             ├─63029 /usr/libexec/gvfs-gphoto2-volume-monitor
+
 ```
 
 A partir de ahora cuando queramos conectarnos vía VNC debemos recordar que sera la `IP de acceso y el puerto 5902` junto con la contraseña que le hubiesemos definido:
