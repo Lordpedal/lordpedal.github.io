@@ -1621,13 +1621,13 @@ Vamos a actualizar repositorios e instalar el servidor de VNC:
 
 ```bash
 sudo apt update && \
-sudo apt-get -y install tightvncserver
+sudo apt-get -y install tigervnc-standalone-server tigervnc-common mate-desktop-environment mate-session-manager dbus-x11
 ```
 
 Cuando termine la instalación lanzamos el programa para generar la configuración en nuestro sistema:
 
 ```bash
-vncserver
+vncpasswd
 ```
 
 Nos solicitara la creación de una contraseña y su posterior check:
@@ -1681,23 +1681,22 @@ Y dentro del fichero anexamos la siguiente configuración (Escritorio MATE):
 
 ```bash
 #!/bin/bash
-xrdb $HOME/.Xresources
-xsetroot -solid grey
-export XKL_XMODMAP_DISABLE=1
-/usr/bin/mate-session &
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec /usr/bin/mate-session
 ```
 
 Guardamos los cambios, salimos del editor de texto y ahora vamos a crear un servicio de autoarranque en [Systemd](https://es.wikipedia.org/wiki/Systemd){: .btn .btn--inverse .btn--small}{:target="_blank"} con nuestro editor nano:
 
 ```bash
-sudo nano /etc/systemd/system/vncserver@.service
+sudo nano /etc/systemd/system/tigervnc@.service
 ```
 
 Y agregamos el siguiente codigo:
 
 ```bash
 [Unit]
-Description=TightVNC Server
+Description=TigerVNC Server for display %i
 After=syslog.target network.target
 
 [Service]
@@ -1705,10 +1704,9 @@ Type=forking
 User=pi
 Group=pi
 WorkingDirectory=/home/pi
-
 PIDFile=/home/pi/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
-ExecStart=/usr/bin/vncserver -depth 24 -geometry 1920x1080 :%i
+ExecStart=/usr/bin/vncserver :%i -depth 24 -geometry 1920x1080 -localhost=0
 ExecStop=/usr/bin/vncserver -kill :%i
 
 [Install]
@@ -1724,25 +1722,25 @@ sudo systemctl daemon-reload
 Ahora ya podemos habilitar el autoarranque de VNC tras reiniciar y habilitarlo en la sesión actual:
 
 ```bash
-sudo systemctl enable vncserver@2.service && \
-sudo systemctl start vncserver@2.service
+sudo systemctl enable tigervnc@2.service && \
+sudo systemctl start tigervnc@2.service
 ```
 
 Si queremos comprobar como esta trabajando el servicio hacemos un check de status:
 
 ```bash
-sudo systemctl status vncserver@2
+sudo systemctl status tigervnc@2.service
 ```
 
 En mi caso devuelve el siguiente código:
 
 ```bash
-pi@overclock:~/.vnc$ sudo systemctl status vncserver@2
-● vncserver@2.service - TightVNC Server
-   Loaded: loaded (/etc/systemd/system/vncserver@2.service; enabled; vendor preset: enabled)
-   Active: active (running) since Sun 2025-08-10 16:21:22 CEST; 1 day 1h ago
- Main PID: 1386 (Xtightvnc)
-   CGroup: /system.slice/system-vncserver.slice/vncserver@2.service
+pi@overclock:~/.vnc$ sudo systemctl status tigervnc@2.service
+● tigervnc@2.service - TigerVNC Server for display 2
+     Loaded: loaded (/etc/systemd/system/tigervnc@.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-06-29 12:57:07 CEST; 12min ago
+   Main PID: 1063 (Xtigervnc)
+   CGroup: /system.slice/system-vncserver.slice/tigervnc@2.service
            ├─ 1386 Xtightvnc :2 -desktop X -auth /home/pi/.Xauthority -geometry 1280x1024 -depth 24 -rfbwait 120000 -rfb           
            ├─ 2005 /bin/sh /etc/X11/Xvnc-session
            ├─ 2007 x-session-manager
